@@ -1,0 +1,550 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "823684e1-b14d-589f-955d-803fc7338d80",
+      "question": "What is Fly-in?",
+      "answer": "A turn-based drone-fleet router and simulator: given a map of connected zones, a start hub, an end hub and a fleet size, it plans one route per drone and moves the whole fleet turn by turn from start to end.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 101,
+          "last_character_index": 379
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "e9fa3970-c570-572c-9515-3eea635b2e6f",
+      "question": "What does entering each zone type cost in Fly-in?",
+      "answer": "normal and priority hubs cost 1 turn, restricted hubs cost 2 (the drone stays in flight over the connection for the extra turn), and blocked hubs can never be entered.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 551,
+          "last_character_index": 793
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "039fa4c7-177c-5b04-a409-c1da22345d3e",
+      "question": "Are the start and end hubs limited by max_drones?",
+      "answer": "No. Zone occupancy limits (max_drones) apply to every hub except the start and end hubs, which are left uncapped.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 393,
+          "last_character_index": 518
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "58c875e4-6e44-5bdd-a93e-931192f75b54",
+      "question": "What is the objective of the Fly-in simulation, and does it use a graph library?",
+      "answer": "To minimize the total number of simulation turns needed to deliver every drone without breaking a capacity rule or entering a forbidden zone. No graph library such as networkx or graphlib is used.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 795,
+          "last_character_index": 1110
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "d8fcca07-3ca5-521e-b81a-7601823fd2b9",
+      "question": "How do the Fly-in modules import each other?",
+      "answer": "By bare name (for example 'from constants import ...'): pyproject.toml puts src/ on the import path, through package-dir for make install and pythonpath for pytest, so no 'src.' prefix is needed.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 2233,
+          "last_character_index": 2556
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "3680b88a-7a33-518e-a15c-fba0dc15dae7",
+      "question": "Why must Fly-in commands be run from the repository root?",
+      "answer": "Because assets/ and maps/ are resolved relative to the working directory, so they stay at the repository root.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 2557,
+          "last_character_index": 2723
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "658d87b7-9d44-54ef-9907-85250448e4b0",
+      "question": "How do I run the Fly-in benchmark against the subject's reference maps?",
+      "answer": "With 'make performance': it solves every map under maps/{easy,medium,hard,challenger}/ and reports the turns achieved against the subject's targets.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 3325,
+          "last_character_index": 3522
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "19f1a8df-13e4-59a5-835a-e0c05b03018f",
+      "question": "Which Makefile targets rebuild or remove the Fly-in virtual environment?",
+      "answer": "'make destroy' tears down the virtual environment and 'make re-install' rebuilds it.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 3800,
+          "last_character_index": 3885
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "551c37b6-d1af-58c8-9dfb-b424362c3e68",
+      "question": "What must the first line of a map file declare?",
+      "answer": "The fleet size: 'nb_drones: <positive int>'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 4700,
+          "last_character_index": 4770
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "8fa238d1-4f7a-5553-a965-2cdb99f924a5",
+      "question": "Which optional metadata can a hub have in a map file?",
+      "answer": "Inside [...]: zone= (normal by default, priority, restricted or blocked), color= (any single word, for the visual output) and max_drones= (ignored on the two gates).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 4911,
+          "last_character_index": 5159
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "e156d79e-953d-5dcb-9a16-ee7f294e139b",
+      "question": "What is the syntax of a connection line in a Fly-in map?",
+      "answer": "'connection: <a>-<b> [max_link_capacity=<n>]', a bidirectional link; zone names may not contain '-' or spaces, and a pair may only be connected once.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 5160,
+          "last_character_index": 5323
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "1695ec3a-8a4e-5cdc-b121-0aaab4d343fb",
+      "question": "What does Fly-in check first before planning any route?",
+      "answer": "Reachability: find_path_to_end runs a plain DFS over the hub graph, ignoring costs and capacities but refusing blocked hubs, to fail fast with a clear error if the map has no possible solution.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 5536,
+          "last_character_index": 5764
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "e88d0d1c-5bf8-5156-9263-c29cb523128a",
+      "question": "How does Fly-in assign the drones to the candidate routes?",
+      "answer": "Greedily, one drone at a time, to the candidate route with the lowest projected cost: its weight plus the drones already assigned to it, divided by the route's bottleneck. This spreads the fleet across all viable routes.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 6497,
+          "last_character_index": 7379
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "49b2817d-62e8-556f-8eb3-62b7dbf2fcfb",
+      "question": "What is the local search refinement in Fly-in and when is it used?",
+      "answer": "refine_routes, only for complex maps: it moves one drone at a time onto another candidate route, re-runs the scheduler and keeps the move only if the total turn count drops, until a pass finds no improvement or the trial budget runs out.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 7737,
+          "last_character_index": 8241
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "10acd734-ea21-5d3a-bb4e-1dd59db93031",
+      "question": "What happens in each turn of the Fly-in scheduler, and what does a drone with no legal move do?",
+      "answer": "Drones mid-flight over a restricted connection advance first, then the others move ordered by how close they are to the end. A drone with no legal move waits and is left out of that turn's log line.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 8304,
+          "last_character_index": 9012
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "fd614b97-2b8e-5157-8bf4-df29b509abc0",
+      "question": "In which format is the move log printed in the terminal?",
+      "answer": "Turn by turn in the 'D<id>-<zone>' / 'D<id>-<connection>' format the subject specifies, with colored, letter-by-letter animated status messages from text_printer.Printer.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 9121,
+          "last_character_index": 9401
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "ab738f99-fb65-5be0-bc59-5dfb24b1cea7",
+      "question": "Which playback controls does the graphical view offer?",
+      "answer": "Play/pause (it starts paused), speed up and slow down buttons with a logarithmic speed bar, and a reset button that rewinds to turn zero.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 10064,
+          "last_character_index": 10293
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "672a4418-452b-5f8a-883f-04b4c9a8cda1",
+      "question": "How do you zoom and pan in the Fly-in graphical view?",
+      "answer": "The mouse wheel zooms in and out centered on the cursor, up to 4x; once zoomed in, click-and-drag pans the view. Zooming out past the default shows a larger starfield instead of a border.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 10294,
+          "last_character_index": 10697
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "c632e222-4f68-5a63-8f8c-e9d6d9479c85",
+      "question": "What is the commander in the Fly-in graphical view?",
+      "answer": "A small animated mascot in the sidebar that types random simulation-flavor lines letter by letter in a dialog box while its mandibles open and close.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 10698,
+          "last_character_index": 10926
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "bbb67673-b9aa-5df1-be69-160ab6b06b64",
+      "question": "How many turns did Fly-in need for the Capacity hell map?",
+      "answer": "16 turns, against a target of at most 35 (PASS).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 11872,
+          "last_character_index": 11925
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "5ba5323c-c5b4-544a-bbd7-c4c487004cdf",
+      "question": "Did Fly-in beat the record on The Impossible Dream map?",
+      "answer": "No: it solves it in 47 turns, just short of the 45-turn reference record. All mandatory targets are met.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 11985,
+          "last_character_index": 12175
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "fb369bfa-0a29-5077-b5ca-a1cd030400f6",
+      "question": "In the README example with a restricted relay, how many turns does the simulation take?",
+      "answer": "5 turns: each drone spends two turns on the restricted hop, and D2 starts its crossing on turn 3, when D1 reaches the end and frees the relay.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 12483,
+          "last_character_index": 12854
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "1d3a6c5b-2cfd-5f32-8126-036af05c9953",
+      "question": "How do I run the Fly-in test suite?",
+      "answer": "With 'python -m pytest' from the repository root, because the suite reads its fixtures from maps/; it is configured in pyproject.toml.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 12868,
+          "last_character_index": 13374
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "020b4ab6-392e-5f44-abcb-5ef8bf3955ae",
+      "question": "How was AI used in the Fly-in project?",
+      "answer": "As a development assistant: iterating on the pygame view, editing sprite assets, extending the Makefile, reorganising the repository into a src/ layout and drafting the README, always verified with pytest, mypy --strict and flake8.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/README.md",
+          "first_character_index": 13860,
+          "last_character_index": 14478
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "a53d6691-2884-54b0-af9e-860b52fb18d4",
+      "question": "Which maps are in the easy category and how many drones do they use?",
+      "answer": "01_linear_path.txt (2 drones), 02_simple_fork.txt (4 drones) and 03_basic_capacity.txt (4 drones).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/README.md",
+          "first_character_index": 237,
+          "last_character_index": 496
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "b54026ec-fbcf-5280-a5bc-085aa0ab8a29",
+      "question": "How many drones do the hard maps use?",
+      "answer": "Maze nightmare uses 8 drones, Capacity hell 12 and Ultimate challenge 15.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/README.md",
+          "first_character_index": 814,
+          "last_character_index": 1144
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "a9581176-abb1-501c-a61a-d05d8990de94",
+      "question": "Are the challenger maps required to pass the evaluation?",
+      "answer": "No. They are designed to push algorithmic limits and may not be solvable by most implementations; they are for research and stress testing, not for passing evaluation criteria.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/README.md",
+          "first_character_index": 1325,
+          "last_character_index": 1640
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "96b5b043-f17b-5750-a5c4-0aec7190299c",
+      "question": "What is the reference record for The Impossible Dream map?",
+      "answer": "45 turns: the reference implementation solves 'The Impossible Dream' in 45 turns, the record to beat.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/README.md",
+          "first_character_index": 1642,
+          "last_character_index": 1884
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "a45af901-044e-5e59-925d-724f7da68262",
+      "question": "Which capacity constraints do the maps test?",
+      "answer": "Zone capacity limits (max_drones), connection capacity limits (max_link_capacity) and timing-based bottlenecks.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/README.md",
+          "first_character_index": 2146,
+          "last_character_index": 2288
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "509ddbb8-9aff-5232-ba73-ad7fc963eea1",
+      "question": "How many simulation turns are expected for each map difficulty?",
+      "answer": "Easy: fewer than 10 turns typically; medium: 10 to 30; hard: 30 or more; challenger: the record to beat is 45 turns.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/README.md",
+          "first_character_index": 3289,
+          "last_character_index": 3599
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "3a5dccc9-c7e1-52df-9d62-231c698cea1f",
+      "question": "In which order should the map categories be used for testing?",
+      "answer": "Start with easy for basic functionality, then medium for robustness, then hard for optimization and edge cases, and finally 03_ultimate_challenge.txt, which combines all difficulties.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/README.md",
+          "first_character_index": 2656,
+          "last_character_index": 2930
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "c4644c0f-ad62-5c32-89ce-2ab7a2262620",
+      "question": "How many drones does the dead end trap map use and what is the capacity of its junction?",
+      "answer": "5 drones; the junction hub has max_drones=2 and the start-junction connection has max_link_capacity=2.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/medium/01_dead_end_trap.txt",
+          "first_character_index": 0,
+          "last_character_index": 333
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "0d33cf49-dcfd-55a3-a4f8-31ec392a9fc7",
+      "question": "Which hubs are priority zones in the priority puzzle map?",
+      "answer": "fast_junction (max_drones=2) and fast_path; slow_path1 is restricted.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/medium/03_priority_puzzle.txt",
+          "first_character_index": 0,
+          "last_character_index": 352
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "815bc21c-4676-50d4-b2c6-604622ae8736",
+      "question": "What capacity do the restricted tunnels have in the capacity hell map?",
+      "answer": "restricted_tunnel1, 2 and 3 are restricted zones with max_drones=2; the three gates before them only allow 1 drone each.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/hard/02_capacity_hell.txt",
+          "first_character_index": 0,
+          "last_character_index": 601
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "bb6f9d3e-08d3-5968-8be6-5a90f94e9b7e",
+      "question": "Which test map has start and end connected only through a blocked hub, and what must find_path_to_end return?",
+      "answer": "maps/test/blocked_only_path.txt: it parses without error and the gates are connected, but the only hub between them is blocked, so Router.find_path_to_end() must return False.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/test/blocked_only_path.txt",
+          "first_character_index": 0,
+          "last_character_index": 254
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "93d0f287-31f1-56e0-b273-e1f75d5e74cb",
+      "question": "Is max_drones on a start or end hub a validation error?",
+      "answer": "No. Gates are uncapped, so max_drones on a gate is meaningless but silently ignored, as section VII.4 says; maps/test/gate_max_drones_ignored.txt checks it.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/test/gate_max_drones_ignored.txt",
+          "first_character_index": 0,
+          "last_character_index": 132
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "8a7feaba-2833-5eeb-9246-ce49a4b31e61",
+      "question": "Which test map shows the speed change when a drone crosses a restricted zone?",
+      "answer": "maps/test/3.txt: normal (1 turn), then restricted (2 turns, half speed), then normal again (1 turn, back to full speed).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/test/3.txt",
+          "first_character_index": 0,
+          "last_character_index": 181
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "7ef3f09e-9e16-5c94-964b-2bcc9af8946d",
+      "question": "Which bad map tests two zones sharing the same coordinates?",
+      "answer": "Case 32 (maps/bad_map/32.txt): two zones sharing the same (x, y) coordinates, not required by the subject but added by user judgment.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/bad_map/32.txt",
+          "first_character_index": 0,
+          "last_character_index": 110
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "712ec0d6-e1a0-5e8a-be26-5a5becc39142",
+      "question": "Which bad map checks that zone types are case-sensitive?",
+      "answer": "Case 38 (maps/bad_map/38.txt): a zone type with mismatched case, because zone types are case-sensitive.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/fly-in/maps/bad_map/38.txt",
+          "first_character_index": 0,
+          "last_character_index": 68
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+QUESTION: What is the default value for the use_bitsandbytes_4bit attribute when it's not present on a parameter object in vLLM's linear layer?
+EXPECTED: False (getattr(param, 'use_bitsandbytes_4bit', False)). [code dataset]

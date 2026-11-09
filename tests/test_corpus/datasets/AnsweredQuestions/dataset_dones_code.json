@@ -1,0 +1,924 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "27e5e6ac-9e2e-5d1f-aa76-9789668b33c5",
+      "question": "At how many days does ft_plant_age consider a plant ready to harvest?",
+      "answer": "When it is more than 60 days old: `if days > 60` prints 'Plant is ready to harvest!'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P0done/ex4/ft_plant_age.py",
+          "first_character_index": 79,
+          "last_character_index": 140
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "82fa3cdf-ef88-54ea-8748-f882ec12ad4e",
+      "question": "After how many days without water does the water reminder ask to water the plants?",
+      "answer": "More than 2 days: `if days > 2` prints 'Water the plants!'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P0done/ex5/ft_water_reminder.py",
+          "first_character_index": 85,
+          "last_character_index": 136
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "4dbb0493-afe4-57ec-9465-d005da3b5282",
+      "question": "Which units does ft_seed_inventory accept, and what does it print for an unknown one?",
+      "answer": "'packets', 'grams' and 'area'; any other unit prints 'Unknown unit type'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P0done/ex7/ft_seed_inventory.py",
+          "first_character_index": 146,
+          "last_character_index": 468
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "3d841db0-56aa-5959-b814-925da26d68ce",
+      "question": "How does the recursive harvest countdown stop?",
+      "answer": "ft_recursive prints the day and calls itself with start + 1 while start < days; otherwise it prints 'Harvest time!'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P0done/ex6/ft_count_harvest_recursive.py",
+          "first_character_index": 0,
+          "last_character_index": 174
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "fa2cb319-8297-5538-9e33-4af93fb3aa87",
+      "question": "How much does the rose grow per day in the plant growth exercise, and for how many days is it simulated?",
+      "answer": "Its growth speed is 0.8 cm per day (Plant(\"rose\", 25.0, 30, 0.8)), simulated for 7 days (range(1, 8)).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P1done/ex2/ft_plant_growth.py",
+          "first_character_index": 583,
+          "last_character_index": 896
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "cbc53d3c-9bca-53b8-a255-6126608dd72d",
+      "question": "What happens when set_height receives a negative value in the garden security exercise?",
+      "answer": "The height is not changed: it prints '<name>: Error, height can't be negative' and 'Height update rejected'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P1done/ex4/ft_garden_security.py",
+          "first_character_index": 819,
+          "last_character_index": 1123
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "4458b084-79d5-50f9-a9db-8dea7cda3d15",
+      "question": "Which attribute does a Tree have in addition to a Plant in ft_plant_types?",
+      "answer": "trunk_diameter, shown as 'Trunk diameter' and used by produce_shade.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P1done/ex5/ft_plant_types.py",
+          "first_character_index": 1942,
+          "last_character_index": 2531
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "cb67b34f-cfda-5ed5-a7e4-61f5e9c86a44",
+      "question": "How does a Vegetable's nutritional value change when it grows?",
+      "answer": "Vegetable.grow adds the number of days to nutritional_value, besides growing and ageing the plant.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P1done/ex5/ft_plant_types.py",
+          "first_character_index": 2534,
+          "last_character_index": 3309
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "5149a912-eeda-5d2f-a86c-0ae7926fafdb",
+      "question": "How many seeds does a Seed have after blooming?",
+      "answer": "42: Seed.bloom sets self._seeds = 42.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P1done/ex6/ft_garden_analytics.py",
+          "first_character_index": 2761,
+          "last_character_index": 3279
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "fc388d93-bcc8-5a28-a438-ed9e5a29ef9f",
+      "question": "What does Plant.create_anonymous return?",
+      "answer": "A classmethod that returns cls(\"Unknown plant\", 0.0, 0, 0).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P1done/ex6/ft_garden_analytics.py",
+          "first_character_index": 2102,
+          "last_character_index": 2207
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "4f591912-dc1f-56c8-8ee8-cc85378057a7",
+      "question": "What does the Tree's Statistics class count that the base Statistics does not?",
+      "answer": "How many times the tree produced shade (_produce_shade, incremented by add_shade).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P1done/ex6/ft_garden_analytics.py",
+          "first_character_index": 3301,
+          "last_character_index": 3644
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "8251dce1-628e-5a9d-8480-38def514b83f",
+      "question": "How does check_days decide if a number of days is more than a year?",
+      "answer": "It is a staticmethod that returns True when days > 365.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P1done/ex6/ft_garden_analytics.py",
+          "first_character_index": 1831,
+          "last_character_index": 2100
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "c0dbabb9-89c9-513f-9d4b-9d631499172f",
+      "question": "What temperature range is accepted by the temperature checker that raises exceptions?",
+      "answer": "From 0 to 40 °C: input_temperature raises Temperature_valid_input when the value is above 40 or below 0.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P2done/ex1/ft_raise_exceptions.py",
+          "first_character_index": 271,
+          "last_character_index": 445
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "31521508-c1a6-5fae-be10-4bcfcecb481e",
+      "question": "Which error does garden_operation trigger for each operation number?",
+      "answer": "0: ValueError (int('abc')), 1: ZeroDivisionError (10 / 0), 2: FileNotFoundError (opening a missing file), 3: TypeError (\"hi!\" + 3).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P2done/ex2/ft_different_errors.py",
+          "first_character_index": 0,
+          "last_character_index": 677
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "3d907ac7-8fae-56d5-b228-68f45028876d",
+      "question": "What message does WaterError carry in the custom garden errors?",
+      "answer": "'Not enough water in the tank!'; it is a subclass of GardenError.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P2done/ex3/ft_custom_errors.py",
+          "first_character_index": 128,
+          "last_character_index": 248
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "0750d848-a869-5ef0-a3f8-47e557a86884",
+      "question": "When does water_plant reject a plant name in the watering system?",
+      "answer": "When the name is not capitalized (plant_name != plant_name.capitalize()): it raises WaterError.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P2done/ex4/ft_finally_block.py",
+          "first_character_index": 273,
+          "last_character_index": 464
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "9ea3592d-c83f-563c-8150-aaf56fd72857",
+      "question": "What does the watering system always do even when a plant fails?",
+      "answer": "The finally block prints 'Closing watering system'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P2done/ex4/ft_finally_block.py",
+          "first_character_index": 746,
+          "last_character_index": 799
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "692af4e5-a8cc-5889-acae-f9f2bf2974c7",
+      "question": "How does ft_score_analystics handle an argument that is not a number?",
+      "answer": "parse_args catches the float() error and prints 'Invalid parameter: <arg>', skipping it.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex1/ft_score_analystics.py",
+          "first_character_index": 36,
+          "last_character_index": 395
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "c82b14fa-a60f-5147-8f96-3c494eaaab9b",
+      "question": "Which statistics does the score analytics program print?",
+      "answer": "Total players, total score, average, high score, low score and score range.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex1/ft_score_analystics.py",
+          "first_character_index": 1003,
+          "last_character_index": 1335
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "416f00a2-8471-5b39-80f9-e1a9210bb028",
+      "question": "How does the coordinate system compute the distance between two points?",
+      "answer": "With math.sqrt of the sum of the squared differences of x, y and z (Euclidean distance).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex2/ft_coordinate_system.py",
+          "first_character_index": 1432,
+          "last_character_index": 1586
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "5037f489-1a3d-51ef-80e3-1427fcd12f60",
+      "question": "What format must the coordinates be entered in?",
+      "answer": "Three floats separated by commas, 'x,y,z'; anything else prints 'Invalid syntax' and asks again.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex2/ft_coordinate_system.py",
+          "first_character_index": 37,
+          "last_character_index": 910
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "b0e73c10-8e3b-5bc8-a4ec-ab7beff4872c",
+      "question": "How does the achievement tracker find the achievements every player has?",
+      "answer": "With set.intersection(*userset) over the sets of all players.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex3/ft_achievement_tracker.py",
+          "first_character_index": 756,
+          "last_character_index": 800
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "72f0028f-3cd3-5f86-b85a-aff748e7b65e",
+      "question": "What format do inventory items use on the command line, and what happens to repeated items?",
+      "answer": "'name:quantity'; a repeated item prints 'Redundant item ... - discarding' and keeps the first value.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex4/ft_inventory_system.py",
+          "first_character_index": 36,
+          "last_character_index": 851
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "154fd93e-67df-567c-ac74-a802e5f6357e",
+      "question": "Which item is added by update_inventory in main?",
+      "answer": "'Magic_item' with quantity 1.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex4/ft_inventory_system.py",
+          "first_character_index": 2560,
+          "last_character_index": 2613
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "cece63a2-5560-5975-a0c7-aebe2bc5f08c",
+      "question": "What does the gen_event generator yield?",
+      "answer": "An endless stream of (name, action) tuples chosen at random from four names and five actions.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex5/ft_data_stream.py",
+          "first_character_index": 54,
+          "last_character_index": 325
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "35691fd5-d222-56ef-a6fc-a2c6e739fe63",
+      "question": "How does the data alchemist select the high scores?",
+      "answer": "With a dict comprehension that keeps the names whose score is above the average.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P3done/ex6/ft_data_alchemist.py",
+          "first_character_index": 800,
+          "last_character_index": 921
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "9932bb83-d3aa-56da-853e-1f3979789b5b",
+      "question": "How are the lines of a recovered file printed in the cyber archives?",
+      "answer": "Each line as '[FRAGMENT 001] <line>', with a 3-digit counter ({i:03d}).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P4done/ex0/ft_ancient_text.py",
+          "first_character_index": 502,
+          "last_character_index": 557
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "97f51f88-2539-51c0-832e-ca5f42ddc674",
+      "question": "Which actions does secure_archive accept, and what does it return?",
+      "answer": "'r'/'read' and 'w'/'write'; it returns a (bool, str) tuple: (True, content or message) or (False, error message).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P4done/ex3/ft_vault_security.py",
+          "first_character_index": 24,
+          "last_character_index": 777
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "701fce3f-88f2-5a5a-a973-a6fde6da240a",
+      "question": "How does NumericProcesor reject booleans?",
+      "answer": "validate checks isinstance(data, int | float) and not isinstance(data, bool), so True and False are not numbers.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P5done/ex0/data_processor.py",
+          "first_character_index": 559,
+          "last_character_index": 1413
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "d6d09214-670d-577e-a004-325bfb354c59",
+      "question": "What does DataProcesor.output return when there is no data left?",
+      "answer": "The tuple (-1, \"None\").",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P5done/ex0/data_processor.py",
+          "first_character_index": 337,
+          "last_character_index": 556
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "09e72174-40cf-5113-a15d-908bb33fbea0",
+      "question": "How does DataStream decide which processor handles an element of the stream?",
+      "answer": "process_stream gives the element to the first registered processor whose validate accepts it; if none does, it prints 'DataStream Error - Can't process element in stream'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P5done/ex1/data_stream.py",
+          "first_character_index": 3954,
+          "last_character_index": 4435
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "0f8297f6-7a65-5e24-9eca-84f75830123b",
+      "question": "What happens when the same type of processor is registered twice in the DataStream?",
+      "answer": "register_procesor compares the types and prints 'The <processor> alreadys exists' without adding it.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P5done/ex1/data_stream.py",
+          "first_character_index": 3632,
+          "last_character_index": 3952
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "d964826a-5d3d-59a5-b977-fd946d24e717",
+      "question": "How does the JSON export plugin format the data in the data pipeline?",
+      "answer": "As {\"item_<rank>\": \"<value>\", ...}, joining the pairs with ', '.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P5done/ex2/data_pipeline.py",
+          "first_character_index": 3768,
+          "last_character_index": 4019
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "c50ac46e-cfe0-5414-a0e2-0c5e9522fa9c",
+      "question": "What is ExportPlugin in the data pipeline exercise?",
+      "answer": "A typing.Protocol with process_output(data: list[tuple[int, str]]); CSV and JSON follow it without inheriting from it.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P5done/ex2/data_pipeline.py",
+          "first_character_index": 4022,
+          "last_character_index": 4138
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "6d3bb8a3-ae63-57d9-86a5-97738ab02f60",
+      "question": "Which ingredients are allowed in dark spells?",
+      "answer": "bats, frogs, arsenic and eyeball.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P6done/alchemy/grimoire/dark_spellbook.py",
+          "first_character_index": 72,
+          "last_character_index": 173
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "3d7f7838-5422-5ca5-9690-9260083eef9d",
+      "question": "Which ingredients are allowed in light spells?",
+      "answer": "earth, air, fire and water.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P6done/alchemy/grimoire/light_spellbook.py",
+          "first_character_index": 0,
+          "last_character_index": 96
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "fc184257-87b4-5c3a-b54a-5ba27425f7b6",
+      "question": "Which elements are used to brew the healing potion?",
+      "answer": "Earth and air: healing_potion uses create_earth() and create_air().",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P6done/alchemy/potions.py",
+          "first_character_index": 128,
+          "last_character_index": 313
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "2590d515-e285-50ce-a048-cb1fff955da9",
+      "question": "What does the alchemy package export in __init__.py, and under which alias is the healing potion exported?",
+      "answer": "create_air, strength_potion, heal (healing_potion) and recipe (lead_to_gold).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P6done/alchemy/__init__.py",
+          "first_character_index": 0,
+          "last_character_index": 210
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "ec070cce-6cdb-56e0-90ff-10569c1e9bf1",
+      "question": "Why does ft_kaboom_1 raise an uncaught exception?",
+      "answer": "Importing alchemy.grimoire.dark_spellbook creates a circular import with dark_validator, which imports dark_spellbook back.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P6done/alchemy/grimoire/dark_validator.py",
+          "first_character_index": 0,
+          "last_character_index": 74
+        },
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P6done/alchemy/grimoire/dark_spellbook.py",
+          "first_character_index": 0,
+          "last_character_index": 69
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "c6a9706e-94a3-53b8-8bf2-945045eb5369",
+      "question": "What is needed to brew the lead to gold recipe?",
+      "answer": "Air, the strength potion and fire: lead_to_gold mixes air(), potion() and fire().",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P6done/alchemy/transmutation/recipes.py",
+          "first_character_index": 138,
+          "last_character_index": 347
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "5b1b59ea-7fba-5f62-97d2-0f93777830c3",
+      "question": "What attack does Pyrodon use?",
+      "answer": "Flamethrower ('<name> uses Flamethrower').",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P7done/ex0/creatures.py",
+          "first_character_index": 571,
+          "last_character_index": 733
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "bc05df10-639a-53cd-ba1e-e7984ed5ee50",
+      "question": "Which creatures does AquaFactory create?",
+      "answer": "create_base returns Aquabub (Water) and create_evolved returns Torragon (Water).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P7done/ex0/factories.py",
+          "first_character_index": 614,
+          "last_character_index": 871
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "09d157a1-0f63-5af3-b558-ac1b06a60f54",
+      "question": "How much does Bloomelle heal compared with Sproutling?",
+      "answer": "Bloomelle heals 'for a large amount', Sproutling 'for a small amount'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P7done/ex1/creatures.py",
+          "first_character_index": 565,
+          "last_character_index": 1037
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "9e189d0f-c19d-59cc-9d94-b89a6a9e83ea",
+      "question": "What does Morphagon's attack look like when it is transformed?",
+      "answer": "'<name> unleashes a devastating morph strike!'; otherwise it 'attacks normally.'",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P7done/ex1/creatures.py",
+          "first_character_index": 1845,
+          "last_character_index": 2672
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "162e3ece-0856-59e6-8746-1e903c089b3f",
+      "question": "Which creatures are valid for the aggressive battle strategy, and what happens with the others?",
+      "answer": "Only creatures with TransformCapability; others raise CreatureError 'Invalid creature ... for this aggressive strategy'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P7done/ex2/strategy.py",
+          "first_character_index": 739,
+          "last_character_index": 1457
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "d5843e9b-38db-5801-a55c-23a85a8034f8",
+      "question": "What happens in the tournament when a strategy cannot be used with a creature?",
+      "answer": "battle catches CreatureError, prints 'Battle error, aborting tournament ...' and breaks.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P7done/tournament.py",
+          "first_character_index": 281,
+          "last_character_index": 1202
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "42900c48-042e-5ecd-9c2b-f8f75a40d6ef",
+      "question": "How does the construct program detect a virtual environment?",
+      "answer": "is_in_virtual_env returns sys.prefix != sys.base_prefix.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P8done/ex0/construct.py",
+          "first_character_index": 35,
+          "last_character_index": 108
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "30a5b0da-0eae-57cf-bc30-197ee01c824e",
+      "question": "Which packages does the loading program check, and how does it plot the data?",
+      "answer": "pandas, numpy, requests and matplotlib; run_analysis plots a sine wave of 1000 points and saves matrix_analysis.png.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P8done/ex1/loading.py",
+          "first_character_index": 1792,
+          "last_character_index": 2548
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "2f8c84ea-def0-57ff-82f7-b6a2aad26eba",
+      "question": "Which environment variables does the oracle require?",
+      "answer": "MATRIX_MODE, DATABASE_URL, API_KEY, LOG_LEVEL and ZION_ENDPOINT (REQUIRED_KEYS).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P8done/ex2/oracle.py",
+          "first_character_index": 54,
+          "last_character_index": 165
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "439c2b47-2095-58df-a3b6-027f24493239",
+      "question": "What happens in the oracle when configuration keys are missing?",
+      "answer": "load_configuration raises ConfigurationError with the missing keys; main prints them and exits with code 1.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P8done/ex2/oracle.py",
+          "first_character_index": 813,
+          "last_character_index": 1451
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "dfdd2b4d-abfb-50be-8de9-0476f62ce06f",
+      "question": "What crew size is allowed for a SpaceStation?",
+      "answer": "Between 1 and 20: crew_size = Field(ge=1, le=20).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P9done/ex0/space_station.py",
+          "first_character_index": 87,
+          "last_character_index": 502
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "d7c2c82f-de19-5cb5-b4fa-446ca6b7f82b",
+      "question": "What rules does the AlienContact validator enforce?",
+      "answer": "The id must start with 'AC', physical contact must be verified, telepathic contact needs at least 3 witnesses, and signals stronger than 7.0 must include a message.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P9done/ex1/alien_contact.py",
+          "first_character_index": 747,
+          "last_character_index": 1482
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "0da34e75-77ce-5220-b3fc-8858e8de4985",
+      "question": "What does a space mission need in its crew to be valid?",
+      "answer": "At least one Commander or Captain, all members active, and for missions over 365 days at least half the crew with more than 5 years of experience; the id must start with 'M'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P9done/ex2/space_crew.py",
+          "first_character_index": 1129,
+          "last_character_index": 2180
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "d760ee79-ada3-5ebc-8059-a66c3d19e104",
+      "question": "What are the age limits of a CrewMember?",
+      "answer": "From 18 to 80: age = Field(ge=18, le=80).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P9done/ex2/space_crew.py",
+          "first_character_index": 307,
+          "last_character_index": 642
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "6d53ae5a-aaef-5334-8222-2ec83b8ab043",
+      "question": "How does mage_stats compute the average power?",
+      "answer": "round(sum(map(lambda m: m['power'], m)) / len(m), 2), next to max_power and min_power.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex0/lambda_spells.py",
+          "first_character_index": 482,
+          "last_character_index": 773
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "c99cce49-170d-5e13-89e1-b5a073000750",
+      "question": "What does power_amplifier return?",
+      "answer": "A new function that calls the base spell with the power multiplied by the multiplier; it raises TypeError if the spell is not callable.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex1/higher_magic.py",
+          "first_character_index": 708,
+          "last_character_index": 1116
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "dd36376e-ab2b-55de-9cfa-c6ce7795ab34",
+      "question": "What does conditional_caster return when the condition is not met?",
+      "answer": "The string 'Spell fizzled'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex1/higher_magic.py",
+          "first_character_index": 1119,
+          "last_character_index": 1655
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "438210e2-02fa-5c97-bb37-575b8d77c3cf",
+      "question": "How does mage_counter keep its count between calls?",
+      "answer": "The inner function grow uses `nonlocal total` to increment a variable of the enclosing function (a closure).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex2/scope_mysteries.py",
+          "first_character_index": 35,
+          "last_character_index": 198
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "11f33e6c-6b23-5e82-b3d3-928264d98483",
+      "question": "What does memory_vault return when recalling an unknown key?",
+      "answer": "'Memory not found' (storage.get(key, \"Memory not found\")).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex2/scope_mysteries.py",
+          "first_character_index": 590,
+          "last_character_index": 957
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "d29e719f-5398-59c1-8abd-586626532192",
+      "question": "Which operations does spell_reducer support?",
+      "answer": "add, multiply, max and min with functools.reduce; an unknown operation prints a format error and returns 0.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex3/functools_artifacts.py",
+          "first_character_index": 68,
+          "last_character_index": 609
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "0b3f4b49-d391-5897-b0d8-53b4e76f8f9d",
+      "question": "How is memoized_fibonacci cached?",
+      "answer": "With the @functools.lru_cache decorator.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex3/functools_artifacts.py",
+          "first_character_index": 1020,
+          "last_character_index": 1208
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "ce5b95e8-6726-596e-bc6f-79106142e220",
+      "question": "How does spell_dispatcher choose the message for each spell type?",
+      "answer": "functools.singledispatch with registered versions for int (damage), str (enchantment) and list (multi-cast); anything else is 'Unknown spell type'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex3/functools_artifacts.py",
+          "first_character_index": 1211,
+          "last_character_index": 1672
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "a3970d0f-bbac-59de-9897-387baf5bedf1",
+      "question": "What minimum power does MageGuild.cast_spell require?",
+      "answer": "10, through the @power_validator(min_power=10) decorator; below it returns 'Insufficient power for this spell'.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex4/decorator_mastery.py",
+          "first_character_index": 1906,
+          "last_character_index": 2070
+        },
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex4/decorator_mastery.py",
+          "first_character_index": 481,
+          "last_character_index": 926
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "51c72c2d-d2b3-5b59-8f01-d823e0409fd1",
+      "question": "What does retry_spell return when every attempt fails?",
+      "answer": "'Spell casting failed after <max_attempts> attempts', after printing a retry message for each attempt.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P10done/ex4/decorator_mastery.py",
+          "first_character_index": 929,
+          "last_character_index": 1574
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "3b24c375-3f86-571a-aa9c-5f52846287be",
+      "question": "Which pandas and numpy versions are pinned for the loading exercise?",
+      "answer": "pandas==2.1.0 and numpy==1.25.0 (with matplotlib==3.7.2 and requests==2.31.0).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/Dones/P8done/ex1/requirements.txt",
+          "first_character_index": 0,
+          "last_character_index": 62
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    }
+  ]
+}

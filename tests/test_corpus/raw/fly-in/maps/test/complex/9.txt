@@ -1,0 +1,11 @@
+# A single capacity-1 connection with a large fleet behind it -- no
+# alternative route exists, so every drone must funnel through one at
+# a time regardless of how the planner spreads them elsewhere.
+nb_drones: 30
+
+start_hub: crowd 0 0 [color=green]
+hub: chokepoint 1 0 [max_drones=1 color=red]
+end_hub: goal 2 0 [color=magenta]
+
+connection: crowd-chokepoint [max_link_capacity=1]
+connection: chokepoint-goal

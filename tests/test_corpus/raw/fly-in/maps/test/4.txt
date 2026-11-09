@@ -1,0 +1,15 @@
+# Wide, single-row map: stresses horizontal spacing/scaling.
+nb_drones: 4
+start_hub: s 0 0
+hub: a1 1 0 [color=blue]
+hub: a2 2 0 [color=blue]
+hub: a3 3 0 [color=blue]
+hub: a4 4 0 [color=blue]
+hub: a5 5 0 [color=blue]
+end_hub: e 6 0
+connection: s-a1
+connection: a1-a2
+connection: a2-a3
+connection: a3-a4
+connection: a4-a5
+connection: a5-e

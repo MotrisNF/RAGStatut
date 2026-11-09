@@ -1,0 +1,9 @@
+# Small map: the two gates chained through two intermediate hubs.
+nb_drones: 2
+start_hub: a 0 0 [color=cyan]
+hub: medium 0 1 [color=magenta zone=restricted]
+hub: other -1 -1 [color=darkred]
+end_hub: b 1 0 [color=magenta]
+connection: a-medium
+connection: medium-other
+connection: other-b

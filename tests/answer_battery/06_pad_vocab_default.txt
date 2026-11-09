@@ -1,0 +1,2 @@
+QUESTION: What is the default value of the pad_to parameter in vLLM's pad_vocab_size function?
+EXPECTED: DEFAULT_VOCAB_PADDING_SIZE. [code dataset]

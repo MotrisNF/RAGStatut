@@ -1,0 +1,65 @@
+[project]
+name = "rag-against-the-machine"
+version = "0.1.0"
+description = "Retrieval-Augmented Generation over the vLLM codebase"
+readme = "README.md"
+authors = [
+    { name = "saperez-", email = "samuelperleo@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.142.2",
+    "fire>=0.7.1",
+    "huggingface-hub>=1.33.0",
+    "numpy>=2.2.6",
+    "pydantic>=2.13.5",
+    "safetensors>=0.8.0",
+    "tokenizers>=0.23.2",
+    "torch>=2.14.1",
+    "tqdm>=4.70.1",
+    "transformers>=5.18.0",
+    "uvicorn>=0.54.0",
+]
+
+# Development-only dependencies (installed by `uv sync`).
+[dependency-groups]
+dev = [
+    "flake8>=7.0",
+    "httpx>=0.28.1",
+    "mypy>=1.8",
+    "pytest>=8.0",
+]
+
+[tool.uv]
+# The project runs via `uv run python -m src`; it is not installed as a package.
+package = false
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+ignore_missing_imports = true
+# `mypy .` must only check our code, not the corpora under data/,
+# tests/data/ and tests/test_corpus/.
+exclude = ['^\.venv/', '^data/', '^tests/data/', '^tests/test_corpus/',
+           '^build/', '^dist/']
+
+[tool.pytest.ini_options]
+# Only our tests (data/raw/vllm-0.10.1 and the Fly-in corpus in
+# tests/test_corpus ship their own test suites).
+testpaths = ["tests"]
+addopts = "--ignore=tests/test_corpus"
+# Project root on sys.path so tests can `import src`.
+pythonpath = ["."]
+
+#For dowload the CPU dependences only
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+

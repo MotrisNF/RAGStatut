@@ -1,0 +1,27 @@
+# Alternating restricted/normal segments, so the fleet should be seen
+# slowing down and speeding back up several times over on its way
+# across the map.
+nb_drones: 6
+
+start_hub: a0 0 0 [color=green]
+hub: r1 1 0 [zone=restricted color=orange]
+hub: r2 2 0 [zone=restricted color=orange]
+hub: n1 3 0 [color=blue]
+hub: n2 4 0 [color=blue]
+hub: r3 5 0 [zone=restricted color=orange]
+hub: r4 6 0 [zone=restricted color=orange]
+hub: n3 7 0 [color=blue]
+hub: r5 8 0 [zone=restricted color=orange]
+hub: r6 9 0 [zone=restricted color=orange]
+end_hub: b0 10 0 [color=magenta]
+
+connection: a0-r1
+connection: r1-r2
+connection: r2-n1
+connection: n1-n2
+connection: n2-r3
+connection: r3-r4
+connection: r4-n3
+connection: n3-r5
+connection: r5-r6
+connection: r6-b0

@@ -1,0 +1,354 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "289f2674-77fc-5de5-85b6-e792589029c4",
+      "question": "What is the difference between PERFECT=True and PERFECT=False in A-Maze-ing?",
+      "answer": "PERFECT=True gives a perfect maze with exactly one path between entry and exit; PERFECT=False (the default) gives a Pac-Man-style board with the corners and center open, at least two routes and no dead-ends.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 444,
+          "last_character_index": 834
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "8b7077a9-4d3c-5246-aa99-65d74a4c9b13",
+      "question": "When is the hidden 42 pattern left out of the maze?",
+      "answer": "When the maze is too small to fit it: under 7 cells tall or 9 cells wide; a console warning is printed instead.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 836,
+          "last_character_index": 1110
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "f7623f7e-629a-5204-bb44-943f347383b7",
+      "question": "What is needed to run the graphical display of A-Maze-ing?",
+      "answer": "The MiniLibX Python bindings (src/mlx-*.whl) and their native dependencies (X11 on Linux), besides Python 3.10+ and make.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 1438,
+          "last_character_index": 1733
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "c9f361c8-c0d0-5b27-aafa-460ff19d724a",
+      "question": "Which make rule rebuilds the mazegen wheel?",
+      "answer": "make package rebuilds mazegen-*.whl from the current source of mazegen/.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 1812,
+          "last_character_index": 2628
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "2eecf875-0ae1-5a3e-b44e-35a01b3f05a6",
+      "question": "Which configuration keys are required and which are optional?",
+      "answer": "WIDTH, HEIGHT, ENTRY, EXIT, OUTPUT_FILE and SEED are required; PERFECT, PLAYABLE, COLOR (default False) and TERMINAL (default True) are optional.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 3923,
+          "last_character_index": 4909
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "44c46241-e8d3-519a-9996-0e9130477a72",
+      "question": "What is the maximum maze size allowed?",
+      "answer": "40x25 cells (WIDTH/HEIGHT); anything larger is rejected with an error message.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 4911,
+          "last_character_index": 5130
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "cce1f572-c277-5055-9c1f-e246811b5696",
+      "question": "Which key shows the next shortest path in the terminal renderer?",
+      "answer": "n cycles to the next available shortest path, only when PLAYABLE=False (p shows or hides the path).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 5466,
+          "last_character_index": 6067
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "4c777fa6-9cfe-5a02-ad0d-0032b6b47255",
+      "question": "How does the Crazy game mode work?",
+      "answer": "A time-attack mode: it starts on a perfect 4x4 maze with a 15-second timer; each exit reached grows the maze by one row and column and adds time; when time runs out the level is saved in highscore.txt.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 6132,
+          "last_character_index": 6767
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "cf8d159f-647d-5c88-828d-10c595562bc1",
+      "question": "Why does the player keep moving in a corridor without pressing keys?",
+      "answer": "In PLAYABLE mode movement auto-continues in a straight corridor, Pac-Man style; w/a/s/d are only needed at forks.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 6782,
+          "last_character_index": 6997
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "883170f3-deaa-5a1e-9252-eb010e1e8e04",
+      "question": "Which keys control the MiniLibX graphical renderer?",
+      "answer": "w/a/s/d move the player, p shows the animated shortest path, r regenerates, m changes the theme and Esc quits.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 6999,
+          "last_character_index": 7289
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "57c4a176-b9ef-57dd-92af-93bdbe68f5ad",
+      "question": "What is the format of the maze output file?",
+      "answer": "One hexadecimal digit per cell (bit 0=North, 1=East, 2=South, 3=West, 1 = closed), one row per line, then a blank line, the entry, the exit and a shortest path as N/E/S/W letters.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 7315,
+          "last_character_index": 7773
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "94888675-2141-5be1-bcfa-67a6fdc117ca",
+      "question": "Why was the recursive backtracker chosen to generate the maze?",
+      "answer": "It always gives a perfect maze (a spanning tree), it is iterative so it cannot overflow the call stack, and its long winding corridors look better and made the 42 and 3x3 rules easier.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 8341,
+          "last_character_index": 9122
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "75bcb6c6-5f9d-55ad-96cb-84fdd14b7a1d",
+      "question": "How is a perfect maze turned into the Pac-Man playable board?",
+      "answer": "The corners and center get at least two open walls, extra walls are removed to create at least two loops, and dead-ends are opened until none are left, never creating a fully open 3x3 area.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 9336,
+          "last_character_index": 10335
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "5ae571f2-fad0-5220-99d5-d9c96519b0de",
+      "question": "Who wrote the maze solver and the graphical renderer of A-Maze-ing?",
+      "answer": "albrodri: the solver (flood fill and path reconstruction) and the whole MiniLibX renderer; saperez- did the generator and the terminal side.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 13681,
+          "last_character_index": 14419
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "2adca91d-d930-5996-aa87-db33e64dbab9",
+      "question": "What took more time than expected in the A-Maze-ing project?",
+      "answer": "The recursive flood fill of the solver (needing a higher recursion limit, fragile on large mazes) and the MiniLibX Python bindings (keycodes, image loading, flicker).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/README.md",
+          "first_character_index": 15384,
+          "last_character_index": 15842
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "081ba1b1-1674-55c2-b105-54c149af91f5",
+      "question": "What is the difference between grid and maze in mazegen?",
+      "answer": "grid is list[str] with one hex digit per cell plus a trailing empty string; maze is list[list[int]] that may keep the VISITED bit (16). Both are indexed [y][x].",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/mazegen/README.md",
+          "first_character_index": 4131,
+          "last_character_index": 5464
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "0ede2884-8c23-5803-a9aa-dec42140aee8",
+      "question": "How does mazegen keep a maze reproducible?",
+      "answer": "Every random choice uses a random.Random(seed) created for that call, never the global random state; the same height, width, seed and perfect give the same maze, and seed=None picks one seed once.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/mazegen/README.md",
+          "first_character_index": 7133,
+          "last_character_index": 8039
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "75b33bf2-8e52-59bf-8adb-bb12fbf65048",
+      "question": "What does regenerate do when no seed is given?",
+      "answer": "The seed defaults to -1, which advances the internal seed by a small random increment; the previous solution is discarded.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/mazegen/README.md",
+          "first_character_index": 9935,
+          "last_character_index": 10586
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "2b35094d-0888-5b13-8511-4b933be0dd10",
+      "question": "When does MazeGen.solve raise an error?",
+      "answer": "If generate() was not called, if entry/exit are outside the maze or equal, or if no path exists between them (e.g. inside a locked 42 cell).",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/mazegen/README.md",
+          "first_character_index": 10588,
+          "last_character_index": 11106
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "4ce5d4e6-ad33-5ed2-9f04-6d12deacf0d7",
+      "question": "How does mazegen find every shortest path?",
+      "answer": "A breadth-first flood fill from the exit records distances, then a backtrack from the entry follows neighbours whose distance is one less, branching to return all tied shortest paths.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/mazegen/README.md",
+          "first_character_index": 11595,
+          "last_character_index": 12585
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "cd9c1352-7c7b-5a12-a13b-7ade6d3c3191",
+      "question": "Which mazegen modules are internal and how are they imported?",
+      "answer": "maze_generator_dependences, hexa_dependences and maze_solver_dependences; they are not re-exported (only MazeGen and MazeGenError), so they are imported from their submodule.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/mazegen/README.md",
+          "first_character_index": 13774,
+          "last_character_index": 14964
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "8bcf274a-43df-58c7-b43b-7985d017a30c",
+      "question": "How can the mazegen package be installed?",
+      "answer": "From a prebuilt wheel (pip install mazegen-1.0.0-py3-none-any.whl), by building a wheel with python -m build, or in editable mode with pip install -e .",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/mazegen/README.md",
+          "first_character_index": 1645,
+          "last_character_index": 2545
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "cf653f73-7530-5772-976b-a5d32cd343c6",
+      "question": "What coordinate convention does mazegen use for cells?",
+      "answer": "(x, y) pairs, x the column (< width) and y the row (< height), for entry, exit and solution coordinates.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/mazegen/README.md",
+          "first_character_index": 3246,
+          "last_character_index": 3540
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "3199a6f3-296c-56c8-ade3-e1ee943f3a4e",
+      "question": "What size, exit and seed does the config.txt shipped with A-Maze-ing use?",
+      "answer": "WIDTH=15, HEIGHT=15, ENTRY=0,0, EXIT=14,14 and SEED=1234, with PERFECT=False.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/config.txt",
+          "first_character_index": 75,
+          "last_character_index": 491
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    },
+    {
+      "question_id": "8d66cfe6-5d22-5b6a-b8e7-401860a777af",
+      "question": "Who holds the best score in the A-Maze-ing highscore file?",
+      "answer": "saperez- with 999, followed by albrodri with 998.",
+      "sources": [
+        {
+          "file_path": "tests/test_corpus/raw/amazeing/highscore.txt",
+          "first_character_index": 0,
+          "last_character_index": 27
+        }
+      ],
+      "difficulty": "handwritten",
+      "is_valid": true
+    }
+  ]
+}

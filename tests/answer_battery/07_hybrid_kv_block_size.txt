@@ -1,0 +1,2 @@
+QUESTION: What block size divisibility requirement does HybridKVCacheCoordinator enforce when caching is enabled?
+EXPECTED: The block_size of the other layers must be divisible by the block_size of the full attention layers. [code dataset]

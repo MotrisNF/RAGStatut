@@ -1,0 +1,7 @@
+# Case 5: missing start_hub
+nb_drones: 2
+
+hub: waypoint1 1 0 [color=blue]
+end_hub: goal 2 0 [color=red]
+
+connection: waypoint1-goal

@@ -1,0 +1,11 @@
+# Restricted zone followed by a normal zone, to see the speed
+# change: normal (1 turn) -> restricted (2 turns, half speed) ->
+# normal again (1 turn, back to full speed) -> normal.
+nb_drones: 3
+start_hub: start 0 0
+hub: gate 1 0 [zone=restricted color=orange]
+hub: open 2 0 [zone=normal color=blue]
+end_hub: goal 3 0
+connection: start-gate
+connection: gate-open
+connection: open-goal

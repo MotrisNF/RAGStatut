@@ -1,0 +1,23 @@
+# Four parallel branches with deliberately different connection
+# capacities (1, 2, 3, 5), so the branch each drone ends up on should
+# depend on real throughput, not just route length.
+nb_drones: 15
+
+start_hub: origin 0 0 [color=green]
+
+hub: narrow_a 1 -3 [color=blue]
+hub: narrow_b 1 -1 [color=blue]
+hub: narrow_c 1 1 [color=blue]
+hub: narrow_d 1 3 [color=blue]
+
+end_hub: dest 2 0 [color=magenta]
+
+connection: origin-narrow_a [max_link_capacity=1]
+connection: origin-narrow_b [max_link_capacity=2]
+connection: origin-narrow_c [max_link_capacity=3]
+connection: origin-narrow_d [max_link_capacity=5]
+
+connection: narrow_a-dest [max_link_capacity=1]
+connection: narrow_b-dest [max_link_capacity=2]
+connection: narrow_c-dest [max_link_capacity=3]
+connection: narrow_d-dest [max_link_capacity=5]

@@ -1,0 +1,27 @@
+# All the mandatories 
+# Dimensions of the maze. Could be greater than 1x1
+WIDTH=15
+HEIGHT=15
+# Coordinates of the entry (x ,y)
+ENTRY=0,0
+# Coordinates of the exit (x ,y)
+EXIT=14,14
+# The name of the file with the maze information
+# It its not given, the programe will ask you
+# If then there is no name, the program will finish
+OUTPUT_FILE=maze.txt
+# True for only one way maze
+PERFECT=False
+# The starter seed for de RNG
+# Could be free, or not exist. A fixed seed will be setted
+SEED=1234
+# This is optional funtions
+# True for make it fully PLAYABLE
+# There are 3 game modes! (on terminal)
+PLAYABLE=True
+# If you want to see the maze on a terminal or in a separated window
+# Mlx is always a playable mode
+TERMINAL=True
+# True if you prefere a fully colored version
+# With COLLOR=True, you can change the colors on everything!
+COLOR=True

@@ -1,0 +1,10 @@
+{
+    "python.analysis.exclude": [
+        "data/**",
+        "tests/data/**",
+        "**/__pycache__",
+        ".venv/**"
+    ],
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "python.analysis.indexing": false
+}

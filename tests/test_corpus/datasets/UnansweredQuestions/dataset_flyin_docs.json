@@ -1,0 +1,160 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "823684e1-b14d-589f-955d-803fc7338d80",
+      "question": "What is Fly-in?"
+    },
+    {
+      "question_id": "e9fa3970-c570-572c-9515-3eea635b2e6f",
+      "question": "What does entering each zone type cost in Fly-in?"
+    },
+    {
+      "question_id": "039fa4c7-177c-5b04-a409-c1da22345d3e",
+      "question": "Are the start and end hubs limited by max_drones?"
+    },
+    {
+      "question_id": "58c875e4-6e44-5bdd-a93e-931192f75b54",
+      "question": "What is the objective of the Fly-in simulation, and does it use a graph library?"
+    },
+    {
+      "question_id": "d8fcca07-3ca5-521e-b81a-7601823fd2b9",
+      "question": "How do the Fly-in modules import each other?"
+    },
+    {
+      "question_id": "3680b88a-7a33-518e-a15c-fba0dc15dae7",
+      "question": "Why must Fly-in commands be run from the repository root?"
+    },
+    {
+      "question_id": "658d87b7-9d44-54ef-9907-85250448e4b0",
+      "question": "How do I run the Fly-in benchmark against the subject's reference maps?"
+    },
+    {
+      "question_id": "19f1a8df-13e4-59a5-835a-e0c05b03018f",
+      "question": "Which Makefile targets rebuild or remove the Fly-in virtual environment?"
+    },
+    {
+      "question_id": "551c37b6-d1af-58c8-9dfb-b424362c3e68",
+      "question": "What must the first line of a map file declare?"
+    },
+    {
+      "question_id": "8fa238d1-4f7a-5553-a965-2cdb99f924a5",
+      "question": "Which optional metadata can a hub have in a map file?"
+    },
+    {
+      "question_id": "e156d79e-953d-5dcb-9a16-ee7f294e139b",
+      "question": "What is the syntax of a connection line in a Fly-in map?"
+    },
+    {
+      "question_id": "1695ec3a-8a4e-5cdc-b121-0aaab4d343fb",
+      "question": "What does Fly-in check first before planning any route?"
+    },
+    {
+      "question_id": "e88d0d1c-5bf8-5156-9263-c29cb523128a",
+      "question": "How does Fly-in assign the drones to the candidate routes?"
+    },
+    {
+      "question_id": "49b2817d-62e8-556f-8eb3-62b7dbf2fcfb",
+      "question": "What is the local search refinement in Fly-in and when is it used?"
+    },
+    {
+      "question_id": "10acd734-ea21-5d3a-bb4e-1dd59db93031",
+      "question": "What happens in each turn of the Fly-in scheduler, and what does a drone with no legal move do?"
+    },
+    {
+      "question_id": "fd614b97-2b8e-5157-8bf4-df29b509abc0",
+      "question": "In which format is the move log printed in the terminal?"
+    },
+    {
+      "question_id": "ab738f99-fb65-5be0-bc59-5dfb24b1cea7",
+      "question": "Which playback controls does the graphical view offer?"
+    },
+    {
+      "question_id": "672a4418-452b-5f8a-883f-04b4c9a8cda1",
+      "question": "How do you zoom and pan in the Fly-in graphical view?"
+    },
+    {
+      "question_id": "c632e222-4f68-5a63-8f8c-e9d6d9479c85",
+      "question": "What is the commander in the Fly-in graphical view?"
+    },
+    {
+      "question_id": "bbb67673-b9aa-5df1-be69-160ab6b06b64",
+      "question": "How many turns did Fly-in need for the Capacity hell map?"
+    },
+    {
+      "question_id": "5ba5323c-c5b4-544a-bbd7-c4c487004cdf",
+      "question": "Did Fly-in beat the record on The Impossible Dream map?"
+    },
+    {
+      "question_id": "fb369bfa-0a29-5077-b5ca-a1cd030400f6",
+      "question": "In the README example with a restricted relay, how many turns does the simulation take?"
+    },
+    {
+      "question_id": "1d3a6c5b-2cfd-5f32-8126-036af05c9953",
+      "question": "How do I run the Fly-in test suite?"
+    },
+    {
+      "question_id": "020b4ab6-392e-5f44-abcb-5ef8bf3955ae",
+      "question": "How was AI used in the Fly-in project?"
+    },
+    {
+      "question_id": "a53d6691-2884-54b0-af9e-860b52fb18d4",
+      "question": "Which maps are in the easy category and how many drones do they use?"
+    },
+    {
+      "question_id": "b54026ec-fbcf-5280-a5bc-085aa0ab8a29",
+      "question": "How many drones do the hard maps use?"
+    },
+    {
+      "question_id": "a9581176-abb1-501c-a61a-d05d8990de94",
+      "question": "Are the challenger maps required to pass the evaluation?"
+    },
+    {
+      "question_id": "96b5b043-f17b-5750-a5c4-0aec7190299c",
+      "question": "What is the reference record for The Impossible Dream map?"
+    },
+    {
+      "question_id": "a45af901-044e-5e59-925d-724f7da68262",
+      "question": "Which capacity constraints do the maps test?"
+    },
+    {
+      "question_id": "509ddbb8-9aff-5232-ba73-ad7fc963eea1",
+      "question": "How many simulation turns are expected for each map difficulty?"
+    },
+    {
+      "question_id": "3a5dccc9-c7e1-52df-9d62-231c698cea1f",
+      "question": "In which order should the map categories be used for testing?"
+    },
+    {
+      "question_id": "c4644c0f-ad62-5c32-89ce-2ab7a2262620",
+      "question": "How many drones does the dead end trap map use and what is the capacity of its junction?"
+    },
+    {
+      "question_id": "0d33cf49-dcfd-55a3-a4f8-31ec392a9fc7",
+      "question": "Which hubs are priority zones in the priority puzzle map?"
+    },
+    {
+      "question_id": "815bc21c-4676-50d4-b2c6-604622ae8736",
+      "question": "What capacity do the restricted tunnels have in the capacity hell map?"
+    },
+    {
+      "question_id": "bb6f9d3e-08d3-5968-8be6-5a90f94e9b7e",
+      "question": "Which test map has start and end connected only through a blocked hub, and what must find_path_to_end return?"
+    },
+    {
+      "question_id": "93d0f287-31f1-56e0-b273-e1f75d5e74cb",
+      "question": "Is max_drones on a start or end hub a validation error?"
+    },
+    {
+      "question_id": "8a7feaba-2833-5eeb-9246-ce49a4b31e61",
+      "question": "Which test map shows the speed change when a drone crosses a restricted zone?"
+    },
+    {
+      "question_id": "7ef3f09e-9e16-5c94-964b-2bcc9af8946d",
+      "question": "Which bad map tests two zones sharing the same coordinates?"
+    },
+    {
+      "question_id": "712ec0d6-e1a0-5e8a-be26-5a5becc39142",
+      "question": "Which bad map checks that zone types are case-sensitive?"
+    }
+  ]
+}

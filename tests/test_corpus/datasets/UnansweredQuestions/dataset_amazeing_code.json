@@ -1,0 +1,156 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "a75e0d14-5dc4-5156-b8ad-905233e5bbb0",
+      "question": "Which seed does MazeGen use when none is given?"
+    },
+    {
+      "question_id": "7829d1ba-bab1-59bb-a384-d76a7bada3c4",
+      "question": "How does MazeGen.regenerate change the seed by default?"
+    },
+    {
+      "question_id": "9fa1b304-f3ff-5ff5-9a4d-f6d31e8b1c22",
+      "question": "What error does MazeGen give when the entry and the exit are the same cell?"
+    },
+    {
+      "question_id": "966b3781-f3d2-56c6-bf4d-ec74c3a68f44",
+      "question": "What happens if solve is called before generate in MazeGen?"
+    },
+    {
+      "question_id": "39cb3ea8-c40d-5c53-b5b0-605d54b08cad",
+      "question": "Which bit values encode the walls and the visited flag in the maze generator?"
+    },
+    {
+      "question_id": "de72b1ac-31c3-56d3-b262-982a82bf24c7",
+      "question": "How does maze_generator carve a perfect maze?"
+    },
+    {
+      "question_id": "00601831-612f-5264-93df-b5dd8c7063cb",
+      "question": "How does the generator check that opening a wall is safe?"
+    },
+    {
+      "question_id": "9a845ab8-ef99-555d-8dda-313aceaaa2f3",
+      "question": "How does the generator recognise a cell of the 42 logo?"
+    },
+    {
+      "question_id": "6859f721-b8dc-574c-944c-32e56df56c0a",
+      "question": "What does ensure_open_node do to a cell with fewer than two openings?"
+    },
+    {
+      "question_id": "4c756388-1416-5a1a-81c3-400bbfa028a3",
+      "question": "Which walls does add_loop consider when creating a loop?"
+    },
+    {
+      "question_id": "9333de49-2696-5eb6-9c78-2322d2a74dac",
+      "question": "What are the default numbers of loops and dead ends in make_playable?"
+    },
+    {
+      "question_id": "d03368b9-18a6-5cd9-9398-1fa24f3770be",
+      "question": "How does place_42 lock the cells of the logo?"
+    },
+    {
+      "question_id": "b2c3e0eb-4bcc-5a6a-ac9b-ee1704a85357",
+      "question": "What value does every cell start with in matrix_generator?"
+    },
+    {
+      "question_id": "3c7d34d0-b6a9-5356-9086-88ff583be4c2",
+      "question": "How does reduce_dead_ends avoid looping forever?"
+    },
+    {
+      "question_id": "eec78705-584c-57f9-969e-b7943e61b587",
+      "question": "How does build_hexa_lines convert the maze to hexadecimal?"
+    },
+    {
+      "question_id": "7efd1f4b-be41-511f-a9c4-2bc89ef5e07c",
+      "question": "How does the maze solver compute the distance map?"
+    },
+    {
+      "question_id": "cccf955f-a098-5d5a-8688-447e6087a526",
+      "question": "How does the solver build every path from the distance map?"
+    },
+    {
+      "question_id": "b9a474b9-e5cd-578f-b684-2750a0132d75",
+      "question": "Which configuration keys are optional in the config parser?"
+    },
+    {
+      "question_id": "3b0bb672-05bc-5129-9de8-05217d53946f",
+      "question": "Which lines does the config parser reject before reading the keys?"
+    },
+    {
+      "question_id": "164c01ea-6cbc-5888-b55f-a44251beca3e",
+      "question": "What size limits does the config parser apply?"
+    },
+    {
+      "question_id": "7bfd8ff9-2dcb-5e27-b841-19f4aaef9340",
+      "question": "What are the default values of the Config options?"
+    },
+    {
+      "question_id": "42fad97d-85f1-5c9c-8211-de90c50a94ea",
+      "question": "What happens when OUTPUT_FILE is empty in the configuration?"
+    },
+    {
+      "question_id": "0f4a5b82-9d25-5d5f-aa55-807c8fedf5f7",
+      "question": "How is the Crazy mode maze set up at the start?"
+    },
+    {
+      "question_id": "3b07b944-a8f8-5159-b159-b5583d4174a7",
+      "question": "How fast does the Crazy mode timer run out and what happens at zero?"
+    },
+    {
+      "question_id": "40dabbaf-e84d-53bb-bad1-7b73421c35bb",
+      "question": "How does the game pick a new exit cell?"
+    },
+    {
+      "question_id": "4e5e4cbd-27b0-5c3c-92b7-08c8ce2b53e1",
+      "question": "How does grow_maze build the next maze?"
+    },
+    {
+      "question_id": "179614f6-dd43-58ad-9b37-fbba43e1f052",
+      "question": "What happens to a highscore when the player enters an empty name?"
+    },
+    {
+      "question_id": "710d072c-a907-5e66-84eb-4375cfd82721",
+      "question": "Which solution does export_hexa write to the output file?"
+    },
+    {
+      "question_id": "3bb4d347-a3b1-528b-bd43-ccde72a09565",
+      "question": "How does decide_move auto-advance the player in a corridor?"
+    },
+    {
+      "question_id": "fc258a3b-67d2-5d9b-a60c-de56da4d75dc",
+      "question": "How does the terminal read single key presses?"
+    },
+    {
+      "question_id": "d18188c1-3a05-5530-94fa-36217161cb3c",
+      "question": "Which parts of the maze can be recoloured and with what values?"
+    },
+    {
+      "question_id": "fcd027b1-03ad-5c49-91af-b5d5e1438043",
+      "question": "What does the terminal session do when the player reaches the exit in Crazy mode?"
+    },
+    {
+      "question_id": "11d0939a-05b7-5dec-972a-35fb41a791c9",
+      "question": "Which ANSI colour is used for the 42 logo in the terminal drawer?"
+    },
+    {
+      "question_id": "89cf1bf6-52dc-5f5a-9fc0-bf8e6e19006d",
+      "question": "Which keycodes does the MiniLibX renderer use?"
+    },
+    {
+      "question_id": "1bafc4e4-974f-5f5a-8c63-8a1399580c06",
+      "question": "Which sprite folders does the MiniLibX renderer use for each theme?"
+    },
+    {
+      "question_id": "225cf1ad-e446-56cd-93a6-eacaf7134be6",
+      "question": "How is the MiniLibX window size computed?"
+    },
+    {
+      "question_id": "fa9eede2-b9de-5f27-8de0-e27c605592fb",
+      "question": "What is the default tile size and speed of a MovingEntity?"
+    },
+    {
+      "question_id": "1a212421-ee6b-5256-aa42-c644d84a7642",
+      "question": "What does a_maze_ing.py do when the configuration or the maze is invalid?"
+    }
+  ]
+}

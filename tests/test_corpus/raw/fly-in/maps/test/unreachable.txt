@@ -1,0 +1,10 @@
+# Parses without any error, but nothing connects to the end hub, so
+# Router.find_path_to_end() must return False. Used to test the
+# "valid file, unsolvable map" case, distinct from a parser error.
+nb_drones: 2
+
+start_hub: start 0 0 [color=green]
+hub: waypoint1 1 0 [color=blue]
+end_hub: goal 2 0 [color=red]
+
+connection: start-waypoint1

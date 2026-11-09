@@ -1,0 +1,10 @@
+# Case 8: duplicate end_hub
+nb_drones: 2
+
+start_hub: start 0 0 [color=green]
+hub: waypoint1 1 0 [color=blue]
+end_hub: goal 2 0 [color=red]
+end_hub: other_goal 5 5 [color=red]
+
+connection: start-waypoint1
+connection: waypoint1-goal

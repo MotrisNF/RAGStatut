@@ -1,0 +1,2 @@
+QUESTION: What CUDA architectures are supported for Marlin MOE kernels in vLLM?
+EXPECTED: 8.0, 8.7 and 9.0+PTX (MARLIN_MOE_ARCHS in CMakeLists.txt). [docs dataset]

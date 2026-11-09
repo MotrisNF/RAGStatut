@@ -1,0 +1,7 @@
+# Simple linear path with one intermediate hub.
+nb_drones: 1
+start_hub: entry 0 0
+#hub: mid 1 0 [color=blue]
+end_hub: exit 0 1
+connection: entry-exit
+#connection: mid-exit [max_link_capacity=3]

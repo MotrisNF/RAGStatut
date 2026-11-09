@@ -1,0 +1,51 @@
+# Entry funnels into four parallel branches (mixing normal and
+# restricted hops) before merging back into a single exit corridor.
+# High drone count relative to any single branch's capacity, so the
+# planner should spread the fleet across all four.
+nb_drones: 20
+
+start_hub: launch 0 0 [color=green]
+hub: split 1 0 [max_drones=4 color=blue]
+
+hub: branch_a1 2 -3 [color=blue]
+hub: branch_a2 3 -3 [zone=restricted color=orange]
+hub: branch_a3 4 -3 [color=blue]
+
+hub: branch_b1 2 -1 [color=blue]
+hub: branch_b2 3 -1 [color=blue]
+hub: branch_b3 4 -1 [zone=restricted color=orange]
+
+hub: branch_c1 2 1 [color=blue]
+hub: branch_c2 3 1 [zone=restricted color=orange]
+hub: branch_c3 4 1 [color=blue]
+
+hub: branch_d1 2 3 [color=blue]
+hub: branch_d2 3 3 [color=blue]
+hub: branch_d3 4 3 [color=blue]
+
+hub: merge 5 0 [max_drones=4 color=violet]
+end_hub: arrival 6 0 [color=magenta]
+
+connection: launch-split
+connection: split-branch_a1
+connection: split-branch_b1
+connection: split-branch_c1
+connection: split-branch_d1
+
+connection: branch_a1-branch_a2
+connection: branch_a2-branch_a3
+connection: branch_a3-merge
+
+connection: branch_b1-branch_b2
+connection: branch_b2-branch_b3
+connection: branch_b3-merge
+
+connection: branch_c1-branch_c2
+connection: branch_c2-branch_c3
+connection: branch_c3-merge
+
+connection: branch_d1-branch_d2
+connection: branch_d2-branch_d3
+connection: branch_d3-merge
+
+connection: merge-arrival

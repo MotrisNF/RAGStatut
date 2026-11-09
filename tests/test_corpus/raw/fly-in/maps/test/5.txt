@@ -1,0 +1,13 @@
+# Tall, single-column map: stresses vertical spacing/scaling.
+nb_drones: 3
+start_hub: s 0 0
+hub: b1 0 1 [color=blue]
+hub: b2 0 2 [color=blue]
+hub: b3 0 3 [color=blue]
+hub: b4 0 4 [color=blue]
+end_hub: e 0 5
+connection: s-b1
+connection: b1-b2
+connection: b2-b3
+connection: b3-b4
+connection: b4-e

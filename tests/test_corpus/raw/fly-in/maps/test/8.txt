@@ -1,0 +1,12 @@
+# Small loop/diamond with a restricted zone on one of the branches.
+nb_drones: 4
+start_hub: start 0 1
+hub: north 1 0 [color=cyan]
+hub: east 2 1 [zone=restricted color=orange]
+hub: south 1 2 [color=cyan]
+end_hub: goal 3 1
+connection: start-north
+connection: start-south
+connection: north-east
+connection: south-east
+connection: east-goal

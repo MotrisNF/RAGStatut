@@ -1,0 +1,32 @@
+# A restricted loop the path must cut through, plus a couple of
+# dead-end traps that pathfinding should avoid entirely.
+nb_drones: 7
+
+start_hub: enter 0 0 [color=green]
+hub: pre_loop 1 0 [color=blue]
+
+hub: loop1 2 -1 [zone=restricted color=orange]
+hub: loop2 3 -1 [zone=restricted color=orange]
+hub: loop3 3 1 [zone=restricted color=orange]
+hub: loop4 2 1 [zone=restricted color=orange]
+
+hub: dead_end1 1 -2 [color=black]
+hub: dead_end2 1 2 [color=black]
+hub: dead_end3 4 -1 [color=black]
+
+hub: post_loop 4 0 [color=blue]
+end_hub: goal 5 0 [color=magenta]
+
+connection: enter-pre_loop
+connection: pre_loop-loop1
+connection: pre_loop-dead_end1
+connection: pre_loop-dead_end2
+
+connection: loop1-loop2
+connection: loop2-loop3
+connection: loop3-loop4
+connection: loop4-loop1
+
+connection: loop2-dead_end3
+connection: loop3-post_loop
+connection: post_loop-goal

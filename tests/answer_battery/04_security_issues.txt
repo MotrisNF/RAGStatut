@@ -1,0 +1,2 @@
+QUESTION: How should security issues be reported in vLLM?
+EXPECTED: Privately, with the vulnerability submission form of the GitHub repository; the vulnerability management team triages them. [docs dataset]

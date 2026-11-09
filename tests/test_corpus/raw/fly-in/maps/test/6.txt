@@ -1,0 +1,12 @@
+# Diamond branch with a priority shortcut and a blocked dead-end,
+# to see zone colors (gold/red) and a capacity-limited merge.
+nb_drones: 5
+start_hub: start 0 1
+hub: top 1 0 [zone=priority color=gold]
+hub: dead_end 1 1 [zone=blocked]
+hub: bottom 1 2 [zone=priority color=gold]
+end_hub: goal 2 1
+connection: start-top
+connection: start-bottom
+connection: top-goal
+connection: bottom-goal [max_link_capacity=2]

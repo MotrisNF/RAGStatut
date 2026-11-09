@@ -1,0 +1,9 @@
+# Case 19: max_drones is not a positive integer
+nb_drones: 2
+
+start_hub: start 0 0 [color=green]
+hub: waypoint1 1 0 [max_drones=0]
+end_hub: goal 2 0 [color=red]
+
+connection: start-waypoint1
+connection: waypoint1-goal

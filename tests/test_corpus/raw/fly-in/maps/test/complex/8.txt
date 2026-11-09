@@ -1,0 +1,99 @@
+nb_drones: 6
+
+start_hub: origin 0 0 [color=cyan]
+end_hub: dest 5 5 [color=magenta]
+hub: c1_0 1 0 [color=blue]
+hub: c2_0 2 0 [color=blue]
+hub: c3_0 3 0 [color=blue]
+hub: c4_0 4 0 [color=blue]
+hub: c5_0 5 0 [color=blue]
+hub: c0_1 0 1 [color=blue]
+hub: c1_1 1 1 [zone=priority color=gold]
+hub: c2_1 2 1 [color=blue]
+hub: c3_1 3 1 [color=blue]
+hub: c4_1 4 1 [color=blue]
+hub: c5_1 5 1 [color=blue]
+hub: c0_2 0 2 [color=blue]
+hub: c1_2 1 2 [color=blue]
+hub: c2_2 2 2 [zone=priority color=gold]
+hub: c3_2 3 2 [color=blue]
+hub: c4_2 4 2 [color=blue]
+hub: c5_2 5 2 [color=blue]
+hub: c0_3 0 3 [color=blue]
+hub: c1_3 1 3 [color=blue]
+hub: c2_3 2 3 [color=blue]
+hub: c3_3 3 3 [zone=priority color=gold]
+hub: c4_3 4 3 [color=blue]
+hub: c5_3 5 3 [color=blue]
+hub: c0_4 0 4 [color=blue]
+hub: c1_4 1 4 [color=blue]
+hub: c2_4 2 4 [color=blue]
+hub: c3_4 3 4 [color=blue]
+hub: c4_4 4 4 [zone=priority color=gold]
+hub: c5_4 5 4 [color=blue]
+hub: c0_5 0 5 [color=blue]
+hub: c1_5 1 5 [color=blue]
+hub: c2_5 2 5 [color=blue]
+hub: c3_5 3 5 [color=blue]
+hub: c4_5 4 5 [color=blue]
+
+connection: origin-c1_0
+connection: origin-c0_1
+connection: c1_0-c2_0
+connection: c1_0-c1_1
+connection: c2_0-c3_0
+connection: c2_0-c2_1
+connection: c3_0-c4_0
+connection: c3_0-c3_1
+connection: c4_0-c5_0
+connection: c4_0-c4_1
+connection: c5_0-c5_1
+connection: c0_1-c1_1
+connection: c0_1-c0_2
+connection: c1_1-c2_1
+connection: c1_1-c1_2
+connection: c2_1-c3_1
+connection: c2_1-c2_2
+connection: c3_1-c4_1
+connection: c3_1-c3_2
+connection: c4_1-c5_1
+connection: c4_1-c4_2
+connection: c5_1-c5_2
+connection: c0_2-c1_2
+connection: c0_2-c0_3
+connection: c1_2-c2_2
+connection: c1_2-c1_3
+connection: c2_2-c3_2
+connection: c2_2-c2_3
+connection: c3_2-c4_2
+connection: c3_2-c3_3
+connection: c4_2-c5_2
+connection: c4_2-c4_3
+connection: c5_2-c5_3
+connection: c0_3-c1_3
+connection: c0_3-c0_4
+connection: c1_3-c2_3
+connection: c1_3-c1_4
+connection: c2_3-c3_3
+connection: c2_3-c2_4
+connection: c3_3-c4_3
+connection: c3_3-c3_4
+connection: c4_3-c5_3
+connection: c4_3-c4_4
+connection: c5_3-c5_4
+connection: c0_4-c1_4
+connection: c0_4-c0_5
+connection: c1_4-c2_4
+connection: c1_4-c1_5
+connection: c2_4-c3_4
+connection: c2_4-c2_5
+connection: c3_4-c4_4
+connection: c3_4-c3_5
+connection: c4_4-c5_4
+connection: c4_4-c4_5
+connection: c5_4-dest
+connection: c0_5-c1_5
+connection: c1_5-c2_5
+connection: c2_5-c3_5
+connection: c3_5-c4_5
+connection: c4_5-dest

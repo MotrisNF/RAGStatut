@@ -1,0 +1,8 @@
+# Bottleneck: many drones queueing for a single-slot hub, to see
+# the drone-count badge stack up at the start.
+nb_drones: 6
+start_hub: start 0 0
+hub: gate 1 0 [max_drones=1 color=blue]
+end_hub: goal 2 0
+connection: start-gate
+connection: gate-goal

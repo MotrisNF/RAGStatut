@@ -1,0 +1,8 @@
+# Case 33: connection definition with an empty right-hand zone
+nb_drones: 2
+
+start_hub: start 0 0 [color=green]
+hub: waypoint1 1 0 [color=blue]
+end_hub: goal 2 0 [color=red]
+
+connection: start-

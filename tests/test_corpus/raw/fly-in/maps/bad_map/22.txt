@@ -1,0 +1,2 @@
+# Case 22: empty file (no significant content)
+# just a comment, nothing else here

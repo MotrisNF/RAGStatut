@@ -1,0 +1,12 @@
+# Parses without any error, and start/end are topologically
+# connected, but the only hub between them is zone=blocked, so
+# Router.find_path_to_end() must still return False. Distinct from
+# unreachable.txt, where nothing connects to the end hub at all.
+nb_drones: 2
+
+start_hub: start 0 0 [color=green]
+hub: gate 1 0 [zone=blocked]
+end_hub: goal 2 0 [color=red]
+
+connection: start-gate
+connection: gate-goal

@@ -1,0 +1,10 @@
+# Case 13: duplicate connection (a-b same as b-a)
+nb_drones: 2
+
+start_hub: start 0 0 [color=green]
+hub: waypoint1 1 0 [color=blue]
+end_hub: goal 2 0 [color=red]
+
+connection: start-waypoint1
+connection: waypoint1-goal
+connection: goal-waypoint1

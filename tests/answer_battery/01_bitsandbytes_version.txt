@@ -1,0 +1,2 @@
+QUESTION: What is the minimum version of bitsandbytes required for vLLM quantization?
+EXPECTED: 0.46.1 (pip install bitsandbytes>=0.46.1). [docs dataset]

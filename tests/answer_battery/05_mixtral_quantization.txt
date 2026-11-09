@@ -1,0 +1,2 @@
+QUESTION: What quantization methods are supported for Mixtral models in vLLM?
+EXPECTED: fp8, compressed-tensors, gptq_marlin, awq_marlin, quark and bitsandbytes (others use QuantMixtralForCausalLM). [code dataset]

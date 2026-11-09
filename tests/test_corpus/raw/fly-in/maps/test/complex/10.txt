@@ -1,0 +1,55 @@
+# A smaller "kitchen sink" in the spirit of the Challenger map: a
+# single-file entrance, a maze layer with dead ends, three parallel
+# restricted branches, and a priority-zone shortcut -- but tame
+# enough to stay well within the difficulty of the hard test maps.
+nb_drones: 18
+
+start_hub: start 0 0 [color=green]
+
+hub: gate1 1 0 [max_drones=1 color=red]
+hub: gate2 2 0 [max_drones=1 color=red]
+
+hub: maze_a 3 -1 [color=purple]
+hub: maze_dead_a 4 -1 [color=black]
+hub: maze_b 3 1 [color=purple]
+hub: maze_dead_b 4 1 [color=black]
+hub: maze_c 3 0 [color=purple]
+
+hub: fast_lane 4 0 [zone=priority color=gold max_drones=3]
+
+hub: rest_a1 5 -2 [zone=restricted color=orange]
+hub: rest_a2 6 -2 [zone=restricted color=orange]
+
+hub: rest_b1 5 0 [zone=restricted color=orange]
+hub: rest_b2 6 0 [zone=restricted color=orange]
+
+hub: rest_c1 5 2 [zone=restricted color=orange]
+hub: rest_c2 6 2 [zone=restricted color=orange]
+
+hub: converge 7 0 [max_drones=6 color=violet]
+end_hub: goal 8 0 [color=magenta]
+
+connection: start-gate1 [max_link_capacity=1]
+connection: gate1-gate2 [max_link_capacity=1]
+
+connection: gate2-maze_a
+connection: gate2-maze_b
+connection: gate2-maze_c
+connection: maze_a-maze_dead_a
+connection: maze_b-maze_dead_b
+connection: maze_c-fast_lane
+
+connection: fast_lane-rest_a1
+connection: maze_a-rest_a1
+connection: maze_b-rest_c1
+connection: fast_lane-rest_b1
+connection: fast_lane-rest_c1
+
+connection: rest_a1-rest_a2
+connection: rest_b1-rest_b2
+connection: rest_c1-rest_c2
+
+connection: rest_a2-converge
+connection: rest_b2-converge
+connection: rest_c2-converge
+connection: converge-goal

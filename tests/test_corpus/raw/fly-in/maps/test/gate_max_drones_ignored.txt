@@ -1,0 +1,6 @@
+# max_drones on a gate is meaningless (gates are uncapped) but must
+# not be a validation error -- VII.4 says it's silently ignored.
+nb_drones: 1
+start_hub: a 0 0 [max_drones=5]
+end_hub: b 1 0 [max_drones=3]
+connection: a-b

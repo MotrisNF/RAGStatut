@@ -1,0 +1,2 @@
+QUESTION: What is the capital of France?
+EXPECTED: Refusal: The context does not contain the answer. [off-topic: must not answer from its own knowledge]

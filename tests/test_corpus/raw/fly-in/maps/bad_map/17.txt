@@ -1,0 +1,9 @@
+# Case 17: duplicate metadata key inside the same brackets
+nb_drones: 2
+
+start_hub: start 0 0 [color=green]
+hub: waypoint1 1 0 [color=red color=blue]
+end_hub: goal 2 0 [color=red]
+
+connection: start-waypoint1
+connection: waypoint1-goal

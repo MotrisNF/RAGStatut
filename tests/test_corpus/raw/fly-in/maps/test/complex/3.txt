@@ -1,0 +1,38 @@
+# A single-file gauntlet of capacity-1 hubs at the entrance, then a
+# fan-out into three branches before the exit. Enough drones per
+# branch capacity to push nb_drones/throughput past the complexity
+# threshold, so this should trigger the advanced planner.
+nb_drones: 24
+
+start_hub: gate0 0 0 [color=green]
+hub: gate1 1 0 [max_drones=1 color=red]
+hub: gate2 2 0 [max_drones=1 color=red]
+hub: gate3 3 0 [max_drones=1 color=red]
+hub: gate4 4 0 [max_drones=1 color=red]
+
+hub: fan_a 5 -2 [color=blue]
+hub: fan_b 5 0 [color=blue]
+hub: fan_c 5 2 [color=blue]
+
+hub: relief_a 6 -2 [color=blue]
+hub: relief_b 6 0 [color=blue]
+hub: relief_c 6 2 [color=blue]
+
+end_hub: exit 7 0 [color=magenta]
+
+connection: gate0-gate1 [max_link_capacity=1]
+connection: gate1-gate2 [max_link_capacity=1]
+connection: gate2-gate3 [max_link_capacity=1]
+connection: gate3-gate4 [max_link_capacity=1]
+
+connection: gate4-fan_a
+connection: gate4-fan_b
+connection: gate4-fan_c
+
+connection: fan_a-relief_a
+connection: fan_b-relief_b
+connection: fan_c-relief_c
+
+connection: relief_a-exit
+connection: relief_b-exit
+connection: relief_c-exit

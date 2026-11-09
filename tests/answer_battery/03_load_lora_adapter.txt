@@ -1,0 +1,2 @@
+QUESTION: How do I load a LoRA adapter?
+EXPECTED: Send a POST request to /v1/load_lora_adapter with the adapter name (lora_name) and path (lora_path). [docs dataset, reworded: does not name vLLM]

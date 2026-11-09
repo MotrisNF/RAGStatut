@@ -1,0 +1,216 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "e5088020-a2f4-5317-b566-b7446f9903f5",
+      "question": "How many turns does a drone need to cross into a restricted hub in Fly-in?"
+    },
+    {
+      "question_id": "17a870dc-72b2-54fd-9f91-36587dd4e347",
+      "question": "What is the maximum number of candidate routes the Fly-in router keeps?"
+    },
+    {
+      "question_id": "641e5826-8b29-54d9-814c-174864ab9a83",
+      "question": "What is PATH_COST_CEILING_RATIO set to and what does it control?"
+    },
+    {
+      "question_id": "f525862c-80d1-59c6-a8d9-f3a252243878",
+      "question": "How big is the weight discount that makes Dijkstra prefer priority hubs?"
+    },
+    {
+      "question_id": "3364b24b-43c8-56cb-8e60-6743eda373a9",
+      "question": "Above which bottleneck severity is a map routed with the advanced planner?"
+    },
+    {
+      "question_id": "b9464223-821a-53aa-a792-3aa997badaf3",
+      "question": "How many local-search trials does refine_routes run before giving up?"
+    },
+    {
+      "question_id": "21b60a52-108d-5c27-bbaa-673c6edb1a00",
+      "question": "What are the default, slowest and fastest playback speeds of the graphical simulation?"
+    },
+    {
+      "question_id": "1db361ef-ffb3-57c5-9b4c-a0b072243bc8",
+      "question": "Which zone types does the ZoneType literal allow?"
+    },
+    {
+      "question_id": "7084cdac-8432-58f4-b503-6d954d56f7c9",
+      "question": "Which metadata keys are accepted in a hub line and in a connection line?"
+    },
+    {
+      "question_id": "1458ea9a-85d8-5c4c-8b01-b224b96c366b",
+      "question": "How many frames does one simulated turn take to animate, and how long does a drone pause at a hub?"
+    },
+    {
+      "question_id": "ecf5daa9-bf58-5ea2-8910-0c7dc4ea6673",
+      "question": "What frame rate does the pygame window target?"
+    },
+    {
+      "question_id": "f2439d8c-79b0-5d9a-8af2-49e9ec57927d",
+      "question": "What are the zoom limits of the map view and how much does each mouse wheel notch zoom?"
+    },
+    {
+      "question_id": "a05a0a7c-eacc-5f34-85b6-305f58ee63ed",
+      "question": "Which phrases can the commander mascot say in the sidebar?"
+    },
+    {
+      "question_id": "8ee40b2a-8543-51cd-bbfa-de45a22bd0f4",
+      "question": "How fast is the dialog text typed and how long does a phrase stay on screen?"
+    },
+    {
+      "question_id": "1ac67015-5742-5ac8-b46b-03fac4c49736",
+      "question": "What is the TESTING flag in constants.py for?"
+    },
+    {
+      "question_id": "cc3ccb8d-4cb7-5943-adeb-522bbf1e4260",
+      "question": "Which exception does Fly-in raise when no valid drone route exists between the gates?"
+    },
+    {
+      "question_id": "01356c7b-3e63-5cdd-8f89-8436c79cba74",
+      "question": "Which exception is raised when the map file is missing, unreadable or malformed?"
+    },
+    {
+      "question_id": "5d327522-152c-54c8-978e-326b631f9066",
+      "question": "What is the default capacity of a connection and which values are rejected?"
+    },
+    {
+      "question_id": "5f36dd52-323e-5bba-8668-9eee6a67e427",
+      "question": "What is the default max_drones of a hub, and when is it None?"
+    },
+    {
+      "question_id": "3ba1f55d-c34f-52c7-b60e-4117b6bb4dc2",
+      "question": "How are the width and height of a MapConfig defined?"
+    },
+    {
+      "question_id": "f6ee52dc-1622-5c0f-a343-a948168d826b",
+      "question": "What happens when a zone name in a map file contains a hyphen?"
+    },
+    {
+      "question_id": "7bfd4946-2716-59d4-811f-eb72381882a2",
+      "question": "Can two zones of a Fly-in map share the same coordinates?"
+    },
+    {
+      "question_id": "47187b9c-316d-59ca-be1c-de6d4dc9a9e3",
+      "question": "How does the parser detect that a connection a-b was already declared as b-a?"
+    },
+    {
+      "question_id": "c2044e73-3722-5ca9-89aa-b9f172b5889f",
+      "question": "What must the first line of a Fly-in map file contain?"
+    },
+    {
+      "question_id": "e9ac2c85-a514-5925-96b0-ec8dd818e889",
+      "question": "How are comments removed from each line of the map file?"
+    },
+    {
+      "question_id": "09b8c5c4-603b-54a0-a439-2932dda42742",
+      "question": "What error does the parser give when a metadata block has no closing bracket?"
+    },
+    {
+      "question_id": "ec12b78c-7b43-52c2-b4ae-34e0dd6539ab",
+      "question": "Is the zone type in a map file case-sensitive, and how is it validated?"
+    },
+    {
+      "question_id": "25952996-1b85-5c17-a45c-8ce8553b0aec",
+      "question": "Which metadata errors does _parse_metadata detect?"
+    },
+    {
+      "question_id": "05a1a574-f8af-5c0b-a525-ca8eb4c9de2c",
+      "question": "Can a connection link a zone to itself?"
+    },
+    {
+      "question_id": "6415300b-b385-5353-887f-5d070063b3d7",
+      "question": "What error is raised when the map has no start_hub or no end_hub?"
+    },
+    {
+      "question_id": "dd0e7432-2c74-5f72-95d9-2fe27621adda",
+      "question": "What does Router.zone_cost return for a blocked zone?"
+    },
+    {
+      "question_id": "0abbdfc9-9c74-5bcb-8214-d9fd7f1d8c35",
+      "question": "How does find_path_to_end check that the end hub is reachable?"
+    },
+    {
+      "question_id": "07e738cc-59be-5e8f-8b3f-142983170256",
+      "question": "What does _dijkstra raise when no route connects the entry to the exit?"
+    },
+    {
+      "question_id": "f6eee905-b38e-50a0-9bf3-88e1d71ad538",
+      "question": "How does _bottleneck_throughput weigh a restricted hub compared to a normal one?"
+    },
+    {
+      "question_id": "18708945-e32b-59e1-bfc3-3034ae261e23",
+      "question": "How does the router steer later candidate routes away from earlier ones?"
+    },
+    {
+      "question_id": "64c4ac0d-7400-5aa3-82b1-a9996a45397d",
+      "question": "How does is_complex_map decide whether to use the advanced planner?"
+    },
+    {
+      "question_id": "47aff040-d26f-5f1b-b1b8-90835953c3b9",
+      "question": "What is the difference between _route_weight and zone_cost?"
+    },
+    {
+      "question_id": "23954e8a-3214-529a-a022-83fa5a8a6e10",
+      "question": "How does plan_routes choose the route of each drone?"
+    },
+    {
+      "question_id": "bd5c3753-9c7c-5824-946f-de0d35c761f0",
+      "question": "Can refine_routes return a worse assignment than the one it receives?"
+    },
+    {
+      "question_id": "bd729235-a3e6-5e70-a4b3-b1a9b6e8e97f",
+      "question": "In which order are drones offered a move within a simulation turn?"
+    },
+    {
+      "question_id": "91bddc85-f4c1-55d0-9bf9-a2ae9fd2d926",
+      "question": "What happens if a whole turn passes with no drone able to move?"
+    },
+    {
+      "question_id": "f1ff50a9-02b8-5f3c-b77e-2b21ab52298f",
+      "question": "When does run_simulation use plan_routes_advanced and refine_routes instead of plan_routes?"
+    },
+    {
+      "question_id": "59617f57-e948-58fb-8e37-5138f9fba1ca",
+      "question": "Do the start and end hubs have a capacity limit in the scheduler?"
+    },
+    {
+      "question_id": "8e17a232-8a1c-53fa-a923-9c617e77247b",
+      "question": "How is a drone that is crossing into a restricted hub represented?"
+    },
+    {
+      "question_id": "68e1ac69-0584-502f-87e3-51a995cbc648",
+      "question": "What is remaining_hops used for in the drone class?"
+    },
+    {
+      "question_id": "5352ca69-16a0-515f-b061-1d7cc1c6d32d",
+      "question": "How does the graphical view keep the point under the cursor fixed when zooming?"
+    },
+    {
+      "question_id": "e0ab11d1-17a0-5e57-843f-ec027d8a1c5d",
+      "question": "How is a drone's position animated between two turns?"
+    },
+    {
+      "question_id": "39068163-c9ec-5124-9326-fa9b3818f163",
+      "question": "How does the graphical view decide which endpoint colors a connection badge?"
+    },
+    {
+      "question_id": "218ca3d3-7d7d-5682-a21a-e463373482a0",
+      "question": "How is the pygame welcome banner hidden?"
+    },
+    {
+      "question_id": "71f6636b-e4ac-5840-b848-329092c27899",
+      "question": "How does print_by_letter stop keystrokes from being printed over the animated text?"
+    },
+    {
+      "question_id": "55dcdbe4-01e7-5455-a20c-ddfe9e423d11",
+      "question": "What turn targets does the performance report use for the hard maps?"
+    },
+    {
+      "question_id": "3b2c6e50-657d-5f58-ac85-32b11223a304",
+      "question": "What error is raised if the user enters an empty map file name?"
+    },
+    {
+      "question_id": "70191cb4-8260-57dd-a8bf-2f7c18a635e9",
+      "question": "What happens if the user answers something other than y or n to the graphical animation question?"
+    }
+  ]
+}

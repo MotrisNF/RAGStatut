@@ -1,0 +1,7 @@
+# Case 1: missing nb_drones as the first line
+start_hub: start 0 0 [color=green]
+hub: waypoint1 1 0 [color=blue]
+end_hub: goal 2 0 [color=red]
+
+connection: start-waypoint1
+connection: waypoint1-goal

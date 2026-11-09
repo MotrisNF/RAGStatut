@@ -1,0 +1,2 @@
+QUESTION: How do I enable the --turbo-mode flag in vLLM?
+EXPECTED: Refusal: The context does not contain the answer. [trap: the flag does not exist]
