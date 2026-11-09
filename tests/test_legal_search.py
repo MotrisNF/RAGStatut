@@ -29,6 +29,20 @@ class TestArticleChunker:
         assert [c.title for c in chunks] == [
             "", "Artículo 1. Vacaciones.", "Artículo 2. Permisos"]
 
+    def test_dispositions_and_annexes_have_their_title(self) -> None:
+        """What follows the last article is not credited to it."""
+        text = ("Artículo 92. Último.\n\nTexto.\n\n"
+                "Disposición transitoria undécima. Despido.\n\nMás.\n\n"
+                "Disposición adicional vigesimonovena.\n\nNombre largo\n\n"
+                "ANEXO II\n\nTablas salariales\n\nPlus | 1,74\n")
+        titles = [c.title for c in
+                  ArticleChunker(2000).chunk_document(doc(text))]
+        assert titles == ["Artículo 92. Último.",
+                          "Disposición transitoria undécima. Despido.",
+                          "Disposición adicional vigesimonovena. Nombre "
+                          "largo",
+                          "ANEXO II Tablas salariales"]
+
     def test_long_article_keeps_title(self) -> None:
         """Every piece of a long article has its title."""
         text = "Artículo 9. Largo.\n\n" + "palabra " * 300

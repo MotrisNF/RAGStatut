@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field, model_validator
 # How ``Generator`` loads the model (``answer --dtype``). Defined here, not
 # in ``generator``, so the CLI can use it without importing torch.
 DtypeMode = Literal["auto", "float32", "bfloat16"]
+GeneratorMode = Literal["qwen", "gemini"]
 RetrieverMode = Literal["bm25", "hybrid", "gemini"]
 
 # Answer when retrieval finds no source: the model is not run, since with no

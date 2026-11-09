@@ -85,6 +85,28 @@ class TestEndpoints:
         assert [c["kind"] for c in body["citations"]] == ["convenio",
                                                           "estatuto"]
 
+    def test_consult(self) -> None:
+        """The answer comes with its citations."""
+        api = RagApi(Fake())
+        calls: list[str] = []
+
+        class Generator:
+            def generate(self, query: str, chunks: list[Chunk]) -> str:
+                calls.append(query)
+                return "Quince días"
+
+        api._generator = Generator()  # type: ignore[assignment]
+        body = TestClient(api.app).get("/consult", params={
+            "query": "q", "convenio": "tic"}).json()
+        assert body["answer"] == "Quince días"
+        assert len(body["citations"]) == 2
+        assert calls == ["q"]
+
+    def test_consult_needs_a_convenio(self) -> None:
+        """Choosing a text is mandatory."""
+        assert client().get("/consult",
+                            params={"query": "q"}).status_code == 422
+
     def test_citations_need_a_convenio(self) -> None:
         """Choosing a text is mandatory."""
         assert client().get("/citations",

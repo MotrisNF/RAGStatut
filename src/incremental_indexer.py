@@ -19,7 +19,8 @@ from .cached_retriever import CachedRetriever
 from .chunker import ArticleChunker, PyChunker
 from .exceptions import PathError, RagError
 from .models import (Chunk, CorpusChanges, Document, FileStamp,
-                     IndexManifest, IndexPlan, IndexReport, RetrieverMode)
+                     GeneratorMode, IndexManifest, IndexPlan, IndexReport,
+                     RetrieverMode)
 from .reader import CorpusReader
 from .vector_index import VectorIndex
 
@@ -153,7 +154,8 @@ class IncrementalIndexer:
         # generated from.
         cache_paths = [CachedRetriever.file_path(self._index_dir, name)
                        for name in get_args(RetrieverMode)]
-        cache_paths.append(AnswerCache.file_path(self._index_dir))
+        cache_paths += [AnswerCache.file_path(self._index_dir, name)
+                        for name in get_args(GeneratorMode)]
         for cache_path in cache_paths:
             try:
                 cache_path.unlink(missing_ok=True)

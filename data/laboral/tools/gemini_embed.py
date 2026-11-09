@@ -29,7 +29,7 @@ MODEL = "gemini-embedding-2"
 URL = ("https://generativelanguage.googleapis.com/v1beta/models/"
        f"{MODEL}:embedContent")
 DIMENSIONS = 768
-DAY_CAP = 750          # limite real: 1000 al dia
+DAY_CAP = 830          # limite real: 1000 al dia
 MINUTE_REQUESTS = 40   # limite real: 100 por minuto
 MINUTE_TOKENS = 15000  # limite real: 30000 por minuto
 CHARS_PER_TOKEN = 3    # estimacion a la baja: cuenta de mas tokens
@@ -71,8 +71,9 @@ def query_text(question):
 def pending_texts(index_dir):
     chunks = BM25Index.load(Path(index_dir)).chunks
     wanted = {E, T}
-    if "--add" in sys.argv:
-        wanted.add(sys.argv[sys.argv.index("--add") + 1])
+    for i, arg in enumerate(sys.argv):
+        if arg == "--add":
+            wanted.add(sys.argv[i + 1])
     questions = [q for bank in (DEV, NEW) for q, gold in bank.items()
                  if wanted & set(gold)]
     texts = [query_text(q) for q in questions]

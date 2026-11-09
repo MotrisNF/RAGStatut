@@ -25,8 +25,10 @@ from .convenio_search import ConvenioSearch
 from .exceptions import (ArgError, DatasetError, DatasetEvaluationError,
                          PathError, RagError, ResultsEvaluationError)
 from .evaluator import Evaluator
+from .gemini_generator import GeminiGenerator
 from .gemini_retriever import GeminiRetriever
-from .models import (Chunk, DtypeMode, MinimalSearchResults, MinimalSource,
+from .models import (Chunk, DtypeMode, GeneratorMode, MinimalSearchResults,
+                     MinimalSource,
                      StudentSearchResults, RagDataset, UnansweredQuestion,
                      EvaluationInform, MinimalAnswer,
                      StudentSearchResultsAndAnswer, NO_SOURCES, RetrieverMode,)
@@ -533,7 +535,8 @@ class RagCLI:
                 str,
                 Field(min_length=1)
                 ] = "data/output/search_results_and_answer/SingleQuestions",
-            convenio: str | None = None
+            convenio: str | None = None,
+            generator: GeneratorMode = "qwen"
             ) -> None:
         """Answer a single question using the retrieved sources as context.
 
@@ -561,6 +564,8 @@ class RagCLI:
             convenio: Search this agreement and the Statute (``tic``), only
                 the Statute (``estatuto``) or, by default, the whole
                 corpus.
+            generator: ``qwen`` generates locally; ``gemini`` calls the
+                API (one request of the free quota per new answer).
         """
 
         # The index first: its errors show up before PyTorch is imported.
@@ -572,7 +577,7 @@ class RagCLI:
         # PyTorch nor the model is loaded (and nothing is cached).
         if hits:
             chunks = [hit.chunk for hit in hits]
-            answers = (AnswerCache(AnswerCache.file_path(Path(index_dir)))
+            answers = (self._answer_cache(index_dir, generator)
                        if cache else None)
             key = AnswerCache.key(query, chunks)
             cached = answers.get(key) if answers is not None else None
@@ -580,10 +585,12 @@ class RagCLI:
                 print("Answer read from the cache", file=sys.stderr)
                 answer = cached
             else:
-                generator = self._load_generator(dtype)
+                model = (self._gemini_generator(index_dir)
+                         if generator == "gemini"
+                         else self._load_generator(dtype))
                 # One model call: no progress bar, so say what is running.
                 print("Generating the answer...", file=sys.stderr)
-                answer = generator.generate(query, chunks)
+                answer = model.generate(query, chunks)
                 if answers is not None:
                     # Saved now: an error writing the output below must
                     # not lose an answer that took seconds to generate.
@@ -607,6 +614,27 @@ class RagCLI:
         path = self._save_json(save_directory,
                                f"{answered.question_id}.json", output)
         print(f"File saved in '{path}'", file=sys.stderr)
+
+    @staticmethod
+    def _answer_cache(index_dir: str,
+                      generator: GeneratorMode) -> AnswerCache:
+        """The answer cache of a generator.
+
+        Args:
+            index_dir: Folder of the index.
+            generator: ``qwen`` or ``gemini``.
+
+        Returns:
+            Its cache, in a file and a namespace of its own.
+        """
+        return AnswerCache(
+            AnswerCache.file_path(Path(index_dir), generator),
+            GeminiGenerator.namespace() if generator == "gemini" else None)
+
+    @staticmethod
+    def _gemini_generator(index_dir: str) -> GeminiGenerator:
+        """The Gemini generator; its ledgers are next to the index."""
+        return GeminiGenerator(Path(index_dir).parent / "generation")
 
     @staticmethod
     def _load_generator(dtype: DtypeMode) -> "Generator":
@@ -911,7 +939,8 @@ class RagCLI:
               retriever: RetrieverMode = "hybrid",
               dtype: DtypeMode = "auto",
               cache: bool = True,
-              raw_dir: Annotated[str, Field(min_length=1)] = "data/raw"
+              raw_dir: Annotated[str, Field(min_length=1)] = "data/raw",
+              generator: GeneratorMode = "qwen"
               ) -> None:
         """Start the local HTTP API (bonus 5) until Ctrl+C.
 
@@ -942,14 +971,16 @@ class RagCLI:
                 ``index_dir/answer_cache.json`` (``--cache=False`` to
                 search and generate again).
             raw_dir: Corpus folder that ``POST /index`` reads.
+            generator: ``qwen`` generates locally; ``gemini`` calls the
+                API (one request of the free quota per new answer).
         """
         import uvicorn
         from .api import RagApi, RetrieverLoader
 
-        answers = (AnswerCache(AnswerCache.file_path(Path(index_dir)))
+        answers = (self._answer_cache(index_dir, generator)
                    if cache else None)
         loader = RetrieverLoader(index_dir, cache)
         api = RagApi(loader.load(retriever), dtype, answers, index_dir,
-                     raw_dir, loader, retriever)
+                     raw_dir, loader, retriever, generator)
         print(f"http://{host}:{port}/docs", file=sys.stderr)
         uvicorn.run(api.app, host=host, port=port)

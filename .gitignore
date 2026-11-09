@@ -21,6 +21,7 @@ wheels/
 !/data/laboral/
 /data/laboral/processed/
 /data/laboral/embeddings/ledger.jsonl
+/data/laboral/generation/
 
 # Local material, not part of the submission
 en.subject.pdf

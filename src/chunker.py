@@ -274,12 +274,23 @@ class ArticleChunker(MdChunker):
 
     Attributes:
         HEADING: Start of an article (``Artículo 22.``, ``Artículo 38
-            bis.``). A reference such as ``Artículo 37.3`` does not match.
+            bis.``), a disposition or an annex (``ANEXO II``), so that what
+            follows the last article is not credited to it. A reference
+            such as ``Artículo 37.3`` does not match.
+        BARE_HEADING: A heading with nothing else on its line; its name
+            is on the next line.
         MAX_TITLE: Maximum length of a title, in characters.
     """
 
     HEADING: re.Pattern[str] = re.compile(
-        r"^Art[ií]culo \d+(?: bis| ter)?\.(?=\s|$)", re.MULTILINE)
+        r"^(?:Art[ií]culo \d+(?: bis| ter)?\.(?=\s|$)"
+        r"|Disposici[oó]n (?:adicional|transitoria|derogatoria|final"
+        r"|preliminar)\b"
+        r"|ANEXO [IVXLC\d]+\b)", re.MULTILINE)
+    BARE_HEADING: re.Pattern[str] = re.compile(
+        r"Art[ií]culo \d+(?: bis| ter)?\."
+        r"|Disposici[oó]n \w+(?: \w+)?\.?"
+        r"|ANEXO [IVXLC\d]+\.?")
     MAX_TITLE: int = 120
 
     @classmethod
@@ -298,7 +309,7 @@ class ArticleChunker(MdChunker):
         lines = [line.strip() for line in article.splitlines()
                  if line.strip()]
         title = lines[0]
-        if cls.HEADING.fullmatch(title) and len(lines) > 1:
+        if cls.BARE_HEADING.fullmatch(title) and len(lines) > 1:
             title = f"{title} {lines[1]}"
         return title[:cls.MAX_TITLE]
 

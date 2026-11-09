@@ -1,0 +1,1956 @@
+[
+ {
+  "id": "tic_01",
+  "archivo": "tic/tic_01_oscar-molina.txt",
+  "nombre": "Óscar Molina Díaz",
+  "sector": "tic",
+  "puesto": "Programador junior",
+  "categoria": "Área 3, grupo C",
+  "clasificacion": "Área 3, grupo C, nivel 3",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 31650,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_02",
+  "archivo": "tic/tic_02_teresa-alvarez.txt",
+  "nombre": "Teresa Álvarez Castillo",
+  "sector": "tic",
+  "puesto": "Programadora",
+  "categoria": "Área 3, grupo C",
+  "clasificacion": "Área 3, grupo C, nivel 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 34230,
+  "pactado": {
+   "vacaciones": 21,
+   "horas": 1856,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": [
+   {
+    "campo": "jornada",
+    "pactado": "1856 horas anuales",
+    "convenio": "1800 horas anuales",
+    "articulo": "art. 20"
+   },
+   {
+    "campo": "vacaciones",
+    "pactado": "21 días laborables",
+    "convenio": "23 días laborables",
+    "articulo": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "tic_03",
+  "archivo": "tic/tic_03_javier-martinez.txt",
+  "nombre": "Javier Martínez Ruiz",
+  "sector": "tic",
+  "puesto": "Programador senior",
+  "categoria": "Área 3, grupo C",
+  "clasificacion": "Área 3, grupo C, nivel 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 35880,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_04",
+  "archivo": "tic/tic_04_hugo-ortiz.txt",
+  "nombre": "Hugo Ortiz Núñez",
+  "sector": "tic",
+  "puesto": "Analista de sistemas",
+  "categoria": "Área 3, grupo B",
+  "clasificacion": "Área 3, grupo B, nivel 2",
+  "modalidad": "Temporal por circunstancias de la producción, 3 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 50,
+  "salario_anual": 33490,
+  "pactado": {
+   "vacaciones": 24,
+   "horas": 1784,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_05",
+  "archivo": "tic/tic_05_fatima-cortes.txt",
+  "nombre": "Fátima Cortés Castro",
+  "sector": "tic",
+  "puesto": "Arquitecta de software",
+  "categoria": "Área 3, grupo B",
+  "clasificacion": "Área 3, grupo B, nivel 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 39610,
+  "pactado": {
+   "vacaciones": 19,
+   "horas": 1800,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "19 días laborables",
+    "convenio": "23 días laborables",
+    "articulo": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "tic_06",
+  "archivo": "tic/tic_06_rocio-alvarez.txt",
+  "nombre": "Rocío Álvarez Benali",
+  "sector": "tic",
+  "puesto": "Técnica de sistemas",
+  "categoria": "Área 3, grupo D",
+  "clasificacion": "Área 3, grupo D, nivel 1",
+  "modalidad": "Temporal por circunstancias de la producción, 5 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 80,
+  "salario_anual": 27870,
+  "pactado": {
+   "vacaciones": 20,
+   "horas": 1776,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 30
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "20 días laborables",
+    "convenio": "23 días laborables",
+    "articulo": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "tic_07",
+  "archivo": "tic/tic_07_samuel-iglesias.txt",
+  "nombre": "Samuel Iglesias Santos",
+  "sector": "tic",
+  "puesto": "Técnico de soporte (CAU)",
+  "categoria": "Área 2, grupo D",
+  "clasificacion": "Área 2, grupo D, nivel 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 21050,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 90
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_08",
+  "archivo": "tic/tic_08_tomas-navarro.txt",
+  "nombre": "Tomás Navarro Romero",
+  "sector": "tic",
+  "puesto": "Coordinador de soporte (CAU)",
+  "categoria": "Área 2, grupo C",
+  "clasificacion": "Área 2, grupo C, nivel 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 23310,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 90
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 120
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_09",
+  "archivo": "tic/tic_09_adrian-popescu.txt",
+  "nombre": "Adrián Popescu Marín",
+  "sector": "tic",
+  "puesto": "Administrativo",
+  "categoria": "Área 1, grupo D",
+  "clasificacion": "Área 1, grupo D, nivel 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 22870,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 90
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_10",
+  "archivo": "tic/tic_10_irene-garcia.txt",
+  "nombre": "Irene García Puig",
+  "sector": "tic",
+  "puesto": "Auxiliar administrativa",
+  "categoria": "Área 1, grupo E",
+  "clasificacion": "Área 1, grupo E, nivel 1",
+  "modalidad": "Temporal por circunstancias de la producción, 5 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 100,
+  "salario_anual": 21310,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1760,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_11",
+  "archivo": "tic/tic_11_ruben-blanco.txt",
+  "nombre": "Rubén Blanco Serrano",
+  "sector": "tic",
+  "puesto": "Consultor",
+  "categoria": "Área 4, grupo B",
+  "clasificacion": "Área 4, grupo B, nivel 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 36470,
+  "pactado": {
+   "vacaciones": 24,
+   "horas": 1800,
+   "prueba_dias": 120
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_12",
+  "archivo": "tic/tic_12_ines-jimenez.txt",
+  "nombre": "Inés Jiménez Díaz",
+  "sector": "tic",
+  "puesto": "Consultora senior",
+  "categoria": "Área 4, grupo B",
+  "clasificacion": "Área 4, grupo B, nivel 1",
+  "modalidad": "Temporal por circunstancias de la producción, 3 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 100,
+  "salario_anual": 38080,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_13",
+  "archivo": "tic/tic_13_marta-diaz.txt",
+  "nombre": "Marta Díaz Torres",
+  "sector": "tic",
+  "puesto": "Jefa de proyecto",
+  "categoria": "Área 4, grupo A",
+  "clasificacion": "Área 4, grupo A",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 50,
+  "salario_anual": 39900,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_14",
+  "archivo": "tic/tic_14_wei-morales.txt",
+  "nombre": "Wei Morales Morales",
+  "sector": "tic",
+  "puesto": "Analista de ciberseguridad",
+  "categoria": "Área 5, grupo C",
+  "clasificacion": "Área 5, grupo C, nivel 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 37940,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_15",
+  "archivo": "tic/tic_15_victor-serrano.txt",
+  "nombre": "Víctor Serrano Díaz",
+  "sector": "tic",
+  "puesto": "Especialista en ciberseguridad",
+  "categoria": "Área 5, grupo B",
+  "clasificacion": "Área 5, grupo B, nivel 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 34130,
+  "pactado": {
+   "vacaciones": 24,
+   "horas": 1760,
+   "prueba_dias": 120
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_16",
+  "archivo": "tic/tic_16_pablo-castillo.txt",
+  "nombre": "Pablo Castillo López",
+  "sector": "tic",
+  "puesto": "Encuestador",
+  "categoria": "Área 6, grupo E",
+  "clasificacion": "Área 6, grupo E, nivel 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 19800,
+  "pactado": {
+   "vacaciones": 20,
+   "horas": 1800,
+   "prueba_dias": 120
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 90
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "20 días laborables",
+    "convenio": "23 días laborables",
+    "articulo": "art. 21"
+   },
+   {
+    "campo": "prueba",
+    "pactado": "4 meses",
+    "convenio": "máximo 3 meses",
+    "articulo": "art. 10"
+   }
+  ]
+ },
+ {
+  "id": "tic_17",
+  "archivo": "tic/tic_17_ruben-cortes.txt",
+  "nombre": "Rubén Cortés Romero",
+  "sector": "tic",
+  "puesto": "Técnico de campo",
+  "categoria": "Área 6, grupo D",
+  "clasificacion": "Área 6, grupo D, nivel 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 21690,
+  "pactado": {
+   "vacaciones": 24,
+   "horas": 1800,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 90
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "tic_18",
+  "archivo": "tic/tic_18_yolanda-castro.txt",
+  "nombre": "Yolanda Castro Santos",
+  "sector": "tic",
+  "puesto": "Programadora junior",
+  "categoria": "Área 3, grupo C",
+  "clasificacion": "Área 3, grupo C, nivel 3",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 29700,
+  "pactado": {
+   "vacaciones": 23,
+   "horas": 1760,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 23,
+   "horas": 1800,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_01",
+  "archivo": "grandes_almacenes/grandes_almacenes_01_andrei-ramos.txt",
+  "nombre": "Andrei Ramos Ortiz",
+  "sector": "grandes_almacenes",
+  "puesto": "Reponedor",
+  "categoria": "Grupo de personal base",
+  "clasificacion": "Grupo de personal base",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 22880,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_02",
+  "archivo": "grandes_almacenes/grandes_almacenes_02_carmen-medina.txt",
+  "nombre": "Carmen Medina Molina",
+  "sector": "grandes_almacenes",
+  "puesto": "Moza de almacén",
+  "categoria": "Grupo de personal base",
+  "clasificacion": "Grupo de personal base",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 23690,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_03",
+  "archivo": "grandes_almacenes/grandes_almacenes_03_nuria-castro.txt",
+  "nombre": "Nuria Castro Torres",
+  "sector": "grandes_almacenes",
+  "puesto": "Cajera",
+  "categoria": "Grupo de profesionales",
+  "clasificacion": "Grupo de profesionales",
+  "modalidad": "Fijo discontinuo",
+  "fijo_discontinuo": true,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 27420,
+  "pactado": {
+   "vacaciones": 33,
+   "horas": 1770,
+   "prueba_dias": 90
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 90
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_04",
+  "archivo": "grandes_almacenes/grandes_almacenes_04_tomas-castro.txt",
+  "nombre": "Tomás Castro Fernández",
+  "sector": "grandes_almacenes",
+  "puesto": "Vendedor",
+  "categoria": "Grupo de profesionales",
+  "clasificacion": "Grupo de profesionales",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 27270,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_05",
+  "archivo": "grandes_almacenes/grandes_almacenes_05_ines-morales.txt",
+  "nombre": "Inés Morales Santos",
+  "sector": "grandes_almacenes",
+  "puesto": "Atención al cliente",
+  "categoria": "Grupo de profesionales",
+  "clasificacion": "Grupo de profesionales",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 27920,
+  "pactado": {
+   "vacaciones": 28,
+   "horas": 1806,
+   "prueba_dias": 120
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "28 días naturales",
+    "convenio": "31 días naturales",
+    "articulo": "art. 35"
+   },
+   {
+    "campo": "jornada",
+    "pactado": "1806 horas anuales",
+    "convenio": "1770 horas anuales",
+    "articulo": "art. 26"
+   }
+  ]
+ },
+ {
+  "id": "grandes_almacenes_06",
+  "archivo": "grandes_almacenes/grandes_almacenes_06_paula-lozano.txt",
+  "nombre": "Paula Lozano Gómez",
+  "sector": "grandes_almacenes",
+  "puesto": "Escaparatista",
+  "categoria": "Grupo de profesionales",
+  "clasificacion": "Grupo de profesionales",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 24830,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1826,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": [
+   {
+    "campo": "jornada",
+    "pactado": "1826 horas anuales",
+    "convenio": "1770 horas anuales",
+    "articulo": "art. 26"
+   }
+  ]
+ },
+ {
+  "id": "grandes_almacenes_07",
+  "archivo": "grandes_almacenes/grandes_almacenes_07_teresa-medina.txt",
+  "nombre": "Teresa Medina Díaz",
+  "sector": "grandes_almacenes",
+  "puesto": "Coordinadora de sección",
+  "categoria": "Grupo de profesionales de coordinación",
+  "clasificacion": "Grupo de profesionales de coordinación",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 80,
+  "salario_anual": 31960,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_08",
+  "archivo": "grandes_almacenes/grandes_almacenes_08_beatriz-cortes.txt",
+  "nombre": "Beatriz Cortés Castro",
+  "sector": "grandes_almacenes",
+  "puesto": "Técnica de recursos humanos",
+  "categoria": "Grupo de técnicos/técnicas",
+  "clasificacion": "Grupo de técnicos/técnicas",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 33920,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 120
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_09",
+  "archivo": "grandes_almacenes/grandes_almacenes_09_carmen-nunez.txt",
+  "nombre": "Carmen Núñez Cortés",
+  "sector": "grandes_almacenes",
+  "puesto": "Técnica de logística",
+  "categoria": "Grupo de técnicos/técnicas",
+  "clasificacion": "Grupo de técnicos/técnicas",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 35730,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1746,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_10",
+  "archivo": "grandes_almacenes/grandes_almacenes_10_ana-sofia.txt",
+  "nombre": "Ana Sofía Morales Marín",
+  "sector": "grandes_almacenes",
+  "puesto": "Jefa de departamento",
+  "categoria": "Grupo de mandos",
+  "clasificacion": "Grupo de mandos",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 43790,
+  "pactado": {
+   "vacaciones": 33,
+   "horas": 1770,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_11",
+  "archivo": "grandes_almacenes/grandes_almacenes_11_mario-ramos.txt",
+  "nombre": "Mario Ramos Etxeberria",
+  "sector": "grandes_almacenes",
+  "puesto": "Reponedor",
+  "categoria": "Grupo de personal base",
+  "clasificacion": "Grupo de personal base",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 80,
+  "salario_anual": 24520,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_12",
+  "archivo": "grandes_almacenes/grandes_almacenes_12_laura-castillo.txt",
+  "nombre": "Laura Castillo Romero",
+  "sector": "grandes_almacenes",
+  "puesto": "Moza de almacén",
+  "categoria": "Grupo de personal base",
+  "clasificacion": "Grupo de personal base",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 75,
+  "salario_anual": 22320,
+  "pactado": {
+   "vacaciones": 29,
+   "horas": 1770,
+   "prueba_dias": 210
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": [
+   {
+    "campo": "prueba",
+    "pactado": "7 meses",
+    "convenio": "máximo 6 meses",
+    "articulo": "art. 5"
+   },
+   {
+    "campo": "vacaciones",
+    "pactado": "29 días naturales",
+    "convenio": "31 días naturales",
+    "articulo": "art. 35"
+   }
+  ]
+ },
+ {
+  "id": "grandes_almacenes_13",
+  "archivo": "grandes_almacenes/grandes_almacenes_13_nicolas-diaz.txt",
+  "nombre": "Nicolás Díaz Jiménez",
+  "sector": "grandes_almacenes",
+  "puesto": "Cajero",
+  "categoria": "Grupo de profesionales",
+  "clasificacion": "Grupo de profesionales",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 80,
+  "salario_anual": 24860,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 210
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": [
+   {
+    "campo": "prueba",
+    "pactado": "7 meses",
+    "convenio": "máximo 6 meses",
+    "articulo": "art. 5"
+   }
+  ]
+ },
+ {
+  "id": "grandes_almacenes_14",
+  "archivo": "grandes_almacenes/grandes_almacenes_14_wei-garcia.txt",
+  "nombre": "Wei García Martín",
+  "sector": "grandes_almacenes",
+  "puesto": "Vendedor",
+  "categoria": "Grupo de profesionales",
+  "clasificacion": "Grupo de profesionales",
+  "modalidad": "Fijo discontinuo",
+  "fijo_discontinuo": true,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 28870,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1770,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 90
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_15",
+  "archivo": "grandes_almacenes/grandes_almacenes_15_gonzalo-fernandez.txt",
+  "nombre": "Gonzalo Fernández Puig",
+  "sector": "grandes_almacenes",
+  "puesto": "Atención al cliente",
+  "categoria": "Grupo de profesionales",
+  "clasificacion": "Grupo de profesionales",
+  "modalidad": "Fijo discontinuo",
+  "fijo_discontinuo": true,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 28140,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 90
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_16",
+  "archivo": "grandes_almacenes/grandes_almacenes_16_candela-ortega.txt",
+  "nombre": "Candela Ortega Vidal",
+  "sector": "grandes_almacenes",
+  "puesto": "Escaparatista",
+  "categoria": "Grupo de profesionales",
+  "clasificacion": "Grupo de profesionales",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 27020,
+  "pactado": {
+   "vacaciones": 33,
+   "horas": 1770,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_17",
+  "archivo": "grandes_almacenes/grandes_almacenes_17_candela-nunez.txt",
+  "nombre": "Candela Núñez Castillo",
+  "sector": "grandes_almacenes",
+  "puesto": "Coordinadora de sección",
+  "categoria": "Grupo de profesionales de coordinación",
+  "clasificacion": "Grupo de profesionales de coordinación",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 34980,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1746,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "grandes_almacenes_18",
+  "archivo": "grandes_almacenes/grandes_almacenes_18_mario-garrido.txt",
+  "nombre": "Mario Garrido Gómez",
+  "sector": "grandes_almacenes",
+  "puesto": "Técnico de recursos humanos",
+  "categoria": "Grupo de técnicos/técnicas",
+  "clasificacion": "Grupo de técnicos/técnicas",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 50,
+  "salario_anual": 34030,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 31,
+   "horas": 1770,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_01",
+  "archivo": "contact_center/contact_center_01_adrian-serrano.txt",
+  "nombre": "Adrián Serrano Torres",
+  "sector": "contact_center",
+  "puesto": "Teleoperador",
+  "categoria": "Personal teleoperador",
+  "clasificacion": "Grupo D, nivel 11",
+  "modalidad": "Temporal por circunstancias de la producción, 3 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 100,
+  "salario_anual": 22400,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_02",
+  "archivo": "contact_center/contact_center_02_ines-hernandez.txt",
+  "nombre": "Inés Hernández Marín",
+  "sector": "contact_center",
+  "puesto": "Teleoperadora especialista",
+  "categoria": "Personal teleoperador",
+  "clasificacion": "Grupo D, nivel 10",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 50,
+  "salario_anual": 19360,
+  "pactado": {
+   "vacaciones": 33,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "discrepancias": [
+   {
+    "campo": "prueba",
+    "pactado": "2 meses",
+    "convenio": "máximo 1 mes",
+    "articulo": "art. 18"
+   }
+  ]
+ },
+ {
+  "id": "contact_center_03",
+  "archivo": "contact_center/contact_center_03_oscar-diaz.txt",
+  "nombre": "Óscar Díaz Romero",
+  "sector": "contact_center",
+  "puesto": "Gestor telefónico",
+  "categoria": "Gestor telefónico",
+  "clasificacion": "Grupo D, nivel 9",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 22930,
+  "pactado": {
+   "vacaciones": 29,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "29 días naturales",
+    "convenio": "32 días naturales",
+    "articulo": "art. 29"
+   }
+  ]
+ },
+ {
+  "id": "contact_center_04",
+  "archivo": "contact_center/contact_center_04_rocio-hernandez.txt",
+  "nombre": "Rocío Hernández Gómez",
+  "sector": "contact_center",
+  "puesto": "Coordinadora",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo D, nivel 8",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 21010,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_05",
+  "archivo": "contact_center/contact_center_05_alvaro-martin.txt",
+  "nombre": "Álvaro Martín Fernández",
+  "sector": "contact_center",
+  "puesto": "Formador",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo D, nivel 8",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 75,
+  "salario_anual": 20870,
+  "pactado": {
+   "vacaciones": 33,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_06",
+  "archivo": "contact_center/contact_center_06_daniel-torres.txt",
+  "nombre": "Daniel Torres Ruiz",
+  "sector": "contact_center",
+  "puesto": "Agente de calidad",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo D, nivel 8",
+  "modalidad": "Temporal por circunstancias de la producción, 2 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 100,
+  "salario_anual": 22370,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_07",
+  "archivo": "contact_center/contact_center_07_elena-iglesias.txt",
+  "nombre": "Elena Iglesias Delgado",
+  "sector": "contact_center",
+  "puesto": "Supervisora",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo D, nivel 7",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 23900,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "30 días naturales",
+    "convenio": "32 días naturales",
+    "articulo": "art. 29"
+   }
+  ]
+ },
+ {
+  "id": "contact_center_08",
+  "archivo": "contact_center/contact_center_08_elena-lozano.txt",
+  "nombre": "Elena Lozano Rubio",
+  "sector": "contact_center",
+  "puesto": "Técnica de sistemas",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo C, nivel 5",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 27810,
+  "pactado": {
+   "vacaciones": 34,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_09",
+  "archivo": "contact_center/contact_center_09_bruno-moreno.txt",
+  "nombre": "Bruno Moreno Martínez",
+  "sector": "contact_center",
+  "puesto": "Programador senior",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo C, nivel 5",
+  "modalidad": "Temporal por circunstancias de la producción, 4 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 50,
+  "salario_anual": 27270,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_10",
+  "archivo": "contact_center/contact_center_10_tomas-cortes.txt",
+  "nombre": "Tomás Cortés Iglesias",
+  "sector": "contact_center",
+  "puesto": "Titulado superior",
+  "categoria": "Personal técnico titulado",
+  "clasificacion": "Grupo B, nivel 4",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 32760,
+  "pactado": {
+   "vacaciones": 34,
+   "horas": 1724,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_11",
+  "archivo": "contact_center/contact_center_11_gonzalo-iglesias.txt",
+  "nombre": "Gonzalo Iglesias Gómez",
+  "sector": "contact_center",
+  "puesto": "Conserje",
+  "categoria": "Personal no cualificado",
+  "clasificacion": "Grupo E",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 20530,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_12",
+  "archivo": "contact_center/contact_center_12_alvaro-iglesias.txt",
+  "nombre": "Álvaro Iglesias López",
+  "sector": "contact_center",
+  "puesto": "Teleoperador",
+  "categoria": "Personal teleoperador",
+  "clasificacion": "Grupo D, nivel 11",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 50,
+  "salario_anual": 20650,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_13",
+  "archivo": "contact_center/contact_center_13_nicolas-chen.txt",
+  "nombre": "Nicolás Chen Delgado",
+  "sector": "contact_center",
+  "puesto": "Teleoperador especialista",
+  "categoria": "Personal teleoperador",
+  "clasificacion": "Grupo D, nivel 10",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 21020,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_14",
+  "archivo": "contact_center/contact_center_14_adrian-diaz.txt",
+  "nombre": "Adrián Díaz García",
+  "sector": "contact_center",
+  "puesto": "Gestor telefónico",
+  "categoria": "Gestor telefónico",
+  "clasificacion": "Grupo D, nivel 9",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 21780,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1764,
+   "prueba_dias": 90
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "30 días naturales",
+    "convenio": "32 días naturales",
+    "articulo": "art. 29"
+   },
+   {
+    "campo": "prueba",
+    "pactado": "3 meses",
+    "convenio": "máximo 1 mes",
+    "articulo": "art. 18"
+   }
+  ]
+ },
+ {
+  "id": "contact_center_15",
+  "archivo": "contact_center/contact_center_15_fernando-delgado.txt",
+  "nombre": "Fernando Delgado Vidal",
+  "sector": "contact_center",
+  "puesto": "Coordinador",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo D, nivel 8",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 24620,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_16",
+  "archivo": "contact_center/contact_center_16_rocio-perez.txt",
+  "nombre": "Rocío Pérez Marín",
+  "sector": "contact_center",
+  "puesto": "Formadora",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo D, nivel 8",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 21230,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_17",
+  "archivo": "contact_center/contact_center_17_bruno-navarro.txt",
+  "nombre": "Bruno Navarro Moreno",
+  "sector": "contact_center",
+  "puesto": "Agente de calidad",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo D, nivel 8",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 80,
+  "salario_anual": 24400,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1748,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "contact_center_18",
+  "archivo": "contact_center/contact_center_18_oscar-castillo.txt",
+  "nombre": "Óscar Castillo Gómez",
+  "sector": "contact_center",
+  "puesto": "Supervisor",
+  "categoria": "Restantes niveles",
+  "clasificacion": "Grupo D, nivel 7",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 50,
+  "salario_anual": 23300,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 32,
+   "horas": 1764,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_01",
+  "archivo": "construccion/construccion_01_laura-ruiz.txt",
+  "nombre": "Laura Ruiz Torres",
+  "sector": "construccion",
+  "puesto": "Peón ordinario",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel XII",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 22150,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_02",
+  "archivo": "construccion/construccion_02_aitana-delgado.txt",
+  "nombre": "Aitana Delgado Delgado",
+  "sector": "construccion",
+  "puesto": "Peón especializado",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel XI",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 26000,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_03",
+  "archivo": "construccion/construccion_03_adrian-castillo.txt",
+  "nombre": "Adrián Castillo Ortega",
+  "sector": "construccion",
+  "puesto": "Ayudante de oficio",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel X",
+  "modalidad": "Temporal por circunstancias de la producción, 3 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 100,
+  "salario_anual": 24950,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_04",
+  "archivo": "construccion/construccion_04_gonzalo-castro.txt",
+  "nombre": "Gonzalo Castro Santos",
+  "sector": "construccion",
+  "puesto": "Oficial de 2.ª",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel IX",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 24160,
+  "pactado": {
+   "vacaciones": 26,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "26 días naturales",
+    "convenio": "30 días naturales",
+    "articulo": "art. 76"
+   }
+  ]
+ },
+ {
+  "id": "construccion_05",
+  "archivo": "construccion/construccion_05_raul-chen.txt",
+  "nombre": "Raúl Chen Marín",
+  "sector": "construccion",
+  "puesto": "Oficial de 1.ª",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel VIII",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 25690,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_06",
+  "archivo": "construccion/construccion_06_pablo-nunez.txt",
+  "nombre": "Pablo Núñez Ortega",
+  "sector": "construccion",
+  "puesto": "Capataz",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel VII",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 28540,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_07",
+  "archivo": "construccion/construccion_07_adrian-chen.txt",
+  "nombre": "Adrián Chen Molina",
+  "sector": "construccion",
+  "puesto": "Encargado general de obra",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel V",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 50,
+  "salario_anual": 26700,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1720,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_08",
+  "archivo": "construccion/construccion_08_joel-delgado.txt",
+  "nombre": "Joel Delgado Díaz",
+  "sector": "construccion",
+  "puesto": "Auxiliar administrativo",
+  "categoria": "Empleado",
+  "clasificacion": "Nivel IX",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 75,
+  "salario_anual": 25080,
+  "pactado": {
+   "vacaciones": 32,
+   "horas": 1736,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_09",
+  "archivo": "construccion/construccion_09_teresa-iglesias.txt",
+  "nombre": "Teresa Iglesias Benali",
+  "sector": "construccion",
+  "puesto": "Delineante de 2.ª",
+  "categoria": "Empleado",
+  "clasificacion": "Nivel VII",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 27310,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_10",
+  "archivo": "construccion/construccion_10_fernando-medina.txt",
+  "nombre": "Fernando Medina Sánchez",
+  "sector": "construccion",
+  "puesto": "Delineante de 1.ª",
+  "categoria": "Empleado",
+  "clasificacion": "Nivel VI",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 24210,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1736,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 60
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_11",
+  "archivo": "construccion/construccion_11_hugo-oliveira.txt",
+  "nombre": "Hugo Oliveira Núñez",
+  "sector": "construccion",
+  "puesto": "Titulado medio",
+  "categoria": "Técnico titulado",
+  "clasificacion": "Nivel III",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 75,
+  "salario_anual": 26660,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 120
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_12",
+  "archivo": "construccion/construccion_12_marta-delgado.txt",
+  "nombre": "Marta Delgado Cortés",
+  "sector": "construccion",
+  "puesto": "Peón ordinario",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel XII",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 25170,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1696,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_13",
+  "archivo": "construccion/construccion_13_victor-garrido.txt",
+  "nombre": "Víctor Garrido Jiménez",
+  "sector": "construccion",
+  "puesto": "Peón especializado",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel XI",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 25500,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_14",
+  "archivo": "construccion/construccion_14_vega-garrido.txt",
+  "nombre": "Vega Garrido Etxeberria",
+  "sector": "construccion",
+  "puesto": "Ayudante de oficio",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel X",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 23690,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": [
+   {
+    "campo": "jornada",
+    "pactado": "1772 horas anuales",
+    "convenio": "1736 horas anuales",
+    "articulo": "art. 71"
+   }
+  ]
+ },
+ {
+  "id": "construccion_15",
+  "archivo": "construccion/construccion_15_nuria-lozano.txt",
+  "nombre": "Nuria Lozano Garrido",
+  "sector": "construccion",
+  "puesto": "Oficial de 2.ª",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel IX",
+  "modalidad": "Temporal por circunstancias de la producción, 3 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 80,
+  "salario_anual": 23930,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "construccion_16",
+  "archivo": "construccion/construccion_16_patricia-diaz.txt",
+  "nombre": "Patricia Díaz Ramos",
+  "sector": "construccion",
+  "puesto": "Oficial de 1.ª",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel VIII",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 25560,
+  "pactado": {
+   "vacaciones": 27,
+   "horas": 1792,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 15
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "27 días naturales",
+    "convenio": "30 días naturales",
+    "articulo": "art. 76"
+   },
+   {
+    "campo": "jornada",
+    "pactado": "1792 horas anuales",
+    "convenio": "1736 horas anuales",
+    "articulo": "art. 71"
+   }
+  ]
+ },
+ {
+  "id": "construccion_17",
+  "archivo": "construccion/construccion_17_patricia-chen.txt",
+  "nombre": "Patricia Chen Moreno",
+  "sector": "construccion",
+  "puesto": "Capataz",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel VII",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 50,
+  "salario_anual": 25450,
+  "pactado": {
+   "vacaciones": 26,
+   "horas": 1736,
+   "prueba_dias": 90
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 30
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "26 días naturales",
+    "convenio": "30 días naturales",
+    "articulo": "art. 76"
+   },
+   {
+    "campo": "prueba",
+    "pactado": "3 meses",
+    "convenio": "máximo 1 mes",
+    "articulo": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "construccion_18",
+  "archivo": "construccion/construccion_18_teresa-lozano.txt",
+  "nombre": "Teresa Lozano Álvarez",
+  "sector": "construccion",
+  "puesto": "Encargada general de obra",
+  "categoria": "Personal operario",
+  "clasificacion": "Nivel V",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 24300,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1736,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ }
+]

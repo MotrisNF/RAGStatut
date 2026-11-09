@@ -35,16 +35,21 @@ class AnswerCache:
     GENERATOR_FILE = Path(__file__).parent / "generator.py"
 
     @classmethod
-    def file_path(cls, index_dir: Path) -> Path:
+    def file_path(cls, index_dir: Path, generator: str = "qwen") -> Path:
         """Where the answer cache is saved.
 
         Args:
             index_dir: Folder of the index, next to the query caches.
+            generator: Each generator keeps its answers in its own file.
 
         Returns:
-            ``index_dir/answer_cache.json``.
+            ``index_dir/answer_cache.json``, or
+            ``index_dir/answer_cache_<generator>.json`` for any generator
+            other than ``qwen``.
         """
-        return index_dir / cls.FILE_NAME
+        if generator == "qwen":
+            return index_dir / cls.FILE_NAME
+        return index_dir / f"answer_cache_{generator}.json"
 
     @classmethod
     def namespace(cls) -> str:
@@ -88,15 +93,17 @@ class AnswerCache:
         text = json.dumps(data, sort_keys=True, ensure_ascii=False)
         return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
-    def __init__(self, path: Path) -> None:
+    def __init__(self, path: Path, namespace: str | None = None) -> None:
         """Read the saved answers of the current generator.
 
         Args:
             path: The JSON file the cache is read from and written to
                 (``file_path(index_dir)``).
+            namespace: Identifies the generator; by default, ``namespace``
+                (the local model).
         """
         self._path = path
-        self._namespace = self.namespace()
+        self._namespace = namespace or self.namespace()
         self._entries = self._read()
         self._changed = False
 

@@ -11,7 +11,7 @@ same pydantic models the CLI prints.
 import sys
 import threading
 from pathlib import Path
-from typing import TYPE_CHECKING, Annotated
+from typing import TYPE_CHECKING, Annotated, cast
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
@@ -23,16 +23,20 @@ from .base_retriever import Retriever
 from .bm25_index import BM25Index
 from .cached_retriever import CachedRetriever
 from .commands import RagCLI
+from .contract_rules import Check, check_contract, describe
+from .contracts import Contract, ContractStore
 from .convenio_search import ConvenioSearch
 from .exceptions import RagError, UsageError
+from .gemini_generator import GeminiGenerator
 from .gemini_retriever import GeminiRetriever
 from .hybrid_retriever import HybridRetriever
 from .incremental_indexer import IncrementalIndexer
-from .models import (NO_SOURCES, Chunk, DtypeMode, IndexSummary,
+from .models import (NO_SOURCES, Chunk, DtypeMode, GeneratorMode, IndexSummary,
                      MinimalAnswer, MinimalSource, RetrieverMode,
                      StudentSearchResults, StudentSearchResultsAndAnswer,
                      UnansweredQuestion)
-from .norm_catalog import Citation, CitationResults, Norm, NormCatalog
+from .norm_catalog import (Citation, CitationResults, ConsultResults, Norm,
+                           NormCatalog)
 from .vector_index import VectorIndex
 
 if TYPE_CHECKING:
@@ -46,6 +50,7 @@ TopK = Annotated[int, Query(gt=0)]
 ChunkSize = Annotated[int, Query(gt=0, le=2000)]
 ConvenioName = Annotated[str | None, Query(min_length=1)]
 RequiredConvenio = Annotated[str, Query(min_length=1)]
+ContractName = Annotated[str | None, Query(min_length=1)]
 
 
 class RetrieverLoader:
@@ -153,7 +158,8 @@ class RagApi:
                  index_dir: str | None = None,
                  raw_dir: str = "data/raw",
                  loader: RetrieverLoader | None = None,
-                 mode: RetrieverMode = "hybrid"
+                 mode: RetrieverMode = "hybrid",
+                 generator: GeneratorMode = "qwen"
                  ) -> None:
         """Create the application; the model is not loaded yet.
 
@@ -174,7 +180,10 @@ class RagApi:
                 ``None``: only ``retriever`` is available, and
                 re-indexing is disabled.
             mode: Which retriever ``retriever`` is.
+            generator: ``qwen`` generates locally; ``gemini`` calls the
+                API.
         """
+        self._generator_mode = generator
         self._mode = mode
         # Every retriever loaded so far, by mode; the default one first.
         self._retrievers: dict[RetrieverMode, Retriever] = {mode: retriever}
@@ -187,7 +196,7 @@ class RagApi:
         # read or write (with its flush) at a time.
         self._answers_lock = threading.Lock()
         # Loaded on the first /answer, then kept for the next requests.
-        self._generator: "Generator | None" = None
+        self._generator: "Generator | GeminiGenerator | None" = None
         # FastAPI runs each request in its own thread: one lock so the
         # model is loaded only once and answers one question at a time.
         self._generator_lock = threading.Lock()
@@ -203,6 +212,8 @@ class RagApi:
         self.app.get("/search")(self.search)
         self.app.get("/convenios")(self.convenios)
         self.app.get("/citations")(self.citations)
+        self.app.get("/consult")(self.consult)
+        self.app.get("/contracts")(self.contracts)
         self.app.get("/answer")(self.answer)
         self.app.post("/index")(self.index)
 
@@ -323,7 +334,62 @@ class RagApi:
         return CitationResults(query=query, convenio=convenio,
                                citations=items)
 
-    def _get_generator(self) -> "Generator":
+    def contracts(self) -> list[Contract]:
+        """Return the fictional contracts that can be asked about."""
+        if self._index_dir is None:
+            return []
+        return ContractStore(
+            Path(self._index_dir).parent / "contratos").all()
+
+    def _find_contract(self, identifier: str | None) -> Contract | None:
+        """A contract, or ``None`` when none was asked for.
+
+        Raises:
+            HTTPException: 400 with the local model, which cannot use
+                contracts; 404 for a contract that does not exist.
+        """
+        if identifier is None:
+            return None
+        if self._generator_mode != "gemini":
+            raise HTTPException(status_code=400,
+                                detail="Contracts need the Gemini generator")
+        found = next((c for c in self.contracts() if c.id == identifier),
+                     None)
+        if found is None:
+            raise HTTPException(status_code=404, detail="Unknown contract")
+        return found
+
+    def consult(self, query: QueryText, convenio: RequiredConvenio,
+                k: TopK = 10, retriever: RetrieverMode | None = None,
+                contract: ContractName = None
+                ) -> ConsultResults:
+        """Return the answer to a question, with the articles it is from.
+
+        Like ``/citations``, plus the generated answer, for a page that
+        shows both. ``convenio`` is mandatory. Without sources the answer
+        is a fixed message and nothing is generated. ``contract`` applies
+        the answer to a fictional person.
+        """
+        self._check_convenio(convenio)
+        person = self._find_contract(contract)
+        # Only against its own agreement: another one has other categories.
+        checks: list[Check] = (check_contract(person)
+                               if person and person.convenio == convenio
+                               else [])
+        with self._retriever_lock:
+            chosen = self._get_retriever(retriever)
+            hits = ConvenioSearch.search(chosen, query, k, convenio)
+            chosen.flush()
+        answer = (self._generate(query, [hit.chunk for hit in hits],
+                                 person.text if person else None,
+                                 describe(checks) if checks else None)
+                  if hits else NO_SOURCES)
+        return ConsultResults(
+            query=query, convenio=convenio, answer=answer,
+            citations=[NormCatalog.citation(hit) for hit in hits],
+            checks=checks)
+
+    def _get_generator(self) -> "Generator | GeminiGenerator":
         """Return the generator, loading it on the first call.
 
         Must be called with ``_generator_lock`` held.
@@ -333,6 +399,11 @@ class RagApi:
             RagError: The model does not fit in memory (503, through
                 ``_rag_error``). Either way the next request tries again.
         """
+        if self._generator is None and self._generator_mode == "gemini":
+            if self._index_dir is None:
+                raise HTTPException(status_code=503,
+                                    detail="Gemini needs the index folder")
+            self._generator = RagCLI._gemini_generator(self._index_dir)
         if self._generator is None:
             try:
                 print("Loading PyTorch...", file=sys.stderr)
@@ -374,7 +445,9 @@ class RagApi:
             self._answers.put(key, answer)
             self._answers.flush()
 
-    def _generate(self, query: str, chunks: list[Chunk]) -> str:
+    def _generate(self, query: str, chunks: list[Chunk],
+                  contract: str | None = None,
+                  checks: str | None = None) -> str:
         """Answer from the cache, or generate and cache the answer.
 
         The cache is checked again once the model lock is held: another
@@ -384,6 +457,8 @@ class RagApi:
         Args:
             query: The question.
             chunks: The context chunks, in order.
+            contract: Text of a person's contract, part of the cache key:
+                two people asking the same must not share an answer.
 
         Returns:
             The answer.
@@ -391,7 +466,8 @@ class RagApi:
         Raises:
             HTTPException, RagError: As ``_get_generator``, only on a miss.
         """
-        key = AnswerCache.key(query, chunks)
+        key_text = query if contract is None else f"{query}\n{contract}"
+        key = AnswerCache.key(key_text, chunks)
         answer = self._cached(key)
         if answer is not None:
             return answer
@@ -400,7 +476,11 @@ class RagApi:
             if answer is None:
                 generator = self._get_generator()
                 print("Generating an answer...", file=sys.stderr)
-                answer = generator.generate(query, chunks)
+                if contract is None:
+                    answer = generator.generate(query, chunks)
+                else:
+                    answer = cast(GeminiGenerator, generator).generate(
+                        query, chunks, contract, checks)
                 self._remember(key, answer)
         return answer
 
@@ -464,6 +544,6 @@ class RagApi:
                     self._mode: self._loader.load(self._mode)}
                 if self._answers is not None:
                     with self._answers_lock:
-                        self._answers = AnswerCache(AnswerCache.file_path(
-                            Path(self._index_dir)))
+                        self._answers = RagCLI._answer_cache(
+                            self._index_dir, self._generator_mode)
         return IndexSummary.from_report(report)

@@ -9,6 +9,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
+from .contract_rules import Check
 from .convenio_search import ConvenioSearch
 from .models import SearchHit
 
@@ -74,6 +75,19 @@ class CitationResults(BaseModel):
     query: str
     convenio: str
     citations: list[Citation]
+
+
+class ConsultResults(CitationResults):
+    """What ``/consult`` answers.
+
+    Attributes:
+        answer: The generated answer.
+        checks: The contract compared with its agreement by the code;
+            empty without a contract.
+    """
+
+    answer: str
+    checks: list[Check] = []
 
 
 class NormCatalog:

@@ -40,6 +40,17 @@ SERVE_ARGS ?=
 serve:
 	@uv run -m src serve $(SERVE_ARGS)
 
+# MiConvenio: `make api` in one terminal and `make web` in another.
+# A new question spends the free Gemini quota: one embedding and one answer.
+LABORAL_DATA := data/laboral
+
+api:
+	@uv run -m src serve --index_dir $(LABORAL_DATA)/processed \
+		--raw_dir $(LABORAL_DATA)/raw --retriever gemini --generator gemini
+
+web:
+	@uv run streamlit run web/app.py
+
 # Each rule keeps its own mypy cache: the cache is only valid for the
 # flags that built it, so sharing one made every switch between lint and
 # lint-strict re-check torch, transformers... from scratch (~50 s, not ~2 s).
@@ -241,4 +252,4 @@ cleandata:
 		find $(BASE_DATA)/output -type f -name '*.json' -delete; fi
 	@echo "Index and generated outputs removed"
 
-.PHONY: all install run debug serve lint lint-strict test test_rag test_rag_base test_index test_retrieval test_limits test_limits_cached test_answer_dataset clean cleandata
+.PHONY: all install run debug serve api web lint lint-strict test test_rag test_rag_base test_index test_retrieval test_limits test_limits_cached test_answer_dataset clean cleandata

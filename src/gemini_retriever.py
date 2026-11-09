@@ -49,15 +49,25 @@ class QuotaGuard:
     TIMEZONE: ZoneInfo = ZoneInfo("America/Los_Angeles")
 
     def __init__(self, ledger: Path,
-                 clock: Callable[[], float] = time.time) -> None:
+                 clock: Callable[[], float] = time.time,
+                 day_limit: int | None = None,
+                 minute_requests: int | None = None,
+                 minute_tokens: int | None = None) -> None:
         """Remember where the calls are written.
 
         Args:
             ledger: The JSON Lines file with one entry per call.
             clock: Gives the current time, in seconds.
+            day_limit: Calls per day; ``DAY_LIMIT`` by default.
+            minute_requests: Calls per minute; ``MINUTE_REQUESTS`` by
+                default.
+            minute_tokens: Tokens per minute; ``MINUTE_TOKENS`` by default.
         """
         self._ledger = ledger
         self._clock = clock
+        self._day_limit = day_limit or self.DAY_LIMIT
+        self._minute_requests = minute_requests or self.MINUTE_REQUESTS
+        self._minute_tokens = minute_tokens or self.MINUTE_TOKENS
 
     def _entries(self) -> list[dict[str, object]]:
         """Every call written so far; none if the file does not exist.
@@ -92,9 +102,9 @@ class QuotaGuard:
             recent = [entry for entry in entries
                       if now - float(str(entry["t"])) < self.WINDOW]
             spent = sum(int(str(entry["tokens"])) for entry in recent)
-            if (today >= self.DAY_LIMIT
-                    or len(recent) >= self.MINUTE_REQUESTS
-                    or spent + tokens > self.MINUTE_TOKENS):
+            if (today >= self._day_limit
+                    or len(recent) >= self._minute_requests
+                    or spent + tokens > self._minute_tokens):
                 return False
             self._ledger.parent.mkdir(parents=True, exist_ok=True)
             with self._ledger.open("a", encoding="utf-8") as file:
