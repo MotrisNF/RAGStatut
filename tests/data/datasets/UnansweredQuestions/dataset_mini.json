@@ -1,0 +1,48 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "mini-01",
+      "question": "What HTTP endpoint is used to dynamically load a LoRA adapter?"
+    },
+    {
+      "question_id": "mini-02",
+      "question": "Which flag enables LoRA support when starting the engine?"
+    },
+    {
+      "question_id": "mini-03",
+      "question": "Which environment variable allows loading LoRA adapters at runtime?"
+    },
+    {
+      "question_id": "mini-04",
+      "question": "On which port does the OpenAI compatible server listen by default?"
+    },
+    {
+      "question_id": "mini-05",
+      "question": "How do clients authenticate against the server when an API key is set?"
+    },
+    {
+      "question_id": "mini-06",
+      "question": "Which quantization methods does the engine support?"
+    },
+    {
+      "question_id": "mini-07",
+      "question": "What happens with FP8 on GPUs without native FP8 support?"
+    },
+    {
+      "question_id": "mini-08",
+      "question": "When is sampling greedy in SamplingParams?"
+    },
+    {
+      "question_id": "mini-09",
+      "question": "What values of top_p are accepted by SamplingParams.verify?"
+    },
+    {
+      "question_id": "mini-10",
+      "question": "What is the default block size of the KV cache?"
+    },
+    {
+      "question_id": "mini-11",
+      "question": "What does KVCacheManager.allocate do when there are not enough free blocks?"
+    }
+  ]
+}

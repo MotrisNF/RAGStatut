@@ -1,0 +1,56 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "hard-01",
+      "question": "How can I swap fine-tuned weights into a running deployment without restarting it?"
+    },
+    {
+      "question_id": "hard-02",
+      "question": "What should I change when two inference engines run on the same graphics card?"
+    },
+    {
+      "question_id": "hard-03",
+      "question": "How do I get exactly the same text every time I run a prompt?"
+    },
+    {
+      "question_id": "hard-04",
+      "question": "How many tokens fit in one memory page of the attention store by default?"
+    },
+    {
+      "question_id": "hard-05",
+      "question": "What is the integer id of a LoRA request used for?"
+    },
+    {
+      "question_id": "hard-06",
+      "question": "Which value of lora_int_id is reserved and cannot be used?"
+    },
+    {
+      "question_id": "hard-07",
+      "question": "What is the default max_num_seqs of the Scheduler class?"
+    },
+    {
+      "question_id": "hard-08",
+      "question": "What is the default fraction of GPU memory reserved by the engine?"
+    },
+    {
+      "question_id": "hard-09",
+      "question": "How do I disable CUDA graphs?"
+    },
+    {
+      "question_id": "hard-10",
+      "question": "Which preemption mode is used by default and why?"
+    },
+    {
+      "question_id": "hard-11",
+      "question": "Why does the server refuse to start on port 8000?"
+    },
+    {
+      "question_id": "hard-12",
+      "question": "Can LoRA adapters run on CPU?"
+    },
+    {
+      "question_id": "hard-13",
+      "question": "In which order does the scheduler serve the waiting requests?"
+    }
+  ]
+}

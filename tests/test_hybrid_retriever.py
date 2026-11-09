@@ -39,7 +39,9 @@ class FixedBM25:
         self.chunk_count = chunk_count
         self.asked: list[int] = []
 
-    def search(self, query: str, k: int) -> list[SearchHit]:
+    def search(self, query: str, k: int,
+               sources: frozenset[str] | None = None
+               ) -> list[SearchHit]:
         """The first ``k`` hits; records ``k``."""
         self.asked.append(k)
         return self.hits[:k]

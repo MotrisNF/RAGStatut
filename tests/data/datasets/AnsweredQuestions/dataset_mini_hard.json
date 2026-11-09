@@ -1,0 +1,173 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "hard-01",
+      "question": "How can I swap fine-tuned weights into a running deployment without restarting it?",
+      "answer": "POST the adapter name and path to /v1/load_lora_adapter.",
+      "difficulty": "paraphrase",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/lora.md",
+          "first_character_index": 432,
+          "last_character_index": 570
+        }
+      ]
+    },
+    {
+      "question_id": "hard-02",
+      "question": "What should I change when two inference engines run on the same graphics card?",
+      "answer": "Lower gpu_memory_utilization.",
+      "difficulty": "paraphrase",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/performance.md",
+          "first_character_index": 895,
+          "last_character_index": 981
+        }
+      ]
+    },
+    {
+      "question_id": "hard-03",
+      "question": "How do I get exactly the same text every time I run a prompt?",
+      "answer": "Set a fixed seed and keep model, hardware and version identical.",
+      "difficulty": "paraphrase",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/faq.md",
+          "first_character_index": 503,
+          "last_character_index": 689
+        }
+      ]
+    },
+    {
+      "question_id": "hard-04",
+      "question": "How many tokens fit in one memory page of the attention store by default?",
+      "answer": "16 tokens per block.",
+      "difficulty": "paraphrase",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/kv_cache.py",
+          "first_character_index": 30,
+          "last_character_index": 53
+        }
+      ]
+    },
+    {
+      "question_id": "hard-05",
+      "question": "What is the integer id of a LoRA request used for?",
+      "answer": "lora_int_id is a globally unique positive integer identifying the adapter.",
+      "difficulty": "identifier",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/lora_request.py",
+          "first_character_index": 150,
+          "last_character_index": 360
+        }
+      ]
+    },
+    {
+      "question_id": "hard-06",
+      "question": "Which value of lora_int_id is reserved and cannot be used?",
+      "answer": "0 is reserved for 'no adapter'; ids start at 1.",
+      "difficulty": "identifier",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/lora_request.py",
+          "first_character_index": 430,
+          "last_character_index": 633
+        }
+      ]
+    },
+    {
+      "question_id": "hard-07",
+      "question": "What is the default max_num_seqs of the Scheduler class?",
+      "answer": "256.",
+      "difficulty": "distractor",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/scheduler.py",
+          "first_character_index": 498,
+          "last_character_index": 739
+        }
+      ]
+    },
+    {
+      "question_id": "hard-08",
+      "question": "What is the default fraction of GPU memory reserved by the engine?",
+      "answer": "0.9 (gpu_memory_utilization).",
+      "difficulty": "small-answer",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/performance.md",
+          "first_character_index": 500,
+          "last_character_index": 578
+        }
+      ]
+    },
+    {
+      "question_id": "hard-09",
+      "question": "How do I disable CUDA graphs?",
+      "answer": "Pass enforce_eager=True.",
+      "difficulty": "small-answer",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/performance.md",
+          "first_character_index": 1579,
+          "last_character_index": 1696
+        }
+      ]
+    },
+    {
+      "question_id": "hard-10",
+      "question": "Which preemption mode is used by default and why?",
+      "answer": "RECOMPUTE, because recomputing is usually faster than copying.",
+      "difficulty": "small-answer",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/scheduler.py",
+          "first_character_index": 221,
+          "last_character_index": 367
+        }
+      ]
+    },
+    {
+      "question_id": "hard-11",
+      "question": "Why does the server refuse to start on port 8000?",
+      "answer": "Another process uses the port; stop it or use --port.",
+      "difficulty": "distractor",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/faq.md",
+          "first_character_index": 84,
+          "last_character_index": 190
+        }
+      ]
+    },
+    {
+      "question_id": "hard-12",
+      "question": "Can LoRA adapters run on CPU?",
+      "answer": "Not yet: LoRA needs a GPU backend.",
+      "difficulty": "distractor",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/faq.md",
+          "first_character_index": 228,
+          "last_character_index": 283
+        }
+      ]
+    },
+    {
+      "question_id": "hard-13",
+      "question": "In which order does the scheduler serve the waiting requests?",
+      "answer": "Arrival order: first come, first served.",
+      "difficulty": "distractor",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/scheduler.py",
+          "first_character_index": 852,
+          "last_character_index": 916
+        }
+      ]
+    }
+  ]
+}

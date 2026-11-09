@@ -1,0 +1,136 @@
+{
+  "rag_questions": [
+    {
+      "question_id": "mini-01",
+      "question": "What HTTP endpoint is used to dynamically load a LoRA adapter?",
+      "answer": "Send a POST request to /v1/load_lora_adapter with the adapter name and path.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/lora.md",
+          "first_character_index": 432,
+          "last_character_index": 570
+        }
+      ]
+    },
+    {
+      "question_id": "mini-02",
+      "question": "Which flag enables LoRA support when starting the engine?",
+      "answer": "Start the engine with enable_lora=True.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/lora.md",
+          "first_character_index": 218,
+          "last_character_index": 406
+        }
+      ]
+    },
+    {
+      "question_id": "mini-03",
+      "question": "Which environment variable allows loading LoRA adapters at runtime?",
+      "answer": "VLLM_ALLOW_RUNTIME_LORA_UPDATING=True.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/lora.md",
+          "first_character_index": 649,
+          "last_character_index": 751
+        }
+      ]
+    },
+    {
+      "question_id": "mini-04",
+      "question": "On which port does the OpenAI compatible server listen by default?",
+      "answer": "Port 8000; it can be changed with --port.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/openai_server.md",
+          "first_character_index": 197,
+          "last_character_index": 342
+        }
+      ]
+    },
+    {
+      "question_id": "mini-05",
+      "question": "How do clients authenticate against the server when an API key is set?",
+      "answer": "They send the key in the Authorization: Bearer header.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/openai_server.md",
+          "first_character_index": 363,
+          "last_character_index": 513
+        }
+      ]
+    },
+    {
+      "question_id": "mini-06",
+      "question": "Which quantization methods does the engine support?",
+      "answer": "AWQ, GPTQ and FP8, selected with --quantization.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/quantization.md",
+          "first_character_index": 167,
+          "last_character_index": 306
+        }
+      ]
+    },
+    {
+      "question_id": "mini-07",
+      "question": "What happens with FP8 on GPUs without native FP8 support?",
+      "answer": "It falls back to a weight-only FP8 kernel: less memory, no speed-up.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/docs/quantization.md",
+          "first_character_index": 330,
+          "last_character_index": 477
+        }
+      ]
+    },
+    {
+      "question_id": "mini-08",
+      "question": "When is sampling greedy in SamplingParams?",
+      "answer": "When the temperature is 0.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/sampling_params.py",
+          "first_character_index": 553,
+          "last_character_index": 691
+        }
+      ]
+    },
+    {
+      "question_id": "mini-09",
+      "question": "What values of top_p are accepted by SamplingParams.verify?",
+      "answer": "top_p must be in (0, 1].",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/sampling_params.py",
+          "first_character_index": 693,
+          "last_character_index": 973
+        }
+      ]
+    },
+    {
+      "question_id": "mini-10",
+      "question": "What is the default block size of the KV cache?",
+      "answer": "16 tokens per block.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/kv_cache.py",
+          "first_character_index": 30,
+          "last_character_index": 53
+        }
+      ]
+    },
+    {
+      "question_id": "mini-11",
+      "question": "What does KVCacheManager.allocate do when there are not enough free blocks?",
+      "answer": "It raises MemoryError and the request is preempted.",
+      "sources": [
+        {
+          "file_path": "tests/data/raw/mini_vllm/vllm/kv_cache.py",
+          "first_character_index": 395,
+          "last_character_index": 885
+        }
+      ]
+    }
+  ]
+}

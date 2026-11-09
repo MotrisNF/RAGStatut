@@ -17,7 +17,10 @@ wheels/
 # Data: the corpus, the datasets, the index and the outputs are provided or
 # generated at evaluation, so the whole folder stays out of the repository.
 # The commands create the index and output folders they write to.
-data/
+/data/*
+!/data/laboral/
+/data/laboral/processed/
+/data/laboral/embeddings/ledger.jsonl
 
 # Local material, not part of the submission
 en.subject.pdf

@@ -115,56 +115,6 @@ test_rag_base:
 			--k $(BASE_K) || exit 1; \
 	done
 
-# Same pipeline on a second, independent corpus: every project in
-# tests/test_corpus/raw, indexed together, with handwritten datasets (exact
-# source ranges), each reported apart: Fly-in (a drone-routing simulator)
-# with dataset_flyin_docs.json (the READMEs and the map files) and
-# dataset_flyin_code.json (src/), A-Maze-ing (a maze generator and game)
-# with dataset_amazeing_docs.json (its two READMEs and config files) and
-# dataset_amazeing_code.json (mazegen/ and src/), and Dones (Python
-# exercises P0-P10) with dataset_dones_code.json. Checks that the system is
-# not tuned to vLLM only; each project is also noise for the others'
-# questions. Same layout as data/, so every path is an option. The corpus
-# is indexed once, then search_dataset + evaluate run for each dataset.
-#   CORPUS_DATASETS=... dataset file names (default: all five)
-#   CORPUS_K=5          k for search and evaluate (default 10, as the
-#                       moulinette)
-#   CORPUS_CHUNK=500    max_chunk_size (default 2000)
-#   ANSWER=1            also generate the answers with Qwen (answer_dataset:
-#                       slow, ~20 s per question, and needs the model's
-#                       memory); off by default
-CORPUS_DATA     := tests/test_corpus
-CORPUS_INDEX    := $(CORPUS_DATA)/processed
-CORPUS_OUTPUT   := $(CORPUS_DATA)/output/search_results/UnansweredQuestions
-CORPUS_ANSWERS  := $(CORPUS_DATA)/output/search_results_and_answer/UnansweredQuestions
-CORPUS_DATASETS ?= dataset_flyin_docs.json dataset_flyin_code.json \
-                   dataset_amazeing_docs.json dataset_amazeing_code.json \
-                   dataset_dones_code.json
-CORPUS_K        ?= 10
-CORPUS_CHUNK    ?= 2000
-ANSWER          ?= 0
-
-test_corpus:
-	time uv run -m src index --raw_dir $(CORPUS_DATA)/raw \
-		--index_dir $(CORPUS_INDEX) --max_chunk_size $(CORPUS_CHUNK) $(INDEX_FULL)
-	@for dataset in $(CORPUS_DATASETS); do \
-		echo "===== $$dataset ====="; \
-		time uv run -m src search_dataset \
-			--dataset_path $(CORPUS_DATA)/datasets/UnansweredQuestions/$$dataset \
-			--k $(CORPUS_K) --save_directory $(CORPUS_OUTPUT) \
-			--index_dir $(CORPUS_INDEX) || exit 1; \
-		time uv run -m src evaluate \
-			--student_search_results_path $(CORPUS_OUTPUT)/$$dataset \
-			--dataset_path $(CORPUS_DATA)/datasets/AnsweredQuestions/$$dataset \
-			--k $(CORPUS_K) || exit 1; \
-		if [ "$(ANSWER)" = 1 ]; then \
-			time uv run -m src answer_dataset \
-				--student_search_results_path $(CORPUS_OUTPUT)/$$dataset \
-				--save_directory $(CORPUS_ANSWERS) \
-				--index_dir $(CORPUS_INDEX) || exit 1; \
-		fi; \
-	done
-
 # Subject time limits (chapter VII), checked on the real data with the
 # moulinette settings. Each rule prints the time and PASS or FAIL.
 #   test_index:     indexing the whole corpus in at most 5 minutes
@@ -216,28 +166,10 @@ test_limits_cached:
 	@echo "===== 2/2: search again, no index (query cache)"
 	@$(MAKE) --no-print-directory test_retrieval
 
-# Answer battery: runs `answer` on every question of tests/answer_battery
-# (one file per question: a QUESTION: line and an EXPECTED: line) and prints
-# the expected answer after each one, to compare prompts by eye.
-# Needs the index (`make test_rag_base` or `uv run -m src index`).
-# Extra options for `answer`: ANSWER_ARGS="--k 5 --dtype bfloat16"
-ANSWER_DIR  := tests/answer_battery
+# Extra options for `answer_dataset` in test_answer_dataset below.
 ANSWER_ARGS ?=
 
-test_answer:
-	@start=$$SECONDS; \
-	for file in $(ANSWER_DIR)/*.txt; do \
-		question=$$(sed -n 's/^QUESTION: //p' "$$file"); \
-		expected=$$(sed -n 's/^EXPECTED: //p' "$$file"); \
-		echo "===== $$(basename "$$file" .txt)"; \
-		echo "Question: $$question"; \
-		time uv run -m src answer "$$question" $(ANSWER_ARGS); \
-		echo "Expected: $$expected"; \
-		echo; \
-	done; \
-	echo "Battery total: $$((SECONDS - start)) s"
-
-# Same as test_answer, but on a whole AnsweredQuestions dataset, loading
+# Runs a whole AnsweredQuestions dataset, loading
 # the model only once: search_dataset, then answer_dataset (as the
 # evaluation runs them), then each question with its answer and its
 # reference answer. Answers already in the answer cache (from answer,
@@ -297,8 +229,7 @@ test_answer_dataset:
 
 clean:
 	@find . -path ./.venv -prune -o -type d -name '__pycache__' -exec rm -rf {} +
-	@rm -rf .mypy_cache .pytest_cache $(TEST_INDEX) $(TEST_DATA)/output \
-		$(CORPUS_INDEX) $(CORPUS_DATA)/output
+	@rm -rf .mypy_cache .pytest_cache $(TEST_INDEX) $(TEST_DATA)/output
 	@echo "Cache cleaned"
 
 # Removes the index in data/processed and the json files generated in
@@ -310,4 +241,4 @@ cleandata:
 		find $(BASE_DATA)/output -type f -name '*.json' -delete; fi
 	@echo "Index and generated outputs removed"
 
-.PHONY: all install run debug serve lint lint-strict test test_rag test_rag_base test_corpus test_index test_retrieval test_limits test_limits_cached test_answer test_answer_dataset clean cleandata
+.PHONY: all install run debug serve lint lint-strict test test_rag test_rag_base test_index test_retrieval test_limits test_limits_cached test_answer_dataset clean cleandata

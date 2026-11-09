@@ -32,6 +32,7 @@ from .models import (NO_SOURCES, Chunk, DtypeMode, IndexSummary,
                      MinimalAnswer, MinimalSource, RetrieverMode,
                      StudentSearchResults, StudentSearchResultsAndAnswer,
                      UnansweredQuestion)
+from .norm_catalog import Citation, CitationResults, Norm, NormCatalog
 from .vector_index import VectorIndex
 
 if TYPE_CHECKING:
@@ -44,6 +45,7 @@ QueryText = Annotated[str, StringConstraints(strip_whitespace=True,
 TopK = Annotated[int, Query(gt=0)]
 ChunkSize = Annotated[int, Query(gt=0, le=2000)]
 ConvenioName = Annotated[str | None, Query(min_length=1)]
+RequiredConvenio = Annotated[str, Query(min_length=1)]
 
 
 class RetrieverLoader:
@@ -88,7 +90,7 @@ class RetrieverLoader:
         if mode == "hybrid":
             return hybrid
         return GeminiRetriever(bm25, hybrid,
-                               RagCLI.embeddings_dir(self._index_dir))
+                               RagCLI._embeddings_dir(self._index_dir))
 
     def load(self, mode: RetrieverMode) -> Retriever:
         """Give the retriever of ``mode``, cached or not.
@@ -199,6 +201,8 @@ class RagApi:
         self.app.exception_handler(RagError)(self._rag_error)
         self.app.get("/health")(self.health)
         self.app.get("/search")(self.search)
+        self.app.get("/convenios")(self.convenios)
+        self.app.get("/citations")(self.citations)
         self.app.get("/answer")(self.answer)
         self.app.post("/index")(self.index)
 
@@ -296,6 +300,28 @@ class RagApi:
             )
             chosen.flush()
         return results
+
+    def convenios(self) -> list[Norm]:
+        """Return the legal texts that can be chosen."""
+        return NormCatalog.available(self._index_dir)
+
+    def citations(self, query: QueryText, convenio: RequiredConvenio,
+                  k: TopK = 10, retriever: RetrieverMode | None = None
+                  ) -> CitationResults:
+        """Return what a legal text and the Statute say about a question.
+
+        Unlike ``/search``, each result has the article, its text and the
+        link to the official text, to show them to a person. ``convenio``
+        is mandatory: mixing agreements gives misleading answers.
+        """
+        self._check_convenio(convenio)
+        with self._retriever_lock:
+            chosen = self._get_retriever(retriever)
+            hits = ConvenioSearch.search(chosen, query, k, convenio)
+            chosen.flush()
+        items: list[Citation] = [NormCatalog.citation(hit) for hit in hits]
+        return CitationResults(query=query, convenio=convenio,
+                               citations=items)
 
     def _get_generator(self) -> "Generator":
         """Return the generator, loading it on the first call.

@@ -299,10 +299,10 @@ class RagCLI:
         if retriever == "hybrid":
             return hybrid
         return GeminiRetriever(bm25, hybrid,
-                               RagCLI.embeddings_dir(index_dir))
+                               RagCLI._embeddings_dir(index_dir))
 
     @staticmethod
-    def embeddings_dir(index_dir: str) -> Path:
+    def _embeddings_dir(index_dir: str) -> Path:
         """Folder of the Gemini vectors, next to the index folder."""
         return Path(index_dir).parent / "embeddings"
 
