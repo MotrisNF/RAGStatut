@@ -44,6 +44,12 @@ serve:
 # A new question spends the free Gemini quota: one embedding and one answer.
 LABORAL_DATA := data/laboral
 
+# Builds the search index of the labour corpus (needed once after cloning,
+# and after adding a document). FULL=0 only re-indexes the changed files.
+index:
+	@uv run -m src index --raw_dir $(LABORAL_DATA)/raw \
+		--index_dir $(LABORAL_DATA)/processed $(INDEX_FULL)
+
 api:
 	@uv run -m src serve --index_dir $(LABORAL_DATA)/processed \
 		--raw_dir $(LABORAL_DATA)/raw --retriever gemini --generator gemini
@@ -252,4 +258,4 @@ cleandata:
 		find $(BASE_DATA)/output -type f -name '*.json' -delete; fi
 	@echo "Index and generated outputs removed"
 
-.PHONY: all install run debug serve api web lint lint-strict test test_rag test_rag_base test_index test_retrieval test_limits test_limits_cached test_answer_dataset clean cleandata
+.PHONY: all install run debug serve index api web lint lint-strict test test_rag test_rag_base test_index test_retrieval test_limits test_limits_cached test_answer_dataset clean cleandata

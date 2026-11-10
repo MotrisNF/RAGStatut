@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documento fecha_actualizacion="20260715105601">
+  <metadatos>
+    <identificador>BOE-A-2024-3431</identificador>
+    <origen_legislativo codigo="1">Estatal</origen_legislativo>
+    <departamento codigo="9573">Ministerio de Trabajo y Economía Social</departamento>
+    <rango codigo="1370">Resolución</rango>
+    <fecha_disposicion>20240212</fecha_disposicion>
+    <numero_oficial/>
+    <titulo>Resolución de 12 de febrero de 2024, de la Dirección General de Trabajo, por la que se registra y publica la modificación del VIII Convenio colectivo marco estatal de servicios de atención a las personas dependientes y desarrollo de la promoción de la autonomía personal (residencias privadas de personas mayores y del servicio de ayuda a domicilio).</titulo>
+    <diario codigo="BOE">Boletín Oficial del Estado</diario>
+    <fecha_publicacion>20240222</fecha_publicacion>
+    <diario_numero>47</diario_numero>
+    <seccion>3</seccion>
+    <subseccion/>
+    <pagina_inicial>21607</pagina_inicial>
+    <pagina_final>21611</pagina_final>
+    <suplemento_pagina_inicial/>
+    <suplemento_pagina_final/>
+    <url_pdf>https://www.boe.es/boe/dias/2024/02/22/pdfs/BOE-A-2024-3431.pdf</url_pdf>
+    <url_epub/>
+    <url_pdf_catalan/>
+    <url_pdf_euskera/>
+    <url_pdf_gallego/>
+    <url_pdf_valenciano/>
+    <estatus_legislativo>L</estatus_legislativo>
+    <fecha_vigencia/>
+    <estatus_derogacion>N</estatus_derogacion>
+    <fecha_derogacion/>
+    <judicialmente_anulada>N</judicialmente_anulada>
+    <fecha_anulacion/>
+    <vigencia_agotada>N</vigencia_agotada>
+    <estado_consolidacion codigo="0"/>
+    <letra_imagen>A</letra_imagen>
+    <suplemento_letra_imagen/>
+    <url_eli>https://www.boe.es/eli/es/res/2024/02/12/(5)</url_eli>
+  </metadatos>
+  <metadata-eli>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:eli="http://data.europa.eu/eli/ontology#">
+      <eli:LegalResource rdf:about="https://www.boe.es/eli/es/res/2024/02/12/(5)">
+        <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es"/>
+        <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/res"/>
+        <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOE-A-2024-3431</eli:id_local>
+        <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-12</eli:date_document>
+        <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(5)</eli:number>
+        <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/1684"/>
+        <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/3447"/>
+        <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/5023"/>
+        <eli:has_member>
+          <eli:LegalResource rdf:about="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof">
+            <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es"/>
+            <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/res"/>
+            <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOE-A-2024-3431</eli:id_local>
+            <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-12</eli:date_document>
+            <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(5)</eli:number>
+            <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/1684"/>
+            <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/3447"/>
+            <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/5023"/>
+            <eli:version rdf:resource="http://www.elidata.es/mdr/authority/version/dof"/>
+            <eli:is_member_of rdf:resource="https://www.boe.es/eli/es/res/2024/02/12/(5)"/>
+            <eli:is_realized_by>
+              <eli:LegalExpression rdf:about="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof/spa">
+                <eli:language rdf:resource="http://www.elidata.es/mdr/authority/language/spa"/>
+                <eli:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resolución de 12 de febrero de 2024, de la Dirección General de Trabajo, por la que se registra y publica la modificación del VIII Convenio colectivo marco estatal de servicios de atención a las personas dependientes y desarrollo de la promoción de la autonomía personal (residencias privadas de personas mayores y del servicio de ayuda a domicilio).</eli:title>
+                <eli:publisher_agent rdf:resource="https://www.boe.es"/>
+                <eli:date_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-22</eli:date_publication>
+                <eli:realizes rdf:resource="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof"/>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof/spa/html">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/text/html"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof/spa/pdf">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/application/pdf"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof/spa/xml">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/application/xml"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2024/02/12/(5)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+              </eli:LegalExpression>
+            </eli:is_realized_by>
+          </eli:LegalResource>
+        </eli:has_member>
+      </eli:LegalResource>
+    </rdf:RDF>
+  </metadata-eli>
+  <analisis>
+    <materias>
+      <materia codigo="1684" orden="1">Convenios colectivos</materia>
+      <materia codigo="5023" orden="1">Discapacidad</materia>
+      <materia codigo="3447" orden="1">Establecimientos residenciales para la Tercera Edad</materia>
+    </materias>
+    <notas/>
+    <referencias>
+      <anteriores>
+        <anterior referencia="BOE-A-2023-13742" orden="2015">
+          <palabra codigo="270">MODIFICA</palabra>
+          <texto>los arts. 24, 51, 53, 55 y 56 del Convenio publicado por Resolución de 30 de mayo de 2023</texto>
+        </anterior>
+        <anterior referencia="BOE-A-2015-11430" orden="3060">
+          <palabra codigo="440">DE CONFORMIDAD con</palabra>
+          <texto>los arts. 86.3 y 90 de la Ley del Estatuto de los Trabajadores, texto refundido aprobado por Real Decreto Legislativo 2/2015, de 23 de octubre</texto>
+        </anterior>
+        <anterior referencia="BOE-A-2010-9274" orden="3060">
+          <palabra codigo="440">DE CONFORMIDAD con</palabra>
+          <texto>el Real Decreto 713/2010, de 28 de mayo</texto>
+        </anterior>
+      </anteriores>
+      <posteriores/>
+    </referencias>
+    <alertas/>
+  </analisis>
+  <texto>
+    <p class="parrafo">Visto el texto del Acta de 6 de noviembre de 2023, en la que se contiene el acuerdo de modificación de los artículos 24, 51, 53, 55 y 56 del VIII Convenio colectivo marco estatal de servicios de atención a las personas dependientes y desarrollo de la promoción de la autonomía personal (residencias privadas de personas mayores y del servicio de ayuda a domicilio) –código de Convenio 99010825011997–, que fue publicado en el BOE de 9 de junio de 2023, Acta que ha sido subsanada por la de 29 de enero de 2024 y ha sido suscrita, de una parte, por las organizaciones empresariales AESTE, ASADE, CEAPs, FED, y LARES, en representación de las empresas del sector y, de otra, por las organizaciones sindicales UGT Servicios Públicos y FSS y CC.OO. del Hábitat, en representación de los trabajadores afectados, y de conformidad con lo dispuesto en los artículos 86.3 y 90, apartados 2 y 3, de la Ley del Estatuto de los Trabajadores, texto refundido aprobado por el Real Decreto Legislativo 2/2015, de 23 de octubre (BOE de 24 de octubre), y en el Real Decreto 713/2010, de 28 de mayo, sobre registro y depósito de convenios colectivos, acuerdos colectivos de trabajo y planes de igualdad,</p>
+    <p class="parrafo">Esta Dirección General de Trabajo resuelve:</p>
+    <p class="articulo">Primero.</p>
+    <p class="parrafo">Ordenar la inscripción del citado acuerdo de modificación en el correspondiente Registro de convenios colectivos, acuerdos colectivos de trabajo y planes de igualdad con funcionamiento a través de medios electrónicos de este Centro Directivo, con notificación a la Comisión Negociadora.</p>
+    <p class="articulo">Segundo.</p>
+    <p class="parrafo">Disponer su publicación en el «Boletín Oficial del Estado».</p>
+    <p class="parrafo_2">Madrid, 12 de febrero de 2024.–La Directora General de Trabajo, María Nieves González García.</p>
+    <p class="anexo">ACTA COMISIÓN NEGOCIADORA DEL VIII CONVENIO MARCO ESTATAL DE SERVICIOS DE ATENCIÓN A LAS PERSONAS DEPENDIENTES Y DESARROLLO DE LA PROMOCIÓN DE LA AUTONOMÍA PERSONAL</p>
+    <p class="parrafo_2">Por la Comisión Negociadora se extiende la presente Acta con el objeto de que puedan publicarse en el «Boletín Oficial del Estado» (BOE) las modificaciones que afectan al VIII Convenio Marco Estatal de Servicios de atención a las personas dependientes y desarrollo de la promoción de la autonomía personal (código Convenio núm. 99010825011997) y que fueron acordadas en reunión del pasado 6 de noviembre de 2023.</p>
+    <p class="articulo">Primera.</p>
+    <p class="parrafo">Se incluye un apartado 5 al artículo 51 del siguiente tenor literal.</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«51.5 En relación al permiso parental se estará a la regulación establecida en cada momento en el Estatuto de los Trabajadores y norma que lo desarrolle, complemente o sustituya.»</p>
+    </blockquote>
+    <p class="articulo">Segunda.</p>
+    <p class="parrafo">Se modifica el artículo 53 quedando su redactado en los siguientes términos.</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«53.1 El personal, previo aviso y justificación, podrá ausentarse del trabajo con derecho a remuneración, por alguno de los motivos y por el tiempo siguiente:</p>
+      <p class="parrafo_2">A. Quince días naturales en caso de matrimonio o registro de pareja de hecho.</p>
+      <p class="parrafo">B. Cuatro días de libre disposición a lo largo del año, considerados a todos los efectos como efectivamente trabajados. Para hacer efectivo el disfrute de estos cuatro días libres, se solicitarán con una antelación mínima de siete días a la fecha de disfrute (salvo casos de urgente necesidad, en cuyo caso la antelación mínima será de tres días), procediéndose a su concesión por parte de la empresa, salvo que por razones organizativas justificadas no se pudiera conceder el disfrute en la fecha solicitada, comunicándose a la persona interesada con al menos 48 horas de antelación (salvo casos de urgente necesidad).</p>
+      <p class="parrafo">En todo caso, el personal disfrutará de estos cuatro días, sin necesidad de justificación, antes del 15 de enero del año siguiente.</p>
+      <p class="parrafo">El disfrute de estos cuatro días necesitará de un periodo de trabajo previo de tres meses por cada día de libre disposición.</p>
+      <p class="parrafo">C. Tres días naturales por el fallecimiento del cónyuge, pareja de hecho o parientes hasta el segundo grado de consanguinidad o afinidad.</p>
+      <p class="parrafo">Siempre que el personal necesite hacer un desplazamiento, a tal efecto, fuera de la provincia o de la comunidad autónoma uniprovincial, salvo que la distancia fuese inferior a 50 kilómetros, o por causa realmente justificada, el plazo se verá ampliado a dos días adicionales. Podrán ampliarse estos días descontando los festivos abonables y/o vacaciones, previa solicitud del personal.</p>
+      <p class="parrafo">En el mismo sentido, cuando el hecho causante haya acaecido fuera del territorio español y con una distancia mínima de 1000 kilómetros, y el afectado sea el cónyuge, pareja de hecho legalmente establecida o pariente de primer grado por consanguinidad o afinidad, los cinco días de permiso se verán incrementados, previa solicitud del trabajador, en otros cinco días más, estos últimos no retribuidos. En este caso, se deberá probar cumplidamente el desplazamiento realizado.</p>
+      <p class="parrafo">D. Cinco días por accidente o enfermedad graves, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario del cónyuge, pareja de hecho o parientes hasta el segundo grado por consanguineidad o afinidad, incluido el familiar consanguíneo de la pareja de hecho, así como de cualquier otra persona distinta de las anteriores, que conviva con la persona trabajadora en el mismo domicilio y que requiera el cuidado efectivo de aquella.</p>
+      <p class="parrafo">E. Un día por traslado del domicilio habitual.</p>
+      <p class="parrafo">F. Por el tiempo indispensable, para el cumplimiento de un deber inexcusable de carácter público o personal comprendido el ejercicio del sufragio activo.</p>
+      <p class="parrafo">G. A los permisos necesarios para concurrir a exámenes cuando curse con regularidad estudios para la consecución de títulos oficiales académicos o profesionales teniendo en cuenta que de estos permisos únicamente serán retribuidos los correspondientes a exámenes eliminatorios. El personal disfrutará de este permiso el día natural en que tenga el examen, si presta sus servicios en jornada diurna o vespertina. Si el personal trabaja de noche, el permiso lo disfrutará la noche anterior al examen.</p>
+      <p class="parrafo">H. Por el tiempo indispensable, con derecho a remuneración, para la realización de exámenes prenatales y técnicas de preparación al parto y, en los casos de adopción, guarda con fines de adopción o acogimiento, para la asistencia a las preceptivas sesiones de información y preparación y para la realización de los preceptivos informes psicológicos y sociales previos a la declaración de idoneidad, siempre, en todos los casos, que deban tener lugar dentro de la jornada de trabajo.</p>
+      <p class="parrafo">I. Por el tiempo indispensable durante 3 veces al año para acompañar al hijo/a a consulta médica del especialista siempre y cuando la empresa no haya procedido a cambiar el turno para facilitar ese acompañamiento. La negativa del trabajador a cambiar el turno excluye la existencia del permiso.</p>
+      <p class="parrafo">J. En relación al derecho a ausentarse del trabajo por causa de fuerza mayor, se estará a lo dispuesto en el artículo 37.9 del Estatuto de los Trabajadores o norma que lo sustituya.</p>
+      <p class="parrafo_2">53.2 El cómputo de los permisos por matrimonio, nacimiento de hijo o hija, fallecimiento de un familiar, accidente, enfermedad grave u hospitalización se iniciarán el primer día laborable siguiente al del hecho causante cuando este hecho sucediese en día festivo o descanso semanal para el trabajador o la trabajadora.»</p>
+    </blockquote>
+    <p class="articulo">Tercera.</p>
+    <p class="parrafo">Se modifica el artículo 55 quedando su redactado en los siguientes términos.</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«55. El personal tendrá derecho a un período de excedencia de duración no superior a tres años para atender al cuidado de cada hijo o hija, tanto cuando lo sea por naturaleza como por adopción, o en los supuestos de guarda con fines de adopción o acogimiento permanente, a contar desde la fecha de nacimiento o, en su caso, de la resolución judicial o administrativa.</p>
+      <p class="parrafo">También tendrán derecho a un período de excedencia, de duración no superior a tres años, para atender al cuidado de un familiar hasta el segundo grado de consanguinidad o afinidad, incluido el familiar consanguíneo de la pareja de hecho debidamente registrada, que por razones de edad, accidente, enfermedad o discapacidad no pueda valerse por sí mismo, y no desempeñe actividad retribuida.</p>
+      <p class="parrafo">La excedencia contemplada en el presente artículo, cuyo período de duración podrá disfrutarse de forma fraccionada, constituye un derecho individual de los trabajadores, hombres o mujeres. No obstante, si dos o más trabajadores de la misma empresa generasen este derecho por el mismo sujeto causante, el empresario podrá limitar su ejercicio simultáneo por razones fundadas y objetivas de funcionamiento debidamente motivadas por escrito debiendo en tal caso la empresa ofrecer un plan alternativo que asegure el disfrute de ambas personas trabajadoras y que posibilite el ejercicio de los derechos de conciliación.</p>
+      <p class="parrafo">Cuando un nuevo sujeto causante diera derecho a un nuevo período de excedencia, el inicio de la misma dará fin al que, en su caso, se viniera disfrutando.</p>
+      <p class="parrafo">El período en que el trabajador o la trabajadora permanece en situación de excedencia conforme a lo establecido en este artículo será computable a efectos de antigüedad, y tendrá derecho a la asistencia a cursos de formación profesional, a cuya participación deberá ser convocado por la parte empresarial, especialmente con ocasión de su reincorporación. Durante el primer año tendrá derecho a la reserva de su puesto de trabajo. Transcurrido dicho plazo, la reserva quedará referida a un puesto de trabajo del mismo grupo profesional o categoría equivalente.</p>
+      <p class="parrafo">No obstante, cuando el trabajador o la trabajadora forme parte de una familia que tenga reconocida oficialmente la condición de familia numerosa, la reserva de su puesto de trabajo se extenderá hasta un máximo de quince meses cuando se trate de una familia numerosa de categoría general, y hasta un máximo de dieciocho meses si se trata de categoría especial. Cuando la persona ejerza este derecho con la misma duración y régimen que el otro progenitor, la reserva de puesto de trabajo se extenderá hasta un máximo de dieciocho meses.</p>
+      <p class="parrafo">En el ejercicio de este derecho se tendrá en cuenta el fomento de la corresponsabilidad entre mujeres y hombres y, asimismo, evitar la perpetuación de roles y estereotipos de género.»</p>
+    </blockquote>
+    <p class="articulo">Cuarta. </p>
+    <p class="parrafo">Se modifica el artículo 56 quedando su redactado en los siguientes términos.</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«4. Modificar el redactado del artículo 56. Reducción de la jornada por motivos familiares.</p>
+      <p class="parrafo_2">56. El personal, por lactancia de un hijo o hija menor de 12 meses, tendrá derecho a 1 hora de ausencia del trabajo, que podrán dividir en 2 fracciones. La duración del permiso se incrementará proporcionalmente en los casos de parto múltiple.</p>
+      <p class="parrafo">El personal, por su voluntad, podrá sustituir este derecho por una reducción de su jornada en 1 hora con la misma finalidad o acumularlo en jornadas completas en los términos previstos en el acuerdo a que se llegue con la empresa.</p>
+      <p class="parrafo">La reducción de jornada contemplada en este apartado constituye un derecho individual de las personas trabajadoras sin que pueda transferirse su ejercicio a la otra persona progenitora, adoptante, guardadora o acogedora. No obstante, si dos personas trabajadoras de la misma empresa ejercen este derecho por el mismo sujeto causante, la dirección empresarial podrá limitar su ejercicio simultáneo por razones fundadas y objetivas de funcionamiento debidamente motivadas por escrito debiendo en tal caso la empresa ofrecer un plan alternativo que asegure el disfrute de ambas personas trabajadoras y que posibilite el ejercicio de los derechos de conciliación.</p>
+      <p class="parrafo">En los casos de parto prematuro o que, por cualquier causa, deban permanecer hospitalizados a continuación del parto, la madre o el padre tendrán derecho a ausentarse del trabajo durante 1 hora. Asimismo, tendrán derecho a reducir su jornada de trabajo hasta un máximo de 2 horas, con la disminución proporcional del salario.</p>
+      <p class="parrafo">Quien por razones de guarda legal tenga a su cuidado directo algún menor de 12 años o una persona con discapacidad, que no desempeñe una actividad retribuida, tendrá derecho a una reducción de la jornada de trabajo, con la disminución proporcional del salario entre, al menos, 1/8 y un máximo de la mitad de la duración de aquella.</p>
+      <p class="parrafo">Tendrá el mismo derecho quien precise encargarse del cuidado directo de un familiar, hasta el segundo grado de consanguinidad o afinidad, que por razones de edad, accidente o enfermedad no pueda valerse por sí mismo, y que no desempeñe actividad retribuida.</p>
+      <p class="parrafo">La persona progenitora, guardadora con fines de adopción o acogedora permanente tendrá derecho a una reducción de la jornada de trabajo, con la disminución proporcional del salario de, al menos, la mitad de la duración de aquélla, para el cuidado, durante la hospitalización y tratamiento continuado, del menor a su cargo afectado por cáncer (tumores malignos, melanomas y carcinomas), o por cualquier otra enfermedad grave, que implique un ingreso hospitalario de larga duración y requiera la necesidad de su cuidado directo, continuo y permanente, acreditado por el informe del servicio público de salud u órgano administrativo sanitario de la comunidad autónoma correspondiente y, como máximo, hasta que el hijo o persona que hubiere sido objeto de acogimiento permanente o de guarda con fines de adopción cumpla los veintitrés años. En consecuencia, el mero cumplimiento de los dieciocho años de edad por el hijo o el menor sujeto a acogimiento permanente o a guarda con fines de adopción no será causa de extinción de la reducción de la jornada, si se mantiene la necesidad de cuidado directo, continuo y permanente.</p>
+      <p class="parrafo">No obstante, cumplidos los 18 años, se podrá reconocer el derecho a la reducción de jornada hasta que el causante cumpla 23 años en los supuestos en que el padecimiento de cáncer o enfermedad grave haya sido diagnosticado antes de alcanzar la mayoría de edad, siempre que en el momento de la solicitud se acrediten los requisitos establecidos en los párrafos anteriores, salvo la edad.</p>
+      <p class="parrafo">Asimismo, se mantendrá el derecho a esta reducción hasta que la persona cumpla 26 años si antes de alcanzar 23 años acreditara, además, un grado de discapacidad igual o superior al 65 por ciento.</p>
+      <p class="parrafo">En los supuestos de separación o divorcio el derecho será reconocido al progenitor, guardador o acogedor con quien conviva la persona enferma.</p>
+      <p class="parrafo">Cuando la persona enferma que se encuentre en el supuesto previsto en el párrafo anterior contraiga matrimonio o constituya una pareja de hecho, tendrá derecho a la reducción de jornada quien sea su cónyuge o pareja de hecho, siempre que acredite las condiciones para ser beneficiario.</p>
+      <p class="parrafo">La concreción horaria y la determinación del período de disfrute del permiso de lactancia y de la reducción de jornada prevista en este artículo corresponderá a la persona trabajadora, dentro de su jornada ordinaria. Esta deberá preavisar a la empresa con quince días de antelación a la fecha en que se reincorporará a su jornada ordinaria.»</p>
+    </blockquote>
+    <p class="articulo">Quinta.</p>
+    <p class="parrafo">Se modifica el artículo 24 quedando su redactado en los siguientes términos.</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«24. Queda prohibido destinar al personal a ocupar un puesto de trabajo correspondiente a un grupo inferior, salvo por razones técnicas u organizativas que lo justifiquen, y por el tiempo mínimo indispensable, según la clasificación profesional establecida en el artículo 16.</p>
+      <p class="parrafo">Cuando se destine al personal a tareas correspondientes a una categoría superior, percibirá las retribuciones de esta categoría durante el tiempo y jornada que las realice. En el caso de que la titulación sea requisito indispensable, no se podrán asignar dichos trabajos de superior categoría, salvo que se ostente dicha titulación. Cuando las realice durante más del 30 % de la jornada habitual de trabajo diaria en un período superior a seis meses en un año o, a ocho meses durante dos años, consolidará el ascenso, si existe vacante y siempre que esté en posesión de la titulación correspondiente que el puesto requiera.»</p>
+    </blockquote>
+    <p class="parrafo_2">Se autoriza a registrar en el REGCON a Francisco (Paco) Carretero Palomares.</p>
+    <p class="parrafo_2">Sin ningún otro asunto a tratar, y en prueba de conformidad con lo expuesto, firman la presente acta, una persona por organización, en Madrid, a 29 de enero de 2024.–Por las Organizaciones Sindicales, UGT Servicios Públicos, FSS y CC. OO. del Hábitat.–Por la parte Empresarial, AESTE, ASADE, CEAPS, FED, LARES.</p>
+  </texto>
+</documento>

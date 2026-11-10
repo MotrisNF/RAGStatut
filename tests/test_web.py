@@ -207,6 +207,20 @@ class TestPage:
         assert texts(app).count('<div class="src"') == 1
         assert "Artículo 22." in texts(app)
 
+    def test_answer_without_summary_is_visible(
+            self, fake: Fake, monkeypatch: pytest.MonkeyPatch) -> None:
+        """An answer with only norm sections is shown, not folded."""
+        def consult(query: str, convenio: str,
+                    contract: str | None = None) -> dict[str, Any]:
+            return {"query": query, "convenio": convenio,
+                    "answer": "Tu convenio: Veinte días.",
+                    "citations": [citation("Artículo 22.")]}
+
+        monkeypatch.setattr(client, "consult", consult)
+        app = asked(page())
+        assert "Veinte días" in texts(app)
+        assert len(app.expander) == 0
+
     def test_compare_puts_two_side_by_side(self, fake: Fake) -> None:
         """A second agreement spends one more answer, not two."""
         app = asked(page())

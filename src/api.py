@@ -23,6 +23,7 @@ from .base_retriever import Retriever
 from .bm25_index import BM25Index
 from .cached_retriever import CachedRetriever
 from .commands import RagCLI
+from .amendments import AmendmentBook
 from .contract_rules import Check, check_contract, describe
 from .contracts import Contract, ContractStore
 from .convenio_search import ConvenioSearch
@@ -32,7 +33,7 @@ from .gemini_retriever import GeminiRetriever
 from .hybrid_retriever import HybridRetriever
 from .incremental_indexer import IncrementalIndexer
 from .models import (NO_SOURCES, Chunk, DtypeMode, GeneratorMode, IndexSummary,
-                     MinimalAnswer, MinimalSource, RetrieverMode,
+                     MinimalAnswer, MinimalSource, RetrieverMode, SearchHit,
                      StudentSearchResults, StudentSearchResultsAndAnswer,
                      UnansweredQuestion)
 from .norm_catalog import (Citation, CitationResults, ConsultResults, Norm,
@@ -312,9 +313,40 @@ class RagApi:
             chosen.flush()
         return results
 
+    def _amendments(self) -> AmendmentBook:
+        """The later BOE publications, next to the corpus folders."""
+        folder = (Path(self._index_dir).parent if self._index_dir
+                  else Path("data/laboral"))
+        return AmendmentBook(folder / AmendmentBook.FILE_NAME)
+
+    def _cite(self, hits: list[SearchHit]) -> list[Citation]:
+        """The citations of some hits, with the publications that changed
+        each text."""
+        book = self._amendments()
+        sources = {n.source: n.id for n in NormCatalog.NORMS}
+        citations = []
+        for hit in hits:
+            citation = NormCatalog.citation(hit)
+            norm = sources.get(Path(hit.chunk.file_path).stem, "")
+            citations.append(citation.model_copy(update={
+                "amendments": book.for_title(norm, citation.article)}))
+        return citations
+
+    @staticmethod
+    def _notes(citations: list[Citation]) -> str | None:
+        """The publications of the retrieved texts, as text for the model."""
+        lines = {f"- {c.article or c.norm} ({c.norm}): {a.boe_id}, "
+                 f"{a.date}, {a.kind.lower()}: {a.summary}"
+                 for c in citations for a in c.amendments}
+        return "\n".join(sorted(lines)) or None
+
     def convenios(self) -> list[Norm]:
-        """Return the legal texts that can be chosen."""
-        return NormCatalog.available(self._index_dir)
+        """Return the legal texts that can be chosen, with the later
+        publications that changed each one."""
+        book = self._amendments()
+        return [norm.model_copy(update={"amendments": book.for_norm(norm.id),
+                                        "reviewed": book.reviewed})
+                for norm in NormCatalog.available(self._index_dir)]
 
     def citations(self, query: QueryText, convenio: RequiredConvenio,
                   k: TopK = 10, retriever: RetrieverMode | None = None
@@ -330,7 +362,7 @@ class RagApi:
             chosen = self._get_retriever(retriever)
             hits = ConvenioSearch.search(chosen, query, k, convenio)
             chosen.flush()
-        items: list[Citation] = [NormCatalog.citation(hit) for hit in hits]
+        items: list[Citation] = self._cite(hits)
         return CitationResults(query=query, convenio=convenio,
                                citations=items)
 
@@ -380,14 +412,15 @@ class RagApi:
             chosen = self._get_retriever(retriever)
             hits = ConvenioSearch.search(chosen, query, k, convenio)
             chosen.flush()
+        cited = self._cite(hits)
         answer = (self._generate(query, [hit.chunk for hit in hits],
                                  person.text if person else None,
-                                 describe(checks) if checks else None)
+                                 describe(checks) if checks else None,
+                                 self._notes(cited))
                   if hits else NO_SOURCES)
         return ConsultResults(
             query=query, convenio=convenio, answer=answer,
-            citations=[NormCatalog.citation(hit) for hit in hits],
-            checks=checks)
+            citations=cited, checks=checks)
 
     def _get_generator(self) -> "Generator | GeminiGenerator":
         """Return the generator, loading it on the first call.
@@ -447,7 +480,8 @@ class RagApi:
 
     def _generate(self, query: str, chunks: list[Chunk],
                   contract: str | None = None,
-                  checks: str | None = None) -> str:
+                  checks: str | None = None,
+                  notes: str | None = None) -> str:
         """Answer from the cache, or generate and cache the answer.
 
         The cache is checked again once the model lock is held: another
@@ -466,7 +500,7 @@ class RagApi:
         Raises:
             HTTPException, RagError: As ``_get_generator``, only on a miss.
         """
-        key_text = query if contract is None else f"{query}\n{contract}"
+        key_text = "\n".join([query, contract or "", notes or ""])
         key = AnswerCache.key(key_text, chunks)
         answer = self._cached(key)
         if answer is not None:
@@ -476,11 +510,11 @@ class RagApi:
             if answer is None:
                 generator = self._get_generator()
                 print("Generating an answer...", file=sys.stderr)
-                if contract is None:
-                    answer = generator.generate(query, chunks)
-                else:
+                if self._generator_mode == "gemini":
                     answer = cast(GeminiGenerator, generator).generate(
-                        query, chunks, contract, checks)
+                        query, chunks, contract, checks, notes)
+                else:
+                    answer = generator.generate(query, chunks)
                 self._remember(key, answer)
         return answer
 

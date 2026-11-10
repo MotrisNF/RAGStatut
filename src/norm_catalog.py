@@ -9,6 +9,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
+from .amendments import Amendment
 from .contract_rules import Check
 from .convenio_search import ConvenioSearch
 from .models import SearchHit
@@ -27,6 +28,8 @@ class Norm(BaseModel):
         boe_id: Identifier in the Official State Gazette.
         url: Official text.
         validity: Validity as written in the text itself.
+        amendments: Later publications that change it.
+        reviewed: When that list was checked against the BOE.
     """
 
     id: str
@@ -35,6 +38,8 @@ class Norm(BaseModel):
     boe_id: str
     url: str
     validity: str
+    amendments: list[Amendment] = []
+    reviewed: str = ""
 
 
 class Citation(BaseModel):
@@ -50,6 +55,7 @@ class Citation(BaseModel):
         first_character_index: Start of the text in the file.
         last_character_index: End of the text in the file.
         score: Search score; only comparable within the same ``kind``.
+        amendments: Later publications that change this text.
     """
 
     kind: Literal["convenio", "estatuto"]
@@ -61,6 +67,7 @@ class Citation(BaseModel):
     first_character_index: int
     last_character_index: int
     score: float
+    amendments: list[Amendment] = []
 
 
 class CitationResults(BaseModel):
@@ -114,6 +121,13 @@ class NormCatalog:
              boe_id="BOE-A-2023-13741",
              url=f"{BOE_DOC}BOE-A-2023-13741",
              validity="Hasta el 31 de diciembre de 2026"),
+        Norm(id="dependencia", source="convenio_dependencia",
+             name="VIII Convenio marco estatal de servicios de atención a "
+                  "las personas dependientes",
+             boe_id="BOE-A-2023-13742",
+             url=f"{BOE_DOC}BOE-A-2023-13742",
+             validity="Hasta el 31 de diciembre de 2025, prorrogado mientras "
+                      "no haya otro"),
         Norm(id="grandes_almacenes", source="convenio_grandes_almacenes",
              name="Convenio colectivo del sector de grandes almacenes",
              boe_id="BOE-A-2023-13740",

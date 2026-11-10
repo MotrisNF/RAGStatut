@@ -90,6 +90,19 @@ class TestSearch:
         assert [hit.chunk_id for hit in hits][0] == 1
         assert fallback.calls == 0
 
+    def test_words_also_count(self, tmp_path: Path) -> None:
+        """A chunk that only BM25 finds can enter the results."""
+        chunks = [chunk("tic", "a"), chunk("tic", "b"),
+                  chunk("tic", "c"), chunk("et", "c")]
+        retriever, _ = build(tmp_path, chunks, embed=Embedder())
+        found = [h.chunk_id for h in retriever.search("bbb a", 4)]
+        assert 0 in found and 1 in found
+
+    def test_found_by_both_goes_first(self, tmp_path: Path) -> None:
+        """Agreement between meaning and words wins."""
+        retriever, _ = build(tmp_path, embed=Embedder())
+        assert retriever.search("bbb b", 3)[0].chunk.text == "b"
+
     def test_sources(self, tmp_path: Path) -> None:
         """Only the chosen files are searched."""
         retriever, _ = build(tmp_path, embed=Embedder())

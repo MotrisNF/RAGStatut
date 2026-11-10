@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documento fecha_actualizacion="20251220192601">
+  <metadatos>
+    <identificador>BOE-A-2024-426</identificador>
+    <origen_legislativo codigo="1">Estatal</origen_legislativo>
+    <departamento codigo="9573">Ministerio de Trabajo y Economía Social</departamento>
+    <rango codigo="1370">Resolución</rango>
+    <fecha_disposicion>20231225</fecha_disposicion>
+    <numero_oficial/>
+    <titulo>Resolución de 25 de diciembre de 2023, de la Dirección General de Trabajo, por la que se registra y publica el Acuerdo de modificación del VII Convenio colectivo general del sector de la construcción.</titulo>
+    <diario codigo="BOE">Boletín Oficial del Estado</diario>
+    <fecha_publicacion>20240108</fecha_publicacion>
+    <diario_numero>7</diario_numero>
+    <seccion>3</seccion>
+    <subseccion/>
+    <pagina_inicial>2210</pagina_inicial>
+    <pagina_final>2231</pagina_final>
+    <suplemento_pagina_inicial/>
+    <suplemento_pagina_final/>
+    <url_pdf>https://www.boe.es/boe/dias/2024/01/08/pdfs/BOE-A-2024-426.pdf</url_pdf>
+    <url_epub/>
+    <url_pdf_catalan/>
+    <url_pdf_euskera/>
+    <url_pdf_gallego/>
+    <url_pdf_valenciano/>
+    <estatus_legislativo>L</estatus_legislativo>
+    <fecha_vigencia/>
+    <estatus_derogacion>N</estatus_derogacion>
+    <fecha_derogacion/>
+    <judicialmente_anulada>N</judicialmente_anulada>
+    <fecha_anulacion/>
+    <vigencia_agotada>N</vigencia_agotada>
+    <estado_consolidacion codigo="0"/>
+    <letra_imagen>A</letra_imagen>
+    <suplemento_letra_imagen/>
+    <url_eli>https://www.boe.es/eli/es/res/2023/12/25/(3)</url_eli>
+  </metadatos>
+  <metadata-eli>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:eli="http://data.europa.eu/eli/ontology#">
+      <eli:LegalResource rdf:about="https://www.boe.es/eli/es/res/2023/12/25/(3)">
+        <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es"/>
+        <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/res"/>
+        <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOE-A-2024-426</eli:id_local>
+        <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-12-25</eli:date_document>
+        <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(3)</eli:number>
+        <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/1617"/>
+        <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/1684"/>
+        <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/4147"/>
+        <eli:has_member>
+          <eli:LegalResource rdf:about="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof">
+            <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es"/>
+            <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/res"/>
+            <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOE-A-2024-426</eli:id_local>
+            <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-12-25</eli:date_document>
+            <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(3)</eli:number>
+            <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/1617"/>
+            <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/1684"/>
+            <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/4147"/>
+            <eli:version rdf:resource="http://www.elidata.es/mdr/authority/version/dof"/>
+            <eli:is_member_of rdf:resource="https://www.boe.es/eli/es/res/2023/12/25/(3)"/>
+            <eli:is_realized_by>
+              <eli:LegalExpression rdf:about="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof/spa">
+                <eli:language rdf:resource="http://www.elidata.es/mdr/authority/language/spa"/>
+                <eli:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resolución de 25 de diciembre de 2023, de la Dirección General de Trabajo, por la que se registra y publica el Acuerdo de modificación del VII Convenio colectivo general del sector de la construcción.</eli:title>
+                <eli:publisher_agent rdf:resource="https://www.boe.es"/>
+                <eli:date_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-08</eli:date_publication>
+                <eli:realizes rdf:resource="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof"/>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof/spa/html">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/text/html"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof/spa/pdf">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/application/pdf"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof/spa/xml">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/application/xml"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2023/12/25/(3)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+              </eli:LegalExpression>
+            </eli:is_realized_by>
+          </eli:LegalResource>
+        </eli:has_member>
+      </eli:LegalResource>
+    </rdf:RDF>
+  </metadata-eli>
+  <analisis>
+    <materias>
+      <materia codigo="1617" orden="1">Construcciones</materia>
+      <materia codigo="1684" orden="1">Convenios colectivos</materia>
+      <materia codigo="4147" orden="1">Industria de la construcción</materia>
+    </materias>
+    <notas/>
+    <referencias>
+      <anteriores>
+        <anterior referencia="BOE-A-2023-19903" orden="2020">
+          <palabra codigo="270">MODIFICA</palabra>
+          <texto>determinados preceptos, AÑADE las disposiciones transitoria 2 y adicional 9 y CORRIGE errores en el Convenio publicado por Resolución de 6 de septiembre de 2023</texto>
+        </anterior>
+        <anterior referencia="BOE-A-2015-11430" orden="3060">
+          <palabra codigo="440">DE CONFORMIDAD con</palabra>
+          <texto>el art. 90.2 y 3 de la Ley del Estatuto de los Trabajadores, texto refundido aprobado por Real Decreto Legislativo 2/2015, de 23 de octubre</texto>
+        </anterior>
+        <anterior referencia="BOE-A-2010-9274" orden="3060">
+          <palabra codigo="440">DE CONFORMIDAD con</palabra>
+          <texto>el Real Decreto 713/2010, de 28 de mayo</texto>
+        </anterior>
+      </anteriores>
+      <posteriores/>
+    </referencias>
+    <alertas/>
+  </analisis>
+  <texto>
+    <p class="parrafo">Visto el texto del acuerdo de modificación del artículos 77, apartado 2 del artículo 145, párrafo primero del artículo 173, apartado 2 del artículo 178, apartado 3 del artículo 189, artículo 196, artículo 240, disposición adicional tercera, disposición adicional novena, anexo III, anexo IV, anexo V, anexo VI, letra d) del apartado 2 del anexo XIII, apartado 3 del anexo XIII (tabla 4), anexo XIII (apartado 5), anexo XIV (punto 4 del apartado II), anexo XIV (punto 5 del apartado II), anexo XV (punto 12 del artículo 1), del VII Convenio colectivo General del Sector de la Construcción (código de convenio núm.: 99005585011900), que fue publicado en el «Boletín Oficial del Estado» el 23 de septiembre de 2023, acuerdo que ha sido suscrito con fecha 4 de diciembre de 2023, de una parte por la Confederación Nacional de la Construcción (CNC) en representación de las empresas del sector, y de otra por las organizaciones sindicales CC.OO. del Hábitat y UGT-FICA, en representac.ión de los trabajadores afectados, y de conformidad con lo dispuesto en el artículo 90, apartados 2 y 3, de la Ley del Estatuto de los Trabajadores, texto refundido aprobado por Real Decreto Legislativo 2/2015, de 23 de octubre, y en el Real Decreto 713/2010, de 28 de mayo, sobre registro y depósito de convenios colectivos, acuerdos colectivos de trabajo y planes de igualdad,</p>
+    <p class="parrafo">Esta Dirección General de Trabajo, resuelve:</p>
+    <p class="articulo">Primero.</p>
+    <p class="parrafo">Ordenar la inscripción del citado acuerdo de modificación en el correspondiente Registro de convenios colectivos, acuerdos colectivos de trabajo y planes de igualdad con funcionamiento a través de medios electrónicos de este Centro Directivo, con notificación a la Comisión Negociadora.</p>
+    <p class="articulo">Segundo.</p>
+    <p class="parrafo">Disponer su publicación en el «Boletín Oficial del Estado».</p>
+    <p class="parrafo_2">Madrid, 25 de diciembre de 2023.–La Directora General de Trabajo, María Nieves González García.</p>
+    <p class="anexo">ACTA DE LA 20.ª REUNIÓN DE LA COMISIÓN NEGOCIADORA DEL VII CONVENIO GENERAL DEL SECTOR DE LA CONSTRUCCIÓN</p>
+    <p class="parrafo_2">En representación sindical,</p>
+    <p class="parrafo_2">CC.OO. del Hábitat, doña Isabel Gutiérrez Muela, don Juan José Montoya Pérez, don David Pérez Martínez, doña Aida Suárez Couceiro y doña Sonia Silva Segovia.</p>
+    <p class="parrafo">UGT FICA, don Sergio Estela Gallego, don Fernando J. Fernández Gamino, doña Pilar Iglesias García, don Constantino Mostaza Saavedra y don Álvaro Recio Martín.</p>
+    <p class="parrafo_2">En representación empresarial,</p>
+    <p class="parrafo_2">CNC, don Ernesto Álvarez García, don Carlos Borrego García, don Eugenio Corral Álvarez, don Pedro García Díaz, doña Mercedes Girón Torrano, doña María José Leguina Leguina, don Ángel Ignacio León Ruiz, don Joaquín Pedriza Bermejillo, don Francisco Ruano Tellaeche, don Mariano Sanz Loriente y doña Sandra Verger Rufián.</p>
+    <p class="parrafo_2">En Madrid, cuatro de diciembre de dos mil veintitrés, de forma mixta, presencial y por videoconferencia, conforme se establece en el artículo 3 del Real Decreto-ley 34/2020, de 17 de noviembre, de medidas urgentes de apoyo a la solvencia empresarial y al sector energético, y en materia tributaria, previamente convocados, se reúnen los relacionados al margen, en la representación que en el mismo consta.</p>
+    <p class="parrafo_2">Los representantes de FCM-CIG y ELA Industria Eraikuntza debidamente convocados no comparecen.</p>
+    <p class="parrafo">La reunión tiene por objeto la corrección de las erratas advertidas en el texto articulado del VII Convenio General del Sector de la Construcción (número de código 99005585011900) publicado en el «Boletín Oficial del Estado» de 23 de septiembre de 2023.</p>
+    <p class="parrafo">Se procede por los asistentes al estudio del único punto del orden del día:</p>
+    <p class="articulo">Punto único. Continuar con la corrección de erratas y otras modificaciones del texto articulado del VII Convenio General del Sector de la Construcción.</p>
+    <p class="parrafo">Advertidas varias erratas en el texto articulado del VII Convenio General del Sector de la Construcción (VII CGSC) y siendo necesario incluir algunas modificaciones, como continuación de las ya reflejadas en el acta de esta Comisión de 23 de octubre de 2023, las representaciones de la CNC, CC.OO. del Hábitat y UGT FICA, firmantes del mencionado Convenio, entienden necesario incluir algunas modificaciones en el texto del mencionado Convenio y, en consecuencia, llegan a los siguientes acuerdos:</p>
+    <p class="articulo">Acuerdo primero.</p>
+    <p class="parrafo">A la vista del actual redactado del artículo 77 del VII Convenio General del Sector de la Construcción y la redacción dada al artículo 37 del Estatuto de los Trabajadores por el Real Decreto-ley 6/2019, de 1 de marzo, de medidas urgentes para garantía de la igualdad de trato y de oportunidades entre mujeres y hombres en el empleo y la ocupación, esta Comisión entiende necesario aclarar la redacción del mencionado artículo 77 del VII CGSC. En consecuencia, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="articulo">«Artículo 77. Permisos y licencias.</p>
+      <p class="parrafo">1. La persona trabajadora, previo aviso de al menos cuarenta y ocho horas, salvo acreditada urgencia, y justificación posterior, se encuentra facultado para ausentarse del trabajo, manteniendo el derecho a la percepción de todos aquellos conceptos retributivos, que no se encuentren vinculados de forma expresa a la prestación efectiva de la actividad laboral, por alguno de los motivos y por el tiempo siguiente:</p>
+      <p class="parrafo_2">a) Quince días naturales, en caso de matrimonio.</p>
+      <p class="parrafo">b) Dos días naturales –de los cuales al menos uno deberá ser laborable–, por nacimiento o adopción de un hijo. En el caso de personas trabajadoras no comunitarios o comunitarios de países no colindantes con España el permiso será, siempre que acrediten efectivamente la realización del desplazamiento a su país de origen, de cinco días naturales, pudiéndose ampliar hasta ocho días con el consentimiento de la empresa, pero siendo exclusivamente retribuidos los cinco días antes señalados.</p>
+      <p class="parrafo">c) Un día, por matrimonio de hijo.</p>
+      <p class="parrafo">d) Tres días laborables, por fallecimiento del cónyuge, pareja de hecho y parientes hasta el segundo grado de consanguinidad o afinidad. Cuando con tal motivo la persona trabajadora necesite hacer un desplazamiento al efecto, el plazo será de cuatro días laborables; en el caso de personas trabajadoras no comunitarias o comunitarias de países no colindantes con España el permiso será, siempre que acrediten efectivamente la realización del desplazamiento a su país de origen, de seis días laborables, pudiéndose ampliar hasta ocho días con el consentimiento de la empresa, pero siendo exclusivamente retribuidos los seis días antes señalados.</p>
+      <p class="parrafo">e) Cinco días laborables, por enfermedad o accidente grave, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario del cónyuge, pareja de hecho o parientes hasta el segundo grado de consanguinidad o afinidad, incluido el familiar consanguíneo de la pareja de hecho, así como de cualquier otra persona distinta de las anteriores, que conviva con la persona trabajadora en el mismo domicilio y que requiera el cuidado efectivo de aquella.</p>
+      <p class="parrafo">f) Un día, por traslado del domicilio habitual.</p>
+      <p class="parrafo">g) Por el tiempo necesario, para concurrir a exámenes, como consecuencia de los estudios que esté realizando en centros de enseñanza, universitarios o de formación profesional de carácter público o privado, reconocidos.</p>
+      <p class="parrafo_2">Cuando por los motivos expresados en los apartados b), c), d) y e), la persona trabajadora necesite efectuar un desplazamiento al efecto, los plazos señalados en los mismos se incrementarán en dos días naturales, salvo las personas trabajadoras no comunitarias o comunitarias no colindantes con España que se acojan a lo dispuesto en los últimos incisos de los apartados b) y d).</p>
+      <p class="parrafo">2. Los supuestos contemplados en los apartados precedentes –cuando concurran las circunstancias previstas en los mismos– se extenderán asimismo a las parejas de hecho siempre que consten inscritas en el registro correspondiente.</p>
+      <p class="parrafo">3. En las mismas condiciones que las previstas en el apartado 1 del presente artículo, la persona trabajadora podrá ausentarse del trabajo por el tiempo necesario para el cumplimiento de un deber inexcusable de carácter público y personal, comprendido el ejercicio de sufragio activo. Cuando conste en una norma legal un período determinado de ausencia, se estará a lo que ésta disponga en cuanto a su duración y compensación económica.</p>
+      <p class="parrafo">En el supuesto de que, por el cumplimiento del deber o desempeño del cargo público, la persona trabajadora perciba una compensación económica, cualquiera que sea su denominación, se descontará el importe de la misma de la retribución a que tuviera derecho en la empresa.</p>
+      <p class="parrafo">Cuando el cumplimiento del deber antes referido, suponga la imposibilidad de prestación de trabajo en más del 25 por 100 de las horas laborables en un período de tres meses, la empresa se encuentra facultada para decidir el paso de la persona trabajadora afectada a la situación de excedencia forzosa, con todos los efectos inherentes a la misma.</p>
+      <p class="parrafo">4. En los supuestos de nacimiento, adopción, guarda con fines de adopción o acogimiento, de acuerdo con el artículo 45.1.d) del E.T., las personas trabajadoras tendrán derecho a una hora de ausencia del trabajo, que podrán dividir en dos fracciones, para el cuidado del lactante hasta que este cumpla nueve meses. La duración del permiso se incrementará proporcionalmente en los casos de nacimiento, adopción, guarda con fines de adopción o acogimiento múltiples.</p>
+      <p class="parrafo">Quien ejerza este derecho, por su voluntad, podrá sustituirlo por una reducción de su jornada en media hora con la misma finalidad o acumularlo en jornadas completas en los términos previstos en el acuerdo a que llegue con la empresa.</p>
+      <p class="parrafo">La reducción de jornada contemplada en este apartado constituye un derecho individual de las personas trabajadoras sin que pueda transferirse su ejercicio a la otra persona progenitora, adoptante, guardadora o acogedora. No obstante, si dos personas trabajadoras de la misma empresa ejercen este derecho por el mismo sujeto causante, podrá limitarse su ejercicio simultáneo por razones fundadas y objetivas de funcionamiento de la empresa, debidamente motivadas por escrito, debiendo en tal caso la empresa ofrecer un plan alternativo que asegure el disfrute de ambas personas trabajadoras y que posibilite el ejercicio de los derechos de conciliación.</p>
+      <p class="parrafo">Cuando ambas personas progenitoras, adoptantes, guardadoras o acogedoras ejerzan este derecho con la misma duración y régimen, el periodo de disfrute podrá extenderse hasta que el lactante cumpla doce meses, con reducción proporcional del salario a partir del cumplimiento de los nueve meses.</p>
+      <p class="parrafo">5. La persona trabajadora que, por razones de guarda legal, tenga a su cuidado directo a algún menor de doce años o a una persona con discapacidad que no desempeñe actividad retribuida, tendrá derecho a una reducción de la jornada de trabajo diaria, con la disminución proporcional del salario, entre al menos un octavo y un máximo de la mitad de la duración de aquélla.</p>
+      <p class="parrafo">Tendrá el mismo derecho quien precise encargarse del cuidado directo del cónyuge o pareja de hecho, o un familiar hasta el segundo grado de consanguinidad o afinidad, incluido el familiar consanguíneo de la pareja de hecho, que por razones de edad, accidente o enfermedad no pueda valerse por sí mismo, y que no desempeñe actividad retribuida.</p>
+      <p class="parrafo">La reducción de jornada contemplada en el presente apartado constituye un derecho individual de las personas trabajadoras. No obstante, si dos o más personas trabajadoras de la misma empresa generasen este derecho por el mismo sujeto causante, la empresa podrá limitar su ejercicio simultáneo por razones fundadas y objetivas de funcionamiento de la empresa, debidamente motivadas por escrito, debiendo en tal caso la empresa ofrecer un plan alternativo que asegure el disfrute de ambas personas trabajadoras y que posibilite el ejercicio de los derechos de conciliación.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="articulo">«Artículo 77. Permisos y licencias.</p>
+      <p class="parrafo">1. La persona trabajadora, previo aviso de al menos cuarenta y ocho horas, salvo acreditada urgencia, y justificación posterior, se encuentra facultada para ausentarse del trabajo, manteniendo el derecho a la percepción de todos aquellos conceptos retributivos, que no se encuentren vinculados de forma expresa a la prestación efectiva de la actividad laboral, por alguno de los motivos y por el tiempo siguiente:</p>
+      <p class="parrafo_2">a) Quince días naturales, en caso de matrimonio.</p>
+      <p class="parrafo">b) Un día, por matrimonio de hijo.</p>
+      <p class="parrafo">c) Tres días laborables, por fallecimiento del cónyuge, pareja de hecho y parientes hasta el segundo grado de consanguinidad o afinidad. Cuando con tal motivo la persona trabajadora necesite hacer un desplazamiento al efecto, el plazo será de cinco días laborables; en el caso de personas trabajadoras no comunitarias o comunitarias de países no colindantes con España el permiso será, siempre que acrediten efectivamente la realización del desplazamiento a su país de origen, de seis días laborables, pudiéndose ampliar hasta ocho días con el consentimiento de la empresa, pero siendo exclusivamente retribuidos los seis días antes señalados.</p>
+      <p class="parrafo">d) Cinco días laborables, por enfermedad o accidente grave, hospitalización o intervención quirúrgica sin hospitalización que precise reposo domiciliario del cónyuge, pareja de hecho o parientes hasta el segundo grado de consanguinidad o afinidad, incluido el familiar consanguíneo de la pareja de hecho, así como de cualquier otra persona distinta de las anteriores, que conviva con la persona trabajadora en el mismo domicilio y que requiera el cuidado efectivo de aquella.</p>
+      <p class="parrafo">e) Un día, por traslado del domicilio habitual.</p>
+      <p class="parrafo">f) Por el tiempo necesario, para concurrir a exámenes, como consecuencia de los estudios que esté realizando en centros de enseñanza, universitarios o de formación profesional de carácter público o privado, reconocidos.</p>
+      <p class="parrafo">g) Siempre que la persona trabajadora no fuese beneficiaria del subsidio por nacimiento y cuidado de menor tendrá derecho a dos días –de los cuales al menos uno deberá ser laborable–, por nacimiento, adopción, guarda con fines de adopción o acogimiento, de menores de seis años o de menores de edad mayores de seis años con discapacidad o que por sus circunstancias personales o por provenir del extranjero tengan especiales dificultades de inserción social y familia debidamente acreditadas por los servicios sociales competentes. En el caso de personas trabajadoras no comunitarios o comunitarios de países no colindantes con España el permiso será, siempre que acrediten efectivamente la realización del desplazamiento a su país de origen, de cinco días naturales, pudiéndose ampliar hasta ocho días con el consentimiento de la empresa, pero siendo exclusivamente retribuidos los cinco días antes señalados.</p>
+      <p class="parrafo">Cuando por los motivos expresados en los apartados b) y g) la persona trabajadora necesite efectuar un desplazamiento al efecto, los plazos señalados en los mismos se incrementarán en dos días naturales, salvo las personas trabajadoras no comunitarias o comunitarias no colindantes con España que se acojan a lo dispuesto en los últimos incisos de los apartados c) y g).</p>
+      <p class="parrafo_2">2. Los supuestos contemplados en los apartados precedentes –cuando concurran las circunstancias previstas en los mismos– se extenderán asimismo a las parejas de hecho siempre que consten inscritas en el registro correspondiente.</p>
+      <p class="parrafo">3. En las mismas condiciones que las previstas en el apartado 1 del presente artículo, la persona trabajadora podrá ausentarse del trabajo por el tiempo necesario para el cumplimiento de un deber inexcusable de carácter público y personal, comprendido el ejercicio de sufragio activo. Cuando conste en una norma legal un período determinado de ausencia, se estará a lo que ésta disponga en cuanto a su duración y compensación económica.</p>
+      <p class="parrafo">En el supuesto de que, por el cumplimiento del deber o desempeño del cargo público, la persona trabajadora perciba una compensación económica, cualquiera que sea su denominación, se descontará el importe de la misma de la retribución a que tuviera derecho en la empresa.</p>
+      <p class="parrafo">Cuando el cumplimiento del deber antes referido, suponga la imposibilidad de prestación de trabajo en más del 25 por 100 de las horas laborables en un período de tres meses, la empresa se encuentra facultada para decidir el paso de la persona trabajadora afectada a la situación de excedencia forzosa, con todos los efectos inherentes a la misma.</p>
+      <p class="parrafo">4. En los supuestos de nacimiento, adopción, guarda con fines de adopción o acogimiento, de acuerdo con el artículo 45.1.d) del E.T., las personas trabajadoras tendrán derecho a una hora de ausencia del trabajo, que podrán dividir en dos fracciones, para el cuidado del lactante hasta que este cumpla nueve meses. La duración del permiso se incrementará proporcionalmente en los casos de nacimiento, adopción, guarda con fines de adopción o acogimiento múltiples.</p>
+      <p class="parrafo">Quien ejerza este derecho, por su voluntad, podrá sustituirlo por una reducción de su jornada en media hora con la misma finalidad o acumularlo en jornadas completas en los términos previstos en el acuerdo a que llegue con la empresa.</p>
+      <p class="parrafo">La reducción de jornada contemplada en este apartado constituye un derecho individual de las personas trabajadoras sin que pueda transferirse su ejercicio a la otra persona progenitora, adoptante, guardadora o acogedora. No obstante, si dos personas trabajadoras de la misma empresa ejercen este derecho por el mismo sujeto causante, podrá limitarse su ejercicio simultáneo por razones fundadas y objetivas de funcionamiento de la empresa, debidamente motivadas por escrito, debiendo en tal caso la empresa ofrecer un plan alternativo que asegure el disfrute de ambas personas trabajadoras y que posibilite el ejercicio de los derechos de conciliación.</p>
+      <p class="parrafo">Cuando ambas personas progenitoras, adoptantes, guardadoras o acogedoras ejerzan este derecho con la misma duración y régimen, el periodo de disfrute podrá extenderse hasta que el lactante cumpla doce meses, con reducción proporcional del salario a partir del cumplimiento de los nueve meses.</p>
+      <p class="parrafo">5. La persona trabajadora que, por razones de guarda legal, tenga a su cuidado directo a algún menor de doce años o a una persona con discapacidad que no desempeñe actividad retribuida, tendrá derecho a una reducción de la jornada de trabajo diaria, con la disminución proporcional del salario, entre al menos un octavo y un máximo de la mitad de la duración de aquélla.</p>
+      <p class="parrafo">Tendrá el mismo derecho quien precise encargarse del cuidado directo del cónyuge o pareja de hecho, o un familiar hasta el segundo grado de consanguinidad o afinidad, incluido el familiar consanguíneo de la pareja de hecho, que por razones de edad, accidente o enfermedad no pueda valerse por sí mismo, y que no desempeñe actividad retribuida.</p>
+      <p class="parrafo">La reducción de jornada contemplada en el presente apartado constituye un derecho individual de las personas trabajadoras. No obstante, si dos o más personas trabajadoras de la misma empresa generasen este derecho por el mismo sujeto causante, la empresa podrá limitar su ejercicio simultáneo por razones fundadas y objetivas de funcionamiento de la empresa, debidamente motivadas por escrito, debiendo en tal caso la empresa ofrecer un plan alternativo que asegure el disfrute de ambas personas trabajadoras y que posibilite el ejercicio de los derechos de conciliación.»</p>
+    </blockquote>
+    <p class="articulo">Acuerdo segundo.</p>
+    <p class="parrafo">Se han observado varias erratas en diferentes artículos del texto articulado del VII Convenio General del Sector de la Construcción (VII CGSC). En consecuencia, se debe modificar los siguientes artículos del texto del VII CGSC:</p>
+    <p class="parrafo_2">− En el apartado 2 del artículo 145 del VII CGSC, referido al nivel básico de prevención en la construcción, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">2. Estos contenidos formativos podrán impartirse en la modalidad presencial o en la modalidad mixta presencia-teleformación. En este último caso, la parte presencial tendrá una duración, como mínimo, de 20 horas lectivas. Para la obtención de la aptitud por parte del alumno/a, será necesario que asista a la totalidad de la parte presencial.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">2. Estos contenidos formativos podrán impartirse en la modalidad presencial o en la modalidad mixta presencia-teleformación. En este último caso, la parte presencial tendrá una duración, como mínimo, de 20 horas lectivas. En cualquiera de los casos, para la obtención de la aptitud por parte del alumno/a, será necesario que asista a la totalidad de la acción formativa.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En el párrafo primero del artículo 173 del VII CGSC, referido a la detección y lucha contra incendios, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«Según las características de la obra y según las dimensiones y el uso de los locales existentes, los equipos de trabajo presentes, las características físicas y químicas de las sustancias o materiales que se hallen presentes, así como el número máximo de personas que puedan hallarse en ellos, se deberá prever en el plan de seguridad y salud en un número suficiente de dispositivos apropiados para la lucha contra incendios.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«Según las características de la obra y según las dimensiones y el uso de los locales existentes, los equipos de trabajo presentes, las características físicas y químicas de las sustancias o materiales que se hallen presentes, así como el número máximo de personas que puedan hallarse en ellos, se deberá prever en el plan de seguridad y salud un número suficiente de dispositivos apropiados para la lucha contra incendios.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En el apartado 2 del artículo 178 del VII CGSC, referido al montaje, supervisión y formación de los montadores, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">2. Tanto los trabajadores afectados, como la persona que supervise, dispondrán del plan de montaje y desmontaje incluyendo cualquier instrucción que pudiera contener.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">2. Tanto los trabajadores afectados, como la persona que supervise, dispondrán del plan de montaje de utilización y de desmontaje incluyendo cualquier instrucción que pudiera contener.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En el apartado 3 del artículo 189 del VII CGSC, referido a las normas específicas para redes de seguridad, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">3. Cuando no exista disposición normativa de obligado cumplimiento aplicable, o ésta no cubra todos los riesgos o categorías de riesgos de la red de seguridad, para evaluar su seguridad garantizando siempre el nivel de seguridad, se tendrán en:</p>
+      <p class="parrafo_2">− Normas técnicas nacionales que sean transposición de normas europeas no armonizadas.</p>
+      <p class="parrafo">− Normas UNE.</p>
+      <p class="parrafo">− Códigos de buenas prácticas.</p>
+      <p class="parrafo">− Estado actual de los conocimientos y de la técnica.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">3. Cuando no exista disposición normativa de obligado cumplimiento aplicable, o ésta no cubra todos los riesgos o categorías de riesgos de la red de seguridad, para evaluar su seguridad garantizando siempre el nivel de seguridad, se tendrán en cuenta:</p>
+      <p class="parrafo_2">− Normas técnicas nacionales que sean transposición de normas europeas no armonizadas.</p>
+      <p class="parrafo">− Normas UNE.</p>
+      <p class="parrafo">− Códigos de buenas prácticas.</p>
+      <p class="parrafo">− Estado actual de los conocimientos y de la técnica.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En el artículo 196 del VII CGSC, referido a las normas específicas para plataformas de carga y descarga para obras de construcción, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«Deben reunir, entre otros, los siguientes requisitos:</p>
+      <p class="parrafo_2">− Las plataformas deben ser metálicas, sólidas y seguras; se fijarán a la estructura portante (ejemplo: forjado, losa) mediante los dispositivos de anclaje especificados por el fabricante, en el número y la disposición establecidos por el mismo.</p>
+      <p class="parrafo">− Las plataformas estarán protegidas en su contorno con barandillas perimetrales. Cuando dispongan de trampilla abatible en el piso, tendrán un sistema que impida el acceso a la plataforma mientras la trampilla esté abierta.</p>
+      <p class="parrafo">− Para Durante la realización de trabajos sobre las plataformas, en función de las características del puesto de trabajo, es preceptivo el uso o bien de un cinturón de retención (que impida que la persona trabajadora alcance el borde de la plataforma) dispuesto en un punto sólido de la obra (en ningún caso en la propia plataforma), o bien de un sistema anticaídas.</p>
+      <p class="parrafo">− Las plataformas no deberán sobrecargarse por encima de la carga máxima prevista por el fabricante, que vendrá indicada en un lugar visible y de forma indeleble.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«Deben reunir, entre otros, los siguientes requisitos:</p>
+      <p class="parrafo_2">− Las plataformas deben ser metálicas, sólidas y seguras; se fijarán a la estructura portante (ejemplo: forjado, losa) mediante los dispositivos de anclaje especificados por el fabricante, en el número y la disposición establecidos por el mismo.</p>
+      <p class="parrafo">− Las plataformas estarán protegidas en su contorno con barandillas perimetrales. Cuando dispongan de trampilla abatible en el piso, tendrán un sistema que impida el acceso a la plataforma mientras la trampilla esté abierta.</p>
+      <p class="parrafo">− Durante la realización de trabajos sobre las plataformas, en función de las características del puesto de trabajo, es preceptivo el uso o bien de un cinturón de retención (que impida que la persona trabajadora alcance el borde de la plataforma) dispuesto en un punto sólido de la obra (en ningún caso en la propia plataforma), o bien de un sistema anticaídas.</p>
+      <p class="parrafo">− Las plataformas no deberán sobrecargarse por encima de la carga máxima prevista por el fabricante, que vendrá indicada en un lugar visible y de forma indeleble.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En la disposición adicional tercera del VII CGSC, referida a las funciones del vigilante de obra, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«Las funciones, que de acuerdo con la normativa vigente podrá realizar un Vigilante de obra, taller o fábrica, integrado en el GRUPO 2 del área funcional de servicios transversales de la clasificación profesional del presente convenio, consistirán en:</p>
+      <p class="parrafo_2">– Información y/o control en los accesos a la obra, comprendiendo el cuidado y custodia de las llaves, la apertura y cierre de puertas, la ayuda en el acceso de personas o vehículos, el cumplimiento de la normativa interna de la obra y ejecución de tareas auxiliares o subordinadas de ayuda o socorro, todas ellas realizadas en el ámbito de la obra, sea de edificación u obra civil.</p>
+      <p class="parrafo">– Recepción, comprobación de personal, tanto propio como ajeno a la obra, y orientación de los mismos.</p>
+      <p class="parrafo">– Comprobación de documentos en obra (tarjeta profesional de la construcción, carnés, albaranes u otros documentos).</p>
+      <p class="parrafo">– Cumplimiento de la normativa interna de las obras donde presten dicho servicio.</p>
+      <p class="parrafo">– Control de tránsito en el interior de la zona acotada por la obra así como, si las hubiera, en zonas reservadas o de circulación restringida dentro de la misma en cumplimiento de la normativa interna de los mismos.</p>
+      <p class="parrafo">– Comprobación y control del estado y funcionamiento de bienes e instalaciones en general, en obra, para garantizar su conservación y funcionamiento, sobre todo de cara a tener todo en perfecto orden y apto para su funcionamiento en todo momento, y especialmente con la llegada diaria de las personas trabajadoras al centro de trabajo.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«Las funciones, que de acuerdo con la normativa vigente podrá realizar un Vigilante de obra, taller o fábrica, integrado en el GRUPO 2 del área funcional de servicios transversales de la clasificación profesional del presente convenio, consistirán en:</p>
+      <p class="parrafo_2">– Información y/o control en los accesos a la obra, comprendiendo el cuidado y custodia de las llaves, la apertura y cierre de puertas, la ayuda en el acceso de personas o vehículos, el cumplimiento de la normativa interna de la obra y ejecución de tareas auxiliares o subordinadas de ayuda o socorro, todas ellas realizadas en el ámbito de la obra, sea de edificación u obra civil.</p>
+      <p class="parrafo">– Recepción, comprobación de personal, tanto propio como ajeno a la obra, y orientación a los mismos.</p>
+      <p class="parrafo">– Comprobación de documentos en obra (tarjeta profesional de la construcción, carnés, albaranes u otros documentos).</p>
+      <p class="parrafo">– Cumplimiento de la normativa interna de las obras donde presten dicho servicio.</p>
+      <p class="parrafo">– Control de tránsito en el interior de la zona acotada por la obra así como, si las hubiera, en zonas reservadas o de circulación restringida dentro de la misma en cumplimiento de la normativa interna de los mismos.</p>
+      <p class="parrafo">– Comprobación y control del estado y funcionamiento de bienes e instalaciones en general, en obra, para garantizar su conservación y funcionamiento, sobre todo de cara a tener todo en perfecto orden y apto para su funcionamiento en todo momento, y especialmente con la llegada diaria de los trabajadores las personas trabajadoras al centro de trabajo.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En los anexos IV, V y VI del VII CGSC, que recogen los modelos de los diferentes documentos (TPC) aparecen con la marca paritaria de la Fundación Laboral de la Construcción (FLC) no actualizada, deben ser sustituidos por los siguientes modelos:</p>
+    <blockquote class="sangrado">
+      <p class="anexo_num">«ANEXO IV</p>
+      <p class="anexo_tit">Formato de la Tarjeta Profesional de la Construcción</p>
+      <p class="centro_cursiva">Especificaciones de la tarjeta</p>
+      <p class="parrafo_2">– Tarjeta PVC.</p>
+      <p class="parrafo">– Banda magnética de baja coercitividad.</p>
+      <p class="parrafo">– Fondo de la Tarjeta en color azul, texto en blanco.</p>
+      <p class="parrafo">– Holograma con logo de la FLC.</p>
+      <p class="parrafo">– Código QR.</p>
+      <p class="centro_cursiva">Elementos de la tarjeta</p>
+      <p class="parrafo_2">Anverso:</p>
+      <p class="imagen">
+        <img class="frame" data-pdf="00065-REVISADO.pdf" src="/datos/imagenes/disp/2024/7/426_13944712_1.png" data-ancho="85.003632" data-alto="54.2352384" width="1004" height="641"/>
+      </p>
+      <p class="parrafo_2">Reverso:</p>
+      <p class="imagen"><img class="frame" data-pdf="00065-REVISADO.pdf" src="/datos/imagenes/disp/2024/7/426_13944712_2.png" data-ancho="85.347612" data-alto="54.3809448" width="1008" height="642"/>»</p>
+    </blockquote>
+    <blockquote class="sangrado">
+      <p class="anexo_num">«ANEXO V</p>
+      <p class="anexo_tit">Formulario de solicitud/renovación</p>
+      <p class="imagen">
+        <img class="frame" data-pdf="00065-REVISADO.pdf" src="/datos/imagenes/disp/2024/7/426_13944712_3.png" data-ancho="139.4233848" data-alto="200.2831488" width="1647" height="2365"/>
+      </p>
+      <p class="imagen"><img class="frame" data-pdf="00065-REVISADO.pdf" src="/datos/imagenes/disp/2024/7/426_13944712_4.png" data-ancho="141.4343448" data-alto="173.459412" width="1670" height="2049"/>»</p>
+    </blockquote>
+    <blockquote class="sangrado">
+      <p class="anexo_num">«ANEXO VI</p>
+      <p class="anexo_tit">Certificado de empresa para la Fundación Laboral de la Construcción</p>
+      <p class="imagen"><img class="frame" data-pdf="00065-REVISADO.pdf" src="/datos/imagenes/disp/2024/7/426_13944712_5.png" data-ancho="140.3731224" data-alto="201.4008192" width="1658" height="2379"/>»</p>
+    </blockquote>
+    <p class="parrafo_2">− En la letra d) del apartado 2 del anexo XIII del VII CGSC, referido a la convalidación de la formación en materia de prevención de riesgos laborales, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">d) El curso de coordinador en materia de seguridad y de salud construcción convalida la siguiente formación recogida en el presente convenio:</p>
+      <p class="parrafo_2">– Formación inicial.</p>
+      <p class="parrafo">– Responsables de obra y técnicos de ejecución.</p>
+      <p class="parrafo">– Mandos intermedios.</p>
+      <p class="parrafo">– Administrativos.</p>
+      <p class="parrafo">– Parte común de oficios.</p>
+      <p class="parrafo_2">(…).»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">d) El curso de coordinador en materia de seguridad y de salud en obras de construcción convalida la siguiente formación recogida en el presente convenio:</p>
+      <p class="parrafo_2">– Formación inicial.</p>
+      <p class="parrafo">– Responsables de obra y técnicos de ejecución.</p>
+      <p class="parrafo">– Mandos intermedios.</p>
+      <p class="parrafo">– Administrativos.</p>
+      <p class="parrafo">– Parte común de oficios.</p>
+      <p class="parrafo_2">(…).»</p>
+    </blockquote>
+    <p class="parrafo_2">− En la tabla 4, referida a los reconocimientos para los certificados de profesionalidad para la familia profesional de edificación y obra civil, del apartado 3 del anexo XIII del VII CGSC, referido a la convalidación de la formación en materia de prevención de riesgos laborales, en el nivel 2 –Código EOCJ0110 (Instalación de placa de yeso laminado y falsos techos), donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«Tabla 4:</p>
+      <table class="tabla_ancha" data-omitir-repetir-tfoot="true" data-vertical-align="top">
+        <colgroup>
+          <col width="7%"/>
+          <col width="15%"/>
+          <col width="35%"/>
+          <col width="33%"/>
+          <col width="10%"/>
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="cabeza_tabla">Nivel</th>
+            <th class="cabeza_tabla">Código</th>
+            <th class="cabeza_tabla">Certificado de profesionalidad</th>
+            <th class="cabeza_tabla">2.º Ciclo</th>
+            <th class="cabeza_tabla">NBPC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cuerpo_tabla_centro">2</td>
+            <td class="cuerpo_tabla_centro">EOCJ0110</td>
+            <td class="cuerpo_tabla_izq">Instalación de placa de yeso laminado y falsos techos.</td>
+            <td class="cuerpo_tabla_izq">Albañilería.</td>
+            <td class="cuerpo_tabla_izq">Sí.»</td>
+          </tr>
+        </tbody>
+      </table>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«Tabla 4:</p>
+      <table class="tabla_ancha" data-omitir-repetir-tfoot="true" data-vertical-align="top">
+        <colgroup>
+          <col width="7%"/>
+          <col width="15%"/>
+          <col width="35%"/>
+          <col width="33%"/>
+          <col width="10%"/>
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="cabeza_tabla">Nivel</th>
+            <th class="cabeza_tabla">Código</th>
+            <th class="cabeza_tabla">Certificado de profesionalidad</th>
+            <th class="cabeza_tabla">2.º Ciclo</th>
+            <th class="cabeza_tabla">NBPC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cuerpo_tabla_centro">2</td>
+            <td class="cuerpo_tabla_centro">EOCJ0110</td>
+            <td class="cuerpo_tabla_izq">Instalación de placa de yeso laminado y falsos techos.</td>
+            <td class="cuerpo_tabla_izq">Montaje de escayola, placas de yeso laminado y asimilados.</td>
+            <td class="cuerpo_tabla_izq">Sí.»</td>
+          </tr>
+        </tbody>
+      </table>
+    </blockquote>
+    <p class="parrafo_2">− En el apartado 5, referido a la formación recogida en el Convenio Estatal del Sector del Metal, del anexo XIII del VII CGSC, referido a la convalidación de la formación en materia de prevención de riesgos laborales, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="centro_redonda">«Convalidación de la formación</p>
+      <table class="tabla_ancha" data-omitir-repetir-tfoot="true">
+        <colgroup>
+          <col width="50%"/>
+          <col width="50%"/>
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="cabeza_tabla">Formación preventiva recogida en el anexo IV del Convenio Estatal del Sector del Metal</th>
+            <th class="cabeza_tabla">Convalidación respecto a la formación en materia de prevención de riesgos laborales especificada en el VI CGSC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cuerpo_tabla_izq">Primer ciclo de formación: Nivel Básico.</td>
+            <td class="cuerpo_tabla_izq">Primer ciclo de formación: Nivel Básico.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Directivos de empresas.</td>
+            <td class="cuerpo_tabla_izq">Directivos de empresas.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Responsables y los técnicos de ejecución de la actividad.</td>
+            <td class="cuerpo_tabla_izq">Responsables y los técnicos de ejecución de la actividad.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Mandos intermedios.</td>
+            <td class="cuerpo_tabla_izq">Mandos intermedios.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Administrativos.</td>
+            <td class="cuerpo_tabla_izq">Administrativos.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Ferrallado.</td>
+            <td class="cuerpo_tabla_izq">Ferrallado.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Electricidad, relativo a los trabajos de montaje y mantenimiento de instalaciones eléctricas de alta y baja tensión.</td>
+            <td class="cuerpo_tabla_izq">Electricidad, montaje y mantenimiento de instalaciones eléctricas de alta y baja tensión.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Fontanería e instalaciones de climatización.</td>
+            <td class="cuerpo_tabla_izq">Fontanería e instalaciones de climatización.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Operadores de aparatos elevadores.</td>
+            <td class="cuerpo_tabla_izq">Operadores de aparatos elevadores.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Operadores de equipos manuales.</td>
+            <td class="cuerpo_tabla_izq">Operadores de equipos manuales.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Aislamiento e impermeabilización.</td>
+            <td class="cuerpo_tabla_izq">Aislamiento e impermeabilización.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Montaje de estructuras tubulares.</td>
+            <td class="cuerpo_tabla_izq">Montaje de estructuras tubulares.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Construcción y mantenimiento de vías férreas.</td>
+            <td class="cuerpo_tabla_izq">Construcción y mantenimiento de vías férreas.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Nivel básico de prevención de las actividades del metal en la construcción.</td>
+            <td class="cuerpo_tabla_izq">Nivel básico de prevención en la construcción.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="parrafo_2">Asimismo, se producirá convalidación de la parte común de oficios del sector de la construcción, la siguiente formación preventiva recogida en el Convenio Estatal del Sector del Metal:</p>
+      <p class="parrafo_2">– Instalación de ascensores.</p>
+      <p class="parrafo">– Instalaciones, reparaciones, montajes, estructuras metálicas, cerrajería y carpintería metálica.</p>
+      <p class="parrafo">– Mantenimiento de maquinaria y vehículos en obras de construcción.</p>
+      <p class="parrafo">– Instalaciones de telecomunicaciones.</p>
+      <p class="parrafo">– Trabajos en gasoductos y redes de distribución de gases combustibles.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <table class="tabla_ancha" data-omitir-repetir-tfoot="true">
+        <colgroup>
+          <col width="50%"/>
+          <col width="50%"/>
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="cabeza_tabla">«Formación preventiva recogida en el anexo IV del Convenio Estatal del Sector del Metal</th>
+            <th class="cabeza_tabla">Convalidación respecto a la formación en materia de prevención de riesgos laborales especificada en el VI CGSC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cuerpo_tabla_izq">Primer ciclo de formación: Nivel Básico.</td>
+            <td class="cuerpo_tabla_izq">Primer ciclo de formación: Nivel Básico.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Directivos de empresas.</td>
+            <td class="cuerpo_tabla_izq">Directivos de empresas.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Responsables y los técnicos de ejecución de la actividad.</td>
+            <td class="cuerpo_tabla_izq">Responsables y los técnicos de ejecución de la actividad.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Mandos intermedios.</td>
+            <td class="cuerpo_tabla_izq">Mandos intermedios.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Administrativos.</td>
+            <td class="cuerpo_tabla_izq">Administrativos.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Ferrallado.</td>
+            <td class="cuerpo_tabla_izq">Ferrallado.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Electricidad, relativo a los trabajos de montaje y mantenimiento de instalaciones eléctricas de alta y baja tensión.</td>
+            <td class="cuerpo_tabla_izq">Electricidad, montaje y mantenimiento de instalaciones eléctricas de alta y baja tensión.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Fontanería e instalaciones de climatización.</td>
+            <td class="cuerpo_tabla_izq">Fontanería e instalaciones de climatización.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Operadores de aparatos elevadores.</td>
+            <td class="cuerpo_tabla_izq">Operadores de aparatos elevadores.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Operadores de equipos manuales.</td>
+            <td class="cuerpo_tabla_izq">Operadores de equipos manuales.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Aislamiento e impermeabilización.</td>
+            <td class="cuerpo_tabla_izq">Aislamiento e impermeabilización.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Montaje de estructuras tubulares.</td>
+            <td class="cuerpo_tabla_izq">Montaje de estructuras tubulares.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Construcción y mantenimiento de vías férreas.</td>
+            <td class="cuerpo_tabla_izq">Construcción y mantenimiento de vías férreas.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Trabajos de mantenimiento de maquinaria y vehículos en obras de construcción.</td>
+            <td class="cuerpo_tabla_izq">Mantenimiento de maquinaria y vehículos en obras de construcción.</td>
+          </tr>
+          <tr>
+            <td class="cuerpo_tabla_izq">Nivel básico de prevención de las actividades del metal en la construcción.</td>
+            <td class="cuerpo_tabla_izq">Nivel básico de prevención en la construcción.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="parrafo_2">Asimismo, se producirá convalidación de la parte común de oficios del sector de la construcción, la siguiente formación preventiva recogida en el Convenio Estatal del Sector del Metal:</p>
+      <p class="parrafo_2">– Instalación de ascensores.</p>
+      <p class="parrafo">– Instalaciones, reparaciones, montajes, estructuras metálicas, cerrajería y carpintería metálica.</p>
+      <p class="parrafo">– Instalaciones de telecomunicaciones.</p>
+      <p class="parrafo">– Trabajos en gasoductos y redes de distribución de gases combustibles.</p>
+      <p class="parrafo">– Trabajos de instalación de equipos contraincendios.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En el punto 4 del apartado II, referido a requisitos, del anexo XIV que recoge el Procedimiento para la homologación de acciones formativas en materia de prevención de riesgos laborales, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">4. Las entidades tendrán que aplicar los contenidos didácticos que se recogen, tanto en el Capítulo III, Título III, del Libro II del Convenio General del Sector de la Construcción denominados: primer ciclo de formación: formación inicial; segundo ciclo de formación: contenidos formativos en función del puesto de trabajo o por oficio; nivel básico de prevención en la construcción; como aquellos otros recogidos en los acuerdos vigentes suscritos con la Fundación Laboral de la Construcción.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">4. Las entidades tendrán que aplicar los contenidos didácticos que se recogen, tanto en el Capítulo III, Título III, del Libro II del Convenio General del Sector de la Construcción denominados: primer ciclo de formación: formación inicial; segundo ciclo de formación: contenidos formativos en función del puesto de trabajo o por oficio; y nivel básico de prevención en la construcción; y formación de primeros auxilios en equipos de emergencia; como aquellos otros recogidos en los acuerdos vigentes suscritos con la Fundación Laboral de la Construcción.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En el punto 5 del apartado II, referido a requisitos, del Anexo XIV que recoge el Procedimiento para la homologación de acciones formativas en materia de prevención de riesgos laborales, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">5. Como modalidad para la impartición se determina lo siguiente:</p>
+      <p class="parrafo_2">a) Primer ciclo de formación: la formación inicial se realizará en la modalidad presencial.</p>
+      <p class="parrafo">b) Segundo ciclo de formación: los contenidos formativos en función del puesto de trabajo o por oficio se practicarán en la modalidad presencial. El contenido formativo para personal directivo tendrá una duración de diez horas, y se podrá desarrollar en la modalidad presencial o en la modalidad mixta presencia-teleformación, en cuyo caso la parte presencial tendrá una duración, como mínimo, de dos horas y media. Igualmente, y con carácter excepcional, esta acción formativa se podrá impartir en la modalidad de teleformación. El contenido formativo para personal administrativo tendrá una duración de veinte horas, y se podrá desarrollar en la modalidad presencial o en la modalidad mixta presencia-teleformación, en cuyo caso la parte presencial tendrá una duración, como mínimo, de cinco horas.</p>
+      <p class="parrafo">c) El contenido formativo para nivel básico de prevención en la construcción tendrá una duración de sesenta horas, y se podrá desarrollar en la modalidad presencial o en la modalidad mixta presencia-teleformación, en cuyo caso la parte presencial tendrá una duración, como mínimo, de veinte horas.</p>
+      <p class="parrafo">d) La prevista para cada acción formativa en aquellos acuerdos vigentes suscritos con la Fundación Laboral de la Construcción.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">5. Como modalidad para la impartición se determina lo siguiente:</p>
+      <p class="parrafo_2">a) Primer ciclo de formación: la formación inicial se realizará en la modalidad presencial.</p>
+      <p class="parrafo">b) Segundo ciclo de formación: los contenidos formativos en función del puesto de trabajo o por oficio se practicarán en la modalidad presencial. El contenido formativo para personal directivo tendrá una duración de diez horas, y se podrá desarrollar en la modalidad presencial o en la modalidad mixta presencia-teleformación, en cuyo caso la parte presencial tendrá una duración, como mínimo, de dos horas y media. Igualmente, y con carácter excepcional, esta acción formativa se podrá impartir en la modalidad de teleformación. El contenido formativo para personal administrativo tendrá una duración de veinte horas, y se podrá desarrollar en la modalidad presencial o en la modalidad mixta presencia-teleformación, en cuyo caso la parte presencial tendrá una duración, como mínimo, de cinco horas.</p>
+      <p class="parrafo">c) El contenido formativo para nivel básico de prevención en la construcción tendrá una duración de sesenta horas, y se podrá desarrollar en la modalidad presencial o en la modalidad mixta presencia-teleformación, en cuyo caso la parte presencial tendrá una duración, como mínimo, de veinte horas.</p>
+      <p class="parrafo">d) El contenido formativo para primeros auxilios en equipos de emergencia tendrá una duración de cuatro horas, y se realizará en la modalidad presencial.</p>
+      <p class="parrafo">e) La prevista para cada acción formativa en aquellos acuerdos vigentes suscritos con la Fundación Laboral de la Construcción.»</p>
+    </blockquote>
+    <p class="parrafo_2">− En el punto 12 del artículo 1, referido a las obligaciones derivadas de la homologación, del anexo XV que recoge el Reglamento de condiciones para el mantenimiento de la homologación de acciones formativas en materia de prevención de riesgos laborales de acuerdo con lo establecido en el Convenio General del Sector de la Construcción, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">12. Mantener en correcto estado de funcionamiento y disponibilidad todos los que determinaron la concesión de la homologación conforme a lo dispuesto en el apartado II del procedimiento para la homologación de acciones formativas.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="parrafo_2">«(…)</p>
+      <p class="parrafo_2">12. Mantener en correcto estado de funcionamiento y disponibilidad todos los medios que determinaron la concesión de la homologación conforme a lo dispuesto en el apartado II del procedimiento para la homologación de acciones formativas.»</p>
+    </blockquote>
+    <p class="articulo">Acuerdo tercero.</p>
+    <p class="parrafo">Se ha procedido a realizar un cambio en el modelo de finiquito contenido en el anexo III del VII Convenio General del Sector de la Construcción respecto del modelo contenido en el anexo III del VI Convenio General del Sector de la Construcción. De cara a que puedan seguir utilizándose aquellos finiquitos que estuvieran impresos a la entrada en vigor del VII CGSC, se acuerda incluir un periodo transitorio para su uso mediante la inclusión de una nueva disposición transitoria segunda del siguiente tenor literal:</p>
+    <blockquote class="sangrado">
+      <p class="articulo">«Disposición transitoria segunda.</p>
+      <p class="parrafo">Con la finalidad de que las asociaciones empresariales puedan adaptarse al nuevo modelo de finiquito establecido en el anexo III del presente convenio, los finiquitos expedidos en el modelo del anexo III del VI Convenio General del Sector de la Construcción mantendrán su validez durante doce meses, contados a partir de la publicación del presente convenio.»</p>
+    </blockquote>
+    <p class="articulo">Acuerdo cuarto.</p>
+    <p class="parrafo">Esta Comisión Negociadora entiende necesario encomendar a Órgano Paritario para la Prevención en la Construcción, en conformidad con lo dispuesto en la letra g) del artículo 122 del presente convenio la realización de una propuesta no vinculante de seguimiento y adaptación a la normativa vigente en prevención de riesgos laborales del Libro Segundo del presente convenio. En consecuencia, se acuerda incluir una disposición adicional novena del siguiente tenor literal:</p>
+    <blockquote class="sangrado">
+      <p class="articulo">«Disposición adicional novena.</p>
+      <p class="parrafo">La Comisión Negociadora de este convenio encomienda al Órgano Paritario para la Prevención en la Construcción la elaboración de una propuesta no vinculante de actualización del Libro II del presente convenio para su adaptación continua a la normativa vigente.»</p>
+    </blockquote>
+    <p class="articulo">Acuerdo quinto.</p>
+    <p class="parrafo">Esta Comisión Negociadora ha detectado una errata en la letra a) del artículo 29 del Reglamento de especificaciones del Plan de Pensiones del Sector de la Construcción contenido en el artículo 240 del presente convenio. Esta errata consiste en la inclusión del adverbio «no» en la redacción de esta letra a). Por ello debería suprimirse del texto del artículo 29.a) el mencionado adverbio y donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="articulo">«Artículo 29. Suspensión de la realización de contribuciones.</p>
+      <p class="parrafo">La Entidad Promotora suspenderá la contribución en los casos siguientes:</p>
+      <p class="parrafo_2">a) Cuando el Partícipe que se hubiese jubilado parcialmente no hubiese optado por ser Beneficiario de la prestación derivada de la contingencia de jubilación.</p>
+      <p class="parrafo">b) Durante el período de inactividad en los contratos de trabajo fijos-discontinuos.</p>
+      <p class="parrafo">c) Cuando concurra cualquiera de las causas de suspensión del contrato de trabajo, previstas legal o convencionalmente, a excepción de las situaciones expresamente contempladas en el artículo 17.3 del presente Reglamento de Especificaciones, en el que se enumeran los recogidos en el artículo 5.1.a) 2.º, párrafo segundo, del Real Decreto Legislativo 1/2002, de 29 de noviembre, por el que se aprueba el texto refundido de la Ley de Regulación de los Planes y Fondos de Pensiones, y que son los recogidos en el artículo 48, apartados 4 a 8, del Real Decreto Legislativo 2/2015, de 23 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto de los Trabajadores, así como en el artículo 37.6 del referido Estatuto de los Trabajadores.</p>
+      <p class="parrafo_2">En el caso de los Partícipes a los que se hace mención en el apartado 3 del artículo anterior, no procederá la realización de contribuciones ni en los supuestos de las letras a), b) y c) anteriores, ni en las situaciones recogidas en el artículo 17.3 del presente Reglamento de Especificaciones.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="articulo">«Artículo 29. Suspensión de la realización de contribuciones.</p>
+      <p class="parrafo">La Entidad Promotora suspenderá la contribución en los casos siguientes:</p>
+      <p class="parrafo_2">a) Cuando el Partícipe que se hubiese jubilado parcialmente hubiese optado por ser Beneficiario de la prestación derivada de la contingencia de jubilación.</p>
+      <p class="parrafo">b) Durante el período de inactividad en los contratos de trabajo fijos-discontinuos.</p>
+      <p class="parrafo">c) Cuando concurra cualquiera de las causas de suspensión del contrato de trabajo, previstas legal o convencionalmente, a excepción de las situaciones expresamente contempladas en el artículo 17.3 del presente Reglamento de Especificaciones, en el que se enumeran los recogidos en el artículo 5.1.a) 2.º, párrafo segundo, del Real Decreto Legislativo 1/2002, de 29 de noviembre, por el que se aprueba el texto refundido de la Ley de Regulación de los Planes y Fondos de Pensiones, y que son los recogidos en el artículo 48, apartados 4 a 8, del Real Decreto Legislativo 2/2015, de 23 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto de los Trabajadores, así como en el artículo 37.6 del referido Estatuto de los Trabajadores.</p>
+      <p class="parrafo_2">En el caso de los Partícipes a los que se hace mención en el apartado 3 del artículo anterior, no procederá la realización de contribuciones ni en los supuestos de las letras a), b) y c) anteriores, ni en las situaciones recogidas en el artículo 17.3 del presente Reglamento de Especificaciones.»</p>
+    </blockquote>
+    <p class="parrafo_2">Asimismo, en concordancia con la corrección anterior debe modificarse el artículo 33 del Reglamento de Especificaciones del Plan de Pensiones del Sector de la Construcción recogido en el artículo 240 del VII CGSC de forma que se ajuste a lo dispuesto en la letra a) del artículo 29 del citado Reglamento y, en consecuencia, donde dice:</p>
+    <blockquote class="sangrado">
+      <p class="articulo">«Artículo 33. Contingencias y prestaciones cubierta por el Plan de Pensiones.</p>
+      <p class="parrafo">1. Las contingencias cubiertas por el Plan de Pensiones en los términos previstos en el presente Título son la jubilación, la incapacidad permanente y el fallecimiento del Partícipe o Partícipe en Suspenso.</p>
+      <p class="parrafo">2. Las prestaciones, consistentes en el reconocimiento de un derecho económico en favor de los beneficiarios del presente Plan de Pensiones acaecida la contingencia cubierta por el mismo, son las siguientes:</p>
+      <p class="parrafo_2">A) Prestación por jubilación.</p>
+      <p class="parrafo_2">A.1 El hecho causante de esta prestación es la jubilación efectiva del Partícipe o Partícipe en Suspenso según lo previsto en el régimen de la Seguridad Social correspondiente.</p>
+      <p class="parrafo">De no ser posible el acceso del Partícipe o Partícipe en Suspenso a la pensión de jubilación, aun teniendo la edad de acceso ordinaria establecida legalmente, podrá solicitar la prestación por jubilación a partir de dicha edad cuando no ejerza o haya cesado en la actividad laboral o profesional y no se encuentre cotizando para la contingencia de jubilación por ningún régimen de la Seguridad Social.</p>
+      <p class="parrafo">A.2 La persona trabajadora jubilada parcialmente que sea Partícipe o Partícipe en Suspenso del Plan de Pensiones, en el momento en que se acoja a la jubilación parcial podrá optar entre continuar como Partícipe del Plan de Pensiones, contribuyendo la Entidad Promotora según su jornada, o bien pasar a la condición de Beneficiario por jubilación del presente Plan de Pensiones, sin derecho a ulteriores contribuciones de ningún tipo, percibiendo la prestación por jubilación según establece este Reglamento de Especificaciones.</p>
+      <p class="parrafo">En caso de que el Partícipe o Partícipe en Suspenso no manifieste opción en el momento de la jubilación parcial, se entenderá que continúa como Partícipe en el Plan de Pensiones.</p>
+      <p class="parrafo">El Partícipe que habiéndose jubilado parcialmente hubiese continuado como Partícipe en el Plan, podrá solicitar el cobro de la prestación de jubilación en virtud de su condición de jubilado parcial, en los términos establecidos en el Reglamento de Especificaciones. En ese caso, dejará de recibir contribuciones y realizar aportaciones y pasará a tener la condición de Beneficiario del Plan.</p>
+      <p class="parrafo_2">B) Prestación por fallecimiento.</p>
+      <p class="parrafo_2">Si un Partícipe o Partícipe en Suspenso falleciese, el Beneficiario o Beneficiarios designados percibirán la prestación por fallecimiento en la forma y proporción establecidas en el artículo 21.2 del presente Reglamento de Especificaciones.</p>
+      <p class="parrafo_2">C) Prestación por Incapacidad Permanente.</p>
+      <p class="parrafo_2">Si un Partícipe o Partícipe en Suspenso, antes de causar derecho a la prestación por jubilación, causara baja en la Entidad Promotora por quedar en situación de incapacitado permanente en cualquiera de los grados total, absoluta o gran invalidez, percibirá la prestación por incapacidad permanente prevista por el Plan independientemente del hecho determinante de dicha incapacidad. Se entenderá por incapacidad permanente en sus distintos grados la situación que así sea reconocida y declarada por el Instituto Nacional de la Seguridad Social u organismo competente o, en su caso, por el Órgano Jurisdiccional competente.»</p>
+    </blockquote>
+    <p class="parrafo_2">Debe decir:</p>
+    <blockquote class="sangrado">
+      <p class="articulo">«Artículo 33. Contingencias y prestaciones cubierta por el Plan de Pensiones.</p>
+      <p class="parrafo">1. Las contingencias cubiertas por el Plan de Pensiones en los términos previstos en el presente Título son la jubilación, la incapacidad permanente y el fallecimiento del Partícipe o Partícipe en Suspenso.</p>
+      <p class="parrafo">2. Las prestaciones, consistentes en el reconocimiento de un derecho económico en favor de los beneficiarios del presente Plan de Pensiones acaecida la contingencia cubierta por el mismo, son las siguientes:</p>
+      <p class="parrafo_2">A) Prestación por jubilación.</p>
+      <p class="parrafo_2">A.1 El hecho causante de esta prestación es la jubilación efectiva del Partícipe o Partícipe en Suspenso según lo previsto en el régimen de la Seguridad Social correspondiente.</p>
+      <p class="parrafo">De no ser posible el acceso del Partícipe o Partícipe en Suspenso a la pensión de jubilación, aun teniendo la edad de acceso ordinaria establecida legalmente, podrá solicitar la prestación por jubilación a partir de dicha edad cuando no ejerza o haya cesado en la actividad laboral o profesional y no se encuentre cotizando para la contingencia de jubilación por ningún régimen de la Seguridad Social.</p>
+      <p class="parrafo">A.2 La persona trabajadora en el momento en que se acoja a la jubilación parcial podrá optar entre continuar como Partícipe del Plan de Pensiones, contribuyendo la Entidad Promotora según su jornada, o bien pasar a la condición de Beneficiario por jubilación del presente Plan de Pensiones, sin derecho a ulteriores contribuciones de ningún tipo, percibiendo la prestación por jubilación según establece este Reglamento de Especificaciones.</p>
+      <p class="parrafo">En caso de que el Partícipe o Partícipe en Suspenso no manifieste opción en el momento de la jubilación parcial, se entenderá que continúa como Partícipe en el Plan de Pensiones.</p>
+      <p class="parrafo">El Partícipe que habiéndose jubilado parcialmente hubiese continuado como Partícipe en el Plan, podrá solicitar el cobro de la prestación de jubilación en virtud de su condición de jubilado parcial, en los términos establecidos en el Reglamento de Especificaciones. En ese caso, dejará de recibir contribuciones y realizar aportaciones y pasará a tener la condición de Beneficiario del Plan.</p>
+      <p class="parrafo_2">B) Prestación por fallecimiento.</p>
+      <p class="parrafo_2">Si un Partícipe o Partícipe en Suspenso falleciese, el Beneficiario o Beneficiarios designados percibirán la prestación por fallecimiento en la forma y proporción establecidas en el artículo 21.2 del presente Reglamento de Especificaciones.</p>
+      <p class="parrafo_2">C) Prestación por Incapacidad Permanente.</p>
+      <p class="parrafo_2">Si un Partícipe o Partícipe en Suspenso, antes de causar derecho a la prestación por jubilación, causara baja en la Entidad Promotora por quedar en situación de incapacitado permanente en cualquiera de los grados total, absoluta o gran invalidez, percibirá la prestación por incapacidad permanente prevista por el Plan independientemente del hecho determinante de dicha incapacidad. Se entenderá por incapacidad permanente en sus distintos grados la situación que así sea reconocida y declarada por el Instituto Nacional de la Seguridad Social u organismo competente o, en su caso, por el Órgano Jurisdiccional competente.»</p>
+    </blockquote>
+    <p class="parrafo_2">Y sin más asuntos que tratar, previa redacción, lectura y aprobación de la presente acta, firman la misma, en el lugar y fecha al principio citados, las personas designadas a tal efecto como representantes de cada una de las organizaciones, y se acuerda su remisión por el Secretario de esta Comisión Negociadora, don Mariano Sanz Loriente, a la Dirección General de Trabajo del Ministerio de Trabajo y Economía Social, a los efectos de su depósito y registro en el REGCON y posterior publicación en el «Boletín Oficial del Estado» de la presente acta en conformidad con lo establecido en el Real Decreto 713/2010, de 28 de mayo, sobre registro y depósito de convenios y acuerdos colectivos de trabajo.</p>
+  </texto>
+</documento>

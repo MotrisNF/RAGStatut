@@ -11,8 +11,8 @@ from typing import Any
 
 import streamlit as st
 
-from app_helpers import (KINDS, group_citations, link_references,
-                         sources_panel, split_sections)
+from app_helpers import (KINDS, amendment_notes, group_citations,
+                         link_references, sources_panel, split_sections)
 import client
 
 EXAMPLES = [
@@ -175,6 +175,10 @@ def show_answer(index: int, result: dict[str, Any],
     always = sorted((s for s in sections if s[1][0] in VISIBLE),
                     key=lambda s: VISIBLE.index(s[1][0]))
     detail = [s for s in sections if s[1][0] not in VISIBLE]
+    if not always:
+        # An answer without the "Respuesta" section (an older one): show
+        # it all rather than an empty column.
+        always, detail = sections, []
     for number, (title, body) in always:
         show_section(index, number, title, body, groups)
     if detail:
@@ -195,8 +199,18 @@ def show_result(index: int, result: dict[str, Any], norm: dict[str, Any],
     """
     name = html.escape(norm["name"], quote=False)
     validity = html.escape(norm["validity"], quote=False)
+    changed = norm.get("amendments") or []
+    warning = (f'<span class="chip warn">⚠️ {len(changed)} modificaciones '
+               'posteriores</span>' if changed else "")
     html_block(f'<div class="norm-line"><strong>{name}</strong>'
-               f'<span class="chip">{validity}</span></div>')
+               f'<span class="chip">{validity}</span>{warning}</div>')
+    if changed:
+        reviewed = "/".join(reversed(norm.get("reviewed", "").split("-")))
+        with st.expander("Ver las modificaciones publicadas en el BOE"):
+            html_block(amendment_notes(changed))
+            st.caption(f"Revisado el {reviewed}. El texto que consulta "
+                       "MiConvenio es el original; estas publicaciones no "
+                       "están incluidas en la búsqueda.")
     groups = group_citations(result["citations"])
     panel = sources_panel(groups, result["answer"], index)
     if alone and panel:

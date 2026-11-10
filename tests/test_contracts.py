@@ -51,7 +51,8 @@ class Recorder:
 
     def generate(self, query: str, chunks: list[Chunk],
                  contract: str | None = None,
-                 checks: str | None = None) -> str:
+                 checks: str | None = None,
+                 notes: str | None = None) -> str:
         """Record and answer."""
         self.calls.append((query, contract))
         return "Respuesta"

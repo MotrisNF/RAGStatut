@@ -116,7 +116,14 @@ class QuotaGuard:
 
 
 class GeminiRetriever(Retriever):
-    """Rank the chunks by similarity with Gemini Embedding vectors.
+    """Rank the chunks by fusing BM25 with Gemini Embedding similarity.
+
+    Each search makes two rankings of the same files: the words of the
+    question (BM25, local) and its meaning (Gemini vectors). They are fused
+    by position (Reciprocal Rank Fusion), so a chunk found by both goes
+    up, and one found by only one of them can still enter. Measured on the
+    question banks, with 10 results it finds the same as Gemini alone and
+    more than the local search.
 
     Only files with a vector for every chunk are searched this way. Any
     other search goes to ``fallback`` without calling the API, so a corpus
@@ -132,8 +139,13 @@ class GeminiRetriever(Retriever):
         CHARS_PER_TOKEN: For estimating tokens; low on purpose, so the
             estimate is above the real count.
         TIMEOUT: Seconds to wait for an answer.
+        CANDIDATES: How many chunks each ranking brings to the fusion.
+        RRF_K: Smoothing of the fusion; 60 is the usual value. A chunk
+            scores ``1 / (RRF_K + place)`` in each ranking it appears in.
     """
 
+    CANDIDATES: int = 30
+    RRF_K: int = 60
     MODEL: str = "gemini-embedding-2"
     DIMENSIONS: int = 768
     URL: str = ("https://generativelanguage.googleapis.com/v1beta/models/"
@@ -165,6 +177,7 @@ class GeminiRetriever(Retriever):
         self._disabled = False
         self._warned = False
 
+        self._bm25 = bm25
         chunks = bm25.chunks
         self._chunks = chunks
         vectors = [self._saved.get(self.key(self.document_text(chunk)))
@@ -306,7 +319,7 @@ class GeminiRetriever(Retriever):
 
     def search(self, query: str, k: int,
                sources: frozenset[str] | None = None) -> list[SearchHit]:
-        """Return the ``k`` chunks most similar to the question.
+        """Return the ``k`` best chunks: BM25 and Gemini fused.
 
         Args:
             query: The question.
@@ -315,7 +328,7 @@ class GeminiRetriever(Retriever):
                 extension; ``None`` searches them all.
 
         Returns:
-            Up to ``k`` hits, best first, with their similarity; the
+            Up to ``k`` hits, best first, with their fused score; the
             hits of ``fallback`` when Gemini cannot answer.
         """
         chosen = set(self._names) if sources is None else set(sources)
@@ -328,8 +341,17 @@ class GeminiRetriever(Retriever):
         rows = [row for row, chunk_id in enumerate(self._ids)
                 if self._names[chunk_id] in chosen]
         scores = self._matrix[rows] @ vector
-        order = np.argsort(-scores, kind="stable")[:k]
-        return [SearchHit(chunk=self._chunks[self._ids[rows[i]]],
-                          score=float(scores[i]),
-                          chunk_id=self._ids[rows[i]])
-                for i in order]
+        depth = max(self.CANDIDATES, k)
+        by_meaning = [self._ids[rows[i]]
+                      for i in np.argsort(-scores, kind="stable")[:depth]]
+        by_words = [hit.chunk_id for hit in
+                    self._bm25.search(query, depth, sources)]
+        fused: dict[int, float] = {}
+        for ranking in (by_meaning, by_words):
+            for place, chunk_id in enumerate(ranking):
+                fused[chunk_id] = (fused.get(chunk_id, 0.0)
+                                   + 1 / (self.RRF_K + place))
+        best = sorted(fused, key=lambda c: (-fused[c], c))[:k]
+        return [SearchHit(chunk=self._chunks[chunk_id],
+                          score=fused[chunk_id], chunk_id=chunk_id)
+                for chunk_id in best]

@@ -97,3 +97,8 @@ div[class*="st-key-headline_"] p, div[class*="st-key-headline_"] li { font-size:
 .state.ok { background:var(--teal-wash); color:var(--teal-dark); }
 .state.bad { background:#FBE5E1; color:#A0321F; }
 .state.doubt { background:var(--amber-wash); color:var(--amber); }
+
+.chip.warn { background:var(--amber-wash); color:var(--amber); }
+.tag.warn { background:var(--amber-wash); color:var(--amber); margin-left:auto; }
+.amend { background:#FFF8EC; border-radius:10px; padding:.5rem .7rem; margin:.15rem .95rem .45rem; font-size:.84rem; line-height:1.45; color:#5A4214; }
+.amend a { color:var(--amber) !important; font-weight:600; text-decoration:none; }

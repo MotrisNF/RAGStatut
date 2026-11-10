@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documento fecha_actualizacion="20251220192601">
+  <metadatos>
+    <identificador>BOE-A-2024-15640</identificador>
+    <origen_legislativo codigo="1">Estatal</origen_legislativo>
+    <departamento codigo="9573">Ministerio de Trabajo y Economía Social</departamento>
+    <rango codigo="1370">Resolución</rango>
+    <fecha_disposicion>20240718</fecha_disposicion>
+    <numero_oficial/>
+    <titulo>Resolución de 18 de julio de 2024, de la Dirección General de Trabajo, por la que se registra y publica la revisión del incremento salarial para el año 2024 y se aprueban las tablas salariales provisionales de 2025 del Convenio colectivo del sector de grandes almacenes.</titulo>
+    <diario codigo="BOE">Boletín Oficial del Estado</diario>
+    <fecha_publicacion>20240729</fecha_publicacion>
+    <diario_numero>182</diario_numero>
+    <seccion>3</seccion>
+    <subseccion/>
+    <pagina_inicial>96986</pagina_inicial>
+    <pagina_final>96988</pagina_final>
+    <suplemento_pagina_inicial/>
+    <suplemento_pagina_final/>
+    <url_pdf>https://www.boe.es/boe/dias/2024/07/29/pdfs/BOE-A-2024-15640.pdf</url_pdf>
+    <url_epub/>
+    <url_pdf_catalan/>
+    <url_pdf_euskera/>
+    <url_pdf_gallego/>
+    <url_pdf_valenciano/>
+    <estatus_legislativo>L</estatus_legislativo>
+    <fecha_vigencia/>
+    <estatus_derogacion>N</estatus_derogacion>
+    <fecha_derogacion/>
+    <judicialmente_anulada>N</judicialmente_anulada>
+    <fecha_anulacion/>
+    <vigencia_agotada>N</vigencia_agotada>
+    <estado_consolidacion codigo="0"/>
+    <letra_imagen>A</letra_imagen>
+    <suplemento_letra_imagen/>
+    <url_eli>https://www.boe.es/eli/es/res/2024/07/18/(4)</url_eli>
+  </metadatos>
+  <metadata-eli>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:eli="http://data.europa.eu/eli/ontology#">
+      <eli:LegalResource rdf:about="https://www.boe.es/eli/es/res/2024/07/18/(4)">
+        <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es"/>
+        <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/res"/>
+        <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOE-A-2024-15640</eli:id_local>
+        <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-07-18</eli:date_document>
+        <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(4)</eli:number>
+        <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/1684"/>
+        <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/3951"/>
+        <eli:has_member>
+          <eli:LegalResource rdf:about="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof">
+            <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es"/>
+            <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/res"/>
+            <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOE-A-2024-15640</eli:id_local>
+            <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-07-18</eli:date_document>
+            <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">(4)</eli:number>
+            <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/1684"/>
+            <eli:is_about rdf:resource="https://www.boe.es/legislacion/eli/materias/3951"/>
+            <eli:version rdf:resource="http://www.elidata.es/mdr/authority/version/dof"/>
+            <eli:is_member_of rdf:resource="https://www.boe.es/eli/es/res/2024/07/18/(4)"/>
+            <eli:is_realized_by>
+              <eli:LegalExpression rdf:about="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof/spa">
+                <eli:language rdf:resource="http://www.elidata.es/mdr/authority/language/spa"/>
+                <eli:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resolución de 18 de julio de 2024, de la Dirección General de Trabajo, por la que se registra y publica la revisión del incremento salarial para el año 2024 y se aprueban las tablas salariales provisionales de 2025 del Convenio colectivo del sector de grandes almacenes.</eli:title>
+                <eli:publisher_agent rdf:resource="https://www.boe.es"/>
+                <eli:date_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-07-29</eli:date_publication>
+                <eli:realizes rdf:resource="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof"/>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof/spa/html">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/text/html"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof/spa/pdf">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/application/pdf"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof/spa/xml">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/application/xml"/>
+                    <eli:embodies rdf:resource="https://www.boe.es/eli/es/res/2024/07/18/(4)/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+              </eli:LegalExpression>
+            </eli:is_realized_by>
+          </eli:LegalResource>
+        </eli:has_member>
+      </eli:LegalResource>
+    </rdf:RDF>
+  </metadata-eli>
+  <analisis>
+    <materias>
+      <materia codigo="1684" orden="1">Convenios colectivos</materia>
+      <materia codigo="3951" orden="1">Grandes almacenes</materia>
+    </materias>
+    <notas/>
+    <referencias>
+      <anteriores>
+        <anterior referencia="BOE-A-2015-11430" orden="3060">
+          <palabra codigo="440">DE CONFORMIDAD con</palabra>
+          <texto>el art. 90.2 y 3 de la Ley del Estatuto de los Trabajadores, texto refundido aprobado por Real Decreto Legislativo 2/2015, de 23 de octubre</texto>
+        </anterior>
+        <anterior referencia="BOE-A-2010-9274" orden="3060">
+          <palabra codigo="440">DE CONFORMIDAD con</palabra>
+          <texto>el Real Decreto 713/2010, de 28 de mayo</texto>
+        </anterior>
+        <anterior referencia="BOE-A-2023-13740" orden="3070">
+          <palabra codigo="331">EN RELACIÓN con</palabra>
+          <texto>el Convenio publicado por Resolución de 30 de mayo de 2023</texto>
+        </anterior>
+      </anteriores>
+      <posteriores/>
+    </referencias>
+    <alertas/>
+  </analisis>
+  <texto>
+    <p class="parrafo">Visto el texto del Acta de la Comisión Mixta del Convenio colectivo de grandes almacenes (Código de convenio núm. 99002405011982), en la que se acuerda la revisión del incremento salarial para el año 2024, en aplicación de lo establecido en los apartados 2 y 3 del artículo 25 del citado Convenio colectivo, que fue publicado en el «Boletín Oficial del Estado» de 9 de junio de 2023, y se aprueban las tablas salariales provisionales aplicables a partir de 1 de enero de 2025, Acta que ha sido suscrita con fecha 21 de junio de 2024, de una parte, por la Asociación Nacional de Grandes Empresas de Distribución (ANGED), en representación de las empresas del sector, y de otra por las organizaciones sindicales FETICO, VALORIAN (antes FASGA), CC.OO., y UGT, en representación del colectivo laboral afectado, y de conformidad con lo dispuesto en el artículo 90, apartados 2 y 3, de la Ley del Estatuto de los Trabajadores, texto refundido aprobado por Real Decreto Legislativo 2/2015, de 23 de octubre (BOE del 24), y en el Real Decreto 713/2010, de 28 de mayo, sobre registro y depósito de convenios colectivos, acuerdos colectivos de trabajo y planes de igualdad,</p>
+    <p class="parrafo">Esta Dirección General de Trabajo resuelve:</p>
+    <p class="articulo">Primero.</p>
+    <p class="parrafo">Ordenar la inscripción del citado acuerdo de revisión salarial en el correspondiente Registro de convenios colectivos, acuerdos colectivos de trabajo y planes de igualdad con funcionamiento a través de medios electrónicos de este Centro Directivo, con notificación a la Comisión Mixta.</p>
+    <p class="articulo">Segundo.</p>
+    <p class="parrafo">Disponer su publicación en el «Boletín Oficial del Estado».</p>
+    <p class="parrafo_2">Madrid, 18 de julio de 2024.–La Directora General de Trabajo, María Nieves González García.</p>
+    <p class="anexo">ACTA DE LA COMISIÓN MIXTA DEL CONVENIO DE GRANDES ALMACENES 2023-2026</p>
+    <p class="parrafo_2">En Madrid, a 21 de junio de 2024, se reúne la Comisión Mixta del Convenio Colectivo de Grandes Almacenes con vigencia para los años 2023 a 2026 previa convocatoria efectuada, y con la asistencia de la totalidad de las organizaciones que la integran, a fin de tratar el siguiente Orden del día:</p>
+    <p class="articulo">Primero.</p>
+    <p class="parrafo">Aplicación apartados 2 y 3 del artículo 25 del Convenio Colectivo de Grandes Almacenes (BOE de 9 de junio de 2023). ICM 2023.</p>
+    <p class="parrafo">Abierta la sesión y en cumplimiento de lo previsto en el artículo 25. 2 y 3 del Convenio Colectivo de Grandes Almacenes, la Comisión Mixta del Convenio procede a realizar las operaciones para la verificación del dato del ICM de conformidad con lo previsto en el presente artículo y de conformidad con los trabajos efectuados hasta ahora constatando que el Índice de Comercio al por Menor en Grandes superficies General, base 2010, una vez deducido el efecto inflación (precios constantes) del año 2023 (media de enero a diciembre) ha sido del 94,812.</p>
+    <p class="parrafo">Conforme a lo señalado anteriormente la Comisión Mixta:</p>
+    <p class="parrafo_2">a. Acuerda que de conformidad con lo previsto en el Apartado 2. del artículo 25 del Convenio Colectivo de Grandes Almacenes, la diferencia numérica del dato de dicho año [Año 2023 (94,812)], respecto al promedio de los dos años anteriores [año 2021 (90,050) y año 2022 (91,060)], es de 4,2.</p>
+    <p class="parrafo">b. Aplicación del apartado 2 y 3 del artículo 25 del Convenio Colectivo de Grandes Almacenes.</p>
+    <p class="parrafo">La comisión Mixta con relación al apartado 2 del artículo 25 del Convenio Colectivo de Grandes Almacenes y disposición transitoria séptima Garantía extraordinaria de incremento variable no consolidable acuerda el abono del 1,6 %, calculado sobre las tablas salariales del artículo 24 vigentes en diciembre del año anterior (2023). Para la aplicación de dicho apartado 2, puesto en relación con el apartado 3 del mismo artículo 25, del 1,6 % se procederá a consolidar un 0,25 %, resultando de dichos cálculos la siguiente</p>
+    <p class="centro_cursiva">Tabla definitiva de Salarios Base Año para 2024</p>
+    <table class="tabla">
+      <colgroup>
+        <col/>
+        <col/>
+        <col/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="cabeza_tabla">Grupo</th>
+          <th class="cabeza_tabla">
+            <p class="cabeza_tabla">Salario anual 2024</p>
+            <p class="cabeza_tabla">–</p>
+            <p class="cabeza_tabla">Euros</p>
+          </th>
+          <th class="cabeza_tabla">
+            <p class="cabeza_tabla">Salario hora 2024</p>
+            <p class="cabeza_tabla">–</p>
+            <p class="cabeza_tabla">Euros</p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cuerpo_tabla_izq">Base.</td>
+          <td class="cuerpo_tabla_coma">16.451,67</td>
+          <td class="cuerpo_tabla_coma">9,29473</td>
+        </tr>
+        <tr>
+          <td class="cuerpo_tabla_izq">Profesional.</td>
+          <td class="cuerpo_tabla_coma">16.945,22</td>
+          <td class="cuerpo_tabla_coma">9,57357</td>
+        </tr>
+        <tr>
+          <td class="cuerpo_tabla_izq">Coordinador.</td>
+          <td class="cuerpo_tabla_coma">18.470,26</td>
+          <td class="cuerpo_tabla_coma">10,43518</td>
+        </tr>
+        <tr>
+          <td class="cuerpo_tabla_izq">Técnicos.</td>
+          <td class="cuerpo_tabla_coma">20.132,61</td>
+          <td class="cuerpo_tabla_coma">11,37436</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="parrafo_2">Estos nuevos y definitivos importes se aplicarán desde el 1 de enero de 2024.</p>
+    <p class="parrafo">El resto hasta el 1,6 % fijado, es decir, un 1,35 % de pago único no consolidable, se realizará en los términos previstos en el artículo 25.2 del convenio colectivo (incluyendo en dicha cantidad el importe de la disposición transitoria séptima del convenio colectivo), y conforme a lo dispuesto en los siguientes epígrafes.</p>
+    <p class="parrafo">De cara a los atrasos correspondientes las empresas podrán realizar el pago de los mismos en los dos meses siguientes al mes de publicación de la presente Acta en el «Boletín Oficial del Estado».</p>
+    <p class="parrafo">c. Excepcionalmente, y habiéndose acordado así en el Observatorio recogido en la disposición transitoria quinta del convenio, dada la fecha de conocimiento del dato definitivo facilitado por el Instituto Nacional de Estadística del año 2023 y dada igualmente la excepcionalidad del dato del Índice de Comercio al por Menor de las Grandes Superficies del año 2023 puesto en relación con la media de los años 2021 y 2022, y habida cuenta de las posibles medidas de flexibilidad operadas mediante acuerdo colectivo a nivel Empresarial y/o de Grupo de Empresas en el Sector, así como para evitar el trastorno administrativo que pueda provocar la modificación de las tablas publicadas en el «Boletín Oficial del Estado» (23 de febrero de 2024), las empresas y en su caso los Grupos de Empresa que hubiesen acometido alguna de estas medidas de flexibilidad podrán, de conformidad con lo expuesto en la disposición transitoria quinta del Convenio Colectivo Sectorial Estatal, previo acuerdo con su Comité Intercentros –artículo 66 del convenio colectivo– y en su caso con su Comisión Sindical –artículo 64 del convenio colectivo–, proceder a sustituir lo previsto en el apartado b) anterior, por el abono, en los términos previstos en el artículo 25.2 del convenio colectivo, de un 1,6 % en concepto de complemento salarial variable y no consolidable (incluyéndose en dicha cuantía la correspondiente a la disposición transitoria séptima del convenio colectivo) del salario base correspondiente a las tablas salariales definitivas del año 2023.</p>
+    <p class="parrafo">d. Dado el carácter novedoso de la consolidación en tablas el Observatorio de Grandes Almacenes también acordó las Fechas de abono del complemento variable no consolidable (ICM 2023) disponiéndose que las empresas podrán proceder a su abono en el plazo de los dos meses siguientes al mes de publicación en el BOE de la presente acta; o en su caso la fecha de abono del variable no consolidable será fijada por las Empresas (y en su caso por los Grupos de Empresa) de conformidad con la práctica y la costumbre de abono de este variable, y en todo caso, informando a sus Comités Intercentros y/o Comisión Sindical.</p>
+    <p class="articulo">Segundo. Fijación de tablas provisionales año 2025.</p>
+    <p class="parrafo">La Comisión Mixta acuerda igualmente la fijación de las tablas provisionales (a expensas de la publicación y de los cálculos a realizar de conformidad con lo expuesto en el artículo 25.2 y en su caso 25.3 del Convenio Colectivo Sectorial Estatal) vigentes a partir del 1 de enero de 2025:</p>
+    <table class="tabla">
+      <colgroup>
+        <col/>
+        <col/>
+        <col/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="cabeza_tabla">Grupo</th>
+          <th class="cabeza_tabla">
+            <p class="cabeza_tabla">Salario anual 2025</p>
+            <p class="cabeza_tabla">–</p>
+            <p class="cabeza_tabla">Euros</p>
+          </th>
+          <th class="cabeza_tabla">
+            <p class="cabeza_tabla">Salario hora 2025</p>
+            <p class="cabeza_tabla">–</p>
+            <p class="cabeza_tabla">Euros</p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cuerpo_tabla_izq">Base.</td>
+          <td class="cuerpo_tabla_coma">16.945,22</td>
+          <td class="cuerpo_tabla_coma">9,57357</td>
+        </tr>
+        <tr>
+          <td class="cuerpo_tabla_izq">Profesional.</td>
+          <td class="cuerpo_tabla_coma">17.453,58</td>
+          <td class="cuerpo_tabla_coma">9,86078</td>
+        </tr>
+        <tr>
+          <td class="cuerpo_tabla_izq">Coordinador.</td>
+          <td class="cuerpo_tabla_coma">19.024,37</td>
+          <td class="cuerpo_tabla_coma">10,74823</td>
+        </tr>
+        <tr>
+          <td class="cuerpo_tabla_izq">Técnicos.</td>
+          <td class="cuerpo_tabla_coma">20.736,59</td>
+          <td class="cuerpo_tabla_coma">11,71559</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="parrafo_2">Y no habiendo más asuntos que tratar, se levanta la Sesión, firmándose la presente acta en prueba de conformidad, procediéndose a la habilitación de doña Eva Marín Oliaga para que, en nombre de la Comisión, lleve a cabo cuantos trámites sean precisos en orden al depósito, registro y posterior publicación de la presente Acta en el «Boletín Oficial del Estado».</p>
+  </texto>
+</documento>

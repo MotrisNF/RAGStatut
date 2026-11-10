@@ -166,14 +166,29 @@ def source_card(group: dict[str, Any], result_index: int) -> str:
         link = (f'<a class="boe" href="{url}" target="_blank" '
                 'rel="noopener">Ver en el BOE ↗</a>')
     card = source_id(result_index, group)
+    changed = group.get("amendments") or []
+    mark = '<span class="tag warn">Modificado</span>' if changed else ""
     return (f'<div class="src" id="{card}">'
             f'<a class="src-head" href="#{card}">'
             f'<span class="tag {group["kind"]}">{origin}</span>'
-            f'<span>{title}</span></a>'
-            f'<div class="src-open">'
+            f'<span>{title}</span>{mark}</a>'
+            f'<div class="src-open">{amendment_notes(changed)}'
             f'<div class="src-body">{paragraphs.replace("$", "&#36;")}</div>'
             f'{link}<a class="src-close" href="#cerrar">Cerrar</a>'
             f'</div></div>')
+
+
+def amendment_notes(items: list[dict[str, Any]]) -> str:
+    """HTML of the later publications that changed a text."""
+    rows = []
+    for item in items:
+        date = "/".join(reversed(item["date"].split("-")))
+        url = html.escape(item["url"], quote=True)
+        summary = html.escape(item["summary"], quote=False)
+        rows.append(f'<div class="amend">⚠️ <strong>{date}</strong> · '
+                    f'{summary} <a href="{url}" target="_blank" '
+                    f'rel="noopener">BOE ↗</a></div>')
+    return "".join(rows)
 
 
 def sources_panel(groups: list[dict[str, Any]], answer: str,
