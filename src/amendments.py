@@ -43,7 +43,7 @@ class AmendmentBook:
         FILE_NAME: Name of the file, next to the corpus folders.
     """
 
-    FILE_NAME = "modificaciones.json"
+    FILE_NAME = "amendments.json"
 
     def __init__(self, path: Path) -> None:
         """Read the file; a missing or broken file means no warnings.
@@ -55,8 +55,8 @@ class AmendmentBook:
         self._items: dict[str, list[Amendment]] = {}
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
-            self.reviewed = str(data.get("revisado", ""))
-            for norm, items in data["convenios"].items():
+            self.reviewed = str(data.get("reviewed", ""))
+            for norm, items in data["agreements"].items():
                 self._items[norm] = [
                     Amendment(**item, url=BOE_DOC + item["boe_id"])
                     for item in items]

@@ -1,0 +1,2434 @@
+[
+ {
+  "id": "tic_01",
+  "file": "tic/tic_01_oscar-molina.txt",
+  "name": "Óscar Molina Díaz",
+  "sector": "tic",
+  "job": "Programador junior",
+  "category": "Área 3, grupo C",
+  "classification": "Área 3, grupo C, nivel 3",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 31650,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_02",
+  "file": "tic/tic_02_teresa-alvarez.txt",
+  "name": "Teresa Álvarez Castillo",
+  "sector": "tic",
+  "job": "Programadora",
+  "category": "Área 3, grupo C",
+  "classification": "Área 3, grupo C, nivel 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 34230,
+  "agreed": {
+   "holidays": 21,
+   "hours": 1856,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": [
+   {
+    "field": "hours",
+    "agreed": "1856 horas anuales",
+    "agreement": "1800 horas anuales",
+    "article": "art. 20"
+   },
+   {
+    "field": "holidays",
+    "agreed": "21 días laborables",
+    "agreement": "23 días laborables",
+    "article": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "tic_03",
+  "file": "tic/tic_03_javier-martinez.txt",
+  "name": "Javier Martínez Ruiz",
+  "sector": "tic",
+  "job": "Programador senior",
+  "category": "Área 3, grupo C",
+  "classification": "Área 3, grupo C, nivel 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 35880,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_04",
+  "file": "tic/tic_04_hugo-ortiz.txt",
+  "name": "Hugo Ortiz Núñez",
+  "sector": "tic",
+  "job": "Analista de sistemas",
+  "category": "Área 3, grupo B",
+  "classification": "Área 3, grupo B, nivel 2",
+  "modality": "Temporal por circunstancias de la producción, 3 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 50,
+  "annual_salary": 33490,
+  "agreed": {
+   "holidays": 24,
+   "hours": 1784,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_05",
+  "file": "tic/tic_05_fatima-cortes.txt",
+  "name": "Fátima Cortés Castro",
+  "sector": "tic",
+  "job": "Arquitecta de software",
+  "category": "Área 3, grupo B",
+  "classification": "Área 3, grupo B, nivel 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 39610,
+  "agreed": {
+   "holidays": 19,
+   "hours": 1800,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "19 días laborables",
+    "agreement": "23 días laborables",
+    "article": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "tic_06",
+  "file": "tic/tic_06_rocio-alvarez.txt",
+  "name": "Rocío Álvarez Benali",
+  "sector": "tic",
+  "job": "Técnica de sistemas",
+  "category": "Área 3, grupo D",
+  "classification": "Área 3, grupo D, nivel 1",
+  "modality": "Temporal por circunstancias de la producción, 5 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 80,
+  "annual_salary": 27870,
+  "agreed": {
+   "holidays": 20,
+   "hours": 1776,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 30
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "20 días laborables",
+    "agreement": "23 días laborables",
+    "article": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "tic_07",
+  "file": "tic/tic_07_samuel-iglesias.txt",
+  "name": "Samuel Iglesias Santos",
+  "sector": "tic",
+  "job": "Técnico de soporte (CAU)",
+  "category": "Área 2, grupo D",
+  "classification": "Área 2, grupo D, nivel 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 21050,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 90
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_08",
+  "file": "tic/tic_08_tomas-navarro.txt",
+  "name": "Tomás Navarro Romero",
+  "sector": "tic",
+  "job": "Coordinador de soporte (CAU)",
+  "category": "Área 2, grupo C",
+  "classification": "Área 2, grupo C, nivel 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 23310,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 90
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 120
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_09",
+  "file": "tic/tic_09_adrian-popescu.txt",
+  "name": "Adrián Popescu Marín",
+  "sector": "tic",
+  "job": "Administrativo",
+  "category": "Área 1, grupo D",
+  "classification": "Área 1, grupo D, nivel 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 22870,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 90
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_10",
+  "file": "tic/tic_10_irene-garcia.txt",
+  "name": "Irene García Puig",
+  "sector": "tic",
+  "job": "Auxiliar administrativa",
+  "category": "Área 1, grupo E",
+  "classification": "Área 1, grupo E, nivel 1",
+  "modality": "Temporal por circunstancias de la producción, 5 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 100,
+  "annual_salary": 21310,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1760,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_11",
+  "file": "tic/tic_11_ruben-blanco.txt",
+  "name": "Rubén Blanco Serrano",
+  "sector": "tic",
+  "job": "Consultor",
+  "category": "Área 4, grupo B",
+  "classification": "Área 4, grupo B, nivel 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 36470,
+  "agreed": {
+   "holidays": 24,
+   "hours": 1800,
+   "probation_days": 120
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_12",
+  "file": "tic/tic_12_ines-jimenez.txt",
+  "name": "Inés Jiménez Díaz",
+  "sector": "tic",
+  "job": "Consultora senior",
+  "category": "Área 4, grupo B",
+  "classification": "Área 4, grupo B, nivel 1",
+  "modality": "Temporal por circunstancias de la producción, 3 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 100,
+  "annual_salary": 38080,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_13",
+  "file": "tic/tic_13_marta-diaz.txt",
+  "name": "Marta Díaz Torres",
+  "sector": "tic",
+  "job": "Jefa de proyecto",
+  "category": "Área 4, grupo A",
+  "classification": "Área 4, grupo A",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 50,
+  "annual_salary": 39900,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_14",
+  "file": "tic/tic_14_wei-morales.txt",
+  "name": "Wei Morales Morales",
+  "sector": "tic",
+  "job": "Analista de ciberseguridad",
+  "category": "Área 5, grupo C",
+  "classification": "Área 5, grupo C, nivel 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 37940,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_15",
+  "file": "tic/tic_15_victor-serrano.txt",
+  "name": "Víctor Serrano Díaz",
+  "sector": "tic",
+  "job": "Especialista en ciberseguridad",
+  "category": "Área 5, grupo B",
+  "classification": "Área 5, grupo B, nivel 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 34130,
+  "agreed": {
+   "holidays": 24,
+   "hours": 1760,
+   "probation_days": 120
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_16",
+  "file": "tic/tic_16_pablo-castillo.txt",
+  "name": "Pablo Castillo López",
+  "sector": "tic",
+  "job": "Encuestador",
+  "category": "Área 6, grupo E",
+  "classification": "Área 6, grupo E, nivel 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 19800,
+  "agreed": {
+   "holidays": 20,
+   "hours": 1800,
+   "probation_days": 120
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 90
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "20 días laborables",
+    "agreement": "23 días laborables",
+    "article": "art. 21"
+   },
+   {
+    "field": "probation",
+    "agreed": "4 meses",
+    "agreement": "máximo 3 meses",
+    "article": "art. 10"
+   }
+  ]
+ },
+ {
+  "id": "tic_17",
+  "file": "tic/tic_17_ruben-cortes.txt",
+  "name": "Rubén Cortés Romero",
+  "sector": "tic",
+  "job": "Técnico de campo",
+  "category": "Área 6, grupo D",
+  "classification": "Área 6, grupo D, nivel 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 21690,
+  "agreed": {
+   "holidays": 24,
+   "hours": 1800,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 90
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "tic_18",
+  "file": "tic/tic_18_yolanda-castro.txt",
+  "name": "Yolanda Castro Santos",
+  "sector": "tic",
+  "job": "Programadora junior",
+  "category": "Área 3, grupo C",
+  "classification": "Área 3, grupo C, nivel 3",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 29700,
+  "agreed": {
+   "holidays": 23,
+   "hours": 1760,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 23,
+   "hours": 1800,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_01",
+  "file": "grandes_almacenes/grandes_almacenes_01_andrei-ramos.txt",
+  "name": "Andrei Ramos Ortiz",
+  "sector": "grandes_almacenes",
+  "job": "Reponedor",
+  "category": "Grupo de personal base",
+  "classification": "Grupo de personal base",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 22880,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_02",
+  "file": "grandes_almacenes/grandes_almacenes_02_carmen-medina.txt",
+  "name": "Carmen Medina Molina",
+  "sector": "grandes_almacenes",
+  "job": "Moza de almacén",
+  "category": "Grupo de personal base",
+  "classification": "Grupo de personal base",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 23690,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_03",
+  "file": "grandes_almacenes/grandes_almacenes_03_nuria-castro.txt",
+  "name": "Nuria Castro Torres",
+  "sector": "grandes_almacenes",
+  "job": "Cajera",
+  "category": "Grupo de profesionales",
+  "classification": "Grupo de profesionales",
+  "modality": "Fijo discontinuo",
+  "fixed_discontinuous": true,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 27420,
+  "agreed": {
+   "holidays": 33,
+   "hours": 1770,
+   "probation_days": 90
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 90
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_04",
+  "file": "grandes_almacenes/grandes_almacenes_04_tomas-castro.txt",
+  "name": "Tomás Castro Fernández",
+  "sector": "grandes_almacenes",
+  "job": "Vendedor",
+  "category": "Grupo de profesionales",
+  "classification": "Grupo de profesionales",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 27270,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_05",
+  "file": "grandes_almacenes/grandes_almacenes_05_ines-morales.txt",
+  "name": "Inés Morales Santos",
+  "sector": "grandes_almacenes",
+  "job": "Atención al cliente",
+  "category": "Grupo de profesionales",
+  "classification": "Grupo de profesionales",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 27920,
+  "agreed": {
+   "holidays": 28,
+   "hours": 1806,
+   "probation_days": 120
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "28 días naturales",
+    "agreement": "31 días naturales",
+    "article": "art. 35"
+   },
+   {
+    "field": "hours",
+    "agreed": "1806 horas anuales",
+    "agreement": "1770 horas anuales",
+    "article": "art. 26"
+   }
+  ]
+ },
+ {
+  "id": "grandes_almacenes_06",
+  "file": "grandes_almacenes/grandes_almacenes_06_paula-lozano.txt",
+  "name": "Paula Lozano Gómez",
+  "sector": "grandes_almacenes",
+  "job": "Escaparatista",
+  "category": "Grupo de profesionales",
+  "classification": "Grupo de profesionales",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 24830,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1826,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": [
+   {
+    "field": "hours",
+    "agreed": "1826 horas anuales",
+    "agreement": "1770 horas anuales",
+    "article": "art. 26"
+   }
+  ]
+ },
+ {
+  "id": "grandes_almacenes_07",
+  "file": "grandes_almacenes/grandes_almacenes_07_teresa-medina.txt",
+  "name": "Teresa Medina Díaz",
+  "sector": "grandes_almacenes",
+  "job": "Coordinadora de sección",
+  "category": "Grupo de profesionales de coordinación",
+  "classification": "Grupo de profesionales de coordinación",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 80,
+  "annual_salary": 31960,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_08",
+  "file": "grandes_almacenes/grandes_almacenes_08_beatriz-cortes.txt",
+  "name": "Beatriz Cortés Castro",
+  "sector": "grandes_almacenes",
+  "job": "Técnica de recursos humanos",
+  "category": "Grupo de técnicos/técnicas",
+  "classification": "Grupo de técnicos/técnicas",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 33920,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 120
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_09",
+  "file": "grandes_almacenes/grandes_almacenes_09_carmen-nunez.txt",
+  "name": "Carmen Núñez Cortés",
+  "sector": "grandes_almacenes",
+  "job": "Técnica de logística",
+  "category": "Grupo de técnicos/técnicas",
+  "classification": "Grupo de técnicos/técnicas",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 35730,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1746,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_10",
+  "file": "grandes_almacenes/grandes_almacenes_10_ana-sofia.txt",
+  "name": "Ana Sofía Morales Marín",
+  "sector": "grandes_almacenes",
+  "job": "Jefa de departamento",
+  "category": "Grupo de mandos",
+  "classification": "Grupo de mandos",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 43790,
+  "agreed": {
+   "holidays": 33,
+   "hours": 1770,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_11",
+  "file": "grandes_almacenes/grandes_almacenes_11_mario-ramos.txt",
+  "name": "Mario Ramos Etxeberria",
+  "sector": "grandes_almacenes",
+  "job": "Reponedor",
+  "category": "Grupo de personal base",
+  "classification": "Grupo de personal base",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 80,
+  "annual_salary": 24520,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_12",
+  "file": "grandes_almacenes/grandes_almacenes_12_laura-castillo.txt",
+  "name": "Laura Castillo Romero",
+  "sector": "grandes_almacenes",
+  "job": "Moza de almacén",
+  "category": "Grupo de personal base",
+  "classification": "Grupo de personal base",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 75,
+  "annual_salary": 22320,
+  "agreed": {
+   "holidays": 29,
+   "hours": 1770,
+   "probation_days": 210
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": [
+   {
+    "field": "probation",
+    "agreed": "7 meses",
+    "agreement": "máximo 6 meses",
+    "article": "art. 5"
+   },
+   {
+    "field": "holidays",
+    "agreed": "29 días naturales",
+    "agreement": "31 días naturales",
+    "article": "art. 35"
+   }
+  ]
+ },
+ {
+  "id": "grandes_almacenes_13",
+  "file": "grandes_almacenes/grandes_almacenes_13_nicolas-diaz.txt",
+  "name": "Nicolás Díaz Jiménez",
+  "sector": "grandes_almacenes",
+  "job": "Cajero",
+  "category": "Grupo de profesionales",
+  "classification": "Grupo de profesionales",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 80,
+  "annual_salary": 24860,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 210
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": [
+   {
+    "field": "probation",
+    "agreed": "7 meses",
+    "agreement": "máximo 6 meses",
+    "article": "art. 5"
+   }
+  ]
+ },
+ {
+  "id": "grandes_almacenes_14",
+  "file": "grandes_almacenes/grandes_almacenes_14_wei-garcia.txt",
+  "name": "Wei García Martín",
+  "sector": "grandes_almacenes",
+  "job": "Vendedor",
+  "category": "Grupo de profesionales",
+  "classification": "Grupo de profesionales",
+  "modality": "Fijo discontinuo",
+  "fixed_discontinuous": true,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 28870,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1770,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 90
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_15",
+  "file": "grandes_almacenes/grandes_almacenes_15_gonzalo-fernandez.txt",
+  "name": "Gonzalo Fernández Puig",
+  "sector": "grandes_almacenes",
+  "job": "Atención al cliente",
+  "category": "Grupo de profesionales",
+  "classification": "Grupo de profesionales",
+  "modality": "Fijo discontinuo",
+  "fixed_discontinuous": true,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 28140,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 90
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_16",
+  "file": "grandes_almacenes/grandes_almacenes_16_candela-ortega.txt",
+  "name": "Candela Ortega Vidal",
+  "sector": "grandes_almacenes",
+  "job": "Escaparatista",
+  "category": "Grupo de profesionales",
+  "classification": "Grupo de profesionales",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 27020,
+  "agreed": {
+   "holidays": 33,
+   "hours": 1770,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_17",
+  "file": "grandes_almacenes/grandes_almacenes_17_candela-nunez.txt",
+  "name": "Candela Núñez Castillo",
+  "sector": "grandes_almacenes",
+  "job": "Coordinadora de sección",
+  "category": "Grupo de profesionales de coordinación",
+  "classification": "Grupo de profesionales de coordinación",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 34980,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1746,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "grandes_almacenes_18",
+  "file": "grandes_almacenes/grandes_almacenes_18_mario-garrido.txt",
+  "name": "Mario Garrido Gómez",
+  "sector": "grandes_almacenes",
+  "job": "Técnico de recursos humanos",
+  "category": "Grupo de técnicos/técnicas",
+  "classification": "Grupo de técnicos/técnicas",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 50,
+  "annual_salary": 34030,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 31,
+   "hours": 1770,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_01",
+  "file": "contact_center/contact_center_01_adrian-serrano.txt",
+  "name": "Adrián Serrano Torres",
+  "sector": "contact_center",
+  "job": "Teleoperador",
+  "category": "Personal teleoperador",
+  "classification": "Grupo D, nivel 11",
+  "modality": "Temporal por circunstancias de la producción, 3 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 100,
+  "annual_salary": 22400,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_02",
+  "file": "contact_center/contact_center_02_ines-hernandez.txt",
+  "name": "Inés Hernández Marín",
+  "sector": "contact_center",
+  "job": "Teleoperadora especialista",
+  "category": "Personal teleoperador",
+  "classification": "Grupo D, nivel 10",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 50,
+  "annual_salary": 19360,
+  "agreed": {
+   "holidays": 33,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "discrepancies": [
+   {
+    "field": "probation",
+    "agreed": "2 meses",
+    "agreement": "máximo 1 mes",
+    "article": "art. 18"
+   }
+  ]
+ },
+ {
+  "id": "contact_center_03",
+  "file": "contact_center/contact_center_03_oscar-diaz.txt",
+  "name": "Óscar Díaz Romero",
+  "sector": "contact_center",
+  "job": "Gestor telefónico",
+  "category": "Gestor telefónico",
+  "classification": "Grupo D, nivel 9",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 22930,
+  "agreed": {
+   "holidays": 29,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "29 días naturales",
+    "agreement": "32 días naturales",
+    "article": "art. 29"
+   }
+  ]
+ },
+ {
+  "id": "contact_center_04",
+  "file": "contact_center/contact_center_04_rocio-hernandez.txt",
+  "name": "Rocío Hernández Gómez",
+  "sector": "contact_center",
+  "job": "Coordinadora",
+  "category": "Restantes niveles",
+  "classification": "Grupo D, nivel 8",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 21010,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_05",
+  "file": "contact_center/contact_center_05_alvaro-martin.txt",
+  "name": "Álvaro Martín Fernández",
+  "sector": "contact_center",
+  "job": "Formador",
+  "category": "Restantes niveles",
+  "classification": "Grupo D, nivel 8",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 75,
+  "annual_salary": 20870,
+  "agreed": {
+   "holidays": 33,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_06",
+  "file": "contact_center/contact_center_06_daniel-torres.txt",
+  "name": "Daniel Torres Ruiz",
+  "sector": "contact_center",
+  "job": "Agente de calidad",
+  "category": "Restantes niveles",
+  "classification": "Grupo D, nivel 8",
+  "modality": "Temporal por circunstancias de la producción, 2 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 100,
+  "annual_salary": 22370,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_07",
+  "file": "contact_center/contact_center_07_elena-iglesias.txt",
+  "name": "Elena Iglesias Delgado",
+  "sector": "contact_center",
+  "job": "Supervisora",
+  "category": "Restantes niveles",
+  "classification": "Grupo D, nivel 7",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 23900,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "30 días naturales",
+    "agreement": "32 días naturales",
+    "article": "art. 29"
+   }
+  ]
+ },
+ {
+  "id": "contact_center_08",
+  "file": "contact_center/contact_center_08_elena-lozano.txt",
+  "name": "Elena Lozano Rubio",
+  "sector": "contact_center",
+  "job": "Técnica de sistemas",
+  "category": "Restantes niveles",
+  "classification": "Grupo C, nivel 5",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 27810,
+  "agreed": {
+   "holidays": 34,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_09",
+  "file": "contact_center/contact_center_09_bruno-moreno.txt",
+  "name": "Bruno Moreno Martínez",
+  "sector": "contact_center",
+  "job": "Programador senior",
+  "category": "Restantes niveles",
+  "classification": "Grupo C, nivel 5",
+  "modality": "Temporal por circunstancias de la producción, 4 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 50,
+  "annual_salary": 27270,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_10",
+  "file": "contact_center/contact_center_10_tomas-cortes.txt",
+  "name": "Tomás Cortés Iglesias",
+  "sector": "contact_center",
+  "job": "Titulado superior",
+  "category": "Personal técnico titulado",
+  "classification": "Grupo B, nivel 4",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 32760,
+  "agreed": {
+   "holidays": 34,
+   "hours": 1724,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_11",
+  "file": "contact_center/contact_center_11_gonzalo-iglesias.txt",
+  "name": "Gonzalo Iglesias Gómez",
+  "sector": "contact_center",
+  "job": "Conserje",
+  "category": "Personal no cualificado",
+  "classification": "Grupo E",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 20530,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_12",
+  "file": "contact_center/contact_center_12_alvaro-iglesias.txt",
+  "name": "Álvaro Iglesias López",
+  "sector": "contact_center",
+  "job": "Teleoperador",
+  "category": "Personal teleoperador",
+  "classification": "Grupo D, nivel 11",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 50,
+  "annual_salary": 20650,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_13",
+  "file": "contact_center/contact_center_13_nicolas-chen.txt",
+  "name": "Nicolás Chen Delgado",
+  "sector": "contact_center",
+  "job": "Teleoperador especialista",
+  "category": "Personal teleoperador",
+  "classification": "Grupo D, nivel 10",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 21020,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_14",
+  "file": "contact_center/contact_center_14_adrian-diaz.txt",
+  "name": "Adrián Díaz García",
+  "sector": "contact_center",
+  "job": "Gestor telefónico",
+  "category": "Gestor telefónico",
+  "classification": "Grupo D, nivel 9",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 21780,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1764,
+   "probation_days": 90
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "30 días naturales",
+    "agreement": "32 días naturales",
+    "article": "art. 29"
+   },
+   {
+    "field": "probation",
+    "agreed": "3 meses",
+    "agreement": "máximo 1 mes",
+    "article": "art. 18"
+   }
+  ]
+ },
+ {
+  "id": "contact_center_15",
+  "file": "contact_center/contact_center_15_fernando-delgado.txt",
+  "name": "Fernando Delgado Vidal",
+  "sector": "contact_center",
+  "job": "Coordinador",
+  "category": "Restantes niveles",
+  "classification": "Grupo D, nivel 8",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 24620,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_16",
+  "file": "contact_center/contact_center_16_rocio-perez.txt",
+  "name": "Rocío Pérez Marín",
+  "sector": "contact_center",
+  "job": "Formadora",
+  "category": "Restantes niveles",
+  "classification": "Grupo D, nivel 8",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 21230,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_17",
+  "file": "contact_center/contact_center_17_bruno-navarro.txt",
+  "name": "Bruno Navarro Moreno",
+  "sector": "contact_center",
+  "job": "Agente de calidad",
+  "category": "Restantes niveles",
+  "classification": "Grupo D, nivel 8",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 80,
+  "annual_salary": 24400,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1748,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "contact_center_18",
+  "file": "contact_center/contact_center_18_oscar-castillo.txt",
+  "name": "Óscar Castillo Gómez",
+  "sector": "contact_center",
+  "job": "Supervisor",
+  "category": "Restantes niveles",
+  "classification": "Grupo D, nivel 7",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 50,
+  "annual_salary": 23300,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 32,
+   "hours": 1764,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_01",
+  "file": "construccion/construccion_01_laura-ruiz.txt",
+  "name": "Laura Ruiz Torres",
+  "sector": "construccion",
+  "job": "Peón ordinario",
+  "category": "Personal operario",
+  "classification": "Nivel XII",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 22150,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_02",
+  "file": "construccion/construccion_02_aitana-delgado.txt",
+  "name": "Aitana Delgado Delgado",
+  "sector": "construccion",
+  "job": "Peón especializado",
+  "category": "Personal operario",
+  "classification": "Nivel XI",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 26000,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_03",
+  "file": "construccion/construccion_03_adrian-castillo.txt",
+  "name": "Adrián Castillo Ortega",
+  "sector": "construccion",
+  "job": "Ayudante de oficio",
+  "category": "Personal operario",
+  "classification": "Nivel X",
+  "modality": "Temporal por circunstancias de la producción, 3 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 100,
+  "annual_salary": 24950,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_04",
+  "file": "construccion/construccion_04_gonzalo-castro.txt",
+  "name": "Gonzalo Castro Santos",
+  "sector": "construccion",
+  "job": "Oficial de 2.ª",
+  "category": "Personal operario",
+  "classification": "Nivel IX",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 24160,
+  "agreed": {
+   "holidays": 26,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "26 días naturales",
+    "agreement": "30 días naturales",
+    "article": "art. 76"
+   }
+  ]
+ },
+ {
+  "id": "construccion_05",
+  "file": "construccion/construccion_05_raul-chen.txt",
+  "name": "Raúl Chen Marín",
+  "sector": "construccion",
+  "job": "Oficial de 1.ª",
+  "category": "Personal operario",
+  "classification": "Nivel VIII",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 25690,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_06",
+  "file": "construccion/construccion_06_pablo-nunez.txt",
+  "name": "Pablo Núñez Ortega",
+  "sector": "construccion",
+  "job": "Capataz",
+  "category": "Personal operario",
+  "classification": "Nivel VII",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 28540,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_07",
+  "file": "construccion/construccion_07_adrian-chen.txt",
+  "name": "Adrián Chen Molina",
+  "sector": "construccion",
+  "job": "Encargado general de obra",
+  "category": "Personal operario",
+  "classification": "Nivel V",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 50,
+  "annual_salary": 26700,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1720,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_08",
+  "file": "construccion/construccion_08_joel-delgado.txt",
+  "name": "Joel Delgado Díaz",
+  "sector": "construccion",
+  "job": "Auxiliar administrativo",
+  "category": "Empleado",
+  "classification": "Nivel IX",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 75,
+  "annual_salary": 25080,
+  "agreed": {
+   "holidays": 32,
+   "hours": 1736,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_09",
+  "file": "construccion/construccion_09_teresa-iglesias.txt",
+  "name": "Teresa Iglesias Benali",
+  "sector": "construccion",
+  "job": "Delineante de 2.ª",
+  "category": "Empleado",
+  "classification": "Nivel VII",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 27310,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_10",
+  "file": "construccion/construccion_10_fernando-medina.txt",
+  "name": "Fernando Medina Sánchez",
+  "sector": "construccion",
+  "job": "Delineante de 1.ª",
+  "category": "Empleado",
+  "classification": "Nivel VI",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 24210,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1736,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 60
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_11",
+  "file": "construccion/construccion_11_hugo-oliveira.txt",
+  "name": "Hugo Oliveira Núñez",
+  "sector": "construccion",
+  "job": "Titulado medio",
+  "category": "Técnico titulado",
+  "classification": "Nivel III",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 75,
+  "annual_salary": 26660,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 120
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_12",
+  "file": "construccion/construccion_12_marta-delgado.txt",
+  "name": "Marta Delgado Cortés",
+  "sector": "construccion",
+  "job": "Peón ordinario",
+  "category": "Personal operario",
+  "classification": "Nivel XII",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 25170,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1696,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_13",
+  "file": "construccion/construccion_13_victor-garrido.txt",
+  "name": "Víctor Garrido Jiménez",
+  "sector": "construccion",
+  "job": "Peón especializado",
+  "category": "Personal operario",
+  "classification": "Nivel XI",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 25500,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_14",
+  "file": "construccion/construccion_14_vega-garrido.txt",
+  "name": "Vega Garrido Etxeberria",
+  "sector": "construccion",
+  "job": "Ayudante de oficio",
+  "category": "Personal operario",
+  "classification": "Nivel X",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 23690,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": [
+   {
+    "field": "hours",
+    "agreed": "1772 horas anuales",
+    "agreement": "1736 horas anuales",
+    "article": "art. 71"
+   }
+  ]
+ },
+ {
+  "id": "construccion_15",
+  "file": "construccion/construccion_15_nuria-lozano.txt",
+  "name": "Nuria Lozano Garrido",
+  "sector": "construccion",
+  "job": "Oficial de 2.ª",
+  "category": "Personal operario",
+  "classification": "Nivel IX",
+  "modality": "Temporal por circunstancias de la producción, 3 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 80,
+  "annual_salary": 23930,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "construccion_16",
+  "file": "construccion/construccion_16_patricia-diaz.txt",
+  "name": "Patricia Díaz Ramos",
+  "sector": "construccion",
+  "job": "Oficial de 1.ª",
+  "category": "Personal operario",
+  "classification": "Nivel VIII",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 25560,
+  "agreed": {
+   "holidays": 27,
+   "hours": 1792,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 15
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "27 días naturales",
+    "agreement": "30 días naturales",
+    "article": "art. 76"
+   },
+   {
+    "field": "hours",
+    "agreed": "1792 horas anuales",
+    "agreement": "1736 horas anuales",
+    "article": "art. 71"
+   }
+  ]
+ },
+ {
+  "id": "construccion_17",
+  "file": "construccion/construccion_17_patricia-chen.txt",
+  "name": "Patricia Chen Moreno",
+  "sector": "construccion",
+  "job": "Capataz",
+  "category": "Personal operario",
+  "classification": "Nivel VII",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 50,
+  "annual_salary": 25450,
+  "agreed": {
+   "holidays": 26,
+   "hours": 1736,
+   "probation_days": 90
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 30
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "26 días naturales",
+    "agreement": "30 días naturales",
+    "article": "art. 76"
+   },
+   {
+    "field": "probation",
+    "agreed": "3 meses",
+    "agreement": "máximo 1 mes",
+    "article": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "construccion_18",
+  "file": "construccion/construccion_18_teresa-lozano.txt",
+  "name": "Teresa Lozano Álvarez",
+  "sector": "construccion",
+  "job": "Encargada general de obra",
+  "category": "Personal operario",
+  "classification": "Nivel V",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 24300,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1736,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_01",
+  "file": "dependencia/dependencia_01_hugo-etxeberria.txt",
+  "name": "Hugo Etxeberria Molina",
+  "sector": "dependencia",
+  "job": "Director de centro",
+  "category": "Grupo 1",
+  "classification": "Área A, grupo 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 44790,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 180
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_02",
+  "file": "dependencia/dependencia_02_alvaro-jimenez.txt",
+  "name": "Álvaro Jiménez López",
+  "sector": "dependencia",
+  "job": "Médico",
+  "category": "Grupo 1",
+  "classification": "Área B, grupo 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 44080,
+  "agreed": {
+   "holidays": 26,
+   "hours": 1748,
+   "probation_days": 120
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 180
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "26 días naturales",
+    "agreement": "30 días naturales",
+    "article": "art. 41"
+   }
+  ]
+ },
+ {
+  "id": "dependencia_03",
+  "file": "dependencia/dependencia_03_ivan-garcia.txt",
+  "name": "Iván García Cortés",
+  "sector": "dependencia",
+  "job": "Enfermero",
+  "category": "Grupo 2",
+  "classification": "Área B, grupo 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 31680,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_04",
+  "file": "dependencia/dependencia_04_noelia-lozano.txt",
+  "name": "Noelia Lozano Martínez",
+  "sector": "dependencia",
+  "job": "Fisioterapeuta",
+  "category": "Grupo 2",
+  "classification": "Área B, grupo 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 33830,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_05",
+  "file": "dependencia/dependencia_05_tomas-castillo.txt",
+  "name": "Tomás Castillo Pérez",
+  "sector": "dependencia",
+  "job": "Trabajador social",
+  "category": "Grupo 2",
+  "classification": "Área B, grupo 2",
+  "modality": "Temporal por circunstancias de la producción, 4 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 75,
+  "annual_salary": 32520,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1772,
+   "probation_days": 40
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 40
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_06",
+  "file": "dependencia/dependencia_06_diego-martin.txt",
+  "name": "Diego Martín Etxeberria",
+  "sector": "dependencia",
+  "job": "Coordinador SAD",
+  "category": "Grupo 2",
+  "classification": "Área A, grupo 2",
+  "modality": "Temporal por circunstancias de la producción, 5 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 75,
+  "annual_salary": 28550,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1711,
+   "probation_days": 45
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1735,
+   "probation_days": 45
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_07",
+  "file": "dependencia/dependencia_07_paula-molina.txt",
+  "name": "Paula Molina Molina",
+  "sector": "dependencia",
+  "job": "Cocinera",
+  "category": "Grupo 2",
+  "classification": "Área C, grupo 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 80,
+  "annual_salary": 25450,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_08",
+  "file": "dependencia/dependencia_08_andrei-gil.txt",
+  "name": "Andrei Gil Pérez",
+  "sector": "dependencia",
+  "job": "Oficial administrativo",
+  "category": "Grupo 3",
+  "classification": "Área A, grupo 3",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 23200,
+  "agreed": {
+   "holidays": 31,
+   "hours": 1772,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_09",
+  "file": "dependencia/dependencia_09_ines-sanz.txt",
+  "name": "Inés Sanz Navarro",
+  "sector": "dependencia",
+  "job": "TASOC",
+  "category": "Grupo 3",
+  "classification": "Área B, grupo 3",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 24770,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_10",
+  "file": "dependencia/dependencia_10_sergio-martin.txt",
+  "name": "Sergio Martín Serrano",
+  "sector": "dependencia",
+  "job": "Gerocultor",
+  "category": "Grupo 4",
+  "classification": "Área B, grupo 4",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 23000,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1732,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_11",
+  "file": "dependencia/dependencia_11_marta-diaz.txt",
+  "name": "Marta Díaz Molina",
+  "sector": "dependencia",
+  "job": "Auxiliar SAD",
+  "category": "Grupo 4",
+  "classification": "Área B, grupo 4",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 22220,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1735,
+   "probation_days": 60
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1735,
+   "probation_days": 30
+  },
+  "discrepancies": [
+   {
+    "field": "probation",
+    "agreed": "60 días",
+    "agreement": "máximo 30 días",
+    "article": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "dependencia_12",
+  "file": "dependencia/dependencia_12_aitana-castillo.txt",
+  "name": "Aitana Castillo Serrano",
+  "sector": "dependencia",
+  "job": "Conductora",
+  "category": "Grupo 4",
+  "classification": "Área A, grupo 4",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 80,
+  "annual_salary": 20450,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 30
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 30
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_13",
+  "file": "dependencia/dependencia_13_joel-molina.txt",
+  "name": "Joel Molina Medina",
+  "sector": "dependencia",
+  "job": "Personal de limpieza",
+  "category": "Grupo 5",
+  "classification": "Área C, grupo 5",
+  "modality": "Temporal por circunstancias de la producción, 5 meses",
+  "fixed_discontinuous": false,
+  "temporary": true,
+  "workday_percent": 50,
+  "annual_salary": 18730,
+  "agreed": {
+   "holidays": 26,
+   "hours": 1732,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 15
+  },
+  "discrepancies": [
+   {
+    "field": "holidays",
+    "agreed": "26 días naturales",
+    "agreement": "30 días naturales",
+    "article": "art. 41"
+   }
+  ]
+ },
+ {
+  "id": "dependencia_14",
+  "file": "dependencia/dependencia_14_patricia-martin.txt",
+  "name": "Patricia Martín Martínez",
+  "sector": "dependencia",
+  "job": "Pinche de cocina",
+  "category": "Grupo 5",
+  "classification": "Área C, grupo 5",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 18460,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 15
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 15
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_15",
+  "file": "dependencia/dependencia_15_fernando-oliveira.txt",
+  "name": "Fernando Oliveira Jiménez",
+  "sector": "dependencia",
+  "job": "Director de centro",
+  "category": "Grupo 1",
+  "classification": "Área A, grupo 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 60,
+  "annual_salary": 43090,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_16",
+  "file": "dependencia/dependencia_16_ioana-ortega.txt",
+  "name": "Ioana Ortega Vázquez",
+  "sector": "dependencia",
+  "job": "Médica",
+  "category": "Grupo 1",
+  "classification": "Área B, grupo 1",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 50,
+  "annual_salary": 43710,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 150
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 180
+  },
+  "discrepancies": []
+ },
+ {
+  "id": "dependencia_17",
+  "file": "dependencia/dependencia_17_lucia-rubio.txt",
+  "name": "Lucía Rubio Hernández",
+  "sector": "dependencia",
+  "job": "Enfermera",
+  "category": "Grupo 2",
+  "classification": "Área B, grupo 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 30250,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1852,
+   "probation_days": 45
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "discrepancies": [
+   {
+    "field": "hours",
+    "agreed": "1852 horas anuales",
+    "agreement": "1772 horas anuales",
+    "article": "art. 39"
+   }
+  ]
+ },
+ {
+  "id": "dependencia_18",
+  "file": "dependencia/dependencia_18_gonzalo-rubio.txt",
+  "name": "Gonzalo Rubio Serrano",
+  "sector": "dependencia",
+  "job": "Fisioterapeuta",
+  "category": "Grupo 2",
+  "classification": "Área B, grupo 2",
+  "modality": "Indefinido",
+  "fixed_discontinuous": false,
+  "temporary": false,
+  "workday_percent": 100,
+  "annual_salary": 33590,
+  "agreed": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "limits": {
+   "holidays": 30,
+   "hours": 1772,
+   "probation_days": 45
+  },
+  "discrepancies": []
+ }
+]

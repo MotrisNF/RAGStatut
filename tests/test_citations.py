@@ -12,7 +12,7 @@ from src.norm_catalog import NormCatalog
 
 def hit(name: str, title: str = "Artículo 1. Vacaciones.") -> SearchHit:
     """A hit of the file ``name``."""
-    chunk = Chunk(file_path=f"data/laboral/raw/{name}.txt",
+    chunk = Chunk(file_path=f"data/labour/raw/{name}.txt",
                   first_character_index=3, last_character_index=9,
                   text="texto", title=title)
     return SearchHit(chunk=chunk, score=0.5, chunk_id=0)

@@ -1,6 +1,6 @@
 """Mide el reparto convenio/Estatuto con el indice real. No genera nada.
 
-Desde la raiz del proyecto: python data/laboral/tools/ev3.py
+Desde la raiz del proyecto: python data/labour/tools/measure_convenio_split.py
 """
 import os
 import re
@@ -8,15 +8,15 @@ import sys
 from pathlib import Path, PurePosixPath
 
 sys.path[:0] = [os.getcwd(), os.path.dirname(__file__)]
-from bank import E, Q as DEV  # noqa: E402
-from bank2 import Q as NEW  # noqa: E402
+from question_bank import E, Q as DEV  # noqa: E402
+from question_bank_new import Q as NEW  # noqa: E402
 from src.tokenizer_bm import Tokenizer  # noqa: E402
 from src.bm25_index import BM25Index  # noqa: E402
 from src.convenio_search import ConvenioSearch  # noqa: E402
 from src.hybrid_retriever import HybridRetriever  # noqa: E402
 from src.vector_index import VectorIndex  # noqa: E402
 
-RAW = Path("data/laboral/raw")
+RAW = Path("data/labour/raw")
 OLD_INDEX, NEW_INDEX = Path(sys.argv[1]), Path(sys.argv[2])
 ART = re.compile(r"^Art[ií]culo (\d+)(?: bis)?\.", re.M)
 spans: dict[str, dict[int, tuple[int, int]]] = {}

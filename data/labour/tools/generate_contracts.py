@@ -1,10 +1,10 @@
 """Genera contratos de trabajo TOTALMENTE FICTICIOS para probar MiConvenio.
 
 Personas y empresas inventadas, sin DNI ni direcciones. Reproducible (semilla
-fija). Las discrepancias plantadas van solo en _verdad.json, que no debe
+fija). Las discrepancias plantadas van solo en _answer_key.json, que no debe
 enviarse nunca al modelo: sirve para comprobar si las detecta.
 
-Desde la raiz del proyecto: python data/laboral/tools/gen_contratos.py
+Desde la raiz del proyecto: python data/labour/tools/generate_contracts.py
 """
 import json
 import random
@@ -14,7 +14,7 @@ import unicodedata
 from datetime import date, timedelta
 from pathlib import Path
 
-OUT = Path("data/laboral/contratos")
+OUT = Path("data/labour/contracts")
 SEED = 20261109
 PER_SECTOR = 18
 PLANTED = 4  # contratos con alguna clausula peor que el convenio, por sector
@@ -225,6 +225,11 @@ def gendered(job, female):
     return re.sub(r"([\wáéíóúñ]+)/a\b", replace, job)
 
 
+# Names of the compared conditions in the answer key.
+FIELD_NAMES = {"vacaciones": "holidays", "jornada": "hours",
+               "prueba": "probation"}
+
+
 def category_of(sid, role):
     """Categoria profesional, con los nombres que usa cada convenio."""
     job, group = role["job"], role["class"]
@@ -327,9 +332,9 @@ def contract(rng, sector, sid, number, used, planted):
                     bad = (1, M)
                 probation = bad
                 pact, norm = show(bad), f"máximo {show(limit)}"
-            discrepancies.append({"campo": field, "pactado": pact,
-                                  "convenio": norm,
-                                  "articulo": s["articles"][field]})
+            discrepancies.append({"field": FIELD_NAMES[field],
+                                  "agreed": pact, "agreement": norm,
+                                  "article": s["articles"][field]})
 
     salary = int(round(role["ref"] * rng.uniform(1.15, 1.40), -1))
     real = int(round(salary * pct / 100, -1))
@@ -366,32 +371,33 @@ SEXTA. Retribución: {pay}, en catorce pagas.
 SÉPTIMA. {extra}
 OCTAVA. Convenio aplicable: {s['name']}.
 """
-    truth = {"id": identifier, "archivo": f"{sid}/{identifier}_{slug}.txt",
-             "nombre": name, "sector": sid, "puesto": job,
-             "categoria": category,
-             "clasificacion": role["class"], "modalidad": kind,
-             "fijo_discontinuo": discontinuous, "temporal": temporal,
-             "porcentaje_jornada": pct, "salario_anual": salary,
-             "pactado": {"vacaciones": vacation, "horas": hours,
-                         "prueba_dias": days_of(probation)},
-             "limites": {"vacaciones": vac_n, "horas": max_hours,
-                         "prueba_dias": days_of(limit)},
-             "discrepancias": discrepancies}
+    truth = {"id": identifier, "file": f"{sid}/{identifier}_{slug}.txt",
+             "name": name, "sector": sid, "job": job,
+             "category": category,
+             "classification": role["class"], "modality": kind,
+             "fixed_discontinuous": discontinuous, "temporary": temporal,
+             "workday_percent": pct, "annual_salary": salary,
+             "agreed": {"holidays": vacation, "hours": hours,
+                        "probation_days": days_of(probation)},
+             "limits": {"holidays": vac_n, "hours": max_hours,
+                        "probation_days": days_of(limit)},
+             "discrepancies": discrepancies}
     return truth, text
 
 
 def check(truth):
-    p, l = truth["pactado"], truth["limites"]
-    found = {f for f, bad in (("vacaciones", p["vacaciones"] < l["vacaciones"]),
-                              ("jornada", p["horas"] > l["horas"]),
-                              ("prueba", p["prueba_dias"] > l["prueba_dias"]))
-             if bad}
-    assert found == {d["campo"] for d in truth["discrepancias"]}, truth["id"]
+    agreed, limits = truth["agreed"], truth["limits"]
+    found = {f for f, bad in (
+        ("holidays", agreed["holidays"] < limits["holidays"]),
+        ("hours", agreed["hours"] > limits["hours"]),
+        ("probation", agreed["probation_days"] > limits["probation_days"]))
+        if bad}
+    assert found == {d["field"] for d in truth["discrepancies"]}, truth["id"]
 
 
 def main():
     rng = random.Random(SEED)
-    active = OUT / "_activos.json"
+    active = OUT / "_active.json"
     kept = active.read_text(encoding="utf-8") if active.exists() else None
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -403,21 +409,23 @@ def main():
             truth, text = contract(rng, SECTORS[sid], sid, number, used,
                                    number in planted)
             check(truth)
-            (OUT / truth["archivo"]).write_text(text, encoding="utf-8")
+            (OUT / truth["file"]).write_text(text, encoding="utf-8")
             all_truth.append(truth)
-    (OUT / "_verdad.json").write_text(
+    (OUT / "_answer_key.json").write_text(
         json.dumps(all_truth, ensure_ascii=False, indent=1), encoding="utf-8")
     if kept is not None:
         active.write_text(kept, encoding="utf-8")
-    (OUT / "LEEME.md").write_text(
-        "# Contratos ficticios\n\nGenerados por `tools/gen_contratos.py` para "
-        "demostrar MiConvenio. Personas y empresas inventadas.\n\n"
-        "`_verdad.json` guarda las discrepancias plantadas y los límites de "
-        "cada convenio: solo sirve para evaluar, **nunca debe enviarse al "
-        "modelo**. Los salarios son inventados y no están contrastados con "
-        "las tablas vigentes.\n", encoding="utf-8")
-    print(len(all_truth), "contratos;", sum(bool(t["discrepancias"]) for t in
-                                            all_truth), "con discrepancia")
+    (OUT / "README.md").write_text(
+        "# Fictional contracts\n\nMade by `tools/generate_contracts.py` to "
+        "demonstrate MiConvenio. People and companies are invented; the "
+        "contracts are in Spanish, like the agreements.\n\n"
+        "`_answer_key.json` holds the planted discrepancies and the limits "
+        "of each agreement: it is only for evaluating and **must never be "
+        "sent to the model**. `_active.json` lists the contracts the page "
+        "offers. Salaries are invented and not checked against the current "
+        "tables.\n", encoding="utf-8")
+    print(len(all_truth), "contracts;", sum(bool(t["discrepancies"]) for t in
+                                            all_truth), "with a discrepancy")
 
 
 main()

@@ -1,7 +1,7 @@
 {
- "revisado": "2026-11-10",
- "nota": "Publicaciones posteriores conocidas, leidas una a una en el BOE. No es una lista exhaustiva.",
- "convenios": {
+ "reviewed": "2026-11-10",
+ "note": "Publicaciones posteriores conocidas, leidas una a una en el BOE. No es una lista exhaustiva.",
+ "agreements": {
   "tic": [
    {"boe_id": "BOE-A-2026-9024", "date": "2026-04-24", "kind": "Tablas salariales",
     "summary": "Actualiza las tablas salariales de 2026 y 2027.", "others": ["ANEXO I"]}

@@ -1,7 +1,7 @@
 """Compara Gemini Embedding con la busqueda actual. No llama a ninguna API.
 
 Solo con vectores ya guardados. Corpus: convenio TIC + Estatuto, reparto 7/3.
-    python data/laboral/tools/ev5.py <index_dir>
+    python data/labour/tools/measure_gemini_embeddings.py <index_dir>
 """
 import json
 import os
@@ -13,8 +13,8 @@ import numpy as np
 
 sys.path[:0] = [os.getcwd(), os.path.dirname(__file__)]
 from gemini_embed import VECTORS, doc_text, key_of, query_text  # noqa: E402
-from bank import E, T, Q as DEV  # noqa: E402
-from bank2 import Q as NEW  # noqa: E402
+from question_bank import E, T, Q as DEV  # noqa: E402
+from question_bank_new import Q as NEW  # noqa: E402
 from src.bm25_index import BM25Index  # noqa: E402
 from src.hybrid_retriever import HybridRetriever  # noqa: E402
 from src.tokenizer_bm import Tokenizer  # noqa: E402
@@ -23,7 +23,7 @@ from src.vector_index import VectorIndex  # noqa: E402
 INDEX = Path(sys.argv[1])
 ART = re.compile(r"^Art[ií]culo (\d+)(?: bis)?\.", re.M)
 spans = {}
-for path in Path("data/laboral/raw").glob("*.txt"):
+for path in Path("data/labour/raw").glob("*.txt"):
     text = path.read_text(encoding="utf-8")
     found = list(ART.finditer(text))
     arts = {}

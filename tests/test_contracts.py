@@ -20,12 +20,12 @@ TEXT = ("CONTRATO\nLa trabajadora: Ana Ruiz\nCUARTA. Vacaciones: 20 días.\n"
 @pytest.fixture
 def folder(tmp_path: Path) -> Path:
     """Two contracts and the answer key that must never be read."""
-    root = tmp_path / "contratos"
+    root = tmp_path / "contracts"
     (root / "tic").mkdir(parents=True)
     (root / "tic" / "tic_01_ana-ruiz.txt").write_text(TEXT, encoding="utf-8")
     (root / "tic" / "tic_02_eva-gil.txt").write_text(
         TEXT.replace("Ana Ruiz", "Eva Gil"), encoding="utf-8")
-    (root / "_verdad.json").write_text(
+    (root / "_answer_key.json").write_text(
         json.dumps([{"discrepancias": "SECRETO"}]), encoding="utf-8")
     return root
 
@@ -88,12 +88,12 @@ class TestStore:
 
     def test_only_active_are_offered(self, folder: Path) -> None:
         """The others stay on disk but are not offered."""
-        (folder / "_activos.json").write_text('["tic_02"]', encoding="utf-8")
+        (folder / "_active.json").write_text('["tic_02"]', encoding="utf-8")
         assert [c.id for c in ContractStore(folder).all()] == ["tic_02"]
 
     def test_real_contracts_load(self) -> None:
         """The offered files parse, with no answer key inside."""
-        root = Path("data/laboral/contratos")
+        root = Path("data/labour/contracts")
         if not root.exists():
             pytest.skip("contracts not present")
         found = ContractStore(root).all()

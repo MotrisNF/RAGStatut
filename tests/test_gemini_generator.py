@@ -13,7 +13,7 @@ from src.models import NO_SOURCES, Chunk
 def chunk(name: str = "convenio_tic", text: str = "Quince días.",
           title: str = "Artículo 22. Permisos.") -> Chunk:
     """A chunk of a legal text."""
-    return Chunk(file_path=f"data/laboral/raw/{name}.txt",
+    return Chunk(file_path=f"data/labour/raw/{name}.txt",
                  first_character_index=0, last_character_index=len(text),
                  text=text, title=title)
 

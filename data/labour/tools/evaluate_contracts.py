@@ -1,9 +1,9 @@
 """Mide si Gemini detecta las discrepancias de los contratos ficticios.
 
 Sin --run es un ensayo: construye las peticiones, comprueba que las respuestas
-de _verdad.json no se filtran y NO llama a ninguna API de generacion.
-    python data/laboral/tools/eval_contratos.py
-    python data/laboral/tools/eval_contratos.py --run   (gasta 72 generaciones)
+de _answer_key.json no se filtran y NO llama a ninguna API de generacion.
+    python data/labour/tools/evaluate_contracts.py
+    python data/labour/tools/evaluate_contracts.py --run   (gasta 72 generaciones)
 """
 import json
 import os
@@ -20,14 +20,15 @@ from src.contracts import ContractStore  # noqa: E402
 from src.convenio_search import ConvenioSearch  # noqa: E402
 from src.exceptions import RagError  # noqa: E402
 
-INDEX = "data/laboral/processed"
-FOLDER = Path("data/laboral/contratos")
+INDEX = "data/labour/processed"
+FOLDER = Path("data/labour/contracts")
 QUESTION = ("Revisa este contrato: ¿alguna condición es peor que lo que dice "
             "el convenio sobre vacaciones, jornada anual o periodo de prueba?")
-FIELDS = {"vacaciones": r"vacaciones", "jornada": r"jornada|horas",
-          "prueba": r"prueba"}
-# Marcas que solo existen en _verdad.json, no en leyes ni en el prompt.
-LEAKS = ('"campo"', "prueba_dias", "_verdad", '"limites"', '"pactado"')
+FIELDS = {"holidays": r"vacaciones", "hours": r"jornada|horas",
+          "probation": r"prueba"}
+# Marcas que solo existen en _answer_key.json, no en leyes ni en el prompt.
+LEAKS = ('"field"', "probation_days", "_answer_key", '"limits"',
+         '"agreed"')
 
 
 def detected(answer):
@@ -46,7 +47,7 @@ def detected(answer):
 
 
 truth = {t["id"]: t for t in json.loads(
-    (FOLDER / "_verdad.json").read_text(encoding="utf-8"))}
+    (FOLDER / "_answer_key.json").read_text(encoding="utf-8"))}
 contracts = ContractStore(FOLDER).all()
 retriever = RagCLI._build_retriever(INDEX, "gemini")
 generator = RagCLI._gemini_generator(INDEX)
@@ -82,7 +83,7 @@ for number, contract in enumerate(contracts, 1):
     except RagError as error:
         print(f"PARADA en {contract.id}: {error}")
         break
-    expected = {d["campo"] for d in truth[contract.id]["discrepancias"]}
+    expected = {d["field"] for d in truth[contract.id]["discrepancies"]}
     found = detected(answer)
     tp += len(expected & found)
     fp += len(found - expected)
@@ -99,7 +100,7 @@ for number, contract in enumerate(contracts, 1):
           f"esperado={sorted(expected)} detectado={sorted(found)}",
           flush=True)
     time.sleep(6)
-Path(f"data/laboral/generation/eval_contratos_{generator.model}.json"
+Path(f"data/labour/generation/evaluate_contracts_{generator.model}.json"
      ).write_text(json.dumps(rows, ensure_ascii=False, indent=1),
                   encoding="utf-8")
 print(f"\nAciertos {tp}, omitidas {fn}, inventadas {fp}. "

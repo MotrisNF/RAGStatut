@@ -1,7 +1,7 @@
 """Compara Gemini solo, la busqueda local y su union. Sin llamadas a la API.
 
 Solo usa preguntas con vector ya guardado. Reparto 7/3 convenio/Estatuto.
-    python data/laboral/tools/ev6.py
+    python data/labour/tools/measure_fusion.py
 """
 import os
 import re
@@ -9,15 +9,15 @@ import sys
 from pathlib import Path, PurePosixPath
 
 sys.path[:0] = [os.getcwd(), os.path.dirname(__file__)]
-from bank import E, Q as DEV  # noqa: E402
-from bank2 import Q as NEW  # noqa: E402
+from question_bank import E, Q as DEV  # noqa: E402
+from question_bank_new import Q as NEW  # noqa: E402
 from src.commands import RagCLI  # noqa: E402
 from src.gemini_retriever import GeminiRetriever  # noqa: E402
 
-INDEX = "data/laboral/processed"
+INDEX = "data/labour/processed"
 ART = re.compile(r"^Art[ií]culo (\d+)(?: bis)?\.", re.M)
 spans = {}
-for path in Path("data/laboral/raw").glob("*.txt"):
+for path in Path("data/labour/raw").glob("*.txt"):
     text = path.read_text(encoding="utf-8")
     found = list(ART.finditer(text))
     arts = {}

@@ -1,6 +1,6 @@
 import sys,re,json,unicodedata,glob,os,time
 root=sys.argv[1]; tools=sys.argv[2]; os.chdir(root); sys.path[:0]=[root,tools]
-from bank import Q,ALIAS,E
+from question_bank import Q,ALIAS,E
 from src.reader import CorpusReader
 from src.chunker import MdChunker
 from src.bm25_index import BM25Index
@@ -74,4 +74,4 @@ for i,(q,n,a) in enumerate(items):
     src=[{'file_path':D[n].file_path,'first_character_index':spans[n][x][0],'last_character_index':spans[n][x][1]} for x in a]
     out['rag_questions'].append({'question_id':qid,'question':qq,'answer':'-','sources':src}); un['rag_questions'].append({'question_id':qid,'question':qq})
 for d,o in(('AnsweredQuestions',out),('UnansweredQuestions',un)):
-    os.makedirs(f'data/datasets/{d}',exist_ok=True); json.dump(o,open(f'data/datasets/{d}/laboral.json','w'),ensure_ascii=False)
+    os.makedirs(f'data/datasets/{d}',exist_ok=True); json.dump(o,open(f'data/datasets/{d}/labour.json','w'),ensure_ascii=False)

@@ -1,6 +1,6 @@
 """Mide el reparto convenio/Estatuto con el indice real. No genera nada.
 
-Desde la raiz del proyecto: python data/laboral/tools/ev3.py
+Desde la raiz del proyecto: python data/labour/tools/measure_convenio_split.py
 """
 import os
 import re
@@ -8,14 +8,14 @@ import sys
 from pathlib import Path, PurePosixPath
 
 sys.path[:0] = [os.getcwd(), os.path.dirname(__file__)]
-from bank import E, Q  # noqa: E402
+from question_bank import E, Q  # noqa: E402
 from src.bm25_index import BM25Index  # noqa: E402
 from src.convenio_search import ConvenioSearch  # noqa: E402
 from src.hybrid_retriever import HybridRetriever  # noqa: E402
 from src.vector_index import VectorIndex  # noqa: E402
 
-RAW = Path("data/laboral/raw")
-INDEX = Path("data/laboral/processed")
+RAW = Path("data/labour/raw")
+INDEX = Path("data/labour/processed")
 ART = re.compile(r"^Art[ií]culo (\d+)(?: bis)?\.", re.M)
 spans: dict[str, dict[int, tuple[int, int]]] = {}
 for path in RAW.glob("*.txt"):

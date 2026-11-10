@@ -339,7 +339,7 @@ class RagApi:
     def _amendments(self) -> AmendmentBook:
         """The later BOE publications, next to the corpus folders."""
         folder = (Path(self._index_dir).parent if self._index_dir
-                  else Path("data/laboral"))
+                  else Path("data/labour"))
         return AmendmentBook(folder / AmendmentBook.FILE_NAME)
 
     def _cite(self, hits: list[SearchHit]) -> list[Citation]:
@@ -394,7 +394,7 @@ class RagApi:
         if self._index_dir is None:
             return []
         return ContractStore(
-            Path(self._index_dir).parent / "contratos").all()
+            Path(self._index_dir).parent / "contracts").all()
 
     def _find_contract(self, identifier: str | None) -> Contract | None:
         """A contract, or ``None`` when none was asked for.

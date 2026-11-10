@@ -25,7 +25,7 @@ class MinimalSource(BaseModel):
 
     Attributes:
         file_path: Path relative to the project root, as in the corpus
-            (``data/laboral/raw/...``).
+            (``data/labour/raw/...``).
         first_character_index: Start of the range (included).
         last_character_index: End of the range (excluded).
     """

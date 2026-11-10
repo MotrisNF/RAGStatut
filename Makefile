@@ -44,19 +44,19 @@ serve:
 # A new question spends the free Gemini quota: one embedding and one answer.
 # The API is the one that uses GEMINI_API_KEY. NO_KEY=1 starts it without
 # the key, to try what someone without one sees.
-LABORAL_DATA := data/laboral
+LABOUR_DATA := data/labour
 NO_KEY ?= 0
 API_ENV := $(if $(filter 1,$(NO_KEY)),env -u GEMINI_API_KEY)
 
 # Builds the search index of the labour corpus (needed once after cloning,
 # and after adding a document). FULL=0 only re-indexes the changed files.
 index:
-	@uv run -m src index --raw_dir $(LABORAL_DATA)/raw \
-		--index_dir $(LABORAL_DATA)/processed $(INDEX_FULL)
+	@uv run -m src index --raw_dir $(LABOUR_DATA)/raw \
+		--index_dir $(LABOUR_DATA)/processed $(INDEX_FULL)
 
 api:
-	@$(API_ENV) uv run -m src serve --index_dir $(LABORAL_DATA)/processed \
-		--raw_dir $(LABORAL_DATA)/raw --retriever gemini --generator gemini
+	@$(API_ENV) uv run -m src serve --index_dir $(LABOUR_DATA)/processed \
+		--raw_dir $(LABOUR_DATA)/raw --retriever gemini --generator gemini
 
 web:
 	@uv run streamlit run web/app.py

@@ -1,7 +1,7 @@
 """Mini banco: genera 10 respuestas con Gemini y las guarda.
 
 Una peticion cada 6 s, se detiene al primer error, sin reintentos.
-Desde la raiz del proyecto: python data/laboral/tools/mini_bank.py
+Desde la raiz del proyecto: python data/labour/tools/sample_answers.py
 """
 import json
 import os
@@ -15,7 +15,7 @@ from src.commands import RagCLI  # noqa: E402
 from src.convenio_search import ConvenioSearch  # noqa: E402
 from src.exceptions import RagError  # noqa: E402
 
-INDEX = "data/laboral/processed"
+INDEX = "data/labour/processed"
 QUESTIONS = [
     ("tic", "¿Cuántos días de vacaciones me corresponden al año?"),
     ("contact_center", "Se ha muerto mi padre, ¿cuántos días de permiso tengo?"),
@@ -65,7 +65,7 @@ for number, (convenio, question) in enumerate(QUESTIONS, 1):
     sys.stdout.flush()
     if cached is None and number < len(QUESTIONS):
         time.sleep(6)
-out = Path(f"data/laboral/generation/mini_bank_{generator.model}.json")
+out = Path(f"data/labour/generation/sample_answers_{generator.model}.json")
 out.write_text(json.dumps(results, ensure_ascii=False, indent=1),
                encoding="utf-8")
 print(f"\nGuardadas {len(results)} respuestas en {out}")

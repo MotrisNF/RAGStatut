@@ -10,14 +10,14 @@ from src.base_retriever import Retriever
 from src.gemini_generator import GeminiGenerator
 from src.models import Chunk, SearchHit
 
-REAL = Path("data/laboral/modificaciones.json")
+REAL = Path("data/labour/amendments.json")
 
 
 def book(tmp_path: Path) -> AmendmentBook:
     """A small list of publications."""
     path = tmp_path / "m.json"
     path.write_text(
-        '{"revisado": "2026-11-10", "convenios": {"contact_center": ['
+        '{"reviewed": "2026-11-10", "agreements": {"contact_center": ['
         '{"boe_id": "B-1", "date": "2024-02-22", "kind": "Sentencia",'
         ' "summary": "Anula", "articles": [30]},'
         '{"boe_id": "B-2", "date": "2026-03-06", "kind": "Tablas",'
@@ -66,7 +66,7 @@ class Fake(Retriever):
     def search(self, query: str, k: int,
                sources: frozenset[str] | None = None) -> list[SearchHit]:
         """One hit."""
-        chunk = Chunk(file_path="data/laboral/raw/convenio_contact_center.txt",
+        chunk = Chunk(file_path="data/labour/raw/convenio_contact_center.txt",
                       first_character_index=0, last_character_index=1,
                       text="x", title="Artículo 30. Permisos retribuidos.")
         return [SearchHit(chunk=chunk, score=1.0, chunk_id=0)]

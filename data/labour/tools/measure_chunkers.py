@@ -1,5 +1,5 @@
 import sys,re
-src=open(sys.argv[2]+'/ev.py',encoding='utf-8').read().split('import tqdm as _;')[0]
+src=open(sys.argv[2]+'/measure_first_corpus.py',encoding='utf-8').read().split('import tqdm as _;')[0]
 exec(src)
 from src.models import Chunk,Document
 H=re.compile(r'^Art[ií]culo \d+(?: bis)?\. +[A-ZÁÉÍÓÚ]',re.M)

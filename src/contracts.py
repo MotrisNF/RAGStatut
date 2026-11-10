@@ -1,7 +1,7 @@
 """The fictional contracts that can be asked about.
 
 Only the contract files are read: the answer key next to them
-(``_verdad.json``) is for evaluating and must never reach the model.
+(``_answer_key.json``) is for evaluating and must never reach the model.
 """
 import json
 from pathlib import Path
@@ -36,7 +36,7 @@ class ContractStore:
             it, every contract is. The other files stay in the folder.
     """
 
-    ACTIVE_NAME = "_activos.json"
+    ACTIVE_NAME = "_active.json"
 
     PERSON = re.compile(r"^(?:La trabajadora|El trabajador): (.+)$", re.M)
     JOB = re.compile(r"Puesto: (.+?)\. (?:Categoría|Clasificación)", re.M)

@@ -5,7 +5,7 @@ cada peticion se apunta en un registro en disco ANTES de enviarla, y el primer
 error detiene todo sin reintentar.
 
 Desde la raiz del proyecto:
-    python data/laboral/tools/gemini_embed.py <index_dir> [--run]
+    python data/labour/tools/gemini_embed.py <index_dir> [--run]
 Sin --run es un ensayo: no hace ninguna llamada.
 """
 import hashlib
@@ -21,8 +21,8 @@ from pathlib import Path, PurePosixPath
 from zoneinfo import ZoneInfo
 
 sys.path[:0] = [os.getcwd(), os.path.dirname(__file__)]
-from bank import E, T, Q as DEV  # noqa: E402
-from bank2 import Q as NEW  # noqa: E402
+from question_bank import E, T, Q as DEV  # noqa: E402
+from question_bank_new import Q as NEW  # noqa: E402
 from src.bm25_index import BM25Index  # noqa: E402
 
 MODEL = "gemini-embedding-2"
@@ -34,7 +34,7 @@ MINUTE_REQUESTS = 40   # limite real: 100 por minuto
 MINUTE_TOKENS = 15000  # limite real: 30000 por minuto
 CHARS_PER_TOKEN = 3    # estimacion a la baja: cuenta de mas tokens
 
-OUT = Path("data/laboral/embeddings")
+OUT = Path("data/labour/embeddings")
 LEDGER = OUT / "ledger.jsonl"
 VECTORS = OUT / "vectors.jsonl"
 PACIFIC = ZoneInfo("America/Los_Angeles")

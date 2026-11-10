@@ -115,20 +115,20 @@ class TestRules:
 
 def test_agrees_with_all_contracts(tmp_path: Path) -> None:
     """Every planted discrepancy is found, and no other one."""
-    root = Path("data/laboral/contratos")
+    root = Path("data/labour/contracts")
     if not root.exists():
         pytest.skip("contracts not present")
     copy = tmp_path / "all"
     shutil.copytree(root, copy)
-    (copy / "_activos.json").unlink(missing_ok=True)
+    (copy / "_active.json").unlink(missing_ok=True)
     truth = {t["id"]: t for t in json.loads(
-        (root / "_verdad.json").read_text(encoding="utf-8"))}
-    names = {"Vacaciones": "vacaciones", "Jornada anual": "jornada",
-             "Periodo de prueba": "prueba"}
+        (root / "_answer_key.json").read_text(encoding="utf-8"))}
+    names = {"Vacaciones": "holidays", "Jornada anual": "hours",
+             "Periodo de prueba": "probation"}
     found = ContractStore(copy).all()
     assert len(found) == 90
     for item in found:
         flagged = {names[c.field] for c in check_contract(item)
                    if c.status != "correcto"}
-        expected = {d["campo"] for d in truth[item.id]["discrepancias"]}
+        expected = {d["field"] for d in truth[item.id]["discrepancies"]}
         assert flagged == expected, item.id
