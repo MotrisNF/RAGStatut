@@ -12,7 +12,8 @@ from typing import Any
 import streamlit as st
 
 from app_helpers import (KINDS, amendment_notes, group_citations,
-                         link_references, sources_panel, split_sections)
+                         link_references, source_card, sources_panel,
+                         split_sections)
 import client
 
 EXAMPLES = [
@@ -42,12 +43,29 @@ DISCLAIMER = (
     "las preguntas se envían a un servicio externo."
 )
 STYLE = Path(__file__).with_name("style.css")
+KEY_PAGE = "https://aistudio.google.com/apikey"
+SOURCES, LOCAL = "sources", "local"
+WAIT_GEMINI = "Suele tardar unos segundos."
+WAIT_LOCAL = ("Se está redactando en este ordenador: puede tardar entre 3 y "
+              "4 minutos, y la primera vez algo más porque carga el modelo. "
+              "Ten paciencia; mientras, puedes leer los artículos.")
+LOCAL_RISKS = (
+    "- Puede **inventar cifras o plazos** que no dicen los textos.\n"
+    "- Puede **citar el artículo correcto con el apartado equivocado**, "
+    "un error difícil de detectar.\n"
+    "- Es un modelo pequeño (Qwen3-1.7B) y tarda **3-4 minutos** por "
+    "respuesta.\n"
+    "- Necesita unos **4,5 GB de memoria libre**; con menos, el ordenador "
+    "puede ir muy lento o cerrar el servidor. La primera vez descarga el "
+    "modelo (unos 3,5 GB).\n"
+    "- Comprueba siempre la respuesta con los artículos que se muestran.")
 
 
 def start_state() -> None:
     """Create what must survive between runs of the script."""
     defaults: dict[str, Any] = {"question": "", "results": [], "error": "",
-                                "asked": "", "person": None}
+                                "asked": "", "person": None,
+                                "answer_mode": None, "more_options": False}
     for name, value in defaults.items():
         st.session_state.setdefault(name, value)
 
@@ -69,6 +87,11 @@ def load_contracts() -> list[dict[str, Any]]:
     return client.contracts()
 
 
+def answer_mode(has_key: bool) -> str | None:
+    """How answers are written now: Gemini with a key, else the choice."""
+    return "gemini" if has_key else st.session_state.answer_mode
+
+
 def ask(question: str, convenio: str,
         contract: str | None = None) -> dict[str, Any] | None:
     """Ask the API, telling the user what is happening at each step.
@@ -82,19 +105,36 @@ def ask(question: str, convenio: str,
         The answer, or ``None`` if something failed (the error is kept
         in ``st.session_state.error``).
     """
-    with st.status("Buscando en los textos legales…", expanded=True) as box:
-        try:
+    mode = st.session_state.get("current_mode") or "gemini"
+    try:
+        with st.status("Buscando en los textos legales…") as box:
             found = client.citations(question, convenio)
             total = len({c["article"] for c in found["citations"]})
-            st.write(f"He encontrado {total} artículos relacionados.")
-            box.update(label="Redactando la respuesta…")
-            result = client.consult(question, convenio, contract)
-        except client.ApiError as error:
-            box.update(label="No se ha podido responder", state="error")
-            st.session_state.error = str(error)
-            return None
-        box.update(label="Respuesta lista", state="complete", expanded=False)
-    return result
+            box.update(label=f"He encontrado {total} artículos relacionados",
+                       state="complete")
+        if mode != SOURCES and found["citations"]:
+            # The search ends long before the writing: show what was
+            # found, so the wait has something to read and is not mistaken
+            # for a hang.
+            show_waiting(found["citations"], mode)
+        return dict(client.consult(question, convenio, contract, mode))
+    except client.ApiError as error:
+        st.session_state.error = str(error)
+        return None
+
+
+def show_waiting(citations: list[dict[str, Any]], mode: str) -> None:
+    """While the answer is written: how long it may take, and the
+    articles already found."""
+    wait = (WAIT_LOCAL if mode == LOCAL else WAIT_GEMINI)
+    with st.container(key="headline_waiting"):
+        html_block('<span class="card-label respuesta">Redactando la '
+                   'respuesta</span>')
+        st.write(wait)
+    groups = group_citations(citations)
+    html_block('<h5 class="src-h">Mientras tanto, estos son los artículos '
+               'encontrados</h5>'
+               + "".join(source_card(group, 9) for group in groups))
 
 
 def name_of(norms: list[dict[str, Any]], identifier: str) -> str:
@@ -116,19 +156,34 @@ def run_question(question: str, convenio: str,
     st.session_state.results = []
     st.session_state.asked = question
     st.session_state.person = person
-    result = ask(question, convenio, person["id"] if person else None)
-    if result is not None:
-        st.session_state.results = [result]
+    st.session_state.pending = convenio
 
 
 def run_comparison(other: str) -> None:
     """Put a second legal text next to the first answer."""
     st.session_state.error = ""
+    st.session_state.results = st.session_state.results[:1]
+    st.session_state.pending = other
+
+
+def run_pending() -> None:
+    """Answer the question waiting to be asked, below the question card.
+
+    The buttons only leave the request here and rerun the page, so the
+    wait is drawn in the results area, not inside the card.
+    """
+    convenio = st.session_state.get("pending")
+    if not convenio:
+        return
+    st.session_state.pending = None
+    asked = html.escape(st.session_state.asked, quote=False)
+    html_block(f'<div class="asked">{asked}</div>')
     person = st.session_state.person
-    result = ask(st.session_state.asked, other,
+    result = ask(st.session_state.asked, convenio,
                  person["id"] if person else None)
     if result is not None:
-        st.session_state.results = [st.session_state.results[0], result]
+        st.session_state.results = st.session_state.results + [result]
+    st.rerun()
 
 
 def show_checks(index: int, checks: list[dict[str, Any]]) -> None:
@@ -169,6 +224,14 @@ def show_answer(index: int, result: dict[str, Any],
                      "consultados.")
         return
     show_checks(index, result.get("checks", []))
+    if not result["answer"]:
+        with st.container(key=f"headline_{index}_sources"):
+            html_block('<span class="card-label respuesta">Solo '
+                       'referencias</span>')
+            st.write("Estos son los artículos que responden a tu pregunta. "
+                     "Ábrelos para leer lo que dicen; los avisos y la "
+                     "comprobación del contrato son exactos.")
+        return
     sections = list(enumerate(split_sections(result["answer"])))
     # The model writes its conclusion last, after comparing; it is shown
     # first, because it is what the person came for.
@@ -252,6 +315,79 @@ def person_label(person: dict[str, Any], norms: list[dict[str, Any]]) -> str:
     return f"{person['name']} · {person['job']} · {sector}"
 
 
+def save_key() -> None:
+    """Send the typed key to the server, then forget it here."""
+    key = st.session_state.get("typed_key", "").strip()
+    if not key:
+        return
+    try:
+        client.set_key(key)
+        st.session_state.key_error = ""
+    except client.ApiError as error:
+        st.session_state.key_error = str(error)
+    st.session_state.typed_key = ""
+
+
+def choose(mode: str | None) -> None:
+    """Remember how to answer without a key."""
+    st.session_state.answer_mode = mode
+    st.session_state.more_options = False
+
+
+def show_key_card() -> None:
+    """Without a key: how to get one, where to paste it, and the rest."""
+    with st.container(key="key_card"):
+        html_block('<span class="card-label respuesta">Falta la clave de '
+                   'Gemini</span>')
+        st.markdown("MiConvenio redacta las respuestas con Gemini, de "
+                    "Google. La clave es **gratuita** y se consigue en un "
+                    f"minuto con una cuenta de Google: [créala aquí]"
+                    f"({KEY_PAGE}).")
+        paste, save = st.columns([4, 1], vertical_alignment="bottom")
+        paste.text_input("Pega tu clave", type="password", key="typed_key",
+                         placeholder="Pega aquí tu clave de Gemini",
+                         label_visibility="collapsed")
+        save.button("Guardar clave", on_click=save_key, width="stretch")
+        if st.session_state.get("key_error"):
+            st.error(st.session_state.key_error)
+        st.caption("La clave solo se guarda en la memoria del servidor de "
+                   "este ordenador mientras esté en marcha.")
+        if st.button("Probar otras opciones", key="more"):
+            st.session_state.more_options = True
+    if st.session_state.more_options:
+        show_other_options()
+
+
+def show_other_options() -> None:
+    """The two ways to go on without a key."""
+    sources, local = st.columns(2, gap="medium")
+    with sources.container(key="option_sources"):
+        html_block('<span class="card-label contrato">Recomendado</span>')
+        st.markdown("**Solo referencias**")
+        st.write("Te muestro los artículos que responden a tu pregunta, con "
+                 "sus avisos y la comprobación del contrato, sin redactar "
+                 "nada. No puede equivocarse al resumir.")
+        st.button("Usar solo referencias", on_click=choose, args=(SOURCES,),
+                  width="stretch", type="primary")
+    with local.container(key="option_local"):
+        html_block('<span class="card-label discrepancia">Experimental'
+                   '</span>')
+        st.markdown("**Generar en este ordenador**")
+        st.markdown(LOCAL_RISKS)
+        st.button("Generar en local", on_click=choose, args=(LOCAL,),
+                  width="stretch")
+
+
+def show_mode_line(mode: str) -> None:
+    """Which mode is on, and a way to change it."""
+    names = {SOURCES: "solo referencias", LOCAL: "generación en local "
+             "(experimental)"}
+    text, change = st.columns([5, 1], vertical_alignment="center")
+    text.caption(f"Modo sin clave: **{names[mode]}**.")
+    change.button("Cambiar", key="change_mode", on_click=choose,
+                  args=(None,))
+
+
 def show_ask_card(norms: list[dict[str, Any]],
                   contracts: list[dict[str, Any]]) -> None:
     """The card where the question is written."""
@@ -280,8 +416,10 @@ def show_ask_card(norms: list[dict[str, Any]],
                 format_func=lambda i: name_of(norms, i),
                 label_visibility="collapsed")
         question = st.session_state.question.strip()
+        ready = st.session_state.get("current_mode") is not None
         if go.button("Preguntar", type="primary", width="stretch",
-                     disabled=not (question and convenio)) and convenio:
+                     disabled=not (question and convenio and ready)
+                     ) and convenio:
             run_question(question, convenio, person)
             st.rerun()
         if person:
@@ -323,7 +461,18 @@ def main() -> None:
         contracts = load_contracts()
     except client.ApiError:
         contracts = []
+    try:
+        has_key = bool(client.status().get("gemini_key"))
+    except client.ApiError:
+        has_key = False
+    mode = answer_mode(has_key)
+    st.session_state.current_mode = mode
+    if mode is None:
+        show_key_card()
+    elif mode != "gemini":
+        show_mode_line(mode)
     show_ask_card(norms, contracts)
+    run_pending()
     if st.session_state.error:
         st.error(st.session_state.error)
     if not results:

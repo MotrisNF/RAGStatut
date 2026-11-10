@@ -155,7 +155,7 @@ class IncrementalIndexer:
         cache_paths = [CachedRetriever.file_path(self._index_dir, name)
                        for name in get_args(RetrieverMode)]
         cache_paths += [AnswerCache.file_path(self._index_dir, name)
-                        for name in get_args(GeneratorMode)]
+                        for name in (*get_args(GeneratorMode), "local")]
         for cache_path in cache_paths:
             try:
                 cache_path.unlink(missing_ok=True)

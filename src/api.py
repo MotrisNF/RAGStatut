@@ -8,14 +8,15 @@ answered without the model. ``/index`` updates the index on disk and
 reloads it, so the server never needs a restart. The responses are the
 same pydantic models the CLI prints.
 """
+import os
 import sys
 import threading
 from pathlib import Path
-from typing import TYPE_CHECKING, Annotated, cast
+from typing import TYPE_CHECKING, Annotated, Literal, cast
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
-from pydantic import StringConstraints
+from pydantic import BaseModel, StringConstraints
 from tqdm import tqdm
 
 from .answer_cache import AnswerCache
@@ -42,6 +43,7 @@ from .vector_index import VectorIndex
 
 if TYPE_CHECKING:
     from .generator import Generator
+    from .local_generator import LocalGenerator
 
 # A question with text: surrounding spaces are removed first, so a query
 # of only spaces is rejected (422), as the CLI does.
@@ -52,6 +54,20 @@ ChunkSize = Annotated[int, Query(gt=0, le=2000)]
 ConvenioName = Annotated[str | None, Query(min_length=1)]
 RequiredConvenio = Annotated[str, Query(min_length=1)]
 ContractName = Annotated[str | None, Query(min_length=1)]
+# How the answer is written: by Gemini, not at all (only the sources), or by
+# a model on this computer.
+AnswerMode = Literal["gemini", "sources", "local"]
+
+
+class KeyBody(BaseModel):
+    """A Gemini key typed in the page.
+
+    Attributes:
+        key: The key; kept only in the memory of this server.
+    """
+
+    key: Annotated[str, StringConstraints(strip_whitespace=True,
+                                          min_length=10)]
 
 
 class RetrieverLoader:
@@ -201,6 +217,10 @@ class RagApi:
         # FastAPI runs each request in its own thread: one lock so the
         # model is loaded only once and answers one question at a time.
         self._generator_lock = threading.Lock()
+        # The local model, loaded by the first local answer (it imports
+        # PyTorch and takes about 4.5 GB), and its own answer cache.
+        self._local: "LocalGenerator | None" = None
+        self._local_answers: AnswerCache | None = None
         # The retrievers (and their caches) are shared by every request:
         # one search, with its flush, at a time. Separate from the
         # generator lock, so /search does not wait for an answer being
@@ -215,6 +235,8 @@ class RagApi:
         self.app.get("/citations")(self.citations)
         self.app.get("/consult")(self.consult)
         self.app.get("/contracts")(self.contracts)
+        self.app.get("/status")(self.status)
+        self.app.post("/key")(self.set_key)
         self.app.get("/answer")(self.answer)
         self.app.post("/index")(self.index)
 
@@ -391,17 +413,41 @@ class RagApi:
             raise HTTPException(status_code=404, detail="Unknown contract")
         return found
 
+    # The local model (experimental): measured right on three questions,
+    # slow and memory hungry. False makes the server refuse it (501).
+    LOCAL_READY: bool = True
+
+    def status(self) -> dict[str, bool]:
+        """Say whether there is a Gemini key and a local model."""
+        key = os.environ.get(GeminiGenerator.API_KEY_ENV)
+        return {"gemini_key": bool(key), "local_ready": self.LOCAL_READY}
+
+    def set_key(self, body: KeyBody) -> dict[str, bool]:
+        """Use a Gemini key typed in the page until the server stops.
+
+        It is kept only in this process: never written to disk, never
+        logged. The server only listens on this computer by default.
+        """
+        os.environ[GeminiGenerator.API_KEY_ENV] = body.key
+        return self.status()
+
     def consult(self, query: QueryText, convenio: RequiredConvenio,
                 k: TopK = 10, retriever: RetrieverMode | None = None,
-                contract: ContractName = None
+                contract: ContractName = None,
+                mode: AnswerMode = "gemini"
                 ) -> ConsultResults:
         """Return the answer to a question, with the articles it is from.
 
         Like ``/citations``, plus the generated answer, for a page that
         shows both. ``convenio`` is mandatory. Without sources the answer
         is a fixed message and nothing is generated. ``contract`` applies
-        the answer to a fictional person.
+        the answer to a fictional person. ``mode`` ``sources`` returns
+        everything but the written answer, without calling any model.
         """
+        if mode == "local" and not self.LOCAL_READY:
+            raise HTTPException(status_code=501,
+                                detail="La generación en local todavía no "
+                                       "está disponible.")
         self._check_convenio(convenio)
         person = self._find_contract(contract)
         # Only against its own agreement: another one has other categories.
@@ -413,14 +459,68 @@ class RagApi:
             hits = ConvenioSearch.search(chosen, query, k, convenio)
             chosen.flush()
         cited = self._cite(hits)
-        answer = (self._generate(query, [hit.chunk for hit in hits],
-                                 person.text if person else None,
-                                 describe(checks) if checks else None,
-                                 self._notes(cited))
-                  if hits else NO_SOURCES)
+        if not hits:
+            answer = NO_SOURCES
+        elif mode == "sources":
+            answer = ""
+        elif mode == "local":
+            answer = self._generate_local(
+                query, [hit.chunk for hit in hits],
+                person.text if person else None,
+                describe(checks) if checks else None, self._notes(cited))
+        else:
+            answer = self._generate(query, [hit.chunk for hit in hits],
+                                    person.text if person else None,
+                                    describe(checks) if checks else None,
+                                    self._notes(cited))
         return ConsultResults(
             query=query, convenio=convenio, answer=answer,
             citations=cited, checks=checks)
+
+    def _generate_local(self, query: str, chunks: list[Chunk],
+                        contract: str | None, checks: str | None,
+                        notes: str | None) -> str:
+        """Answer with the model of this computer, cached apart.
+
+        The model is loaded by the first call, always in bfloat16: in
+        float32 it would need twice the memory. Answers are cached in their
+        own file, so a slow answer is never written twice.
+
+        Raises:
+            HTTPException: 503 when PyTorch cannot be imported.
+            RagError: The model does not fit in memory, or cannot be
+                downloaded the first time.
+        """
+        key = AnswerCache.key("\n".join([query, contract or "",
+                                         notes or ""]), chunks)
+        with self._generator_lock:
+            if self._local is None:
+                try:
+                    from .local_generator import LocalGenerator
+                except (ImportError, MemoryError, OSError) as e:
+                    raise HTTPException(
+                        status_code=503,
+                        detail=f"Cannot load PyTorch ({type(e).__name__})."
+                    ) from e
+                print(f"Loading {LocalGenerator.MODEL_NAME}...",
+                      file=sys.stderr)
+                self._local = LocalGenerator("bfloat16")
+                if self._index_dir is not None:
+                    self._local_answers = AnswerCache(
+                        AnswerCache.file_path(Path(self._index_dir),
+                                              "local"),
+                        LocalGenerator.namespace())
+            if self._local_answers is not None:
+                cached = self._local_answers.get(key)
+                if cached is not None:
+                    return cached
+            print("Generating an answer locally...", file=sys.stderr)
+            answer = self._local.generate(query, chunks, contract, checks,
+                                          notes)
+            if self._local_answers is not None:
+                self._local_answers.put(key, answer)
+                self._local_answers.flush()
+        return answer
 
     def _get_generator(self) -> "Generator | GeminiGenerator":
         """Return the generator, loading it on the first call.

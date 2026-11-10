@@ -2,6 +2,7 @@
 from pathlib import Path
 
 from fastapi.testclient import TestClient
+import pytest
 
 from src.api import RagApi
 from src.base_retriever import Retriever
@@ -101,6 +102,49 @@ class TestEndpoints:
         assert body["answer"] == "Quince días"
         assert len(body["citations"]) == 2
         assert calls == ["q"]
+
+    def test_sources_mode_generates_nothing(self) -> None:
+        """Only the sources: the model is never called."""
+        api = RagApi(Fake())
+        api._generator = None
+        body = TestClient(api.app).get("/consult", params={
+            "query": "q", "convenio": "tic", "mode": "sources"}).json()
+        assert body["answer"] == ""
+        assert len(body["citations"]) == 2
+
+    def test_local_mode_can_be_switched_off(
+            self, monkeypatch: pytest.MonkeyPatch) -> None:
+        """With the local model off, the server says so."""
+        monkeypatch.setattr(RagApi, "LOCAL_READY", False)
+        assert client().get("/consult", params={
+            "query": "q", "convenio": "tic",
+            "mode": "local"}).status_code == 501
+
+    def test_local_mode_uses_the_local_model(self) -> None:
+        """The local answer comes from the local model, not Gemini."""
+        api = RagApi(Fake())
+        calls: list[str] = []
+
+        class Local:
+            def generate(self, query: str, chunks: list[Chunk],
+                         *rest: str | None) -> str:
+                calls.append(query)
+                return "Local"
+
+        api._local = Local()  # type: ignore[assignment]
+        body = TestClient(api.app).get("/consult", params={
+            "query": "q", "convenio": "tic", "mode": "local"}).json()
+        assert (body["answer"], calls) == ("Local", ["q"])
+
+    def test_key_status_and_entry(self,
+                                  monkeypatch: pytest.MonkeyPatch) -> None:
+        """The key typed in the page is used, and only kept in memory."""
+        monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+        api = client()
+        assert api.get("/status").json()["gemini_key"] is False
+        assert api.post("/key", json={"key": "corta"}).status_code == 422
+        assert api.post("/key", json={"key": "AIza-una-clave-larga"}
+                        ).json()["gemini_key"] is True
 
     def test_consult_needs_a_convenio(self) -> None:
         """Choosing a text is mandatory."""

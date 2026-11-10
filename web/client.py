@@ -14,7 +14,7 @@ class ApiError(Exception):
     """The API could not answer; the message can be shown to the user."""
 
 
-def _get(path: str, **params: Any) -> Any:
+def _get(path: str, timeout: int = TIMEOUT, **params: Any) -> Any:
     """Send a GET request and decode its JSON.
 
     Args:
@@ -31,7 +31,7 @@ def _get(path: str, **params: Any) -> Any:
              if value is not None}
     url = f"{API_URL}{path}?{urllib.parse.urlencode(given)}"
     try:
-        with urllib.request.urlopen(url, timeout=TIMEOUT) as response:
+        with urllib.request.urlopen(url, timeout=timeout) as response:
             return json.load(response)
     except urllib.error.HTTPError as e:
         try:
@@ -42,6 +42,32 @@ def _get(path: str, **params: Any) -> Any:
     except (OSError, ValueError) as e:
         raise ApiError("No puedo conectar con el servidor. "
                        "¿Has arrancado «make api»?") from e
+
+
+def status() -> dict[str, Any]:
+    """Whether the server has a Gemini key and a local model."""
+    result: dict[str, Any] = _get("/status")
+    return result
+
+
+def set_key(key: str) -> dict[str, Any]:
+    """Give the server a Gemini key, kept only in its memory.
+
+    Raises:
+        ApiError: The server refused it or is down.
+    """
+    request = urllib.request.Request(
+        f"{API_URL}/key", data=json.dumps({"key": key}).encode(),
+        headers={"Content-Type": "application/json"}, method="POST")
+    try:
+        with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
+            result: dict[str, Any] = json.load(response)
+            return result
+    except urllib.error.HTTPError as e:
+        raise ApiError("La clave no es válida: revisa que la has copiado "
+                       "entera.") from e
+    except (OSError, ValueError) as e:
+        raise ApiError("No puedo conectar con el servidor.") from e
 
 
 def norms() -> list[dict[str, Any]]:
@@ -57,11 +83,20 @@ def citations(query: str, convenio: str) -> dict[str, Any]:
     return result
 
 
-def consult(query: str, convenio: str,
-            contract: str | None = None) -> dict[str, Any]:
-    """The answer to a question, with the articles it is based on."""
-    result: dict[str, Any] = _get("/consult", query=query, convenio=convenio,
-                                  contract=contract)
+# A local answer can take minutes; anything else gets TIMEOUT.
+LOCAL_TIMEOUT = 600
+
+
+def consult(query: str, convenio: str, contract: str | None = None,
+            mode: str = "gemini") -> dict[str, Any]:
+    """The answer to a question, with the articles it is based on.
+
+    ``mode`` ``sources`` skips the written answer; ``local`` asks the
+    model of this computer.
+    """
+    result: dict[str, Any] = _get(
+        "/consult", timeout=LOCAL_TIMEOUT if mode == "local" else TIMEOUT,
+        query=query, convenio=convenio, contract=contract, mode=mode)
     return result
 
 

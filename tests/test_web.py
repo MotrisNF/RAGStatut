@@ -30,10 +30,23 @@ def citation(article: str, text: str = "Texto") -> dict[str, Any]:
 class Fake:
     """Stands for the API and counts the answers asked for."""
 
-    def __init__(self, error: str = "") -> None:
-        """Choose whether the answers fail."""
+    def __init__(self, error: str = "", key: bool = True) -> None:
+        """Choose whether the answers fail and whether there is a key."""
         self.error = error
         self.calls: list[str] = []
+        self.key = key
+        self.modes: list[str] = []
+        self.saved: list[str] = []
+
+    def status(self) -> dict[str, Any]:
+        """Whether the server has a key."""
+        return {"gemini_key": self.key, "local_ready": False}
+
+    def set_key(self, key: str) -> dict[str, Any]:
+        """Keep the key."""
+        self.saved.append(key)
+        self.key = True
+        return self.status()
 
     def contracts(self) -> list[dict[str, Any]]:
         """The people."""
@@ -45,9 +58,15 @@ class Fake:
         return {"citations": [citation("Artículo 22.")]}
 
     def consult(self, query: str, convenio: str,
-                contract: str | None = None) -> dict[str, Any]:
+                contract: str | None = None,
+                mode: str = "gemini") -> dict[str, Any]:
         """Answer, or fail."""
         self.contract = contract
+        self.modes.append(mode)
+        if mode == "sources":
+            self.calls.append(convenio)
+            return {"query": query, "convenio": convenio, "answer": "",
+                    "citations": [citation("Artículo 22.", "Uno")]}
         if self.error:
             raise client.ApiError(self.error)
         self.calls.append(convenio)
@@ -64,6 +83,8 @@ def fake(monkeypatch: pytest.MonkeyPatch) -> Fake:
     monkeypatch.setattr(client, "norms", lambda: NORMS)
     monkeypatch.setattr(client, "citations", api.citations)
     monkeypatch.setattr(client, "contracts", api.contracts)
+    monkeypatch.setattr(client, "status", api.status)
+    monkeypatch.setattr(client, "set_key", api.set_key)
     monkeypatch.setattr(client, "consult", api.consult)
     return api
 
@@ -186,6 +207,34 @@ class TestPills:
 class TestPage:
     """What a person sees."""
 
+    def test_without_key_shows_how_to_get_it(self, fake: Fake) -> None:
+        """No key: a link, a box to paste it, and asking is not possible."""
+        fake.key = False
+        app = page()
+        assert any("aistudio.google.com" in m.value for m in app.markdown)
+        assert app.text_input[0].label == "Pega tu clave"
+        assert button(app, "Preguntar").disabled
+
+    def test_pasted_key_reaches_the_server(self, fake: Fake) -> None:
+        """The key goes to the server and the page can ask."""
+        fake.key = False
+        app = page()
+        app.text_input[0].set_value("AIza-una-clave-de-prueba").run()
+        button(app, "Guardar clave").click().run()
+        assert fake.saved == ["AIza-una-clave-de-prueba"]
+        assert len(app.text_input) == 0
+
+    def test_only_sources_without_key(self, fake: Fake) -> None:
+        """Choosing sources asks without generating anything."""
+        fake.key = False
+        app = page()
+        button(app, "Probar otras opciones").click().run()
+        assert any(b.label == "Generar en local" for b in app.button)
+        button(app, "Usar solo referencias").click().run()
+        app = asked(app)
+        assert fake.modes == ["sources"]
+        assert "Solo referencias" in texts(app)
+
     def test_needs_convenio_and_question(self, fake: Fake) -> None:
         """Nothing can be asked until both are chosen."""
         app = page()
@@ -210,8 +259,8 @@ class TestPage:
     def test_answer_without_summary_is_visible(
             self, fake: Fake, monkeypatch: pytest.MonkeyPatch) -> None:
         """An answer with only norm sections is shown, not folded."""
-        def consult(query: str, convenio: str,
-                    contract: str | None = None) -> dict[str, Any]:
+        def consult(query: str, convenio: str, contract: str | None = None,
+                    mode: str = "gemini") -> dict[str, Any]:
             return {"query": query, "convenio": convenio,
                     "answer": "Tu convenio: Veinte días.",
                     "citations": [citation("Artículo 22.")]}
