@@ -6,29 +6,20 @@ import unicodedata
 class Tokenizer:
     """Split text into lowercase terms for BM25.
 
-    Two passes over the lowercase text:
-
-    1. ``PATTERN``: every run of letters or digits
-       (``max_model_len`` → ``max``, ``model``, ``len``).
-    2. ``SNAKE_PATTERN``: snake_case names kept whole as extra terms
-       (``max_model_len``), so a question that quotes a parameter matches
-       it exactly, while the parts still match a question that only
-       names one of them.
-
-    The passes never produce the same term (the second one always
-    contains an underscore, the first one never), so nothing is counted
-    twice. The same tokenizer must be used for the chunks and the
-    queries, or their terms would never match: rebuild the index after
-    changing it.
+    The text is lowercased and its accents removed (``días`` and ``dias``
+    are one term), then every run of letters or digits is a term
+    (``max_model_len`` → ``max``, ``model``, ``len``). The same tokenizer
+    must be used for the chunks and the queries, or their terms would
+    never match: rebuild the index after changing ``tokenize``.
 
     Attributes:
         PATTERN: A term is a run of lowercase letters or digits.
-        SNAKE_PATTERN: Two or more runs of letters or digits joined by
-            single underscores (``__init__`` or ``a__b`` do not match).
         STOPWORDS: Words to drop from the QUERY terms only (not from the
-            index). In a code corpus words like ``how`` or ``what`` are
-            rare, so BM25 gives them a high idf and they pull in chunks
-            that only share the question wording.
+            index). Words like ``cuantos`` or ``how`` say nothing about
+            the topic, but BM25 would reward the chunks that share them.
+        SYNONYMS: For each word or phrase a worker uses, the words the
+            legal texts use (``me caso`` → ``matrimonio``), added to the
+            query.
     """
 
     PATTERN = re.compile(r"[a-z0-9]+")
@@ -65,8 +56,6 @@ class Tokenizer:
         # Other frequent words
         "mas", "muy", "ya", "algo", "alguna", "alguno", "todo", "toda",
         "todos", "todas",
-        # In every chunk path (idf 0)
-        "vllm",
     })
 
     # What a worker says -> how the legal texts say it. Without accents, like
@@ -166,8 +155,7 @@ class Tokenizer:
             text: Any text.
 
         Returns:
-            The plain terms, then the snake_case names, each group in
-            text order. Empty when there are none.
+            The terms in text order. Empty when there are none.
         """
         normalized = unicodedata.normalize("NFKD", text.lower())
         plain = "".join(c for c in normalized if not unicodedata.combining(c))

@@ -1,5 +1,9 @@
 """Answer generation with Qwen/Qwen3-0.6B from the retrieved chunks.
 
+This is the generator of the original 42 project (questions about the vLLM
+codebase, prompt in English). MiConvenio uses ``GeminiGenerator`` and,
+experimentally, ``LocalGenerator``.
+
 Imported only by the ``answer`` commands, so the other commands never
 load torch.
 """

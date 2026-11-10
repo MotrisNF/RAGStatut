@@ -138,7 +138,10 @@ class CliCommand:
 
 
 class RagCLI:
-    """RAG over the vLLM codebase: index, search, answer and evaluate.
+    """MiConvenio from the command line: index, search, answer, evaluate.
+
+    ``search_dataset``, ``answer_dataset`` and ``evaluate`` keep the
+    datasets and metric of the original 42 project (vLLM corpus).
 
     Arguments are validated by pydantic (``CliCommand.validated``) before
     each command runs, so invalid values raise ``ValidationError``.

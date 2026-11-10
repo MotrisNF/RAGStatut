@@ -1,5 +1,8 @@
 """Recall@k of search results against a ground-truth dataset.
 
+Kept from the original 42 project; the labour corpus is measured with the
+question banks in ``data/laboral/tools``.
+
 The same metric as the moulinette: a correct source is found when one of
 the first k results is in the same file and overlaps it with IoU ≥ 0.05.
 """

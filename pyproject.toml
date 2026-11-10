@@ -1,7 +1,7 @@
 [project]
 name = "rag-against-the-machine"
 version = "0.1.0"
-description = "Retrieval-Augmented Generation over the vLLM codebase"
+description = "MiConvenio: questions about Spanish collective agreements and the Workers' Statute, answered with RAG"
 readme = "README.md"
 authors = [
     { name = "saperez-", email = "samuelperleo@gmail.com" }
@@ -42,16 +42,12 @@ warn_unused_ignores = true
 disallow_untyped_defs = true
 check_untyped_defs = true
 ignore_missing_imports = true
-# `mypy .` must only check our code, not the corpora under data/,
-# tests/data/ and tests/test_corpus/.
-exclude = ['^\.venv/', '^data/', '^tests/data/', '^tests/test_corpus/',
-           '^build/', '^dist/']
+# `mypy .` must only check our code, not the corpora under data/ and
+# tests/data/.
+exclude = ['^\.venv/', '^data/', '^tests/data/', '^build/', '^dist/']
 
 [tool.pytest.ini_options]
-# Only our tests (data/raw/vllm-0.10.1 and the Fly-in corpus in
-# tests/test_corpus ship their own test suites).
 testpaths = ["tests"]
-addopts = "--ignore=tests/test_corpus"
 # Project root on sys.path so tests can `import src`.
 pythonpath = ["."]
 

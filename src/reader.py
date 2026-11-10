@@ -47,7 +47,7 @@ class CorpusReader:
         Used for the source files listed in a search results JSON.
 
         Args:
-            path: A path such as ``data/raw/vllm-0.10.1/README.md``.
+            path: A path such as ``data/laboral/raw/convenio_tic.txt``.
 
         Returns:
             The absolute, normalised path inside the project.

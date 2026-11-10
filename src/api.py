@@ -160,13 +160,14 @@ class RagApi:
     """
 
     DESCRIPTION = (
-        "Question answering over the vLLM codebase. `/search` returns the "
-        "best source locations for a question; `/answer` also generates "
-        "an answer from them with Qwen/Qwen3-0.6B. The first `/answer` "
-        "loads the model (tens of seconds); the next ones reuse it, and "
-        "a question already answered with the same sources is read from "
-        "the cache. `POST /index` re-indexes the files changed on disk "
-        "(or everything, with `full`) and reloads the index."
+        "MiConvenio: questions about Spanish collective agreements and the "
+        "Workers' Statute. `/consult` answers with the articles it is "
+        "based on (with Gemini, only the sources, or a local model); "
+        "`/citations` returns only the articles; `/convenios` and "
+        "`/contracts` list what can be chosen; `/status` and `POST /key` "
+        "manage the Gemini key. `/search` and `/answer` keep the format of "
+        "the original 42 project. `POST /index` re-indexes the files "
+        "changed on disk and reloads the index."
     )
 
     def __init__(self, retriever: Retriever,
