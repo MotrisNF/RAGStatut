@@ -97,7 +97,7 @@ class TestStore:
         if not root.exists():
             pytest.skip("contracts not present")
         found = ContractStore(root).all()
-        assert len(found) == 12
+        assert len(found) == 15
         assert all("discrepancias" not in c.text for c in found)
 
 

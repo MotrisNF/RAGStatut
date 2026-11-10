@@ -164,6 +164,48 @@ SECTORS = {
         "extras": ["Los equipos de protección individual los facilita la "
                    "empresa."],
     },
+    "dependencia": {
+        "name": "VIII Convenio marco estatal de servicios de atención a las "
+                "personas dependientes y desarrollo de la promoción de la "
+                "autonomía personal",
+        "vacation": (30, "días naturales"), "hours": 1772,
+        "articles": {"vacaciones": "art. 41", "jornada": "art. 39",
+                     "prueba": "art. 21"},
+        "roles": [{"job": j, "class": c, "cat": cat, "limit": l, "ref": r,
+                   "hours": h, "service": sv}
+                  for j, c, cat, l, r, h, sv in [
+            ("Director/a de centro", "Área A, grupo 1", "Grupo 1",
+             (6, M), 32000, 1772, "Residencia"),
+            ("Médico/a", "Área B, grupo 1", "Grupo 1", (6, M), 34000, 1772,
+             "Residencia"),
+            ("Enfermero/a", "Área B, grupo 2", "Grupo 2", (45, D), 26000,
+             1772, "Residencia"),
+            ("Fisioterapeuta", "Área B, grupo 2", "Grupo 2", (45, D), 25000,
+             1772, "Residencia"),
+            ("Trabajador/a social", "Área B, grupo 2", "Grupo 2", (45, D),
+             24000, 1772, "Residencia"),
+            ("Coordinador/a SAD", "Área A, grupo 2", "Grupo 2", (45, D),
+             22000, 1735, "Ayuda a domicilio"),
+            ("Cocinero/a", "Área C, grupo 2", "Grupo 2", (45, D), 19500,
+             1772, "Residencia"),
+            ("Oficial administrativo/a", "Área A, grupo 3", "Grupo 3",
+             (30, D), 18500, 1772, "Residencia"),
+            ("TASOC", "Área B, grupo 3", "Grupo 3", (30, D), 19000, 1772,
+             "Residencia"),
+            ("Gerocultor/a", "Área B, grupo 4", "Grupo 4", (30, D), 17000,
+             1772, "Residencia"),
+            ("Auxiliar SAD", "Área B, grupo 4", "Grupo 4", (30, D), 16500,
+             1735, "Ayuda a domicilio"),
+            ("Conductor/a", "Área A, grupo 4", "Grupo 4", (30, D), 17000,
+             1772, "Residencia"),
+            ("Personal de limpieza", "Área C, grupo 5", "Grupo 5", (15, D),
+             15800, 1772, "Residencia"),
+            ("Pinche de cocina", "Área C, grupo 5", "Grupo 5", (15, D),
+             15800, 1772, "Residencia")]],
+        "suffix": ["Cuidados", "Residencias", "Atención Domiciliaria",
+                   "Mayores"],
+        "extras": ["Servicio: {service}."],
+    },
 }
 PREFIXES = """Nubaria Arventis Olmedia Tarsis Veloria Quirania Solvento Brisalia
 Maretia Cortalia Almenara Fontiva Lumera Ordesia Rivanta Selenia Zafira
@@ -204,6 +246,8 @@ def category_of(sid, role):
         return "Restantes niveles"
     if sid == "tic":
         return ", ".join(group.split(", ")[:2])
+    if sid == "dependencia":
+        return role["cat"]
     return group
 
 
@@ -246,12 +290,16 @@ def contract(rng, sector, sid, number, used, planted):
     pct = 100 if rng.random() < .7 else rng.choice([50, 60, 75, 80])
 
     vac_n, vac_unit = s["vacation"]
+    max_hours = role.get("hours", s["hours"])
     vacation = vac_n + (rng.choice([1, 2]) if rng.random() < .15 else 0)
-    hours = s["hours"] - (rng.choice([16, 24, 40]) if rng.random() < .2 else 0)
+    hours = max_hours - (rng.choice([16, 24, 40]) if rng.random() < .2 else 0)
     limit = role["limit"]
     if discontinuous:
         limit = (3, M)
-    if temporal:
+    if temporal and sid == "dependencia":
+        # Art. 21: never more than a third of the contract.
+        limit = (min(days_of(limit), months * 30 // 3), D)
+    elif temporal:
         limit = (min(limit[0], 1), M) if limit[1] == M else limit
     if limit[1] == M:
         probation = (rng.randint(max(1, limit[0] - 2), limit[0]), M)
@@ -268,10 +316,15 @@ def contract(rng, sector, sid, number, used, planted):
                 vacation = vac_n - rng.choice([2, 3, 4])
                 pact, norm = f"{vacation} {vac_unit}", f"{vac_n} {vac_unit}"
             elif field == "jornada":
-                hours = s["hours"] + rng.choice([36, 56, 80])
-                pact, norm = f"{hours} horas anuales", f"{s['hours']} horas anuales"
+                hours = max_hours + rng.choice([36, 56, 80])
+                pact, norm = f"{hours} horas anuales", f"{max_hours} horas anuales"
             else:
-                bad = (limit[0] + rng.choice([1, 2]), M) if limit[1] == M else (1, M)
+                if limit[1] == M:
+                    bad = (limit[0] + rng.choice([1, 2]), M)
+                elif sid == "dependencia":
+                    bad = (limit[0] + 30, D)
+                else:
+                    bad = (1, M)
                 probation = bad
                 pact, norm = show(bad), f"máximo {show(limit)}"
             discrepancies.append({"campo": field, "pactado": pact,
@@ -282,7 +335,8 @@ def contract(rng, sector, sid, number, used, planted):
     real = int(round(salary * pct / 100, -1))
     days = rng.randint(1, 3)
     extra = rng.choice(s["extras"]).format(
-        tele="1 día a la semana" if days == 1 else f"{days} días a la semana")
+        tele="1 día a la semana" if days == 1 else f"{days} días a la semana",
+        service=role.get("service", ""))
     job = gendered(role["job"], female)
     who = "La trabajadora" if female else "El trabajador"
     category = category_of(sid, role)
@@ -320,7 +374,7 @@ OCTAVA. Convenio aplicable: {s['name']}.
              "porcentaje_jornada": pct, "salario_anual": salary,
              "pactado": {"vacaciones": vacation, "horas": hours,
                          "prueba_dias": days_of(probation)},
-             "limites": {"vacaciones": vac_n, "horas": s["hours"],
+             "limites": {"vacaciones": vac_n, "horas": max_hours,
                          "prueba_dias": days_of(limit)},
              "discrepancias": discrepancies}
     return truth, text

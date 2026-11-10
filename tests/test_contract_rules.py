@@ -78,6 +78,30 @@ class TestRules:
                         "días naturales", "2 meses")
         assert states(item)["Periodo de prueba"] == "depende"
 
+    def test_dependency_group_2(self) -> None:
+        """Group 2 of dependency care allows forty-five days."""
+        item = contract("dependencia", "Enfermera", "Grupo 2",
+                        "Área B, grupo 2", 1772, 30, "días naturales",
+                        "60 días")
+        assert states(item)["Periodo de prueba"] == "peor"
+
+    def test_dependency_home_help_hours(self) -> None:
+        """Home help has a shorter year than a residence."""
+        item = contract("dependencia", "Auxiliar SAD", "Grupo 4",
+                        "Área B, grupo 4", 1772, 30, "días naturales",
+                        "30 días")
+        item.text += "SÉPTIMA. Servicio: Ayuda a domicilio.\n"
+        assert states(item)["Jornada anual"] == "peor"
+
+    def test_dependency_third_of_a_temporary_contract(self) -> None:
+        """Probation never longer than a third of the contract."""
+        item = contract("dependencia", "Gerocultor", "Grupo 4",
+                        "Área B, grupo 4", 1772, 30, "días naturales",
+                        "30 días",
+                        "Temporal por circunstancias de la producción, "
+                        "2 meses")
+        assert states(item)["Periodo de prueba"] == "peor"
+
     def test_unknown_text_checks_nothing(self) -> None:
         """Nothing is guessed from a text in another format."""
         item = Contract(id="x", name="N", job="J", convenio="tic", text="Hola")
@@ -89,7 +113,7 @@ class TestRules:
             check_contract(contract(days=19)))
 
 
-def test_agrees_with_all_72_contracts(tmp_path: Path) -> None:
+def test_agrees_with_all_contracts(tmp_path: Path) -> None:
     """Every planted discrepancy is found, and no other one."""
     root = Path("data/laboral/contratos")
     if not root.exists():
@@ -102,7 +126,7 @@ def test_agrees_with_all_72_contracts(tmp_path: Path) -> None:
     names = {"Vacaciones": "vacaciones", "Jornada anual": "jornada",
              "Periodo de prueba": "prueba"}
     found = ContractStore(copy).all()
-    assert len(found) == 72
+    assert len(found) == 90
     for item in found:
         flagged = {names[c.field] for c in check_contract(item)
                    if c.status != "correcto"}

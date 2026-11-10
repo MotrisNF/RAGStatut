@@ -38,12 +38,18 @@ class Check(BaseModel):
 VACATIONS = {"tic": (23, "días laborables", "art. 21"),
              "grandes_almacenes": (31, "días naturales", "art. 35"),
              "contact_center": (32, "días naturales", "art. 29"),
-             "construccion": (30, "días naturales", "art. 76")}
+             "construccion": (30, "días naturales", "art. 76"),
+             "dependencia": (30, "días naturales", "art. 41")}
 HOURS = {"tic": (1800, "art. 20"), "grandes_almacenes": (1770, "art. 26"),
          "contact_center": (1764, "art. 22"),
-         "construccion": (1736, "art. 71")}
+         "construccion": (1736, "art. 71"),
+         "dependencia": (1772, "art. 39")}
+# Dependency care: home help has a shorter year than the rest (art. 39).
+HOME_HELP_HOURS = 1735
 PROBATION_ARTICLE = {"tic": "art. 10", "grandes_almacenes": "art. 5",
-                     "contact_center": "art. 18", "construccion": "art. 21"}
+                     "contact_center": "art. 18", "construccion": "art. 21",
+                     "dependencia": "art. 21"}
+DEPENDENCIA_DAYS = {"1": 180, "2": 45, "3": 30, "4": 30, "5": 15}
 TIC_MONTHS = {
     (1, 2): {"A": 6, "B": 6, "C": 4, "D": 3, "E": 3},
     (3, 4, 5): {"A": 6, "B": 6, "C": 6, "D": 6, "E": 3},
@@ -83,6 +89,14 @@ def _probation_limit(contract: Contract, category: str, grade: str,
         return {"Personal teleoperador": MONTH, "Gestor telefónico": MONTH,
                 "Personal técnico titulado": 6 * MONTH,
                 "Personal no cualificado": 15}.get(category, 2 * MONTH)
+    if contract.convenio == "dependencia":
+        group = _find(r"Grupo ([1-5])", category)
+        if group is None:
+            return None
+        limit = DEPENDENCIA_DAYS[group]
+        duration = _find(r"Temporal[^,]*, (\d+) meses", modality)
+        # Art. 21: never more than a third of the contract.
+        return min(limit, int(duration) * MONTH // 3) if duration else limit
     if contract.convenio == "construccion":
         if category == "Técnico titulado":
             return 6 * MONTH
@@ -134,6 +148,8 @@ def check_contract(contract: Contract) -> list[Check]:
                          limit=limit, article=article, status=status))
 
     maximum, article = HOURS[contract.convenio]
+    if contract.convenio == "dependencia" and "Ayuda a domicilio" in text:
+        maximum = HOME_HELP_HOURS
     results.append(Check(
         field="Jornada anual", agreed=f"{hours} horas",
         limit=f"máximo {maximum} horas", article=article,

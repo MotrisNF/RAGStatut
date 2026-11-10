@@ -1952,5 +1952,483 @@
    "prueba_dias": 30
   },
   "discrepancias": []
+ },
+ {
+  "id": "dependencia_01",
+  "archivo": "dependencia/dependencia_01_hugo-etxeberria.txt",
+  "nombre": "Hugo Etxeberria Molina",
+  "sector": "dependencia",
+  "puesto": "Director de centro",
+  "categoria": "Grupo 1",
+  "clasificacion": "Área A, grupo 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 44790,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 180
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_02",
+  "archivo": "dependencia/dependencia_02_alvaro-jimenez.txt",
+  "nombre": "Álvaro Jiménez López",
+  "sector": "dependencia",
+  "puesto": "Médico",
+  "categoria": "Grupo 1",
+  "clasificacion": "Área B, grupo 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 44080,
+  "pactado": {
+   "vacaciones": 26,
+   "horas": 1748,
+   "prueba_dias": 120
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 180
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "26 días naturales",
+    "convenio": "30 días naturales",
+    "articulo": "art. 41"
+   }
+  ]
+ },
+ {
+  "id": "dependencia_03",
+  "archivo": "dependencia/dependencia_03_ivan-garcia.txt",
+  "nombre": "Iván García Cortés",
+  "sector": "dependencia",
+  "puesto": "Enfermero",
+  "categoria": "Grupo 2",
+  "clasificacion": "Área B, grupo 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 31680,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_04",
+  "archivo": "dependencia/dependencia_04_noelia-lozano.txt",
+  "nombre": "Noelia Lozano Martínez",
+  "sector": "dependencia",
+  "puesto": "Fisioterapeuta",
+  "categoria": "Grupo 2",
+  "clasificacion": "Área B, grupo 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 33830,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_05",
+  "archivo": "dependencia/dependencia_05_tomas-castillo.txt",
+  "nombre": "Tomás Castillo Pérez",
+  "sector": "dependencia",
+  "puesto": "Trabajador social",
+  "categoria": "Grupo 2",
+  "clasificacion": "Área B, grupo 2",
+  "modalidad": "Temporal por circunstancias de la producción, 4 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 75,
+  "salario_anual": 32520,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1772,
+   "prueba_dias": 40
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 40
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_06",
+  "archivo": "dependencia/dependencia_06_diego-martin.txt",
+  "nombre": "Diego Martín Etxeberria",
+  "sector": "dependencia",
+  "puesto": "Coordinador SAD",
+  "categoria": "Grupo 2",
+  "clasificacion": "Área A, grupo 2",
+  "modalidad": "Temporal por circunstancias de la producción, 5 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 75,
+  "salario_anual": 28550,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1711,
+   "prueba_dias": 45
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1735,
+   "prueba_dias": 45
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_07",
+  "archivo": "dependencia/dependencia_07_paula-molina.txt",
+  "nombre": "Paula Molina Molina",
+  "sector": "dependencia",
+  "puesto": "Cocinera",
+  "categoria": "Grupo 2",
+  "clasificacion": "Área C, grupo 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 80,
+  "salario_anual": 25450,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_08",
+  "archivo": "dependencia/dependencia_08_andrei-gil.txt",
+  "nombre": "Andrei Gil Pérez",
+  "sector": "dependencia",
+  "puesto": "Oficial administrativo",
+  "categoria": "Grupo 3",
+  "clasificacion": "Área A, grupo 3",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 23200,
+  "pactado": {
+   "vacaciones": 31,
+   "horas": 1772,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_09",
+  "archivo": "dependencia/dependencia_09_ines-sanz.txt",
+  "nombre": "Inés Sanz Navarro",
+  "sector": "dependencia",
+  "puesto": "TASOC",
+  "categoria": "Grupo 3",
+  "clasificacion": "Área B, grupo 3",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 24770,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_10",
+  "archivo": "dependencia/dependencia_10_sergio-martin.txt",
+  "nombre": "Sergio Martín Serrano",
+  "sector": "dependencia",
+  "puesto": "Gerocultor",
+  "categoria": "Grupo 4",
+  "clasificacion": "Área B, grupo 4",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 23000,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1732,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_11",
+  "archivo": "dependencia/dependencia_11_marta-diaz.txt",
+  "nombre": "Marta Díaz Molina",
+  "sector": "dependencia",
+  "puesto": "Auxiliar SAD",
+  "categoria": "Grupo 4",
+  "clasificacion": "Área B, grupo 4",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 22220,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1735,
+   "prueba_dias": 60
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1735,
+   "prueba_dias": 30
+  },
+  "discrepancias": [
+   {
+    "campo": "prueba",
+    "pactado": "60 días",
+    "convenio": "máximo 30 días",
+    "articulo": "art. 21"
+   }
+  ]
+ },
+ {
+  "id": "dependencia_12",
+  "archivo": "dependencia/dependencia_12_aitana-castillo.txt",
+  "nombre": "Aitana Castillo Serrano",
+  "sector": "dependencia",
+  "puesto": "Conductora",
+  "categoria": "Grupo 4",
+  "clasificacion": "Área A, grupo 4",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 80,
+  "salario_anual": 20450,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 30
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 30
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_13",
+  "archivo": "dependencia/dependencia_13_joel-molina.txt",
+  "nombre": "Joel Molina Medina",
+  "sector": "dependencia",
+  "puesto": "Personal de limpieza",
+  "categoria": "Grupo 5",
+  "clasificacion": "Área C, grupo 5",
+  "modalidad": "Temporal por circunstancias de la producción, 5 meses",
+  "fijo_discontinuo": false,
+  "temporal": true,
+  "porcentaje_jornada": 50,
+  "salario_anual": 18730,
+  "pactado": {
+   "vacaciones": 26,
+   "horas": 1732,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 15
+  },
+  "discrepancias": [
+   {
+    "campo": "vacaciones",
+    "pactado": "26 días naturales",
+    "convenio": "30 días naturales",
+    "articulo": "art. 41"
+   }
+  ]
+ },
+ {
+  "id": "dependencia_14",
+  "archivo": "dependencia/dependencia_14_patricia-martin.txt",
+  "nombre": "Patricia Martín Martínez",
+  "sector": "dependencia",
+  "puesto": "Pinche de cocina",
+  "categoria": "Grupo 5",
+  "clasificacion": "Área C, grupo 5",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 18460,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 15
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 15
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_15",
+  "archivo": "dependencia/dependencia_15_fernando-oliveira.txt",
+  "nombre": "Fernando Oliveira Jiménez",
+  "sector": "dependencia",
+  "puesto": "Director de centro",
+  "categoria": "Grupo 1",
+  "clasificacion": "Área A, grupo 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 60,
+  "salario_anual": 43090,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_16",
+  "archivo": "dependencia/dependencia_16_ioana-ortega.txt",
+  "nombre": "Ioana Ortega Vázquez",
+  "sector": "dependencia",
+  "puesto": "Médica",
+  "categoria": "Grupo 1",
+  "clasificacion": "Área B, grupo 1",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 50,
+  "salario_anual": 43710,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 150
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 180
+  },
+  "discrepancias": []
+ },
+ {
+  "id": "dependencia_17",
+  "archivo": "dependencia/dependencia_17_lucia-rubio.txt",
+  "nombre": "Lucía Rubio Hernández",
+  "sector": "dependencia",
+  "puesto": "Enfermera",
+  "categoria": "Grupo 2",
+  "clasificacion": "Área B, grupo 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 30250,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1852,
+   "prueba_dias": 45
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "discrepancias": [
+   {
+    "campo": "jornada",
+    "pactado": "1852 horas anuales",
+    "convenio": "1772 horas anuales",
+    "articulo": "art. 39"
+   }
+  ]
+ },
+ {
+  "id": "dependencia_18",
+  "archivo": "dependencia/dependencia_18_gonzalo-rubio.txt",
+  "nombre": "Gonzalo Rubio Serrano",
+  "sector": "dependencia",
+  "puesto": "Fisioterapeuta",
+  "categoria": "Grupo 2",
+  "clasificacion": "Área B, grupo 2",
+  "modalidad": "Indefinido",
+  "fijo_discontinuo": false,
+  "temporal": false,
+  "porcentaje_jornada": 100,
+  "salario_anual": 33590,
+  "pactado": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "limites": {
+   "vacaciones": 30,
+   "horas": 1772,
+   "prueba_dias": 45
+  },
+  "discrepancias": []
  }
 ]

@@ -51,9 +51,9 @@ class LocalGenerator(Generator):
     CONTRACT_RULES: str = (
         "Hay además un CONTRATO de una persona. Añade antes de «Respuesta» "
         "una línea «Tu contrato:» con lo que dice su contrato. La "
-        "COMPROBACIÓN es exacta: copia sus resultados y, solo si alguno "
-        "dice «peor», añade al final «Posible discrepancia:» con esa "
-        "condición.")
+        "COMPROBACIÓN es exacta: usa sus resultados sin nombrarla (cita los "
+        "artículos y las cláusulas) y, solo si alguno dice «peor», añade al "
+        "final «Posible discrepancia:» con esa condición.")
     NOTES_RULE: str = (
         "Si citas un artículo de MODIFICACIONES POSTERIORES, avisa de que "
         "fue modificado y por qué publicación del BOE.")
