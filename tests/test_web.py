@@ -164,6 +164,26 @@ class TestFormat:
         assert helpers.refers_to(reference, title) is expected
 
 
+class TestProgress:
+    """The estimated bar of a local stage."""
+
+    def test_reaches_ninety_at_the_expected_time(self) -> None:
+        """Linear up to the expected time."""
+        assert helpers.estimated_progress(0, 40) == 0
+        assert helpers.estimated_progress(20, 40) == pytest.approx(0.45)
+        assert helpers.estimated_progress(40, 40) == pytest.approx(0.9)
+
+    def test_no_expected_time(self) -> None:
+        """An expected time of 0 never divides by zero."""
+        assert 0 < helpers.estimated_progress(5, 0) < 1
+
+    def test_never_full_while_waiting(self) -> None:
+        """A slow stage keeps moving but never reaches 100 %."""
+        late = [helpers.estimated_progress(t, 40) for t in (60, 120, 600)]
+        assert late == sorted(late)
+        assert all(0.9 < value < 0.99 for value in late)
+
+
 class TestPills:
     """References become links, and the content stays harmless."""
 
@@ -265,6 +285,20 @@ class TestPage:
         assert texts(app).count('<div class="src"') == 1
         assert "Artículo 22." in texts(app)
 
+    def test_box_empty_after_asking(self, fake: Fake) -> None:
+        """The next question starts from an empty box, same agreement."""
+        app = asked(page())
+        assert app.text_area[0].value == ""
+        assert app.session_state["pick_convenio"] == "tic"
+
+    def test_follow_ups_are_folded(self, fake: Fake) -> None:
+        """After an answer, comparing and asking again are folded."""
+        app = asked(page())
+        labels = [e.label for e in app.expander]
+        assert any(label.startswith("¿Y en otro sector?") for label in labels)
+        assert "¿Tienes otra pregunta?" in labels
+        assert any(b.label == "Preguntar" for b in app.button)
+
     def test_answer_without_summary_is_visible(
             self, fake: Fake, monkeypatch: pytest.MonkeyPatch) -> None:
         """An answer with only norm sections is shown, not folded."""
@@ -277,12 +311,14 @@ class TestPage:
         monkeypatch.setattr(client, "consult", consult)
         app = asked(page())
         assert "Veinte días" in texts(app)
-        assert len(app.expander) == 0
+        assert all(not e.label.startswith("Ver el detalle")
+                   for e in app.expander)
 
     def test_compare_puts_two_side_by_side(self, fake: Fake) -> None:
         """A second agreement spends one more answer, not two."""
         app = asked(page())
-        app.selectbox[1].set_value("obra").run()
+        next(b for b in app.selectbox if b.label == "Otro convenio"
+             ).set_value("obra").run()
         button(app, "Comparar").click().run()
         assert not app.exception
         assert fake.calls == ["tic", "obra"]

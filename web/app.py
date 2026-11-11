@@ -7,13 +7,16 @@ between those runs. The look lives in ``style.css``.
 """
 import html
 from pathlib import Path
+import queue
+import threading
+import time
 from typing import Any
 
 import streamlit as st
 
-from app_helpers import (KINDS, amendment_notes, group_citations,
-                         link_references, source_card, sources_panel,
-                         split_sections)
+from app_helpers import (KINDS, amendment_notes, estimated_progress,
+                         group_citations, link_references, source_card,
+                         sources_panel, split_sections)
 import client
 
 EXAMPLES = [
@@ -45,7 +48,8 @@ DISCLAIMER = (
 STYLE = Path(__file__).with_name("style.css")
 KEY_PAGE = "https://aistudio.google.com/apikey"
 SOURCES, LOCAL = "sources", "local"
-WAIT_GEMINI = "Suele tardar unos segundos."
+WAIT_GEMINI = ("Suele tardar unos segundos; mientras, puedes leer los "
+               "artículos.")
 WAIT_LOCAL = ("Se está redactando en este ordenador: puede tardar un par "
               "de minutos, y la primera vez algo más porque carga el modelo. "
               "Ten paciencia; mientras, puedes leer los artículos.")
@@ -114,14 +118,11 @@ def ask(question: str, convenio: str,
         total = len(group_citations(found["citations"]))
         html_block(f'<div class="found-line">✓ He encontrado {total} '
                    'artículos relacionados</div>')
-        if mode == LOCAL and found["citations"]:
-            return ask_local(question, convenio, contract,
-                             found["citations"])
         if mode != SOURCES and found["citations"]:
-            # The search ends long before the writing: show what was
-            # found, so the wait has something to read and is not mistaken
-            # for a hang.
-            show_waiting(found["citations"], mode)
+            # The search ends long before the writing: a card with the
+            # progress, and the articles found to read while waiting.
+            return ask_with_progress(question, convenio, contract,
+                                     found["citations"], mode)
         return dict(client.consult(question, convenio, contract, mode))
     except client.ApiError as error:
         st.session_state.error = str(error)
@@ -134,12 +135,63 @@ STAGES = {
     "estatuto": "Redactando lo que dice el Estatuto (2/3)…",
     "respuesta": "Resumiendo la respuesta (3/3)…",
     "todo": "Redactando la respuesta…",
+    "gemini": "Redactando la respuesta con Gemini…",
 }
 
 
-def ask_local(question: str, convenio: str, contract: str | None,
-              citations: list[dict[str, Any]]) -> dict[str, Any]:
-    """Ask the local model, showing each part as soon as it is written.
+# Expected seconds of each stage with Qwen3-4B. The bar only estimates:
+# it never fills before the stage ends.
+STAGE_SECONDS = {"loading": 20, "convenio": 30, "estatuto": 30,
+                 "respuesta": 30, "todo": 90, "gemini": 6}
+
+
+def expected_seconds() -> dict[str, float]:
+    """How long each stage usually takes: what the server learned from
+    the answers already generated here, or ``STAGE_SECONDS``."""
+    try:
+        learned = client.status().get("stage_seconds") or {}
+    except client.ApiError:
+        learned = {}
+    return {**STAGE_SECONDS, **{stage: float(seconds)
+                                for stage, seconds in learned.items()}}
+
+
+# How often the bar moves while waiting for the server.
+TICK = 0.25
+
+
+def read_stream(events: "queue.Queue[tuple[str, Any]]", question: str,
+                convenio: str, contract: str | None) -> None:
+    """Read the local answer in a thread, leaving each event in a queue.
+
+    The page keeps redrawing the bar meanwhile. Nothing here touches
+    Streamlit: only the page does.
+    """
+    try:
+        for event in client.consult_stream(question, convenio, contract):
+            events.put(("event", event))
+    except client.ApiError as error:
+        events.put(("error", error))
+    events.put(("end", None))
+
+
+def read_consult(events: "queue.Queue[tuple[str, Any]]", question: str,
+                 convenio: str, contract: str | None, mode: str) -> None:
+    """Ask Gemini in a thread, as one stage followed by the result."""
+    events.put(("event", {"event": "stage", "stage": mode}))
+    try:
+        result = client.consult(question, convenio, contract, mode)
+        events.put(("event", {"event": "done", "result": result}))
+    except client.ApiError as error:
+        events.put(("error", error))
+    events.put(("end", None))
+
+
+def ask_with_progress(question: str, convenio: str, contract: str | None,
+                      citations: list[dict[str, Any]],
+                      mode: str) -> dict[str, Any]:
+    """Ask the model, with a bar that estimates the progress of each
+    stage; a local answer also shows each part as soon as it is written.
 
     Raises:
         client.ApiError: The API failed; ``ask`` shows it.
@@ -147,15 +199,52 @@ def ask_local(question: str, convenio: str, contract: str | None,
     groups = group_citations(citations)
     status = st.container()
     show_found_cards(groups)
-    with status, st.status(STAGES["convenio"], expanded=True) as box:
-        st.caption(WAIT_LOCAL)
+    events: "queue.Queue[tuple[str, Any]]" = queue.Queue()
+    if mode == LOCAL:
+        first, wait = "convenio", WAIT_LOCAL
+        threading.Thread(target=read_stream,
+                         args=(events, question, convenio, contract),
+                         daemon=True).start()
+    else:
+        first, wait = mode, WAIT_GEMINI
+        threading.Thread(target=read_consult,
+                         args=(events, question, convenio, contract, mode),
+                         daemon=True).start()
+    # A plain card, not a status box: a box folds itself on every update,
+    # and the progress must stay in sight.
+    with status, st.container(key="headline_local"):
+        title = st.empty()
+        bar = st.progress(0.0)
+        st.caption(wait)
         written = st.container()
         result: dict[str, Any] | None = None
-        for event in client.consult_stream(question, convenio, contract):
+        stage, started = first, time.monotonic()
+        label = STAGES[stage]
+        shown = 0.0
+        expected = expected_seconds()
+        while True:
+            try:
+                kind, item = events.get(timeout=TICK)
+            except queue.Empty:
+                elapsed = time.monotonic() - started
+                shown = estimated_progress(elapsed, expected.get(stage, 30))
+                bar.progress(shown)
+                show_stage(title, label, int(elapsed))
+                continue
+            if kind == "error":
+                raise item
+            if kind == "end":
+                break
+            event = item
             if event["event"] == "stage":
-                box.update(label=STAGES.get(event["stage"],
-                                            "Redactando la respuesta…"))
+                stage, started = event["stage"], time.monotonic()
+                label = STAGES.get(stage, "Redactando la respuesta…")
+                shown = 0.0
+                bar.progress(shown)
+                show_stage(title, label, 0)
             elif event["event"] == "part":
+                # The stage is over: the bar fills first, then its text.
+                shown = fill_bar(bar, shown)
                 kind = KINDS.get(event["section"], "none")
                 with written:
                     html_block(f'<span class="card-label {kind}">'
@@ -163,23 +252,41 @@ def ask_local(question: str, convenio: str, contract: str | None,
                     html_block(link_references(event["text"], groups, kind,
                                                9))
             elif event["event"] == "done":
+                shown = fill_bar(bar, shown)
                 result = dict(event["result"])
         if result is None:
             raise client.ApiError("La respuesta local se ha cortado.")
-        box.update(label="Respuesta lista", state="complete",
-                   expanded=False)
     return result
 
 
-def show_waiting(citations: list[dict[str, Any]], mode: str) -> None:
-    """While the answer is written: how long it may take, and the
-    articles already found."""
-    wait = (WAIT_LOCAL if mode == LOCAL else WAIT_GEMINI)
-    with st.container(key="headline_waiting"):
-        html_block('<span class="card-label respuesta">Redactando la '
-                   'respuesta</span>')
-        st.write(wait)
-    show_found_cards(group_citations(citations))
+# The bar fills in this many steps, this many seconds apart, when a
+# stage ends: quick, but visible.
+FILL_STEPS = 10
+FILL_PAUSE = 0.04
+
+
+def fill_bar(bar: Any, shown: float) -> float:
+    """Fill the bar to 100 % quickly, from where it was.
+
+    Args:
+        bar: The progress bar.
+        shown: Its current value.
+
+    Returns:
+        The new value, 1.0.
+    """
+    for step in range(1, FILL_STEPS + 1):
+        bar.progress(shown + (1.0 - shown) * step / FILL_STEPS)
+        time.sleep(FILL_PAUSE)
+    return 1.0
+
+
+def show_stage(place: Any, label: str, seconds: int) -> None:
+    """The title of the stage being written, with its elapsed time."""
+    place.markdown(f'<div class="stage-line"><span class="card-label '
+                   f'respuesta">{html.escape(label)}</span>'
+                   f'<span class="stage-time">{seconds} s</span></div>',
+                   unsafe_allow_html=True)
 
 
 #: Position given to the cards shown while waiting, apart from the answers.
@@ -213,6 +320,9 @@ def run_question(question: str, convenio: str,
     st.session_state.asked = question
     st.session_state.person = person
     st.session_state.pending = convenio
+    # The box is emptied on the next run: a widget cannot be changed once
+    # drawn in this one. The agreement or person chosen stays.
+    st.session_state.clear_question = True
 
 
 def run_comparison(other: str) -> None:
@@ -320,7 +430,7 @@ def show_answer(index: int, result: dict[str, Any],
 
 
 def show_result(index: int, result: dict[str, Any], norm: dict[str, Any],
-                alone: bool) -> None:
+                alone: bool) -> Any:
     """Show an answer with its legal text and its articles.
 
     Args:
@@ -328,6 +438,9 @@ def show_result(index: int, result: dict[str, Any], norm: dict[str, Any],
         result: What the API answered.
         norm: The legal text it comes from.
         alone: Whether there is room to put the articles at its side.
+
+    Returns:
+        The column of the answer, where more can be added below it.
     """
     name = html.escape(norm["name"], quote=False)
     validity = html.escape(norm["validity"], quote=False)
@@ -351,10 +464,11 @@ def show_result(index: int, result: dict[str, Any], norm: dict[str, Any],
             show_answer(index, result, groups)
         with right:
             html_block(panel)
-        return
+        return left
     show_answer(index, result, groups)
     if panel:
         html_block(panel)
+    return st.container()
 
 
 def show_comparison_picker(norms: list[dict[str, Any]]) -> None:
@@ -363,10 +477,8 @@ def show_comparison_picker(norms: list[dict[str, Any]]) -> None:
     others = [n["id"] for n in norms if n["id"] not in (current, STATUTE)]
     if not others:
         return
-    html_block('<div class="compare-title">¿Y en otro sector? '
-               '<span>Compara la misma pregunta con otro convenio.</span>'
-               '</div>')
-    with st.container(key="compare_card"):
+    with st.expander("¿Y en otro sector? Compara con otro convenio"), \
+            st.container(key="compare_card"):
         pick, go = st.columns([4, 1], vertical_alignment="center")
         other = pick.selectbox("Otro convenio", others, index=None,
                                placeholder="Elige otro convenio",
@@ -463,6 +575,8 @@ def show_ask_card(norms: list[dict[str, Any]],
                   contracts: list[dict[str, Any]]) -> None:
     """The card where the question is written."""
     choices = [n["id"] for n in norms if n["id"] != STATUTE] + [STATUTE]
+    if st.session_state.pop("clear_question", False):
+        st.session_state.question = ""
     with st.container(key="ask_card"):
         by_person = (st.radio("Modo", [BY_NORM, BY_PERSON], horizontal=True,
                               key="mode", label_visibility="collapsed",
@@ -476,7 +590,7 @@ def show_ask_card(norms: list[dict[str, Any]],
         person: dict[str, Any] | None = None
         if by_person:
             person = pick.selectbox(
-                "Persona", contracts, index=None,
+                "Persona", contracts, index=None, key="pick_person",
                 placeholder=f"Elige una de las {len(contracts)} personas",
                 format_func=lambda p: person_label(p, norms),
                 label_visibility="collapsed", disabled=busy())
@@ -484,6 +598,7 @@ def show_ask_card(norms: list[dict[str, Any]],
         else:
             convenio = pick.selectbox(
                 "¿Cuál es tu convenio?", choices, index=None,
+                key="pick_convenio",
                 placeholder="Elige tu convenio",
                 format_func=lambda i: name_of(norms, i),
                 label_visibility="collapsed", disabled=busy())
@@ -498,6 +613,16 @@ def show_ask_card(norms: list[dict[str, Any]],
         if person:
             with st.expander(f"Ver el contrato de {person['name']}"):
                 st.text(person["text"])
+
+
+def show_question_area(mode: str | None, norms: list[dict[str, Any]],
+                       contracts: list[dict[str, Any]]) -> None:
+    """The key or mode line, then the card where the question is written."""
+    if mode is None:
+        show_key_card()
+    elif mode != "gemini":
+        show_mode_line(mode)
+    show_ask_card(norms, contracts)
 
 
 def show_examples() -> None:
@@ -515,11 +640,14 @@ def main() -> None:
     """Draw the page."""
     start_state()
     results = st.session_state.results
+    # Once a question is asked, the answer goes first and the card for the
+    # next question moves to the end of the page.
+    answering = bool(results) or busy()
     st.set_page_config(page_title="MiConvenio", page_icon="⚖️",
                        layout="wide" if results else "centered")
     html_block(f"<style>{STYLE.read_text(encoding='utf-8')}</style>")
     html_block('<div class="brand">MiConvenio</div>')
-    if not results:
+    if not answering:
         html_block('<div class="hero"><h1>¿Qué te toca según '
                    '<em>tu convenio</em>?</h1><p>Pregunta como hablas. Te '
                    'respondo con lo que dicen tu convenio y el Estatuto de '
@@ -540,17 +668,15 @@ def main() -> None:
         has_key = False
     mode = answer_mode(has_key)
     st.session_state.current_mode = mode
-    if mode is None:
-        show_key_card()
-    elif mode != "gemini":
-        show_mode_line(mode)
-    show_ask_card(norms, contracts)
-    run_pending()
-    if st.session_state.error:
-        st.error(st.session_state.error)
-    if not results:
+    if not answering:
+        show_question_area(mode, norms, contracts)
+        if st.session_state.error:
+            st.error(st.session_state.error)
         show_examples()
     else:
+        run_pending()
+        if st.session_state.error:
+            st.error(st.session_state.error)
         asked = html.escape(st.session_state.asked, quote=False)
         html_block(f'<div class="asked">{asked}</div>')
         person = st.session_state.person
@@ -561,11 +687,20 @@ def main() -> None:
                        '<span class="chip">Contrato ficticio</span></div>')
         by_id = {n["id"]: n for n in norms}
         alone = len(results) == 1
+        answer_column = None
         for index, (column, result) in enumerate(
                 zip(st.columns(len(results), gap="large"), results)):
             with column:
-                show_result(index, result, by_id[result["convenio"]], alone)
-        show_comparison_picker(norms)
+                answer_column = show_result(index, result,
+                                            by_id[result["convenio"]], alone)
+        # Folded under the answer, like its detail: the page stays clean.
+        # With two answers side by side, under both of them.
+        place = answer_column if alone and answer_column else st.container()
+        with place:
+            if alone:
+                show_comparison_picker(norms)
+            with st.expander("¿Tienes otra pregunta?"):
+                show_question_area(mode, norms, contracts)
     html_block(f'<div class="foot">{DISCLAIMER}</div>')
 
 

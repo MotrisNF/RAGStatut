@@ -15,7 +15,7 @@ import sys
 import threading
 import time
 from pathlib import Path
-from typing import TYPE_CHECKING, Annotated, Literal, cast
+from typing import TYPE_CHECKING, Annotated, Any, Literal, cast
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import JSONResponse, StreamingResponse
@@ -30,6 +30,7 @@ from .commands import RagCLI
 from .amendments import AmendmentBook
 from .contract_rules import Check, check_contract, describe
 from .contracts import Contract, ContractStore
+from .stage_times import StageTimes
 from .convenio_search import ConvenioSearch
 from .exceptions import RagError, UsageError
 from .gemini_generator import GeminiGenerator
@@ -422,12 +423,24 @@ class RagApi:
     # slow and memory hungry. False makes the server refuse it (501).
     LOCAL_READY: bool = True
 
-    def status(self) -> dict[str, bool]:
-        """Say whether there is a Gemini key and a local model."""
-        key = os.environ.get(GeminiGenerator.API_KEY_ENV)
-        return {"gemini_key": bool(key), "local_ready": self.LOCAL_READY}
+    def _stage_times(self) -> StageTimes:
+        """The learned durations of the local stages.
 
-    def set_key(self, body: KeyBody) -> dict[str, bool]:
+        Without an index folder (the tests) nothing is read or written.
+        """
+        if self._index_dir is None:
+            return StageTimes(Path(os.devnull))
+        return StageTimes(Path(self._index_dir).parent / "generation"
+                          / StageTimes.FILE_NAME)
+
+    def status(self) -> dict[str, Any]:
+        """Say whether there is a Gemini key and a local model, and how
+        long each local stage usually takes on this computer."""
+        key = os.environ.get(GeminiGenerator.API_KEY_ENV)
+        return {"gemini_key": bool(key), "local_ready": self.LOCAL_READY,
+                "stage_seconds": self._stage_times().averages()}
+
+    def set_key(self, body: KeyBody) -> dict[str, Any]:
         """Use a Gemini key typed in the page until the server stops.
 
         It is kept only in this process: never written to disk, never
@@ -465,10 +478,15 @@ class RagApi:
                 person.text if person else None,
                 describe(checks) if checks else None, self._notes(cited))
         else:
+            start = time.perf_counter()
             answer = self._generate(query, [hit.chunk for hit in hits],
                                     person.text if person else None,
                                     describe(checks) if checks else None,
                                     self._notes(cited))
+            # Learned for the progress bar; a cached answer takes less
+            # than a second and is not kept.
+            self._stage_times().add(self._generator_mode,
+                                    time.perf_counter() - start)
         return ConsultResults(
             query=query, convenio=convenio, answer=answer,
             citations=cited, checks=checks)
@@ -580,6 +598,7 @@ class RagApi:
         key = AnswerCache.key("\n".join([query, contract or "",
                                          notes or ""]), chunks)
         with self._generator_lock:
+            times = self._stage_times()
             if self._local is None:
                 yield {"event": "stage", "stage": "loading"}
                 try:
@@ -593,8 +612,10 @@ class RagApi:
                       f"{LocalGenerator.dtype()}...", file=sys.stderr)
                 start = time.perf_counter()
                 self._local = LocalGenerator(LocalGenerator.dtype())
-                print(f"Local model loaded in "
-                      f"{time.perf_counter() - start:.1f} s", file=sys.stderr)
+                loaded = time.perf_counter() - start
+                times.add("loading", loaded)
+                print(f"Local model loaded in {loaded:.1f} s",
+                      file=sys.stderr)
                 if self._index_dir is not None:
                     self._local_answers = AnswerCache(
                         AnswerCache.file_path(Path(self._index_dir),
@@ -608,11 +629,17 @@ class RagApi:
             print("Generating an answer locally...", file=sys.stderr)
             start = time.perf_counter()
             answer = ""
+            stage, stage_start = "", time.perf_counter()
             for event in self._local.iter_generate(query, chunks, contract,
                                                    checks, notes):
                 if event[0] == "stage":
+                    stage, stage_start = event[1], time.perf_counter()
                     yield {"event": "stage", "stage": event[1]}
                 elif event[0] == "part":
+                    if stage:
+                        # Learned for the progress bar of the page.
+                        times.add(stage, time.perf_counter() - stage_start)
+                        stage = ""
                     yield {"event": "part", "section": event[1],
                            "text": event[2]}
                 else:

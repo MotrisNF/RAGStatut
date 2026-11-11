@@ -4,6 +4,7 @@ Everything that comes from the model or the corpus is escaped before it is
 turned into HTML, so it can only ever be shown as text.
 """
 import html
+import math
 import re
 from typing import Any
 
@@ -203,3 +204,23 @@ def sources_panel(groups: list[dict[str, Any]], answer: str,
         parts.append('<h5 class="src-h more">También consultados</h5>')
         parts += [source_card(group, result_index) for group in others]
     return "".join(parts)
+
+
+def estimated_progress(elapsed: float, expected: float) -> float:
+    """How full the bar of a stage is, from its elapsed time.
+
+    It reaches 90 % at the expected time and then keeps creeping towards
+    99 %, so a slow stage never looks stuck at 100 %.
+
+    Args:
+        elapsed: Seconds since the stage started.
+        expected: Seconds the stage usually takes.
+
+    Returns:
+        A value between 0 and 0.99. With no usable expected time, 30 s.
+    """
+    if expected <= 0:
+        expected = 30.0
+    if elapsed <= expected:
+        return 0.9 * elapsed / expected
+    return 0.9 + 0.09 * (1 - math.exp(-(elapsed - expected) / expected))

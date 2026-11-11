@@ -109,3 +109,10 @@ div[class*="st-key-key_card"] [data-testid="stTextInput"] input { border-radius:
 div[class*="st-key-option_"] li, div[class*="st-key-option_"] p { font-size:.92rem; line-height:1.5; }
 
 .found-line { color:var(--teal-dark); font-size:.92rem; font-weight:500; margin:.4rem 0 .6rem; }
+
+.stage-line { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+.stage-time { color:var(--soft); font-size:.86rem; font-variant-numeric:tabular-nums; }
+div[class*="st-key-headline_local"] [data-testid="stProgress"] > div > div { background:var(--teal-wash); }
+div[class*="st-key-headline_local"] [data-testid="stProgress"] [role="progressbar"] > div > div { background:var(--teal); }
+
+.next-title { font-family:'Newsreader',Georgia,serif; font-size:1.45rem; color:var(--ink); margin:2.6rem 0 .8rem; padding-top:1.6rem; border-top:1px solid var(--line); }
