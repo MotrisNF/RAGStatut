@@ -235,6 +235,15 @@ class TestPage:
         assert fake.modes == ["sources"]
         assert "Solo referencias" in texts(app)
 
+    def test_unlocked_after_an_error(self, fake: Fake,
+                                     monkeypatch: pytest.MonkeyPatch) -> None:
+        """A failed answer never leaves the page locked."""
+        failing = Fake("caído")
+        monkeypatch.setattr(client, "consult", failing.consult)
+        app = asked(page())
+        assert app.session_state["pending"] is None
+        assert any(b.label == "Preguntar" for b in app.button)
+
     def test_needs_convenio_and_question(self, fake: Fake) -> None:
         """Nothing can be asked until both are chosen."""
         app = page()

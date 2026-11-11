@@ -1,4 +1,5 @@
 """Talk to the RAG API. The page only knows these three functions."""
+from collections.abc import Iterator
 import json
 import os
 from typing import Any
@@ -98,6 +99,40 @@ def consult(query: str, convenio: str, contract: str | None = None,
         "/consult", timeout=LOCAL_TIMEOUT if mode == "local" else TIMEOUT,
         query=query, convenio=convenio, contract=contract, mode=mode)
     return result
+
+
+def consult_stream(query: str, convenio: str,
+                   contract: str | None = None) -> Iterator[dict[str, Any]]:
+    """A local answer, step by step: one event per line of the API.
+
+    Yields:
+        The events of ``/consult/stream``, the last one ``done``.
+
+    Raises:
+        ApiError: The API is down or answered with an error.
+    """
+    params = {"query": query, "convenio": convenio, "contract": contract}
+    given = {name: value for name, value in params.items()
+             if value is not None}
+    url = f"{API_URL}/consult/stream?{urllib.parse.urlencode(given)}"
+    try:
+        with urllib.request.urlopen(url, timeout=LOCAL_TIMEOUT) as response:
+            for line in response:
+                if not line.strip():
+                    continue
+                event: dict[str, Any] = json.loads(line)
+                if event.get("event") == "error":
+                    raise ApiError(str(event.get("detail", "")))
+                yield event
+    except urllib.error.HTTPError as e:
+        try:
+            detail = json.load(e).get("detail", "")
+        except ValueError:
+            detail = ""
+        raise ApiError(str(detail) or f"Error {e.code} del servidor.") from e
+    except (OSError, ValueError) as e:
+        raise ApiError("No puedo conectar con el servidor. "
+                       "¿Has arrancado «make api»?") from e
 
 
 def contracts() -> list[dict[str, Any]]:

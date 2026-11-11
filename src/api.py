@@ -8,14 +8,17 @@ answered without the model. ``/index`` updates the index on disk and
 reloads it, so the server never needs a restart. The responses are the
 same pydantic models the CLI prints.
 """
+from collections.abc import Iterator
+import json
 import os
 import sys
 import threading
+import time
 from pathlib import Path
 from typing import TYPE_CHECKING, Annotated, Literal, cast
 
 from fastapi import FastAPI, HTTPException, Query, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel, StringConstraints
 from tqdm import tqdm
 
@@ -219,7 +222,7 @@ class RagApi:
         # model is loaded only once and answers one question at a time.
         self._generator_lock = threading.Lock()
         # The local model, loaded by the first local answer (it imports
-        # PyTorch and takes about 4.5 GB), and its own answer cache.
+        # PyTorch and takes about 8 GB), and its own answer cache.
         self._local: "LocalGenerator | None" = None
         self._local_answers: AnswerCache | None = None
         # The retrievers (and their caches) are shared by every request:
@@ -235,6 +238,7 @@ class RagApi:
         self.app.get("/convenios")(self.convenios)
         self.app.get("/citations")(self.citations)
         self.app.get("/consult")(self.consult)
+        self.app.get("/consult/stream")(self.consult_stream)
         self.app.get("/contracts")(self.contracts)
         self.app.get("/status")(self.status)
         self.app.post("/key")(self.set_key)
@@ -449,17 +453,8 @@ class RagApi:
             raise HTTPException(status_code=501,
                                 detail="La generación en local todavía no "
                                        "está disponible.")
-        self._check_convenio(convenio)
-        person = self._find_contract(contract)
-        # Only against its own agreement: another one has other categories.
-        checks: list[Check] = (check_contract(person)
-                               if person and person.convenio == convenio
-                               else [])
-        with self._retriever_lock:
-            chosen = self._get_retriever(retriever)
-            hits = ConvenioSearch.search(chosen, query, k, convenio)
-            chosen.flush()
-        cited = self._cite(hits)
+        person, checks, hits, cited = self._prepare(
+            query, convenio, k, retriever, contract)
         if not hits:
             answer = NO_SOURCES
         elif mode == "sources":
@@ -478,14 +473,104 @@ class RagApi:
             query=query, convenio=convenio, answer=answer,
             citations=cited, checks=checks)
 
+    def _prepare(self, query: str, convenio: str, k: int,
+                 retriever: RetrieverMode | None, contract: str | None
+                 ) -> tuple[Contract | None, list[Check], list[SearchHit],
+                            list[Citation]]:
+        """Everything an answer needs before writing it.
+
+        Returns:
+            The person, the checks of their contract, the hits and their
+            citations.
+
+        Raises:
+            HTTPException: 400 for an unknown agreement; 404 for an
+                unknown contract.
+        """
+        self._check_convenio(convenio)
+        person = self._find_contract(contract)
+        # Only against its own agreement: another one has other categories.
+        checks: list[Check] = (check_contract(person)
+                               if person and person.convenio == convenio
+                               else [])
+        with self._retriever_lock:
+            chosen = self._get_retriever(retriever)
+            hits = ConvenioSearch.search(chosen, query, k, convenio)
+            chosen.flush()
+        return person, checks, hits, self._cite(hits)
+
+    def consult_stream(self, query: QueryText, convenio: RequiredConvenio,
+                       k: TopK = 10, retriever: RetrieverMode | None = None,
+                       contract: ContractName = None
+                       ) -> StreamingResponse:
+        """Like ``/consult`` with the local model, sent part by part.
+
+        A local answer takes minutes, so each step is sent as soon as it
+        happens, one JSON object per line: ``{"event": "stage", "stage":
+        ...}`` when a call starts (``loading``, ``convenio``, ``estatuto``,
+        ``respuesta``), ``{"event": "part", "section": ..., "text": ...}``
+        when it ends, and last ``{"event": "done", "result": ...}`` with
+        what ``/consult`` returns, or ``{"event": "error", "detail": ...}``.
+        """
+        if not self.LOCAL_READY:
+            raise HTTPException(status_code=501,
+                                detail="La generación en local todavía no "
+                                       "está disponible.")
+        person, checks, hits, cited = self._prepare(
+            query, convenio, k, retriever, contract)
+
+        def events() -> Iterator[str]:
+            answer = NO_SOURCES
+            try:
+                if hits:
+                    for event in self._iter_local(
+                            query, [hit.chunk for hit in hits],
+                            person.text if person else None,
+                            describe(checks) if checks else None,
+                            self._notes(cited)):
+                        if event["event"] == "answer":
+                            answer = str(event["text"])
+                        else:
+                            yield json.dumps(event, ensure_ascii=False) + "\n"
+            except (RagError, HTTPException) as error:
+                detail = getattr(error, "detail", None) or str(error)
+                yield json.dumps({"event": "error", "detail": detail},
+                                 ensure_ascii=False) + "\n"
+                return
+            result = ConsultResults(query=query, convenio=convenio,
+                                    answer=answer, citations=cited,
+                                    checks=checks)
+            yield json.dumps({"event": "done",
+                              "result": result.model_dump()},
+                             ensure_ascii=False) + "\n"
+
+        return StreamingResponse(events(), media_type="application/x-ndjson")
+
     def _generate_local(self, query: str, chunks: list[Chunk],
                         contract: str | None, checks: str | None,
                         notes: str | None) -> str:
-        """Answer with the model of this computer, cached apart.
+        """The whole local answer at once (see ``_iter_local``)."""
+        answer = ""
+        for event in self._iter_local(query, chunks, contract, checks,
+                                      notes):
+            if event["event"] == "answer":
+                answer = str(event["text"])
+        return answer
 
-        The model is loaded by the first call, always in bfloat16: in
-        float32 it would need twice the memory. Answers are cached in their
-        own file, so a slow answer is never written twice.
+    def _iter_local(self, query: str, chunks: list[Chunk],
+                    contract: str | None, checks: str | None,
+                    notes: str | None) -> Iterator[dict[str, str]]:
+        """Answer with the model of this computer, cached apart, step by
+        step.
+
+        The model is loaded by the first call, in the precision of
+        ``LocalGenerator.dtype``. Answers are cached in their own file, so a
+        slow answer is never written twice; a cached one comes as a single
+        ``answer`` event.
+
+        Yields:
+            ``stage`` and ``part`` events as the model writes, then one
+            ``{"event": "answer", "text": ...}``.
 
         Raises:
             HTTPException: 503 when PyTorch cannot be imported.
@@ -496,6 +581,7 @@ class RagApi:
                                          notes or ""]), chunks)
         with self._generator_lock:
             if self._local is None:
+                yield {"event": "stage", "stage": "loading"}
                 try:
                     from .local_generator import LocalGenerator
                 except (ImportError, MemoryError, OSError) as e:
@@ -503,9 +589,12 @@ class RagApi:
                         status_code=503,
                         detail=f"Cannot load PyTorch ({type(e).__name__})."
                     ) from e
-                print(f"Loading {LocalGenerator.MODEL_NAME}...",
-                      file=sys.stderr)
-                self._local = LocalGenerator("bfloat16")
+                print(f"Loading {LocalGenerator.MODEL_NAME} in "
+                      f"{LocalGenerator.dtype()}...", file=sys.stderr)
+                start = time.perf_counter()
+                self._local = LocalGenerator(LocalGenerator.dtype())
+                print(f"Local model loaded in "
+                      f"{time.perf_counter() - start:.1f} s", file=sys.stderr)
                 if self._index_dir is not None:
                     self._local_answers = AnswerCache(
                         AnswerCache.file_path(Path(self._index_dir),
@@ -514,14 +603,26 @@ class RagApi:
             if self._local_answers is not None:
                 cached = self._local_answers.get(key)
                 if cached is not None:
-                    return cached
+                    yield {"event": "answer", "text": cached}
+                    return
             print("Generating an answer locally...", file=sys.stderr)
-            answer = self._local.generate(query, chunks, contract, checks,
-                                          notes)
+            start = time.perf_counter()
+            answer = ""
+            for event in self._local.iter_generate(query, chunks, contract,
+                                                   checks, notes):
+                if event[0] == "stage":
+                    yield {"event": "stage", "stage": event[1]}
+                elif event[0] == "part":
+                    yield {"event": "part", "section": event[1],
+                           "text": event[2]}
+                else:
+                    answer = event[1]
+            print(f"Local answer generated in "
+                  f"{time.perf_counter() - start:.1f} s", file=sys.stderr)
             if self._local_answers is not None:
                 self._local_answers.put(key, answer)
                 self._local_answers.flush()
-        return answer
+        yield {"event": "answer", "text": answer}
 
     def _get_generator(self) -> "Generator | GeminiGenerator":
         """Return the generator, loading it on the first call.

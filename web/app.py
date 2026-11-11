@@ -46,18 +46,18 @@ STYLE = Path(__file__).with_name("style.css")
 KEY_PAGE = "https://aistudio.google.com/apikey"
 SOURCES, LOCAL = "sources", "local"
 WAIT_GEMINI = "Suele tardar unos segundos."
-WAIT_LOCAL = ("Se está redactando en este ordenador: puede tardar entre 3 y "
-              "4 minutos, y la primera vez algo más porque carga el modelo. "
+WAIT_LOCAL = ("Se está redactando en este ordenador: puede tardar un par "
+              "de minutos, y la primera vez algo más porque carga el modelo. "
               "Ten paciencia; mientras, puedes leer los artículos.")
 LOCAL_RISKS = (
     "- Puede **inventar cifras o plazos** que no dicen los textos.\n"
     "- Puede **citar el artículo correcto con el apartado equivocado**, "
     "un error difícil de detectar.\n"
-    "- Es un modelo pequeño (Qwen3-1.7B) y tarda **3-4 minutos** por "
+    "- Usa un modelo abierto (Qwen3-4B) y tarda **varios minutos** por "
     "respuesta.\n"
-    "- Necesita unos **4,5 GB de memoria libre**; con menos, el ordenador "
+    "- Necesita unos **8 GB de memoria libre**; con menos, el ordenador "
     "puede ir muy lento o cerrar el servidor. La primera vez descarga el "
-    "modelo (unos 3,5 GB).\n"
+    "modelo (unos 8 GB).\n"
     "- Comprueba siempre la respuesta con los artículos que se muestran.")
 
 
@@ -107,11 +107,16 @@ def ask(question: str, convenio: str,
     """
     mode = st.session_state.get("current_mode") or "gemini"
     try:
-        with st.status("Buscando en los textos legales…") as box:
+        with st.spinner("Buscando en los textos legales…"):
             found = client.citations(question, convenio)
-            total = len({c["article"] for c in found["citations"]})
-            box.update(label=f"He encontrado {total} artículos relacionados",
-                       state="complete")
+        # A plain line, not a box: the articles themselves are the cards
+        # shown below while the answer is written.
+        total = len(group_citations(found["citations"]))
+        html_block(f'<div class="found-line">✓ He encontrado {total} '
+                   'artículos relacionados</div>')
+        if mode == LOCAL and found["citations"]:
+            return ask_local(question, convenio, contract,
+                             found["citations"])
         if mode != SOURCES and found["citations"]:
             # The search ends long before the writing: show what was
             # found, so the wait has something to read and is not mistaken
@@ -123,6 +128,49 @@ def ask(question: str, convenio: str,
         return None
 
 
+STAGES = {
+    "loading": "Cargando el modelo en este ordenador (solo la primera vez)…",
+    "convenio": "Redactando lo que dice tu convenio (1/3)…",
+    "estatuto": "Redactando lo que dice el Estatuto (2/3)…",
+    "respuesta": "Resumiendo la respuesta (3/3)…",
+    "todo": "Redactando la respuesta…",
+}
+
+
+def ask_local(question: str, convenio: str, contract: str | None,
+              citations: list[dict[str, Any]]) -> dict[str, Any]:
+    """Ask the local model, showing each part as soon as it is written.
+
+    Raises:
+        client.ApiError: The API failed; ``ask`` shows it.
+    """
+    groups = group_citations(citations)
+    status = st.container()
+    show_found_cards(groups)
+    with status, st.status(STAGES["convenio"], expanded=True) as box:
+        st.caption(WAIT_LOCAL)
+        written = st.container()
+        result: dict[str, Any] | None = None
+        for event in client.consult_stream(question, convenio, contract):
+            if event["event"] == "stage":
+                box.update(label=STAGES.get(event["stage"],
+                                            "Redactando la respuesta…"))
+            elif event["event"] == "part":
+                kind = KINDS.get(event["section"], "none")
+                with written:
+                    html_block(f'<span class="card-label {kind}">'
+                               f'{html.escape(event["section"])}</span>')
+                    html_block(link_references(event["text"], groups, kind,
+                                               9))
+            elif event["event"] == "done":
+                result = dict(event["result"])
+        if result is None:
+            raise client.ApiError("La respuesta local se ha cortado.")
+        box.update(label="Respuesta lista", state="complete",
+                   expanded=False)
+    return result
+
+
 def show_waiting(citations: list[dict[str, Any]], mode: str) -> None:
     """While the answer is written: how long it may take, and the
     articles already found."""
@@ -131,10 +179,18 @@ def show_waiting(citations: list[dict[str, Any]], mode: str) -> None:
         html_block('<span class="card-label respuesta">Redactando la '
                    'respuesta</span>')
         st.write(wait)
-    groups = group_citations(citations)
-    html_block('<h5 class="src-h">Mientras tanto, estos son los artículos '
+    show_found_cards(group_citations(citations))
+
+
+#: Position given to the cards shown while waiting, apart from the answers.
+WAITING = 9
+
+
+def show_found_cards(groups: list[dict[str, Any]]) -> None:
+    """The articles found, ready to be read while the answer is written."""
+    html_block('<h5 class="src-h">Mientras tanto, puedes leer los artículos '
                'encontrados</h5>'
-               + "".join(source_card(group, 9) for group in groups))
+               + "".join(source_card(group, WAITING) for group in groups))
 
 
 def name_of(norms: list[dict[str, Any]], identifier: str) -> str:
@@ -166,23 +222,36 @@ def run_comparison(other: str) -> None:
     st.session_state.pending = other
 
 
+def busy() -> bool:
+    """Whether a question is being answered.
+
+    Every control that could send another question is disabled until it
+    ends, so one person never runs two answers at once.
+    """
+    return bool(st.session_state.get("pending"))
+
+
 def run_pending() -> None:
     """Answer the question waiting to be asked, below the question card.
 
     The buttons only leave the request here and rerun the page, so the
-    wait is drawn in the results area, not inside the card.
+    wait is drawn in the results area, not inside the card, with the
+    controls disabled. The request is cleared when it ends, even on an
+    error, so the page never stays locked.
     """
     convenio = st.session_state.get("pending")
     if not convenio:
         return
-    st.session_state.pending = None
-    asked = html.escape(st.session_state.asked, quote=False)
-    html_block(f'<div class="asked">{asked}</div>')
-    person = st.session_state.person
-    result = ask(st.session_state.asked, convenio,
-                 person["id"] if person else None)
-    if result is not None:
-        st.session_state.results = st.session_state.results + [result]
+    try:
+        asked = html.escape(st.session_state.asked, quote=False)
+        html_block(f'<div class="asked">{asked}</div>')
+        person = st.session_state.person
+        result = ask(st.session_state.asked, convenio,
+                     person["id"] if person else None)
+        if result is not None:
+            st.session_state.results = st.session_state.results + [result]
+    finally:
+        st.session_state.pending = None
     st.rerun()
 
 
@@ -302,8 +371,9 @@ def show_comparison_picker(norms: list[dict[str, Any]]) -> None:
         other = pick.selectbox("Otro convenio", others, index=None,
                                placeholder="Elige otro convenio",
                                format_func=lambda i: name_of(norms, i),
-                               label_visibility="collapsed")
-        if go.button("Comparar", disabled=other is None,
+                               label_visibility="collapsed",
+                               disabled=busy())
+        if go.button("Comparar", disabled=other is None or busy(),
                      width="stretch") and other is not None:
             run_comparison(other)
             st.rerun()
@@ -346,13 +416,14 @@ def show_key_card() -> None:
         paste, save = st.columns([4, 1], vertical_alignment="bottom")
         paste.text_input("Pega tu clave", type="password", key="typed_key",
                          placeholder="Pega aquí tu clave de Gemini",
-                         label_visibility="collapsed")
-        save.button("Guardar clave", on_click=save_key, width="stretch")
+                         label_visibility="collapsed", disabled=busy())
+        save.button("Guardar clave", on_click=save_key, width="stretch",
+                    disabled=busy())
         if st.session_state.get("key_error"):
             st.error(st.session_state.key_error)
         st.caption("La clave solo se guarda en la memoria del servidor de "
                    "este ordenador mientras esté en marcha.")
-        if st.button("Probar otras opciones", key="more"):
+        if st.button("Probar otras opciones", key="more", disabled=busy()):
             st.session_state.more_options = True
     if st.session_state.more_options:
         show_other_options()
@@ -368,14 +439,14 @@ def show_other_options() -> None:
                  "sus avisos y la comprobación del contrato, sin redactar "
                  "nada. No puede equivocarse al resumir.")
         st.button("Usar solo referencias", on_click=choose, args=(SOURCES,),
-                  width="stretch", type="primary")
+                  width="stretch", type="primary", disabled=busy())
     with local.container(key="option_local"):
         html_block('<span class="card-label discrepancia">Experimental'
                    '</span>')
         st.markdown("**Generar en este ordenador**")
         st.markdown(LOCAL_RISKS)
         st.button("Generar en local", on_click=choose, args=(LOCAL,),
-                  width="stretch")
+                  width="stretch", disabled=busy())
 
 
 def show_mode_line(mode: str) -> None:
@@ -385,7 +456,7 @@ def show_mode_line(mode: str) -> None:
     text, change = st.columns([5, 1], vertical_alignment="center")
     text.caption(f"Modo sin clave: **{names[mode]}**.")
     change.button("Cambiar", key="change_mode", on_click=choose,
-                  args=(None,))
+                  args=(None,), disabled=busy())
 
 
 def show_ask_card(norms: list[dict[str, Any]],
@@ -394,12 +465,13 @@ def show_ask_card(norms: list[dict[str, Any]],
     choices = [n["id"] for n in norms if n["id"] != STATUTE] + [STATUTE]
     with st.container(key="ask_card"):
         by_person = (st.radio("Modo", [BY_NORM, BY_PERSON], horizontal=True,
-                              key="mode", label_visibility="collapsed")
+                              key="mode", label_visibility="collapsed",
+                              disabled=busy())
                      == BY_PERSON)
         st.text_area("¿Qué quieres saber?", key="question", height=90,
                      placeholder="Escribe tu duda, por ejemplo: ¿cuántos "
                                  "días libres me dan si me caso?",
-                     label_visibility="collapsed")
+                     label_visibility="collapsed", disabled=busy())
         pick, go = st.columns([4, 1], vertical_alignment="center")
         person: dict[str, Any] | None = None
         if by_person:
@@ -407,18 +479,19 @@ def show_ask_card(norms: list[dict[str, Any]],
                 "Persona", contracts, index=None,
                 placeholder=f"Elige una de las {len(contracts)} personas",
                 format_func=lambda p: person_label(p, norms),
-                label_visibility="collapsed")
+                label_visibility="collapsed", disabled=busy())
             convenio = person["convenio"] if person else None
         else:
             convenio = pick.selectbox(
                 "¿Cuál es tu convenio?", choices, index=None,
                 placeholder="Elige tu convenio",
                 format_func=lambda i: name_of(norms, i),
-                label_visibility="collapsed")
+                label_visibility="collapsed", disabled=busy())
         question = st.session_state.question.strip()
         ready = st.session_state.get("current_mode") is not None
-        if go.button("Preguntar", type="primary", width="stretch",
-                     disabled=not (question and convenio and ready)
+        label = "Espera…" if busy() else "Preguntar"
+        if go.button(label, type="primary", width="stretch",
+                     disabled=busy() or not (question and convenio and ready)
                      ) and convenio:
             run_question(question, convenio, person)
             st.rerun()
@@ -435,7 +508,7 @@ def show_examples() -> None:
              else EXAMPLES)
     for number, (column, text) in enumerate(zip(st.columns(2) * 2, texts)):
         column.button(text, key=f"ex_{number}", on_click=use_example,
-                      args=(text,), width="stretch")
+                      args=(text,), width="stretch", disabled=busy())
 
 
 def main() -> None:

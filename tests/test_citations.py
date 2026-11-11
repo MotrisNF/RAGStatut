@@ -1,4 +1,5 @@
 """The catalog of legal texts and the ``/convenios``, ``/citations`` API."""
+from collections.abc import Iterator
 from pathlib import Path
 
 from fastapi.testclient import TestClient
@@ -126,10 +127,11 @@ class TestEndpoints:
         calls: list[str] = []
 
         class Local:
-            def generate(self, query: str, chunks: list[Chunk],
-                         *rest: str | None) -> str:
+            def iter_generate(self, query: str, chunks: list[Chunk],
+                              *rest: str | None
+                              ) -> Iterator[tuple[str, ...]]:
                 calls.append(query)
-                return "Local"
+                yield ("answer", "Local")
 
         api._local = Local()  # type: ignore[assignment]
         body = TestClient(api.app).get("/consult", params={

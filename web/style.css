@@ -107,3 +107,5 @@ div[class*="st-key-key_card"], div[class*="st-key-option_"] { background:var(--c
 div[class*="st-key-key_card"] { border-color:var(--amber); }
 div[class*="st-key-key_card"] [data-testid="stTextInput"] input { border-radius:999px; }
 div[class*="st-key-option_"] li, div[class*="st-key-option_"] p { font-size:.92rem; line-height:1.5; }
+
+.found-line { color:var(--teal-dark); font-size:.92rem; font-weight:500; margin:.4rem 0 .6rem; }
